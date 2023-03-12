@@ -1,0 +1,91 @@
+/* The following block can be included in a custom.scss */
+
+/* make the customizations */
+// @import "~bootstrap/scss/functions";
+// @import "~bootstrap/scss/variables";
+// @import "~bootstrap/scss/mixins";
+
+@import "variables";
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": #383b4d,
+  "success": $success,
+  "danger": $danger,
+  "warning": $warning,
+  "info": $info,
+  "dark": #20232f,
+);
+
+$custom-colors: (
+  "grey-100": $grey-100,
+  "grey-200": $grey-200,
+  "grey-300": $grey-300,
+  "grey-400": $grey-400,
+  "grey-500": $grey-500,
+  "grey-600": $grey-600,
+  "grey-700": $grey-700,
+  "grey-800": $grey-800,
+  "grey-900": $grey-900,
+
+  "primary-100": $primary-100,
+  "primary-200": $primary-200,
+  "primary-300": $primary-300,
+  "primary-400": $primary-400,
+  "primary-500": $primary-500,
+
+
+  "danger-100": $danger-100,
+  "danger-200": $danger-200,
+  "danger-300": $danger-300,
+  "danger-400": $danger-400,
+  "danger-500": $danger-500,
+
+  
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+$spacer: 1rem;
+$spacers: (
+  1: ($spacer * .25),
+  2: $spacer * .5,
+  3: ($spacer),
+  4: ($spacer * 1.5),
+  5: ($spacer * 2),
+  6: ($spacer * 3),
+  7: ($spacer * 4),
+  8: ($spacer * 6),
+  9: ($spacer * 8),
+  10: ($spacer * 10),
+);
+
+$font-sizes:(
+  1: 10rem,
+  2: 8rem,
+  3: 6rem,
+  4: 4rem,
+  5: 3rem,
+  6: 2.25rem,
+  7: 1.875rem,
+  8: 1.5625rem,
+  9: 1.25rem,
+  10: 1.125rem,
+  11: 1.025rem,
+  12: 1rem,
+  13: .8rem,
+  14: .7rem, 
+  15: .6rem, 
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 500px,
+  md: 768px,
+  lg: 960px,
+  xl: 1150px,
+  xxl: 1400px
+);
+
+
+@import "~bootstrap/scss/bootstrap";
