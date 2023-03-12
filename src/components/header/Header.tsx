@@ -3,7 +3,7 @@ import hytec from "../../assets/logo/hytec-logo-yellow.webp";
 import { MdLocationOn } from "react-icons/md";
 import { BsTelephoneFill } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
-import { MdLanguage } from "react-icons/md";
+
 
 export const Header: React.FC = () => {
   return (

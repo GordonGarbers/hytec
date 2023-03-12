@@ -1,15 +1,18 @@
 import React, { useRef, useEffect, useState } from "react";
 import { MdLanguage } from "react-icons/md";
+// import { HiHome } from "react-icons/hi";
+// import { ImTruck } from "react-icons/im";
+// import { BsFillPeopleFill } from "react-icons/bs";
+// import { MdContactMail } from "react-icons/md";
 import "./navigation.scss";
 import {motion} from "framer-motion";
 
 export const Navigation = () => {
   const ref = useRef<HTMLUListElement>(null);
+  const [btn, setBtn] = useState<number>(1);
 
   const [windowWidth, setWindowWidth] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
-
-  const [btn, setBtn] = useState<number>(1);
 
   const onLiBtnClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
     e.preventDefault();
@@ -27,14 +30,6 @@ export const Navigation = () => {
     return () => window.removeEventListener("resize", resizeWindow);
   }, []);
 
-//   useEffect(() => {
-//     if (ref.current) {
-//       console.log(ref.current.children[0].getBoundingClientRect().width);
-//       console.log(ref.current.children[1].getBoundingClientRect().width);
-//       console.log(ref.current.children[2].getBoundingClientRect().width);
-//       console.log(ref.current.children[3].getBoundingClientRect().width);
-//     }
-//   }, [windowWidth, windowHeight]);
 
   return (
     <nav
@@ -50,9 +45,10 @@ export const Navigation = () => {
           role="button"
           data-add-btn={false}
           className="me-auto d-flex align-items-center gap-2"
+          value={0}
         >
           <MdLanguage size={16} />
-          Language
+          EN
         </li>
         <li
           onClick={(e) => onLiBtnClick(e)}
@@ -96,6 +92,8 @@ export const Navigation = () => {
         style={{
           transition: "all .3s ease",
           zIndex: "0",
+          position: "fixed",
+          overflow:'hidden',
           width: `${
             ref.current &&
             ref.current.children[btn].getBoundingClientRect().width
@@ -104,7 +102,6 @@ export const Navigation = () => {
             ref.current &&
             ref.current.children[btn].getBoundingClientRect().height
           }px`,
-          position: "fixed",
           left: `${
             ref.current && ref.current.children[btn].getBoundingClientRect().x
           }px`,
@@ -113,7 +110,8 @@ export const Navigation = () => {
           }px`,
         }}
         className="mover"
-      ></div>
+      >
+      </div>
     </nav>
   );
 };
