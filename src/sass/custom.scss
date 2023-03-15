@@ -79,8 +79,9 @@ $font-sizes:(
 );
 
 $grid-breakpoints: (
-  xs: 0,
-  sm: 500px,
+  xxs: 0,
+  xs: 460,
+  sm: 620px,
   md: 768px,
   lg: 960px,
   xl: 1150px,

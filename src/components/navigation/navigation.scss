@@ -5,12 +5,12 @@
     // background-color: $color;
     padding: .5rem 1rem .5rem 1rem;
     border-radius: .3rem;
-    transition:all 1s ease;   
+    transition:all .5s ease;   
 }
 
-[data-add-btn="true"]{
-    @include dataAdd($primary);
-}
+// [data-add-btn="true"]{
+//     @include dataAdd($primary);
+// }
 
 [data-add-btn="false"]{
     @include dataAdd($grey-900);
