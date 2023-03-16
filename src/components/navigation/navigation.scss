@@ -1,31 +1,132 @@
-@import '../../sass/variables.scss';
+@import "../../sass/variables.scss";
+@import "../../sass/custom.scss";
 
-@mixin dataAdd($color){
-    font-weight: 600;
-    // background-color: $color;
-    padding: .5rem 1rem .5rem 1rem;
-    border-radius: .3rem;
-    transition:all .5s ease;   
+
+@mixin dataAdd($color) {
+  font-weight: 600;
+  // background-color: $color;
+  padding: .5rem 0rem .5rem 0rem;
+  border-radius: 0.3rem;
+  transition: all .35s ease;
 }
 
-// [data-add-btn="true"]{
-//     @include dataAdd($primary);
-// }
-
-[data-add-btn="false"]{
-    @include dataAdd($grey-900);
+[data-add-btn="true"] {
+  @include dataAdd($primary);
 }
 
-.mover{
-    background-color: $primary;
-    border-radius: .3rem;
+[data-add-btn="false"] {
+  @include dataAdd($grey-500);
 }
 
-ul{
-    li{
-       display: flex;
-       justify-content: space-between; 
-       align-items: center;
-       gap: .5rem;
-    }
+.mover {
+  //   border-radius: 0.3rem;
+  border-bottom: 4px solid $primary;
+//   border-left: 4px solid $primary;
+//   border-right: 4px solid $primary;
+
+  transition: all 0.3s ease;
+  z-index: 0;
+  position: absolute;
+  font-weight: 500;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+}
+
+
+.mover-text {
+  animation-duration: 300ms;
+  animation-fill-mode: forwards;
+}
+
+.fade-in {
+  animation-name: fade-in;
+}
+
+.fade-out {
+  animation-name: fade-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+ul {
+  font-weight: 600;
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: capitalize;
+    // transform:translateY(0px);
+    transition: all .2s ease;
+  }
+
+  li:hover{
+    // transform:translateY(-5px);
+    color:$grey-500;
+  }
+}
+
+
+@media (min-width: $sm) {
+  .main-wrapper {
+    height: auto;
+    position: relative;
+    // transform: translateX(100%);
+    // justify-content: space-between;
+  }
+
+  [data-menu="false"] {
+    translate: 0%;
+  }
+
+  [data-menu="true"] {
+    translate: 100%;
+  }
+
+  .language {
+    position: relative;
+  }
+}
+
+@media (max-width: $sm) {
+  .menu-translate {
+    top: 12px;
+    right: 16px;
+  }
+  .main-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 56px;
+    left: 0px;
+  }
+  ul {
+    margin-bottom: 57px;
+  }
+
+  .language {
+    position: fixed;
+    top: 0px;
+    left: 15px;
+  }
 }

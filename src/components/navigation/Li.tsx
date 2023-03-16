@@ -1,14 +1,23 @@
 import React, { useRef } from 'react';
 
-interface ILiProps{
-    btnName: string
+interface ILiProps {
+  btnName: string;
+  value: number;
+  data: boolean;
+  func: (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
+
 }
 
-export const Li:React.FC<ILiProps> = ({btnName})=>{
-    const ref = useRef<HTMLLIElement>(null);
-    return (
-        <li ref = {ref} role="button" className="" data-add-btn={false}>
-          {btnName}
-        </li>
-    )
-}
+export const Li: React.FC<ILiProps> = ({ btnName, value, data, func}) => {
+  return (
+    <li
+      onClick={(e) => func(e)}
+      role="button"
+      className=""
+      data-add-btn={data}
+      value={value}
+    >
+      {btnName}
+    </li>
+  );
+};

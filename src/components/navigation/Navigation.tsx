@@ -1,28 +1,61 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, SetStateAction } from 'react';
 import { MdLanguage } from 'react-icons/md';
+import './navigation.scss';
+import { motion } from 'framer-motion';
 import { List } from 'react-bootstrap-icons';
 import { XLg } from 'react-bootstrap-icons';
 import { Translate } from 'react-bootstrap-icons';
-import './navigation.scss';
-import { motion } from 'framer-motion';
+import { Li } from './Li';
+
+interface ElementBoundingBox {
+  bottom: number;
+  height: number;
+  left: number;
+  right: number;
+  top: number;
+  width: number;
+  x: number;
+  y: number;
+}
 
 const variants = {
-  initial: { x: 0 },
-  animate: { x: '100%' },
+  initial: {
+    x: 0,
+    transition: {
+      type: 'tween',
+    },
+  },
+  animate: {
+    x: '-100%',
+    transition: {
+      type: 'tween',
+    },
+  },
 };
 
 export const Navigation = () => {
   const ref = useRef<HTMLUListElement>(null);
-  const [btn, setBtn] = useState<number>(1);
+
+  const [btn, setBtn] = useState<number>(0);
   const [menu, setMenu] = useState<boolean>(false);
+  const [child, setChild] = useState<ElementBoundingBox>();
 
   const [windowWidth, setWindowWidth] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
 
   const onLiBtnClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+    const btnValue = e.currentTarget.value;
     e.preventDefault();
-    setBtn(e.currentTarget.value);
+    setBtn(btnValue);
+    
+    if (
+      ref.current?.children[btnValue] &&
+      ref.current?.children[btnValue].getBoundingClientRect()
+    )
+      setChild(ref.current?.children[btnValue].getBoundingClientRect());
   };
+
+  console.log(child);
 
   let resizeWindow = () => {
     setWindowWidth(window.innerWidth);
@@ -36,98 +69,60 @@ export const Navigation = () => {
   }, []);
 
 
-
   return (
-    <nav className="">
+    <nav style={{ top: '56px' }} className="position-fixed w-100">
       <div
-        onClick={() => setMenu(!menu)}
-        style={{ top: '65px', right: '10px', zIndex:'99999999'}}
-        className="d-sm-none position-fixed"
+        style={{ zIndex: '1' }}
+        className="position-fixed d-flex align-items-center mb-3 gap-4 gap-sm-0 menu-translate"
       >
-        {menu ? <List size={30} /> : <XLg size={30} />}
+        <div onClick={() => setMenu(!menu)} className="d-block d-sm-none">
+          {menu ? (
+            <List size={32} color="#fff" />
+          ) : (
+            <XLg size={32} color="#fff" />
+          )}
+        </div>
       </div>
+
       <motion.div
         variants={variants}
         animate={menu ? 'animate' : 'initial'}
+        // , translate: `${menu ? '100%' : '0%'}`
         style={{ maxWidth: '1400px' }}
-        className="position-relative container-fluid 3bg-grey-900 px-1 pt-3 pb-1 rounded-bottom shadow-lg  d-flex flex-column flex-sm-row justify-content-between align-items-center"
+        data-menu={`${menu}`}
+        className="container-fluid bg-grey-900 ps-3 ps-sm-5 pe-2 pe-sm-3 pt-3 pb shadow-0 shadow-sm-lg d-flex justify-content-center justify-content-sm-between align-items-center main-wrapper "
       >
-        <div className="w-100 w-xs-0 me-auto d-flex flex-row align-items-center mb-3 justify-content-between px-3">
+        <div className="mb-3 gap-4 gap-sm-0 language">
           <div
             role="button"
             data-add-btn={false}
-            className="d-flex align-items-center gap-2 "
+            className="me-auto d-flex align-items-center gap-2 text-secondary"
+            style={{ color: '#000' }}
           >
-            <Translate size={20} />
+            <Translate size={18} color="#000" />
             EN
           </div>
         </div>
+
         <ul
           ref={ref}
-          style={{ fontWeight: '600', zIndex: '1', position: 'relative' }}
-          className={`list-unstyled flex-column flex-sm-row align-items-center gap-3 px-3 d-flex`}
+          className=" text-secondary list-unstyled d-flex flex-column flex-sm-row gap-4 gap-sm-6 px-3"
         >
-          <li
-            onClick={(e) => onLiBtnClick(e)}
-            role="button"
-            className=""
-            data-add-btn={false}
-            value={0}
-          >
-            Home
-          </li>
-          <li
-            onClick={(e) => onLiBtnClick(e)}
-            role="button"
-            className=""
-            data-add-btn={false}
-            value={1}
-          >
-            Machinery
-          </li>
-          <li
-            onClick={(e) => onLiBtnClick(e)}
-            role="button"
-            className=""
-            data-add-btn={false}
-            value={2}
-          >
-            About&nbsp;us
-          </li>
-          <li
-            onClick={(e) => onLiBtnClick(e)}
-            role="button"
-            className=""
-            data-add-btn={false}
-            value={3}
-          >
-            Contact
-          </li>
+          <Li btnName="Home" value={0} data={false} func={onLiBtnClick} />
+          <Li btnName="Machinery" value={1} data={false} func={onLiBtnClick} />
+          <Li btnName="About us" value={2} data={false} func={onLiBtnClick} />
+          <Li btnName="Contact" value={3} data={false} func={onLiBtnClick} />
         </ul>
-      </motion.div>
       <div
-        className={`mover`}
+        className={`mover fw-bold text-secondary`}
         style={{
-          transition: 'all .3s ease',
-          zIndex: '-1',
-          position: 'absolute',
-          overflow: 'hidden',
-          width: `${
-            ref.current &&
-            ref.current.children[btn].getBoundingClientRect().width
-          }px`,
-          height: `${
-            ref.current &&
-            ref.current.children[btn].getBoundingClientRect().height
-          }px`,
-          left: `${
-            ref.current && ref.current.children[btn].getBoundingClientRect().x
-          }px`,
-          top: `${
-            ref.current && ref.current.children[btn].getBoundingClientRect().y
-          }px`,
+          width: `${ref.current && ref.current.children[btn].getBoundingClientRect().width}px`,
+          height: `${ref.current && ref.current.children[btn].getBoundingClientRect().height}px`,
+          left: `${ref.current && ref.current.children[btn].getBoundingClientRect().x}px`,
+          top: `${ref.current && ref.current.children[btn].getBoundingClientRect().y - 56}px`,
         }}
       ></div>
+      </motion.div>
     </nav>
   );
 };
