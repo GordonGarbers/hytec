@@ -8,7 +8,7 @@ import { MdEmail } from "react-icons/md";
 export const Header: React.FC = () => {
   return (
     <header style = {{top:'0px'}} className="bg-dark pt-3 pb-3 position-fixed w-100">
-      <div style={{maxWidth:'1400px'}} className="container-fluid d-flex justify-content-between align-items-center px-5">
+      <div style={{maxWidth:'1400px'}} className="container-fluid d-flex justify-content-between align-items-center px-3 px-sm-5">
 
         <div style = {{width:'100px'}} className="" data-mdb-animation-start="onHover">
           <img className = 'w-100' src={hytec} alt="hytec" />
