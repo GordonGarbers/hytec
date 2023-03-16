@@ -121,7 +121,10 @@ export const Navigation = () => {
           data-menu={`${menu}`}
           className="container-fluid bg-grey-900 ps-3 ps-sm-5 pe-2 pe-sm-3 pt-3 pb shadow-0 shadow-sm-lg d-flex justify-content-center justify-content-sm-between align-items-center main-wrapper "
         >
-          <div className="mb-3 gap-4 gap-sm-0 language">
+          <div className="mb-3 gap-4 gap-sm-0 language d-flex align-items-center">
+          {/* <div style={{width:'160px'}} className = 'me-4'>
+            <img style={{width:'100%'}} src = 'assets/hytec-yellow.webp' alt='img'/>
+          </div> */}
             <div
               role="button"
               data-add-btn={false}
