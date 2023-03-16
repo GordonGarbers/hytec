@@ -17,7 +17,6 @@ const variants = {
       type: "tween",
     },
   },
-  
   animate: {
     x: "-100%",
     transition: {
