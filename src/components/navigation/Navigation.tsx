@@ -21,7 +21,7 @@ interface ElementBoundingBox {
 
 const variants = {
   initial: {
-    x: 0,
+    x: '0%',
     transition: {
       type: 'tween',
     },
@@ -45,7 +45,7 @@ export const Navigation = () => {
     value: 0,
     name: '',
   });
-  const [menu, setMenu] = useState<boolean>(true);
+  const [menu, setMenu] = useState<boolean>(false);
 
   // const [child, setChild] = useState<ElementBoundingBox>();
 
@@ -56,7 +56,8 @@ export const Navigation = () => {
     e.preventDefault();
     setBtn({
       value: e.currentTarget.value,
-      name: e.currentTarget.textContent?.split(' ').join('').toLowerCase() ?? '',
+      name:
+        e.currentTarget.textContent?.split(' ').join('').toLowerCase() ?? '',
     });
     // if (
     //   ref.current?.children[btnValue] &&
@@ -64,7 +65,6 @@ export const Navigation = () => {
     // )
     //   setChild(ref.current?.children[btnValue].getBoundingClientRect());
   };
-
 
   let resizeWindow = () => {
     setWindowWidth(window.innerWidth);
@@ -92,9 +92,14 @@ export const Navigation = () => {
   const y =
     ref.current && ref.current.children[btn.value].getBoundingClientRect().y;
 
+  // useEffect(() => {
+  //   if (windowWidth > 620) setMenu(true)
+  //   else setMenu(true)
+  // }, []);
+
   return (
     <>
-      <nav style={{ top: '56px' }} className="position-fixed w-100">
+      <nav style={{ top: '74px' }} className="position-fixed w-100">
         <div
           style={{ zIndex: '1' }}
           className="position-fixed d-flex align-items-center mb-3 gap-4 gap-sm-0 menu-translate"
@@ -141,7 +146,8 @@ export const Navigation = () => {
                   data={false}
                   func={onLiBtnClick}
                   name={
-                    item.split(' ').join('').toLowerCase() === btn.name && windowWidth < 620
+                    item.split(' ').join('').toLowerCase() === btn.name &&
+                    windowWidth < 620
                       ? 'selected-button'
                       : ''
                   }

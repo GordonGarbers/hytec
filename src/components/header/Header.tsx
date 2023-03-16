@@ -1,5 +1,5 @@
 import React from "react";
-import hytec from "../../assets/logo/hytec-logo-yellow.webp";
+// import hytec from "../../assets/logo/hytec-logo-yellow.webp";
 import { MdLocationOn } from "react-icons/md";
 import { BsTelephoneFill } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
@@ -7,11 +7,11 @@ import { MdEmail } from "react-icons/md";
 
 export const Header: React.FC = () => {
   return (
-    <header style = {{top:'0px'}} className="bg-dark pt-3 pb-3 position-fixed w-100">
+    <header style = {{top:'0px'}} className="bg-dark pt-3 pt-sm-3 pb-3 pb-sm-5 position-fixed w-100">
       <div style={{maxWidth:'1400px'}} className="container-fluid d-flex justify-content-between align-items-center px-3 px-sm-5">
 
-        <div style = {{width:'100px'}} className="" data-mdb-animation-start="onHover">
-          <img className = 'w-100' src={hytec} alt="hytec" />
+        <div style = {{width:'160px'}} className="" data-mdb-animation-start="onHover">
+          <img className = 'w-100' src='assets/hytec-03.png' alt="hytec" />
         </div>
 
         <div className="d-none d-sm-flex text-grey-800 gap-3 gap-lg-5">

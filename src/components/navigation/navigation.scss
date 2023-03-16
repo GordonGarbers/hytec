@@ -70,6 +70,7 @@ ul {
     position: relative;
     // transform: translateX(100%);
     // justify-content: space-between;
+    // left:50%;
   }
 
   [data-menu="false"] {
@@ -87,14 +88,14 @@ ul {
 
 @media (max-width: $sm) {
   .menu-translate {
-    top: 12px;
-    right: 16px;
+    top: 20px;
+    right: 20px;
   }
   .main-wrapper {
     position: fixed;
     width: 100%;
     height: 100vh;
-    top: 56px;
+    top: 77px;
     left: 0%;
   }
   ul {
