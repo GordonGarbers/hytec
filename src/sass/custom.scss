@@ -79,13 +79,22 @@ $font-sizes:(
 );
 
 $grid-breakpoints: (
-  xs: 0,
-  sm: 500px,
+  xxs: 0,
+  xs: 480,
+  sm: 620px,
   md: 768px,
   lg: 960px,
   xl: 1150px,
   xxl: 1400px
 );
+
+$xxs: map-get($grid-breakpoints, "xxs");
+$xs: map-get($grid-breakpoints, "xs");
+$sm: map-get($grid-breakpoints, "sm");
+$md: map-get($grid-breakpoints, "md");
+$lg: map-get($grid-breakpoints, "lg");
+$xl: map-get($grid-breakpoints, "xl");
+$xxl: map-get($grid-breakpoints, "xxl");
 
 
 @import "~bootstrap/scss/bootstrap";

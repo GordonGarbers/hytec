@@ -7,14 +7,14 @@ import { MdEmail } from "react-icons/md";
 
 export const Header: React.FC = () => {
   return (
-    <header className="bg-dark px-2 pt-3 pb-3">
-      <div style={{maxWidth:'1400px'}} className="container-fluid d-flex justify-content-between align-items-center px-4">
+    <header className="bg-dark pt-3 pb-3 ">
+      <div style={{maxWidth:'1400px'}} className="container-fluid d-flex justify-content-between align-items-center px-5">
 
         <div style = {{width:'100px'}} className="" data-mdb-animation-start="onHover">
           <img className = 'w-100' src={hytec} alt="hytec" />
         </div>
 
-        <div className="d-flex text-grey-800 gap-3 gap-lg-5">
+        <div className="d-none d-sm-flex text-grey-800 gap-3 gap-lg-5">
           <div className = 'd-flex justify-content-center align-items-center fs-14 gap-1 gap-lg-2'>
             <MdLocationOn size={18} />
             <div className="d-none d-md-block">Borgwardstrasse 6, 21423 Winsen / Luhe</div>
