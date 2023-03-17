@@ -1,12 +1,8 @@
-@import "../../sass/variables.scss";
 @import "../../sass/custom.scss";
 
 
 @mixin dataAdd($color) {
   font-weight: 600;
-  // background-color: $color;
-  padding: .5rem 0rem .5rem 0rem;
-  // border-radius: 0.3rem;
 }
 
 [data-add-btn="true"] {
@@ -18,25 +14,16 @@
 }
 
 .mover {
-  //   border-radius: 0.3rem;
-  border-bottom: 4px solid $primary;
-//   border-left: 4px solid $primary;
-//   border-right: 4px solid $primary;
-
+  border-bottom: 5px solid $primary;
   transition: all 0.3s ease;
   z-index: 0;
   font-weight: 500;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
 }
-
 
 .mover-text {
   animation-duration: 300ms;
   animation-fill-mode: forwards;
 }
-
 
 ul {
   font-weight: 600;
@@ -46,31 +33,21 @@ ul {
     align-items: center;
     gap: 0.5rem;
     text-transform: capitalize;
-    // transform:translateY(0px);
-    // transition: all .2s ease;
-
   }
   
   .selected-button{
     border-bottom: 4px solid $primary;
   }
 
-
-
   li:hover{
-    // transform:translateY(-5px);
     color:$grey-500;
   }
 }
-
 
 @media (min-width: $sm) {
   .main-wrapper {
     height: auto;
     position: relative;
-    // transform: translateX(100%);
-    // justify-content: space-between;
-    // left:50%;
   }
 
   [data-menu="false"] {
@@ -88,14 +65,14 @@ ul {
 
 @media (max-width: $sm) {
   .menu-translate {
-    top: 20px;
-    right: 20px;
+    top: 9px;
+    right: 15px;
   }
   .main-wrapper {
     position: fixed;
     width: 100%;
     height: 100vh;
-    top: 77px;
+    top: 50px;
     left: 0%;
   }
   ul {

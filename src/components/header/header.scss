@@ -1,0 +1,14 @@
+@import "../../sass/custom.scss";
+
+@media (min-width: $sm) {
+    .logo-header{
+        width:160px;
+    }
+  }
+  
+  @media (max-width: $sm) {
+    .logo-header{
+        width:120px;  
+    }
+  }
+  

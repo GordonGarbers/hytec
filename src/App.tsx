@@ -12,7 +12,7 @@ function App() {
       <Navigation/>
       <Main>
         <Hero/>
-        <div style = {{height:'2000px', marginTop:'500px', maxWidth:'1400px'}} className="container-fluid bg-primary"></div>
+        <div style = {{height:'2000px', maxWidth:'1400px'}} className="container-fluid bg-grey-900 mt-5"></div>
       </Main>
 
     </div>
