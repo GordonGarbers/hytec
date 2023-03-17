@@ -101,7 +101,7 @@ export const Hero: React.FC = () => {
                   className="container-fluid position-absolute h-100 w-100"
                 >
                   <div className="w-100 h-100 d-flex justify-content-center align-items-center mt-5">
-                    <div style={{ width: '40%' }} className="ms-3">
+                    <div style={{ width: '40%' }} className="ms-3 article-text">
                       <p className="text-uppercase text-primary">hytec</p>
                       <h1
                         style={{ lineHeight: '3rem' }}
@@ -124,7 +124,7 @@ export const Hero: React.FC = () => {
 
                 <div className="w-50 bg-grey-1000"></div>
 
-                <div className="w-50 bg-primary overflow-hidden">
+                <div style={{clipPath: 'polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%)'}}className="w-50 overflow-hidden">
                   <img src={image[imageIndex]} alt="img" draggable="false" />
                 </div>
               </article>
