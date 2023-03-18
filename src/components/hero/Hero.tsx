@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import './hero.scss';
-import { motion, AnimatePresence } from 'framer-motion';
-import { wrap } from '@popmotion/popcorn';
-import { ChevronLeft } from 'react-bootstrap-icons';
-import { ChevronRight } from 'react-bootstrap-icons';
+import React, { useState } from "react";
+import "./hero.scss";
+import { motion, AnimatePresence } from "framer-motion";
+import { wrap } from "@popmotion/popcorn";
+import { ChevronLeft } from "react-bootstrap-icons";
+import { ChevronRight } from "react-bootstrap-icons";
 
 const xOffset = 100;
 const variants = {
@@ -28,10 +28,10 @@ const variants = {
 };
 
 const image = [
-  'assets/carusel/baumachine_01.jpg',
-  'assets/carusel/baumachine_02.jpg',
-  'assets/carusel/baumachine_03.jpg',
-  'assets/carusel/baumachine_04.jpg',
+  "assets/carusel/baumachine_01.jpg",
+  "assets/carusel/baumachine_02.jpg",
+  "assets/carusel/baumachine_03.jpg",
+  "assets/carusel/baumachine_04.jpg",
 ];
 
 const swipeConfidenceThreshold = 10000;
@@ -49,23 +49,27 @@ export const Hero: React.FC = () => {
 
   return (
     <>
-      <section className="section position-relative">
+      <section className="section position-relative w-100">
         <div className="buttons-wrapper">
           <button
             onClick={() => paginate(-1)}
-            className="btn btn-grey-900 rounded-0 shadow-lg border btn-left position-absolute"
-          ><ChevronLeft size={20}/></button>
+            className="m-3 p-3 btn btn-grey-900 rounded-0 shadow-lg border btn-left position-absolute"
+          >
+            <ChevronLeft size={20} />
+          </button>
           <button
             onClick={() => paginate(1)}
-            className="btn btn-grey-900 rounded-0 shadow-lg border btn-right position-absolute"
-          ><ChevronRight size={20}/></button>
+            className="m-3 p-3 btn btn-grey-900 rounded-0 shadow-lg border btn-right position-absolute"
+          >
+            <ChevronRight size={20} />
+          </button>
         </div>
 
-        <div className="carusel-mask">
+        <div className="carusel-mask w-100 h-100 position-relative">
           <AnimatePresence initial={false} custom={direction}>
             <motion.div
               style={{}}
-              className="page-wrapper-anim w-100"
+              className="page-wrapper-anim w-100 h-100 d-block d-lg-flex position-absolute"
               key={page}
               custom={direction}
               variants={variants}
@@ -73,7 +77,7 @@ export const Hero: React.FC = () => {
               animate="center"
               exit="exit"
               transition={{
-                x: { type: 'tween', duration: 0.5 },
+                x: { type: "tween", duration: 0.5 },
                 opacity: { duration: 0.5 },
               }}
               drag="x"
@@ -89,43 +93,36 @@ export const Hero: React.FC = () => {
                 }
               }}
             >
-              <article className="d-flex w-100 position-relative">
-                <div
-                  style={{
-                    top: '0px',
-                    left: '50%',
-                    transform: 'translate(-50%, 0)',
-                    zIndex: '4',
-                    maxWidth: '1400px',
-                  }}
-                  className="container-fluid position-absolute h-100 w-100"
-                >
-                  <div className="w-100 h-100 d-flex justify-content-center align-items-center mt-5">
-                    <div style={{ width: '40%' }} className="ms-3 article-text">
+              <article className="d-flex flex-column-reverse flex-lg-row w-100 position-relative">
+                <div className="w-100 bg-grey-1000 h-100 article-left">
+                  <div className="container-fluid h-100 w-100 d-flex justify-content-center align-items-center mt-3 mt-sm-3 mt-lt-5  bg-grey-1000 article-left-wrapper">
+                    <div className="ms-3 article-left-left">
                       <p className="text-uppercase text-primary">hytec</p>
-                      <h1
-                        style={{ lineHeight: '3rem' }}
-                        className="fw-bold fs-5"
-                      >
-                        We are the leaders in{' '}
+                      <h1 className="fw-bold fs-5">
+                        We are the leaders in{" "}
                         <span className="text-primary">Construction</span>
                       </h1>
-                      <p className="mt-4 fs-13">
+                      <p className="mt-3 mt-sm-4 fs-13">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Fuga maxime minus laboriosam ex officia ea, maiores aut
                         nostrum quisquam. Blanditiis beatae ipsum in impedit,
                         tempora repudiandae inventore reprehenderit ut labore!
                       </p>
-                      <button style={{fontWeight:'400'}} className='btn btn-primary mt-3 rounded-2'>Contact us</button>
+                      <button className="btn btn-primary mt-2 mt-sm-3 rounded-2">
+                        Contact us
+                      </button>
                     </div>
-                    <div style={{ width: '60%' }} className="h-100 "></div>
+                    <div className="h-100 article-left-right"></div>
                   </div>
                 </div>
 
-                <div className="w-50 bg-grey-1000"></div>
-
-                <div style={{clipPath: 'polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%)'}}className="w-50 overflow-hidden">
-                  <img src={image[imageIndex]} alt="img" draggable="false" />
+                <div className="w-100 overflow-hidden article-right">
+                  <img
+                    src={image[imageIndex]}
+                    alt="img"
+                    draggable="false"
+                    className="w-100"
+                  />
                 </div>
               </article>
             </motion.div>

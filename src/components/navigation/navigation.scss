@@ -63,6 +63,12 @@ ul {
   }
 }
 
+@media (min-width: $xxl) {
+  .main-wrapper{
+    border-radius: .3rem;
+  }
+}
+
 @media (max-width: $sm) {
   .menu-translate {
     top: 9px;
