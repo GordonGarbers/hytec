@@ -64,10 +64,10 @@
     }
 }
   
-@media (max-width: 960px) {
+@media (max-width: 959px) {
     .section{
         z-index: 0;
-        height:calc(100vh + 20px);
+        height:870px;
         // margin-top: 100px;
     
         .buttons-wrapper{
@@ -122,7 +122,7 @@
                     .article-right{
                         clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
                         img{
-                            min-width:700px;
+                            min-width:800px;
                         }
                     }
                 }
@@ -131,10 +131,10 @@
     }
 }
 
-@media only screen and (max-width: 620px){
+@media (max-width: 620px){
     .section{
         z-index: 0;
-        height:100vh;
+        height:700px;
         // margin-top: 50px;
     
         .buttons-wrapper{

@@ -40,6 +40,8 @@ const swipePower = (offset: number, velocity: number) => {
 };
 
 export const Hero: React.FC = () => {
+
+
   const [[page, direction], setPage] = useState([0, 0]);
   const imageIndex = wrap(0, image.length, page);
 
