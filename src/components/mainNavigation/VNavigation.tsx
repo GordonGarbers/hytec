@@ -16,7 +16,6 @@ export const VNavigation: React.FC<INavigationProps> = ({ windowWidth }) => {
   return (
     <div
       style={{
-        maxWidth: '1400px',
         zIndex: '99999',
         transition: `all .2s ease`,
         borderRadius: windowWidth >= 1410 ? '.3rem' : '0',
@@ -24,7 +23,7 @@ export const VNavigation: React.FC<INavigationProps> = ({ windowWidth }) => {
         top:'0px'
       }}
       data-main-wrapper={menu}
-      className="container-fluid w-100 position-fixed bg-grey-900 ps-3 pe-2 pt-2 pb shadow-lg d-flex d-sm-none flex-column justify-content-start align-items-center main-wrapper "
+      className="w-100 position-fixed bg-grey-900 ps-3 pe-2 pt-2 pb shadow-lg d-flex d-sm-none flex-column justify-content-start align-items-center main-wrapper "
     >
       <div className="d-flex justify-content-between w-100 align-items-center border-bottom pb-2">
         <div style={{ width: '120px' }}>

@@ -3,9 +3,9 @@ import './navigation.scss';
 import { List } from 'react-bootstrap-icons';
 import { NavMenuIconSM } from './NavMenuIconSM';
 import { useAppDispatch } from '../../app/hooks';
-import { showAndHideManu } from '../../features/menu/showAndHideMenu.slice';
 import { HNavigation } from './HNavigation';
 import { VNavigation } from './VNavigation';
+import { Container } from '../layout/Container';
 
 export const MainNavigation = () => {
   const dispatch = useAppDispatch();
@@ -24,7 +24,6 @@ export const MainNavigation = () => {
     return () => window.removeEventListener('resize', resizeWindow);
   }, []);
 
-
   return (
     <>
       <nav
@@ -39,8 +38,8 @@ export const MainNavigation = () => {
             <List size={32} color="#fff" />
           </NavMenuIconSM>
         </div>
-          <HNavigation windowWidth={windowWidth} />
-          <VNavigation windowWidth={windowWidth} />
+        <HNavigation windowWidth={windowWidth} />
+        <VNavigation windowWidth={windowWidth} />
       </nav>
     </>
   );
