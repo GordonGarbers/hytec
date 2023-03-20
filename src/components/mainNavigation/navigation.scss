@@ -1,0 +1,52 @@
+@import "../../sass/custom.scss";
+
+@mixin dataAdd($color) {
+  font-weight: 600;
+}
+
+[data-add-btn="true"] {
+  @include dataAdd($primary);
+}
+
+[data-add-btn="false"] {
+  @include dataAdd($grey-500);
+}
+
+.mover {
+  border-bottom: 5px solid $primary;
+  transition: all 0.3s ease;
+  z-index: 0;
+  font-weight: 500;
+}
+
+ul {
+  font-weight: 600;
+  .selected-button{
+    border-bottom: 4px solid $primary;
+  }
+  li:hover{
+    color:$grey-500;
+  }
+}
+
+// MIN WIDTH 620px
+@media (min-width: $sm) {
+
+}
+
+//MAX WIDTH 619px
+@media (max-width: 619px) {
+
+  .menu-translate {
+    top: 9px;
+    right: 15px;
+  }
+}
+
+[data-main-wrapper = 'false']{
+    left:0%;
+}
+
+[data-main-wrapper = 'true']{
+    left:-100%;
+}

@@ -8,3 +8,8 @@ export interface ElementBoundingBox {
     x: number;
     y: number;
   }
+
+  export interface INavigationButton{
+    activeBtnValue: number;
+    activeBtnName: string 
+  }

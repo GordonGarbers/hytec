@@ -5,15 +5,15 @@ interface ILiProps {
   value: number;
   data: boolean;
   func: (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
-  name:string;
+  addToClassName: string
 }
 
-export const Li: React.FC<ILiProps> = ({ btnName, value, data, func, name}) => {
+export const Li: React.FC<ILiProps> = ({ btnName, value, data, func, addToClassName}) => {
   return (
     <li
       onClick={(e) => func(e)}
       role="button"
-      className={`${name}`}
+      className={`${addToClassName} d-flex justify-content-center align-items-center text-capitalize`}
       data-add-btn={data}
       value={value}
     >
