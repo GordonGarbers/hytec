@@ -14,7 +14,6 @@ interface IUlProps {
 export const Ul: React.FC<IUlProps>= ({windowWidth}) => {
     const ref = useRef<HTMLUListElement>(null);
 
-    // console.log(ref.current&&ref.current.children);
 
     const {activeBtnValue, activeBtnName} = useAppSelector((state:RootState) => state.navButtons)
     const dispatch = useAppDispatch()
@@ -29,7 +28,6 @@ export const Ul: React.FC<IUlProps>= ({windowWidth}) => {
       };
 
 
-      console.log(activeBtnValue, activeBtnName);
 
     return (
         <>

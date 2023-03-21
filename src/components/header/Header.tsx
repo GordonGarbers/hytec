@@ -1,28 +1,36 @@
-import React from 'react';
+import React from "react";
 // import hytec from "../../assets/logo/hytec-logo-yellow.webp";
-import { MdLocationOn } from 'react-icons/md';
-import { BsTelephoneFill } from 'react-icons/bs';
-import { MdEmail } from 'react-icons/md';
-import './header.scss';
+import { MdLocationOn } from "react-icons/md";
+import { BsTelephoneFill } from "react-icons/bs";
+import { MdEmail } from "react-icons/md";
+import { motion } from "framer-motion";
+import { Path } from "./Path";
+import { Svg } from "./Svg";
+import "./header.scss";
 
 export const Header: React.FC = () => {
   return (
     <header
-      style={{ top: '0px', zIndex:'1' }}
+      style={{ top: "0px", zIndex: "1" }}
       className="bg-dark pt-2 pt-sm-2 pb-2 pb-sm-4 position-fixed w-100"
     >
       <div
-        style={{ maxWidth: '1400px' }}
+        style={{ maxWidth: "1400px" }}
         className="container-fluid d-flex justify-content-between align-items-center px-3 px-sm-5"
       >
-
-        <div
-          className="logo-header"
-          data-mdb-animation-start="onHover"
-        >
-          <img className="w-100" src="assets/hytec-05.png" alt="hytec" />
+        <div className="logo-header" data-mdb-animation-start="onHover">
+          {/* <img className="w-100" src="assets/hytec-05.png" alt="hytec" /> */}
+          <Svg
+            initialColor="#26272c"
+            animateColor="#f7d100"
+            strokeWidth={1.5}
+            strokeColor = "#F7D100"
+            delay = {1.5}
+            delayConst = {0.2}
+            duration = {1}
+            repeat = {0}
+          />
         </div>
-        
 
         <div className="d-none d-sm-flex text-grey-800 gap-3 gap-lg-5">
           <div className="d-flex justify-content-center align-items-center fs-14 gap-1 gap-lg-2">

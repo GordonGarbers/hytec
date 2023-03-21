@@ -27,6 +27,12 @@
             .page-wrapper-anim{
     
                 article{
+                    .yellow-detail{
+                        width:60%;
+                        top:0px;
+                        left:0px;
+                        clip-path: polygon(85% 0%, 100% 0%, 100% 100%, 90% 100%);
+                    }
                     .article-left{
                         .article-left-wrapper{
                             top: 0px;

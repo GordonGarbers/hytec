@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "smallTitle": "HYTEC",
+    "titleNormalBefore": "We are the leaders in",
+    "titleAccent": "Construction",
+    "titleNormalAfter": "",
+    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga maxime minus laboriosam ex officia ea, maiores aut nostrum quisquam. Blanditiis beatae ipsum in impedit, tempora repudiandae inventore reprehenderit ut labore!",
+    "image": "assets/carusel/baumachine_01.jpg"
+  },
+  {
+    "id": 2,
+    "smallTitle": "HYTEC",
+    "titleNormalBefore": "We have the best",
+    "titleAccent": "heavy",
+    "titleNormalAfter": "machines",
+    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga maxime minus laboriosam ex officia ea, maiores aut nostrum quisquam. Blanditiis beatae ipsum in impedit, tempora repudiandae inventore reprehenderit ut labore!",
+    "image": "assets/carusel/baumachine_02.jpg"
+  },
+  {
+    "id": 3,
+    "smallTitle": "HYTEC",
+    "titleNormalBefore": "We have more then",
+    "titleAccent": "10000",
+    "titleNormalAfter": "clients",
+    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga maxime minus laboriosam ex officia ea, maiores aut nostrum quisquam. Blanditiis beatae ipsum in impedit, tempora repudiandae inventore reprehenderit ut labore!",
+    "image": "assets/carusel/baumachine_03.jpg"
+  },
+  {
+    "id": 4,
+    "smallTitle": "HYTEC",
+    "titleNormalBefore": "We can deliver to ",
+    "titleAccent": "your",
+    "titleNormalAfter": "adress",
+    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga maxime minus laboriosam ex officia ea, maiores aut nostrum quisquam. Blanditiis beatae ipsum in impedit, tempora repudiandae inventore reprehenderit ut labore!",
+    "image": "assets/carusel/baumachine_04.jpg"
+  }
+]
