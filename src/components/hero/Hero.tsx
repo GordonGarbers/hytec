@@ -7,9 +7,9 @@ import { ChevronRight } from "react-bootstrap-icons";
 // import {image} from '../../constants/constants';
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { RootState } from "../../app/store";
-import { IHeroDetails } from "../../interfaces/interfaces";
 import { heroDetailsPedding } from "../../features/heroDetails/heroDetails.slice";
 import { Svg } from "../header/Svg";
+import { ELinks } from "../../constants/constants";
 
 const xOffset = 100;
 const variants = {
@@ -43,12 +43,8 @@ export const Hero: React.FC = () => {
     useAppSelector((state: RootState) => state.heroDetails);
   const dispatch = useAppDispatch();
 
-  // const details = heroDetailsData.map((detail: IHeroDetails, idx: number) => {
-
-  // })
-
   useEffect(() => {
-    dispatch(heroDetailsPedding("json/hero.json"));
+    dispatch(heroDetailsPedding(ELinks.heroLink));
   }, [dispatch]);
 
   const [[page, direction], setPage] = useState([0, 0]);
@@ -93,7 +89,7 @@ export const Hero: React.FC = () => {
               }}
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={1}
+              dragElastic={.5}
               onDragEnd={(e, { offset, velocity }) => {
                 const swipe = swipePower(offset.x, velocity.x);
 

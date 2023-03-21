@@ -41,7 +41,7 @@ export const HNavigation: React.FC<INavigationProps> = ({ windowWidth }) => {
         style={{ color: '#000' }}
       >
         <Translate size={18} color="#000" />
-        EN | DE
+        <span className = ''>EN</span> | <span className='text-muted'>DE</span>
       </div>
       <Ul windowWidth={windowWidth} />
     </div>
