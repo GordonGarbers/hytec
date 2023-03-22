@@ -9,6 +9,7 @@ interface ILiProps {
 }
 
 export const Li: React.FC<ILiProps> = ({ btnName, value, data, func, addToClassName}) => {
+
   return (
     <li
       onClick={(e) => func(e)}

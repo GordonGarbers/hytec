@@ -1,5 +1,4 @@
-import React from 'react';
-import { INavigationButton } from '../../interfaces/interfaces';
+import React, { useEffect } from "react";
 
 interface IMoverProps {
   show: number;
@@ -8,6 +7,7 @@ interface IMoverProps {
 }
 
 export const Mover: React.FC<IMoverProps> = ({ show, ulRef, btnToMove }) => {
+
   const width =
     ulRef.current &&
     ulRef.current.children[btnToMove].getBoundingClientRect().width;
@@ -21,12 +21,13 @@ export const Mover: React.FC<IMoverProps> = ({ show, ulRef, btnToMove }) => {
     ulRef.current &&
     ulRef.current.children[btnToMove].getBoundingClientRect().y + 16;
 
+
   return (
     <div
-    //   className={`mover fw-bold text-secondary position-fixed ${show < 620 ? 'd-none' : 'd-block'} d-sm-block`}
+      //   className={`mover fw-bold text-secondary position-fixed ${show < 620 ? 'd-none' : 'd-block'} d-sm-block`}
       className={`mover fw-bold text-secondary position-fixed `}
       style={{
-        zIndex: '3',
+        zIndex: "3",
         width: `${width}px`,
         height: `${height}px`,
         left: ` ${x}px`,

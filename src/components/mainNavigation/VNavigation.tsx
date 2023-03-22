@@ -12,7 +12,6 @@ interface INavigationProps {
 
 export const VNavigation: React.FC<INavigationProps> = ({ windowWidth }) => {
   const { menu } = useAppSelector((state: RootState) => state.menu);
-  console.log('MENU: ', menu);
   return (
     <div
       style={{
