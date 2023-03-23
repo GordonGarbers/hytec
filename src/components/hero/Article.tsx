@@ -7,6 +7,7 @@ interface IArticleProps{
 }
 
 export const Article: React.FC<IArticleProps> = ({data, index}) => {
+    console.log(index);
     return(
         <article className="d-flex flex-column-reverse flex-lg-row w-100 position-relative">
         {/* <div className="position-absolute bg-primary h-100 yellow-detail"></div> */}

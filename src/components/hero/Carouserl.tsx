@@ -1,10 +1,11 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IHeroDetails } from "../../interfaces/interfaces";
 import { wrap } from "@popmotion/popcorn";
 import { Article } from "./Article";
 import { ArrowButtons } from "./ArrowButtons";
 import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
+import { MdOutlineSwipe } from "react-icons/md";
 
 interface ICarouselProps {
   heroDetails: IHeroDetails[];
@@ -44,15 +45,26 @@ export const Carousel: React.FC<ICarouselProps> = ({ heroDetails }) => {
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
   };
+
   return (
     <>
       <div className="buttons-wrapper">
-        <ArrowButtons paginate={paginate} direction={-1} addClass="btn-left">
-          <ChevronLeft size={20} />
+        <ArrowButtons
+          paginate={paginate}
+          direction={-1}
+          addClass="btn-left"
+          directionTrigger={direction}
+        >
+          <ChevronLeft size={24} />
         </ArrowButtons>
 
-        <ArrowButtons paginate={paginate} direction={1} addClass="btn-right">
-          <ChevronRight size={20} />
+        <ArrowButtons
+          paginate={paginate}
+          direction={1}
+          addClass="btn-right"
+          directionTrigger={direction}
+        >
+          <ChevronRight size={24} />
         </ArrowButtons>
       </div>
       <div className="carusel-mask w-100 h-100 position-relative">
@@ -86,6 +98,11 @@ export const Carousel: React.FC<ICarouselProps> = ({ heroDetails }) => {
             <Article data={heroDetails} index={detailIndex} />
           </motion.div>
         </AnimatePresence>
+
+        {/* <motion.div className="position-absolute swipe d-flex justify-content-center border border-1 border-grey-700 align-items-center gap-3 p-2 rounded-2 shadow-lg text-dark">
+          <MdOutlineSwipe size={24} />
+          <div className="fs-13">swipe left / right</div>
+        </motion.div> */}
       </div>
     </>
   );

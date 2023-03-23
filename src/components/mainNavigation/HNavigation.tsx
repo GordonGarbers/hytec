@@ -1,18 +1,14 @@
 import React from 'react';
-import { useAppSelector } from '../../app/hooks';
-import { RootState } from '../../app/store';
 import { NavMenuIconSM } from './NavMenuIconSM';
 import { XLg } from 'react-bootstrap-icons';
 import { Translate } from 'react-bootstrap-icons';
 import { Ul } from './Ul';
-import { Container } from '../layout/Container';
 
 interface INavigationProps {
   windowWidth: number;
 }
 
 export const HNavigation: React.FC<INavigationProps> = ({ windowWidth }) => {
-  // const { menu } = useAppSelector((state: RootState) => state.menu);
   return (
     <div
       style={{
