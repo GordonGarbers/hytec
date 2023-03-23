@@ -6,10 +6,9 @@ import { Article } from "./Article";
 import { ArrowButtons } from "./ArrowButtons";
 import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
 import { MdOutlineSwipe } from "react-icons/md";
+import { useAppSelector } from "../../app/hooks";
+import { RootState } from "../../app/store";
 
-interface ICarouselProps {
-  heroDetails: IHeroDetails[];
-}
 
 const xOffset = 100;
 const variants = {
@@ -38,9 +37,13 @@ const swipePower = (offset: number, velocity: number) => {
   return Math.abs(offset) * velocity;
 };
 
-export const Carousel: React.FC<ICarouselProps> = ({ heroDetails }) => {
+export const Carousel: React.FC = () => {
+
+  const { heroDetailsIsLoaded, heroDetailsData, heroDetailsError } =
+  useAppSelector((state: RootState) => state.heroDetails);
+  
   const [[page, direction], setPage] = useState([0, 0]);
-  const detailIndex: number = wrap(0, heroDetails.length, page);
+  const detailIndex: number = wrap(0, heroDetailsData.length, page);
 
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
@@ -95,7 +98,7 @@ export const Carousel: React.FC<ICarouselProps> = ({ heroDetails }) => {
               }
             }}
           >
-            <Article data={heroDetails} index={detailIndex} />
+            <Article data={heroDetailsData} index={detailIndex} isHeroDataLoaded = {heroDetailsIsLoaded}/>
           </motion.div>
         </AnimatePresence>
 

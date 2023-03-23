@@ -53,8 +53,8 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
             />
           );
         })}
-      </ul>
       <Mover show={windowWidth} ulRef={ref} btnToMove={activeBtnValue} />
+      </ul>
     </>
   );
 };

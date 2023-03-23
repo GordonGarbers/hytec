@@ -40,7 +40,7 @@ export const MainNavigation = () => {
 
   return (
     <>
-      <nav style={{ top: '60px', zIndex: '2' }} className="position-fixed w-100">
+      <nav style={{top:'60px',zIndex: '2' }} className={`position-fixed w-100 nav-mover`}>
 
         <div
           style={{ zIndex: "1" }}

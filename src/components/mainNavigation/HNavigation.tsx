@@ -3,6 +3,7 @@ import { NavMenuIconSM } from './NavMenuIconSM';
 import { XLg } from 'react-bootstrap-icons';
 import { Translate } from 'react-bootstrap-icons';
 import { Ul } from './Ul';
+import { MAXIMUM_CONTAINER_WIDTH } from '../../constants/constants';
 
 interface INavigationProps {
   windowWidth: number;
@@ -12,7 +13,7 @@ export const HNavigation: React.FC<INavigationProps> = ({ windowWidth }) => {
   return (
     <div
       style={{
-        maxWidth:'1400px',
+        maxWidth:`${MAXIMUM_CONTAINER_WIDTH}px`,
         zIndex: '99999',
         transition: `all .2s ease`,
         borderRadius: windowWidth >= 1410 ? '.3rem' : '0',

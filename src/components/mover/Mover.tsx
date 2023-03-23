@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 interface IMoverProps {
   show: number;
@@ -7,6 +7,8 @@ interface IMoverProps {
 }
 
 export const Mover: React.FC<IMoverProps> = ({ show, ulRef, btnToMove }) => {
+
+  const [_i, setI] = useState<number>(0);
 
   const width =
     ulRef.current &&
@@ -20,6 +22,12 @@ export const Mover: React.FC<IMoverProps> = ({ show, ulRef, btnToMove }) => {
   const y =
     ulRef.current &&
     ulRef.current.children[btnToMove].getBoundingClientRect().y + 16;
+  
+  useEffect(()=>{
+    setTimeout(()=>{
+      setI(1)
+    }, 150)
+  },[])
 
 
   return (

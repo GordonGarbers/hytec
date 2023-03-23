@@ -3,23 +3,24 @@ import React from "react";
 import { MdLocationOn } from "react-icons/md";
 import { BsTelephoneFill } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
-import { motion } from "framer-motion";
-import { Path } from "./Path";
 import { Svg } from "./Svg";
 import "./header.scss";
+import { useAppSelector } from "../../app/hooks";
+import { RootState } from "../../app/store";
+import { MAXIMUM_CONTAINER_WIDTH } from "../../constants/constants";
 
 export const Header: React.FC = () => {
+  const {scrollY} =  useAppSelector((state:RootState) => state.scrollPos)
   return (
     <header
-      style={{ top: "0px", zIndex: "1" }}
-      className="bg-dark pt-2 pt-sm-2 pb-2 pb-sm-4 position-fixed w-100"
+      style={{zIndex: "1", top:'0px'}}
+      className={`bg-dark pt-2 pt-sm-2 pb-2 pb-sm-4 position-fixed w-100 border-bottom border-grey-40`}
     >
       <div
-        style={{ maxWidth: "1400px" }}
+        style={{ maxWidth: `${MAXIMUM_CONTAINER_WIDTH}px` }}
         className="container-fluid d-flex justify-content-between align-items-center px-3 px-sm-5"
       >
         <div className="logo-header" data-mdb-animation-start="onHover">
-          {/* <img className="w-100" src="assets/hytec-05.png" alt="hytec" /> */}
           <Svg
             initialColor="#26272c"
             animateColor="#f7d100"

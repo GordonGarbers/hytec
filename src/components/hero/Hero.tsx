@@ -11,8 +11,9 @@ import { Spinner } from "../spinner/Spinner";
 import { Carousel } from "./Carouserl";
 
 export const Hero: React.FC = () => {
-  const { heroDetailsIsLoaded, heroDetailsData, heroDetailsError } =
-    useAppSelector((state: RootState) => state.heroDetails);
+  // const { heroDetailsIsLoaded, heroDetailsData, heroDetailsError } =
+  //   useAppSelector((state: RootState) => state.heroDetails);
+
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -22,11 +23,12 @@ export const Hero: React.FC = () => {
   return (
     <>
       <section className="section position-relative w-100">
-        {!heroDetailsIsLoaded ? (
-          <Carousel heroDetails={heroDetailsData} />
+        <Carousel/>
+        {/* {!heroDetailsIsLoaded ? (
+        <Carousel heroDetails={heroDetailsData} />
         ) : (
           <Spinner size={50} width={5} />
-        )}
+        )} */}
       </section>
     </>
   );
