@@ -14,7 +14,7 @@ export const Header: React.FC = () => {
   return (
     <header
       style={{zIndex: "1", top:'0px'}}
-      className={`bg-dark pt-2 pt-sm-2 pb-2 pb-sm-4 position-fixed w-100 border-bottom border-grey-40`}
+      className={`bg-dark pt-2 pt-sm-2 pb-2 pb-sm-4 position-fixed w-100`}
     >
       <div
         style={{ maxWidth: `${MAXIMUM_CONTAINER_WIDTH}px` }}

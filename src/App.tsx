@@ -6,6 +6,7 @@ import { Main } from "./components/main/Main";
 import { Hero } from "./components/hero/Hero";
 import { FlexMainWrapper } from "./components/layout/FlexMainWrapper";
 import { ContactUs } from "./contactus/ContactUs";
+import { Footer } from "./components/footer/Footer";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Hero/>
           <div style = {{maxWidth:'1400px'}} className="container-fluid bg-primary my-6 py-8 rounded-1">adadads</div>
           <ContactUs/>
+          <Footer/>
         </Main>
       </FlexMainWrapper>
 

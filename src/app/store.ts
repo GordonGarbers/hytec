@@ -4,6 +4,7 @@ import showAndHideMenuReducer from "../features/menu/showAndHideMenu.slice";
 import navButtonsReducer from "../features/navButton/navButtons.slice";
 import scrollYReducer from "../features/scrollPosition/scrollPosition.slice";
 import heroDetailsReducer from "../features/heroDetails/heroDetails.slice";
+import windowWidthReducer from "../features/windowWidth/windowWidth.slice";
 import createSagaMiddleware from "@redux-saga/core";
 import rootSaga from "../saga/saga";
 
@@ -16,6 +17,7 @@ export const store = configureStore({
     navButtons: navButtonsReducer,
     scrollPos: scrollYReducer,
     heroDetails: heroDetailsReducer,
+    width: windowWidthReducer,
   },
   middleware: (defaultMiddleware) => defaultMiddleware().concat(saga),
 });

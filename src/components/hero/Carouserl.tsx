@@ -9,6 +9,7 @@ import { MdOutlineSwipe } from "react-icons/md";
 import { useAppSelector } from "../../app/hooks";
 import { RootState } from "../../app/store";
 
+import { useKeyPress } from "./hooks/useKeyPress";
 
 const xOffset = 100;
 const variants = {
@@ -39,15 +40,31 @@ const swipePower = (offset: number, velocity: number) => {
 
 export const Carousel: React.FC = () => {
 
+  const arrowUpPressed = useKeyPress("ArrowLeft");
+  const arrowDownPressed = useKeyPress("ArrowRight");
+
+
   const { heroDetailsIsLoaded, heroDetailsData, heroDetailsError } =
-  useAppSelector((state: RootState) => state.heroDetails);
-  
+    useAppSelector((state: RootState) => state.heroDetails);
+
   const [[page, direction], setPage] = useState([0, 0]);
   const detailIndex: number = wrap(0, heroDetailsData.length, page);
 
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
   };
+
+  useEffect(() => {
+    if (arrowUpPressed) {
+      paginate(-1);
+    }
+  }, [arrowUpPressed]);
+
+  useEffect(() => {
+    if (arrowDownPressed) {
+      paginate(1);
+    }
+  }, [arrowDownPressed]);
 
   return (
     <>
@@ -98,7 +115,11 @@ export const Carousel: React.FC = () => {
               }
             }}
           >
-            <Article data={heroDetailsData} index={detailIndex} isHeroDataLoaded = {heroDetailsIsLoaded}/>
+            <Article
+              data={heroDetailsData}
+              index={detailIndex}
+              isHeroDataLoaded={heroDetailsIsLoaded}
+            />
           </motion.div>
         </AnimatePresence>
 

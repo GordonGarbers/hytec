@@ -7,12 +7,15 @@ import { HNavigation } from "./HNavigation";
 import { VNavigation } from "./VNavigation";
 import { getScrollY } from "../../features/scrollPosition/scrollPosition.slice";
 import { RootState } from "../../app/store";
+import { getWindowWidth } from "../../features/windowWidth/windowWidth.slice";
 
 export const MainNavigation = () => {
+  const {windowWidth} = useAppSelector((state: RootState) => state.width)
+
   const {scrollY} =  useAppSelector((state:RootState) => state.scrollPos)
   const dispatch = useAppDispatch();
 
-  const [windowWidth, setWindowWidth] = useState(0);
+  // const [windowWidth, setWindowWidth] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
 
   const handleScroll = () => {
@@ -21,7 +24,8 @@ export const MainNavigation = () => {
   };
 
   let resizeWindow = () => {
-    setWindowWidth(window.innerWidth);
+    // setWindowWidth(window.innerWidth);
+    dispatch(getWindowWidth(window.innerWidth))
     setWindowHeight(window.innerHeight);
   };
 
