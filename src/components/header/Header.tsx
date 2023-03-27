@@ -38,17 +38,17 @@ export const Header: React.FC = () => {
           <div className="d-flex justify-content-center align-items-center fs-14 gap-1 gap-lg-2">
             <MdLocationOn size={18} />
             <div className="d-none d-md-block">
-              Borgwardstrasse 6, 21423 Winsen / Luhe
+              Borgwardstrasse 6, 21423 Winsen / Luhe 
             </div>
           </div>
-          <div className="d-flex justify-content-center align-items-center fs-14 gap-1 gap-lg-2">
+          <a href="tel: 041716691100" className="d-flex justify-content-center align-items-center fs-14 gap-1 gap-lg-2 ">
             <BsTelephoneFill size={14} />
-            <div className="d-none d-md-block">+49 (0) 4171 66 911 00</div>
-          </div>
-          <div className="d-flex justify-content-center align-items-center fs-14 gap-1 gap-lg-2">
+            <div className="d-none d-md-block ">+49 (0) 4171 66 911 00</div>
+          </a>
+          <a href="mailto: info@hytec-baumaschinen.de" className="d-flex justify-content-center align-items-center fs-14 gap-1 gap-lg-2">
             <MdEmail size={16} />
             <div className="d-none d-md-block">info@hytec-baumaschinen.de</div>
-          </div>
+          </a>
         </div>
       </div>
     </header>
