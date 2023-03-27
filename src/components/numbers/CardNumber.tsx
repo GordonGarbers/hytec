@@ -47,7 +47,7 @@ export const CardNumber: React.FC<ICardNumberProps> = ({
       viewport={{ once: true, amount: 0.8 }}
       transition={{ delay: windowWidth > 620 ? motionDelay : 0, type: "spring", stiffness: 100 }}
       style={{ backgroundColor: "#fff", flex:'4'}}
-      className="w-100 number-wrapper overflow-hidden rounded-2 d-flex flex-column justify-content-center align-items-center bg-grey-00 shadow-lg position-relative"
+      className="w-100 number-wrapper overflow-hidden rounded-3 d-flex flex-column justify-content-center align-items-center bg-grey-00 shadow-lg position-relative"
     >
       <div
         style={{
@@ -74,7 +74,7 @@ export const CardNumber: React.FC<ICardNumberProps> = ({
       >
         <div className="d-flex align-items-center">
           <div
-            style={{ fontWeight: "400" }}
+            style={{ fontWeight: "800" }}
             className={`${
               includeArrow ? "d-block" : "d-none"
             } fs-5 text-primary pe-2`}
@@ -83,7 +83,7 @@ export const CardNumber: React.FC<ICardNumberProps> = ({
           <CountUp
             delay={0 * delayNum}
             // prefix={prefix}
-            style={{ fontWeight: "600" }}
+            style={{ fontWeight: "800" }}
             className="fs-5 text-dark-light"
             // start={0}
             end={number}

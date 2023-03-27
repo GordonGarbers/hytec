@@ -24,7 +24,7 @@ export const ContactUs: React.FC = () => {
         style={{ maxWidth: `${MAXIMUM_CONTAINER_WIDTH}px`}}
         className="container-fluid-02 pt-4 pt-md-7 pb-2"
       >
-        <div className="ps-3 d-flex flex-column-reverse flex-md-row justify-content-between w-100 gap-6 pe-3 pe-sm-1">
+        <div className="ps-3 d-flex flex-column-reverse flex-md-row justify-content-between w-100 gap-6 pe-3 pe-sm-3 pe-md-1">
           <Form />
           <PigeonMap />
         </div>
