@@ -7,7 +7,7 @@ interface IContainerProps{
 
 export const Container: React.FC<IContainerProps> = ({children}) => {
     return (
-        <div style = {{maxWidth:`${MAXIMUM_CONTAINER_WIDTH}px`}} className='container-fluid'>
+        <div style = {{maxWidth:`${MAXIMUM_CONTAINER_WIDTH}px`}} className='container-fluid-02'>
             {children}
         </div>
     )

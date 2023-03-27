@@ -10,7 +10,7 @@ export const Form: React.FC = () => {
   return (
     <form className="form-wrapper">
       <div className="">
-        <h1 style={{ fontWeight: "600" }} className="fs-6 pt-0 text-primary">
+        <h1 style={{ fontWeight: "600"}} className="fs-6 pt-0 text-primary">
           CONTACT US
         </h1>
 

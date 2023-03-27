@@ -14,9 +14,9 @@ export const MarkerPoint: React.FC = () => {
             cy="21.5"
             r="13.3095"
             fill="#698AFF"
-            fill-opacity="0.54"
+            fillOpacity="0.54"
         />
-        <circle cx="21.5" cy="21.5" r="21.5" fill="#698AFF" fill-opacity="0.17" />
+        <circle cx="21.5" cy="21.5" r="21.5" fill="#698AFF" fillOpacity="0.17" />
         <circle cx="21.5" cy="21.5" r="6.66667" fill="#5A72C5" stroke="white" />
         </svg>
   );

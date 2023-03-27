@@ -1,0 +1,26 @@
+@media (min-width: 620px) {
+    .yellow-part{
+        height: 100px;
+    }
+
+    .number-icon{
+        top: 60px;
+        left: 50%;
+        transform: translate(-50%, 0),
+    }
+
+
+}
+  
+@media (max-width: 619px) {
+    .yellow-part{
+        height: 60px;   
+    }
+
+    .number-icon{
+        top: 10px;
+        left: 50%;
+        transform: translate(-50%, 0),
+    }
+
+}

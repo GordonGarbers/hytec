@@ -9,6 +9,7 @@
 
 $theme-colors: (
   "primary": $primary,
+  "primary-mono": $primary-mono,
   "secondary": #383b4d,
   "success": $success,
   "danger": $danger,
@@ -16,6 +17,7 @@ $theme-colors: (
   "info": $info,
   "dark": #26272e,
   "dark-form": #2d2e36,
+  "dark-light": #373943,
 );
 
 $custom-colors: (

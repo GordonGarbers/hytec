@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Map, Marker, Overlay } from 'pigeon-maps';
-import { useAppSelector } from "../app/hooks";
-import { RootState } from "../app/store";
+import { useAppSelector } from "../../app/hooks";
+import { RootState } from "../../app/store";
 import {motion} from 'framer-motion'
 import { MarkerPoint } from "./MartkerPoint";
 import { XLg } from 'react-bootstrap-icons';

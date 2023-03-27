@@ -8,6 +8,8 @@ import { VNavigation } from "./VNavigation";
 import { getScrollY } from "../../features/scrollPosition/scrollPosition.slice";
 import { RootState } from "../../app/store";
 import { getWindowWidth } from "../../features/windowWidth/windowWidth.slice";
+import {motion} from 'framer-motion';
+
 
 export const MainNavigation = () => {
   const {windowWidth} = useAppSelector((state: RootState) => state.width)
@@ -44,8 +46,8 @@ export const MainNavigation = () => {
 
   return (
     <>
-      <nav style={{top:'60px',zIndex: '2' }} className={`position-fixed w-100 nav-mover`}>
-
+      <motion.nav style={{top:'60px',zIndex: '2' }} className={`position-fixed w-100 nav-mover`}>
+        
         <div
           style={{ zIndex: "1" }}
           className="position-fixed d-flex align-items-center mb-3 gap-4 gap-sm-0 menu-translate"
@@ -56,7 +58,7 @@ export const MainNavigation = () => {
         </div>
         <HNavigation windowWidth={windowWidth} />
         <VNavigation windowWidth={windowWidth} />
-      </nav>
+      </motion.nav>
     </>
   );
 };

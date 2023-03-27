@@ -13,12 +13,13 @@ export const Header: React.FC = () => {
   const {scrollY} =  useAppSelector((state:RootState) => state.scrollPos)
   return (
     <header
-      style={{zIndex: "1", top:'0px'}}
-      className={`bg-dark pt-2 pt-sm-2 pb-2 pb-sm-4 position-fixed w-100`}
+      style={{zIndex: "2", top:'0px'}}
+      className={`bg-dark pt-2 pt-sm-2 pb-2 pb-sm-4 position-fixed w-100 position-relative`}
     >
+      <div style={{zIndex:'-1', top:'0px', left:'0px', clipPath: "polygon(0% 0%, 20% 0%, 50% 100%, 0% 100%)"}} className="bg-dark-form position-absolute w-100 h-100"></div>
       <div
         style={{ maxWidth: `${MAXIMUM_CONTAINER_WIDTH}px` }}
-        className="container-fluid d-flex justify-content-between align-items-center px-3 px-sm-5"
+        className="container-fluid-02 d-flex justify-content-between align-items-center px-3 px-sm-5"
       >
         <div className="logo-header" data-mdb-animation-start="onHover">
           <Svg

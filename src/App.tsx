@@ -5,8 +5,11 @@ import { MainNavigation } from "./components/mainNavigation/MainNavigation";
 import { Main } from "./components/main/Main";
 import { Hero } from "./components/hero/Hero";
 import { FlexMainWrapper } from "./components/layout/FlexMainWrapper";
-import { ContactUs } from "./contactus/ContactUs";
+import { ContactUs } from "./components/contactus/ContactUs";
 import { Footer } from "./components/footer/Footer";
+import { Numbers } from "./components/numbers/Numbers";
+import { Land } from "./components/Land/Land";
+
 
 function App() {
   return (
@@ -16,7 +19,9 @@ function App() {
       <FlexMainWrapper>
         <Main>
           <Hero/>
-          <div style = {{maxWidth:'1400px'}} className="container-fluid bg-primary my-6 py-8 rounded-1">adadads</div>
+          {/* <div style = {{maxWidth:'1400px'}} className="container-fluid bg-primary mt-6 rounded-1">adadads</div> */}
+          <Land/>
+          <Numbers/>
           <ContactUs/>
           <Footer/>
         </Main>

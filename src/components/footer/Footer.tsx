@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
       <footer className="bg-dark">
         <div
           style={{ maxWidth: `${MAXIMUM_CONTAINER_WIDTH}px` }}
-          className="container-fluid gap-2 py-4 px-4 fs-14  text-grey-600 d-flex flex-column flex-sm-row align-items-center justify-content-between"
+          className="container-fluid-02 gap-2 py-4 px-3 fs-14  text-grey-600 d-flex flex-column flex-sm-row align-items-center justify-content-between"
         >
           <div
             style={{ fontWeight: "300" }}

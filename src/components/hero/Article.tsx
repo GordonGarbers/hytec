@@ -17,8 +17,8 @@ export const Article: React.FC<IArticleProps> = ({
   return (
     <article className="d-flex flex-column-reverse flex-lg-row w-100 position-relative">
       {/* <div className="position-absolute bg-primary h-100 yellow-detail"></div> */}
-      <div className="w-100 bg-grey-1000 h-100 article-left">
-        <div className="container-fluid h-100 w-100 d-flex justify-content-center align-items-center mt-3 mt-sm-3 mt-lt-5  bg-grey-1000 article-left-wrapper">
+      <div className="w-100 h-100 article-left">
+        <div className="container-fluid-02 h-100 w-100 d-flex justify-content-center align-items-center mt-3 mt-sm-3 mt-lt-5  article-left-wrapper">
           <div className="ms-3 article-left-left">
             <p className="text-uppercase text-primary">
               {
