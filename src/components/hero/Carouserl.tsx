@@ -54,6 +54,8 @@ export const Carousel: React.FC = () => {
     setPage([page + newDirection, newDirection]);
   };
 
+  console.log('DIRECTION: ', direction);
+
   useEffect(() => {
     if (arrowUpPressed) {
       paginate(-1);
@@ -65,6 +67,13 @@ export const Carousel: React.FC = () => {
       paginate(1);
     }
   }, [arrowDownPressed]);
+
+  useEffect(()=>{
+    const caruselInterval = setInterval(()=>{
+      paginate(direction)
+    }, 3000)
+    return () => clearInterval(caruselInterval)
+  },[paginate])
 
   return (
     <>

@@ -79,7 +79,7 @@ export const Land: React.FC = () => {
           className="position-relative"
         >
           <img
-            style={{ width: "100%" }}
+            style={{ width: "100%", filter:'brightness(150%)'}}
             src={isLoaded ? "assets/png/DE_01.png" : getImageRatio(2392, 3198)}
             alt="DE-map"
           />
