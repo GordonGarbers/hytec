@@ -20,7 +20,7 @@ export const HNavigation: React.FC<INavigationProps> = ({ windowWidth }) => {
         height: "auto",
       }}
       // data-main-wrapper={menu}
-      className="container-fluid-02  position-relative bg-grey-900 ps-3 ps-sm-5 pe-2 pe-sm-3 pt-2 pt-sm-2 pb shadow-lg d-none d-sm-flex flex-column flex-sm-row justify-content-start justify-content-sm-between align-items-center main-wrapper "
+      className="container-fluid-02  position-relative bg-grey-900 ps-3 ps-sm-5 pe-2 pe-sm-2 pt-2 pt-sm-2 pb shadow-lg d-none d-sm-flex flex-column flex-sm-row justify-content-start justify-content-sm-between align-items-center main-wrapper "
     >
       
 

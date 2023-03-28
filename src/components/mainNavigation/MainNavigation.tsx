@@ -50,7 +50,7 @@ export const MainNavigation = () => {
         
         <div
           style={{ zIndex: "1" }}
-          className="position-fixed d-flex align-items-center mb-3 gap-4 gap-sm-0 menu-translate"
+          className="position-fixed d-flex align-items-center mb-3 gap-4 gap-sm-1 menu-translate"
         >
           <NavMenuIconSM bool={false}>
             <List size={32} color="#fff" />

@@ -22,16 +22,16 @@ export const HeroCircularProgress: React.FC<ICircularProgressProps> = ({remap}) 
     >
       <CircularProgressbar
         value={remap}
-        strokeWidth={8}
+        strokeWidth={5}
         // text={`${seconds/1000} s`}
         styles={buildStyles({
           strokeLinecap: 'butt',
           rotation: 0,
           pathTransitionDuration: remap <= 1 ? 0.1 : 0.1,
           // pathColor: `rgba(247, 209, 0, ${remap / 100})`,
-          pathColor: '#f7d100',
+          pathColor: '#fff',
           // textColor: '#f88',
-          trailColor: 'rgba(255,255,255,.5)',
+          trailColor: 'rgba(255,255,255,.3)',
           // backgroundColor: '#eee',
         })}
       />

@@ -1,4 +1,21 @@
 // @import "../../sass/custom.scss";
+.info-header-wrapper{
+
+}
+
+a{
+  transition:all .5s ease;
+  .info-icon{
+    transition:all .3s ease; 
+  }
+}
+
+a:hover{
+  background-color: #2d2e36;
+  .info-icon{
+    transform: scale(1.2);
+  }
+}
 
 @media (min-width: 620px) {
     .logo-header{
@@ -8,16 +25,6 @@
         // margin-bottom: ;
         
     }
-
-    // .initial{
-    //   transition: all .25s ease;
-    //   top:0px;
-    // }
-
-    // .animate{
-    //   transition: all .25s ease;
-    //   top:-10px;
-    // }
 
   }
   

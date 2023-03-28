@@ -18,7 +18,6 @@ export const ArrowButtons: React.FC<IArrowButtonsProps> = ({
   directionTrigger
 }) => {
   const [hover, setHover] = useState<boolean>(false);
-    console.log(directionTrigger);
   return (
     <motion.button
         whileTap={{backgroundColor:'#f7d100'}}
