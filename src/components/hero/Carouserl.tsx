@@ -1,15 +1,16 @@
-import { AnimatePresence, motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
-import { IHeroDetails } from "../../interfaces/interfaces";
-import { wrap } from "@popmotion/popcorn";
-import { Article } from "./Article";
-import { ArrowButtons } from "./ArrowButtons";
-import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
-import { MdOutlineSwipe } from "react-icons/md";
-import { useAppSelector } from "../../app/hooks";
-import { RootState } from "../../app/store";
+import { AnimatePresence, motion } from 'framer-motion';
+import React, { useEffect, useState } from 'react';
+import { IHeroDetails } from '../../interfaces/interfaces';
+import { wrap } from '@popmotion/popcorn';
+import { Article } from './Article';
+import { ArrowButtons } from './ArrowButtons';
+import { ChevronLeft, ChevronRight } from 'react-bootstrap-icons';
+import { MdOutlineSwipe } from 'react-icons/md';
+import { useAppSelector } from '../../app/hooks';
+import { RootState } from '../../app/store';
+import { HeroCircularProgress } from './HeroCircularProgress';
 
-import { useKeyPress } from "./hooks/useKeyPress";
+import { useKeyPress } from './hooks/useKeyPress';
 
 const xOffset = 100;
 const variants = {
@@ -39,45 +40,57 @@ const swipePower = (offset: number, velocity: number) => {
 };
 
 export const Carousel: React.FC = () => {
+  const time = 6000;
 
-  const arrowUpPressed = useKeyPress("ArrowLeft");
-  const arrowDownPressed = useKeyPress("ArrowRight");
-
+  const arrowUpPressed = useKeyPress('ArrowLeft');
+  const arrowDownPressed = useKeyPress('ArrowRight');
 
   const { heroDetailsIsLoaded, heroDetailsData, heroDetailsError } =
     useAppSelector((state: RootState) => state.heroDetails);
 
-  const [[page, direction], setPage] = useState([0, 0]);
+  const [[page, direction], setPage] = useState([0, 1]);
   const detailIndex: number = wrap(0, heroDetailsData.length, page);
 
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
   };
 
-  console.log('DIRECTION: ', direction);
-
   useEffect(() => {
     if (arrowUpPressed) {
+      setSeconds(time);
       paginate(-1);
     }
   }, [arrowUpPressed]);
 
   useEffect(() => {
     if (arrowDownPressed) {
+      setSeconds(time);
       paginate(1);
     }
   }, [arrowDownPressed]);
 
-  useEffect(()=>{
-    const caruselInterval = setInterval(()=>{
-      paginate(direction)
-    }, 3000)
-    return () => clearInterval(caruselInterval)
-  },[paginate])
+  //SET TIME
+  const [seconds, setSeconds] = useState<number>(time);
+  const remap = Math.trunc((seconds / time) * 100);
+
+  useEffect(() => {
+    const caruselInterval = setTimeout(() => {
+      setSeconds((seconds) => seconds - 100);
+      if (seconds <= 0) {
+        paginate(direction);
+        // clearTimeout(this)
+        setSeconds(time);
+      }
+    }, 100);
+    return () => {
+      clearTimeout(caruselInterval);
+    };
+  }, [seconds]);
 
   return (
     <>
       <div className="buttons-wrapper">
+
         <ArrowButtons
           paginate={paginate}
           direction={-1}
@@ -97,6 +110,7 @@ export const Carousel: React.FC = () => {
         </ArrowButtons>
       </div>
       <div className="carusel-mask w-100 h-100 position-relative">
+
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             style={{}}
@@ -108,7 +122,7 @@ export const Carousel: React.FC = () => {
             animate="center"
             exit="exit"
             transition={{
-              x: { type: "tween", duration: 0.5 },
+              x: { type: 'tween', duration: 0.5 },
               opacity: { duration: 0.5 },
             }}
             drag="x"
@@ -116,7 +130,7 @@ export const Carousel: React.FC = () => {
             dragElastic={0.5}
             onDragEnd={(e, { offset, velocity }) => {
               const swipe = swipePower(offset.x, velocity.x);
-
+              setSeconds(time);
               if (swipe < -swipeConfidenceThreshold) {
                 paginate(1);
               } else if (swipe > swipeConfidenceThreshold) {
@@ -128,6 +142,7 @@ export const Carousel: React.FC = () => {
               data={heroDetailsData}
               index={detailIndex}
               isHeroDataLoaded={heroDetailsIsLoaded}
+              remap = {remap}
             />
           </motion.div>
         </AnimatePresence>

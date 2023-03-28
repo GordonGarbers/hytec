@@ -47,7 +47,7 @@ export const CardNumber: React.FC<ICardNumberProps> = ({
       viewport={{ once: true, amount: 0.8 }}
       transition={{ delay: windowWidth > 620 ? motionDelay : 0, type: "spring", stiffness: 100 }}
       style={{ backgroundColor: "#fff", flex:'4'}}
-      className="w-100 number-wrapper overflow-hidden rounded-3 d-flex flex-column justify-content-center align-items-center bg-grey-00 shadow-lg position-relative"
+      className="w-100 number-wrapper overflow-hidden rounded-3 d-flex flex-column justify-content-center align-items-center bg-grey-00 shadow position-relative"
     >
       <div
         style={{

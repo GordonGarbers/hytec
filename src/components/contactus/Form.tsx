@@ -83,7 +83,7 @@ export const Form: React.FC = () => {
       </div>
 
       <button
-        className="btn btn-primary fs-13 fw-bold px-5 py-2 d-flex align-items-center"
+        className="btn btn-primary fs-13 fw-bold px-2 px-sm-5 py-2 d-flex align-items-center"
         type="submit"
       >
         {/* <BiMailSend size={20} className="me-2" /> */}

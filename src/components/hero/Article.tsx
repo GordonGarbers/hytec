@@ -1,17 +1,20 @@
 import React from 'react';
 import { IHeroDetails } from '../../interfaces/interfaces';
 import Skeleton from 'react-loading-skeleton';
+import { HeroCircularProgress } from './HeroCircularProgress';
 
 interface IArticleProps {
   data: IHeroDetails[];
   index: number;
   isHeroDataLoaded: boolean;
+  remap: number;
 }
 
 export const Article: React.FC<IArticleProps> = ({
   data,
   index,
   isHeroDataLoaded,
+  remap
 }) => {
   console.log(index);
   return (
@@ -62,6 +65,7 @@ export const Article: React.FC<IArticleProps> = ({
         </div>
       </div>
       <div className="w-100 overflow-hidden article-right position-relative">
+        <HeroCircularProgress remap={remap}/>
         <img
           src={data[index]?.image}
           alt="img"
