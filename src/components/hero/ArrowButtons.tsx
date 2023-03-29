@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { ReactNode, useState } from "react";
+import { pauseHero } from "../../features/pauseHeroPage/pauseHeroPage";
 
 interface IArrowButtonsProps {
   paginate: (newDirection: number) => void | null;
@@ -18,13 +19,19 @@ export const ArrowButtons: React.FC<IArrowButtonsProps> = ({
   directionTrigger
 }) => {
   const [hover, setHover] = useState<boolean>(false);
+  function dispatch(arg0: any) {
+    throw new Error("Function not implemented.");
+  }
+
   return (
     <motion.button
         whileTap={{backgroundColor:'#f7d100'}}
         transition = {{duration:.2}}
       style={{ backgroundColor: "rgba(255,255,255,1)" }}
     //   data-slide = {directionTrigger===direction ? true : false}
-      onClick={() => paginate(direction)}
+      onClick={() => {
+        paginate(direction)
+        dispatch(pauseHero(true))}}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       className={`m-3 p-3 btn border rounded-0 border-0 shadow-lg ${addClass} position-absolute`}

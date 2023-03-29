@@ -1,16 +1,17 @@
-import { AnimatePresence, motion } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
-import { IHeroDetails } from '../../interfaces/interfaces';
-import { wrap } from '@popmotion/popcorn';
-import { Article } from './Article';
-import { ArrowButtons } from './ArrowButtons';
-import { ChevronLeft, ChevronRight } from 'react-bootstrap-icons';
-import { MdOutlineSwipe } from 'react-icons/md';
-import { useAppSelector } from '../../app/hooks';
-import { RootState } from '../../app/store';
-import { HeroCircularProgress } from './HeroCircularProgress';
+import { AnimatePresence, motion } from "framer-motion";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { IHeroDetails } from "../../interfaces/interfaces";
+import { wrap } from "@popmotion/popcorn";
+import { Article } from "./Article";
+import { ArrowButtons } from "./ArrowButtons";
+import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
+import { MdOutlineSwipe } from "react-icons/md";
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import { pauseHero } from "../../features/pauseHeroPage/pauseHeroPage";
+import { RootState } from "../../app/store";
+import { HeroCircularProgress } from "./HeroCircularProgress";
 
-import { useKeyPress } from './hooks/useKeyPress';
+import { useKeyPress } from "./hooks/useKeyPress";
 
 const xOffset = 100;
 const variants = {
@@ -42,8 +43,15 @@ const swipePower = (offset: number, velocity: number) => {
 export const Carousel: React.FC = () => {
   const time = 6000;
 
-  const arrowUpPressed = useKeyPress('ArrowLeft');
-  const arrowDownPressed = useKeyPress('ArrowRight');
+  const dispatch = useAppDispatch();
+
+  const [pause, setPause] = useState<boolean>(true);
+  const { pauseAnim } = useAppSelector((state: RootState) => state.pause);
+
+
+  const arrowUpPressed = useKeyPress("ArrowLeft");
+  const arrowDownPressed = useKeyPress("ArrowRight");
+  const keyPPressed = useKeyPress("KeyP");
 
   const { heroDetailsIsLoaded, heroDetailsData, heroDetailsError } =
     useAppSelector((state: RootState) => state.heroDetails);
@@ -55,10 +63,15 @@ export const Carousel: React.FC = () => {
     setPage([page + newDirection, newDirection]);
   };
 
+  //SET TIME
+  const [seconds, setSeconds] = useState<number>(time);
+  const remap = Math.trunc((seconds / time) * 100);
+
   useEffect(() => {
     if (arrowUpPressed) {
       setSeconds(time);
       paginate(-1);
+      dispatch(pauseHero(true))
     }
   }, [arrowUpPressed]);
 
@@ -66,26 +79,56 @@ export const Carousel: React.FC = () => {
     if (arrowDownPressed) {
       setSeconds(time);
       paginate(1);
+      dispatch(pauseHero(true))
     }
   }, [arrowDownPressed]);
 
-  //SET TIME
-  const [seconds, setSeconds] = useState<number>(time);
-  const remap = Math.trunc((seconds / time) * 100);
-
   useEffect(() => {
-    const caruselInterval = setTimeout(() => {
+    if (keyPPressed) {
+      dispatch(pauseHero(!pauseAnim))
+    }
+  }, [keyPPressed]);
+
+
+
+  const interval: any = useRef(null);
+
+
+  const runInterval = useCallback(() => {
+    interval.current = setInterval(() => {
       setSeconds((seconds) => seconds - 100);
       if (seconds <= 0) {
         paginate(direction);
-        // clearTimeout(this)
         setSeconds(time);
       }
     }, 100);
+  }, [seconds]);
+
+
+  const pauseInterval = useCallback(() => {
+    clearInterval(interval.current);
+
+  }, []);
+
+  const resetInterval = useCallback(() => {
+    clearInterval(interval.current);
+  }, []);
+
+  useEffect(() => {
+    runInterval();
+
     return () => {
-      clearTimeout(caruselInterval);
+      resetInterval();
     };
   }, [seconds]);
+
+  useEffect(()=>{
+    dispatch(pauseHero(true)) 
+  },[])
+
+  useEffect(() => {
+    pauseAnim ? runInterval() : pauseInterval();
+  }, [pauseAnim]);
 
   return (
     <>
@@ -122,7 +165,7 @@ export const Carousel: React.FC = () => {
             animate="center"
             exit="exit"
             transition={{
-              x: { type: 'tween', duration: 0.5 },
+              x: { type: "tween", duration: 0.5 },
               opacity: { duration: 0.5 },
             }}
             drag="x"
@@ -131,6 +174,7 @@ export const Carousel: React.FC = () => {
             onDragEnd={(e, { offset, velocity }) => {
               const swipe = swipePower(offset.x, velocity.x);
               setSeconds(time);
+              dispatch(pauseHero(true))
               if (swipe < -swipeConfidenceThreshold) {
                 paginate(1);
               } else if (swipe > swipeConfidenceThreshold) {
@@ -142,7 +186,7 @@ export const Carousel: React.FC = () => {
               data={heroDetailsData}
               index={detailIndex}
               isHeroDataLoaded={heroDetailsIsLoaded}
-              remap = {remap}
+              remap={remap}
             />
           </motion.div>
         </AnimatePresence>
