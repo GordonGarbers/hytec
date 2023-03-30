@@ -1,0 +1,43 @@
+{
+    "hero":[
+      {
+        "id": 1,
+        "smallTitle": "HYTEC",
+        "titleNormalBefore": "Wir sind bla bla bla",
+        "titleAccent": "Construction",
+        "titleNormalAfter": "",
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga maxime minus laboriosam ex officia ea, maiores aut nostrum quisquam. Blanditiis beatae ipsum in impedit, tempora repudiandae inventore reprehenderit ut labore!",
+        "image": "assets/carusel/baumachine_01.jpg"
+      },
+      {
+        "id": 2,
+        "smallTitle": "HYTEC",
+        "titleNormalBefore": "Wir haben bla bla bla",
+        "titleAccent": "heavy",
+        "titleNormalAfter": "machines",
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga maxime minus laboriosam ex officia ea, maiores aut nostrum quisquam. Blanditiis beatae ipsum in impedit, tempora repudiandae inventore reprehenderit ut labore!",
+        "image": "assets/carusel/baumachine_02.jpg"
+      },
+      {
+        "id": 3,
+        "smallTitle": "HYTEC",
+        "titleNormalBefore": "Wir haben mehr als",
+        "titleAccent": "10000",
+        "titleNormalAfter": "clients",
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga maxime minus laboriosam ex officia ea, maiores aut nostrum quisquam. Blanditiis beatae ipsum in impedit, tempora repudiandae inventore reprehenderit ut labore!",
+        "image": "assets/carusel/baumachine_03.jpg"
+      },
+      {
+        "id": 4,
+        "smallTitle": "HYTEC",
+        "titleNormalBefore": "Wir könen bla bla",
+        "titleAccent": "your",
+        "titleNormalAfter": "adress",
+        "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga maxime minus laboriosam ex officia ea, maiores aut nostrum quisquam. Blanditiis beatae ipsum in impedit, tempora repudiandae inventore reprehenderit ut labore!",
+        "image": "assets/carusel/baumachine_04.jpg"
+      }
+    ]
+  }
+    
+  
+  

@@ -5,6 +5,7 @@ import { NavMenuIconSM } from './NavMenuIconSM';
 import { XLg } from 'react-bootstrap-icons';
 import { Translate } from 'react-bootstrap-icons';
 import { Ul } from './Ul';
+import { Language } from './Language';
 
 interface INavigationProps {
   windowWidth: number;
@@ -33,15 +34,7 @@ export const VNavigation: React.FC<INavigationProps> = ({ windowWidth }) => {
         </NavMenuIconSM>
       </div>
 
-      <div
-        role="button"
-        data-add-btn={false}
-        className="position-relative me-auto d-flex align-items-center gap-2 text-secondary fs-13 mb-3 mt-5 me-auto language"
-        style={{ color: '#000' }}
-      >
-        <Translate size={18} color="#000" />
-        EN | DE
-      </div>
+      <Language/>
       <Ul windowWidth={windowWidth} />
     </div>
   );

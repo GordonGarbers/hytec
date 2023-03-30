@@ -28,19 +28,23 @@ export interface ILogoVariants {
   };
 }
 
-export interface IHeroDetails {
+export interface IHero{
   id: number;
   smallTitle: string;
   titleNormalBefore: string;
   titleAccent: string;
   titleNormalAfter:string;
   text: string;
-  image: string;
+  image: string;  
+}
+
+export interface IHeroDetails {
+  hero:IHero[]
 }
 
 export interface IResponseGenerator {
   config?: string;
-  data: IHeroDetails[];
+  data: IHeroDetails;
   headers?: string;
   request?: string;
   status?: string;

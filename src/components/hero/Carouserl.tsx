@@ -53,11 +53,13 @@ export const Carousel: React.FC = () => {
   const arrowDownPressed = useKeyPress("ArrowRight");
   const keyPPressed = useKeyPress("KeyP");
 
+
+
   const { heroDetailsIsLoaded, heroDetailsData, heroDetailsError } =
     useAppSelector((state: RootState) => state.heroDetails);
-
+  
   const [[page, direction], setPage] = useState([0, 1]);
-  const detailIndex: number = wrap(0, heroDetailsData.length, page);
+  const detailIndex: number = wrap(0, heroDetailsData.hero.length, page);
 
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);

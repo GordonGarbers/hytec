@@ -17,7 +17,9 @@ function* getHeroDetailsWorker(action: { type: string; payload: string }) {
       fetchHeroDetails,
       action.payload
     );
+
     yield put(heroDetailsFulfilled(response.data));
+
   } catch (error: any | unknown) {
     let err = "";
     if (error instanceof AxiosError) err = error.message;

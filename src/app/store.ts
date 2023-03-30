@@ -6,6 +6,7 @@ import scrollYReducer from "../features/scrollPosition/scrollPosition.slice";
 import heroDetailsReducer from "../features/heroDetails/heroDetails.slice";
 import windowWidthReducer from "../features/windowWidth/windowWidth.slice";
 import pauseReducer from "../features/pauseHeroPage/pauseHeroPage";
+import changeLanguageReducer from '../features/changeLanguage/changeLanguage.slice'
 import createSagaMiddleware from "@redux-saga/core";
 import rootSaga from "../saga/saga";
 
@@ -20,6 +21,7 @@ export const store = configureStore({
     heroDetails: heroDetailsReducer,
     width: windowWidthReducer,
     pause: pauseReducer,
+    lang: changeLanguageReducer
   },
   middleware: (defaultMiddleware) => defaultMiddleware().concat(saga),
 });

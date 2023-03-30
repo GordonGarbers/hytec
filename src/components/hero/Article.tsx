@@ -6,7 +6,7 @@ import { getImageRatio } from "../../utils/createImagePlaceholder";
 import { Spinner } from "../spinner/Spinner";
 
 interface IArticleProps {
-  data: IHeroDetails[];
+  data: IHeroDetails;
   index: number;
   isHeroDataLoaded: boolean;
   remap: number;
@@ -32,7 +32,7 @@ export const Article: React.FC<IArticleProps> = ({
           <div className="ms-3 article-left-left">
             <p className="text-uppercase text-primary">
               {!isHeroDataLoaded ? (
-                data[index]?.smallTitle
+                data.hero[index]?.smallTitle
               ) : (
                 <Skeleton width={40} />
               )}
@@ -41,18 +41,18 @@ export const Article: React.FC<IArticleProps> = ({
             <h1 className="fw-bold fs-5">
               {!isHeroDataLoaded ? (
                 <>
-                  {data[index]?.titleNormalBefore}{" "}
+                  {data.hero[index]?.titleNormalBefore}{" "}
                   <span className="text-primary">
-                    {data[index]?.titleAccent}
+                    {data.hero[index]?.titleAccent}
                   </span>{" "}
-                  {data[index]?.titleNormalAfter}{" "}
+                  {data.hero[index]?.titleNormalAfter}{" "}
                 </>
               ) : (
                 <Skeleton count={1} />
               )}
             </h1>
             <p className="mt-3 mt-sm-4 fs-13">
-              {!isHeroDataLoaded ? data[index]?.text : <Skeleton count={4} />}
+              {!isHeroDataLoaded ? data.hero[index]?.text : <Skeleton count={4} />}
             </p>
             <div>
               {!isHeroDataLoaded ? (
@@ -71,7 +71,7 @@ export const Article: React.FC<IArticleProps> = ({
         <HeroCircularProgress remap={remap} />
         <img
           onLoad={handleImageOnLoad}
-          src={isLoaded ? data[index]?.image : getImageRatio(1920, 1080)}
+          src={isLoaded ? data.hero[index]?.image : getImageRatio(1920, 1080)}
           alt="img"
           draggable="false"
           className="w-100"

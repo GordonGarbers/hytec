@@ -3,13 +3,13 @@ import { IHeroDetails } from "../../interfaces/interfaces";
 
 interface IInitialState{
     heroDetailsIsLoaded: boolean,
-    heroDetailsData: IHeroDetails[],
+    heroDetailsData: IHeroDetails,
     heroDetailsError: string
 }
 
 const initialState: IInitialState = {
     heroDetailsIsLoaded: false,
-    heroDetailsData: [],
+    heroDetailsData: {hero:[]},
     heroDetailsError: ''
 }
 
@@ -21,14 +21,14 @@ const heroDetailsSlice = createSlice({
             state.heroDetailsIsLoaded = true
         }),
 
-        heroDetailsFulfilled: ((state: IInitialState, action:PayloadAction<IHeroDetails[]>) => {
+        heroDetailsFulfilled: ((state: IInitialState, action:PayloadAction<IHeroDetails>) => {
             state.heroDetailsIsLoaded = false;
             state.heroDetailsData = action.payload;
         }),
 
         heroDetailsReject: ((state: IInitialState, action: PayloadAction<string>) => {
             state.heroDetailsIsLoaded = false;
-            state.heroDetailsData = [];
+            state.heroDetailsData = {hero:[]};
             state.heroDetailsError = action.payload;
         })
     }
