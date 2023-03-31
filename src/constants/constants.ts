@@ -18,3 +18,5 @@ export const logoPos: logoPosType[] = [
     {x: 88, y: 47},
 ]
 
+export const languageButtons = ['en', 'de']
+

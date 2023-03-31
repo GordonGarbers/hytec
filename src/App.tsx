@@ -19,9 +19,8 @@ function App() {
   const {language} = useAppSelector((state:RootState) => state.lang)
   const dispatch = useAppDispatch();
 
-
   useEffect(() => {
-    const storedSelectedOption = sessionStorage.getItem('selectedOption') || 'en'
+    const storedSelectedOption = sessionStorage.getItem('selectedOption') || language
     dispatch(switchLanguage(storedSelectedOption))
   }, [])
 
