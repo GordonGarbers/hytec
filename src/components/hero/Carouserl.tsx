@@ -1,14 +1,14 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { IHeroDetails } from "../../interfaces/interfaces";
 import { wrap } from "@popmotion/popcorn";
 import { Article } from "./Article";
 import { ArrowButtons } from "./ArrowButtons";
 import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
-import { MdOutlineSwipe } from "react-icons/md";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { pauseHero } from "../../features/pauseHeroPage/pauseHeroPage";
 import { RootState } from "../../app/store";
+import { ESection } from "../../interfaces/interfaces";
+
 import { HeroCircularProgress } from "./HeroCircularProgress";
 
 import { useKeyPress } from "./hooks/useKeyPress";
@@ -184,8 +184,9 @@ export const Carousel: React.FC = () => {
               }
             }}
           >
+            {/* OVO JE UNIVERZALNO */}
             <Article
-              data={heroDetailsData}
+              data={heroDetailsData.hero}
               index={detailIndex}
               isHeroDataLoaded={heroDetailsIsLoaded}
               remap={remap}

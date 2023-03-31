@@ -9,7 +9,7 @@ interface IInitialState{
 
 const initialState: IInitialState = {
     heroDetailsIsLoaded: false,
-    heroDetailsData: {hero:[]},
+    heroDetailsData: {hero:[], products:[]},
     heroDetailsError: ''
 }
 
@@ -28,7 +28,7 @@ const heroDetailsSlice = createSlice({
 
         heroDetailsReject: ((state: IInitialState, action: PayloadAction<string>) => {
             state.heroDetailsIsLoaded = false;
-            state.heroDetailsData = {hero:[]};
+            state.heroDetailsData = {hero:[], products:[]};
             state.heroDetailsError = action.payload;
         })
     }

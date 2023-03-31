@@ -17,6 +17,7 @@ import { RootState } from "./app/store";
 
 function App() {
   const {language} = useAppSelector((state:RootState) => state.lang)
+  
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -32,13 +33,13 @@ function App() {
 
 
   return (
-    <div className = ''>
+    <>
       <Header />
       <MainNavigation/>
       <FlexMainWrapper>
         <Main>
           <Hero/>
-          {/* <div style = {{maxWidth:'1400px'}} className="container-fluid bg-primary mt-6 rounded-1">adadads</div> */}
+          {/* <div style = {{maxWidth:'1400px'}} className="container-fluid bg-primary mt-6 py-6 rounded-1">adadads</div> */}
           <Land/>
           <Numbers/>
           <ContactUs/>
@@ -46,7 +47,7 @@ function App() {
         </Main>
       </FlexMainWrapper>
 
-    </div>
+    </>
 
   );
 }

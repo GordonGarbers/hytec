@@ -40,6 +40,7 @@ export interface IHero{
 
 export interface IHeroDetails {
   hero:IHero[]
+  products: []
 }
 
 export interface IResponseGenerator {
@@ -49,4 +50,9 @@ export interface IResponseGenerator {
   request?: string;
   status?: string;
   statusText?: string;
+}
+
+export enum ESection{
+  hero = 'hero',
+  products = 'products'
 }

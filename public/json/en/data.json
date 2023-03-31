@@ -36,7 +36,25 @@
       "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga maxime minus laboriosam ex officia ea, maiores aut nostrum quisquam. Blanditiis beatae ipsum in impedit, tempora repudiandae inventore reprehenderit ut labore!",
       "image": "assets/carusel/baumachine_04.jpg"
     }
+  ],
+
+  "menu":[
+    {
+      "id":1,
+      "home":"Home"
+    },
+    {
+      "id":2,
+      "machinery":"Machinery"
+    },
+    {
+      "id":3,
+      "aboutus":"About Us"
+    },
+    {
+      "id":4,
+      "contact":"Contact"
+    }
   ]
-}
-  
+} 
 
