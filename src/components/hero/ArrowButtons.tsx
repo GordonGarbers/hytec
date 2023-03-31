@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { ReactNode, useState } from "react";
-import { pauseHero } from "../../features/pauseHeroPage/pauseHeroPage";
+import { pauseCarousel } from "../../features/pauseHeroPage/pauseHeroPage";
 
 interface IArrowButtonsProps {
   paginate: (newDirection: number) => void | null;
@@ -31,7 +31,7 @@ export const ArrowButtons: React.FC<IArrowButtonsProps> = ({
     //   data-slide = {directionTrigger===direction ? true : false}
       onClick={() => {
         paginate(direction)
-        dispatch(pauseHero(true))}}
+        dispatch(pauseCarousel(true))}}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       className={`m-3 p-3 btn border rounded-0 border-0 shadow-lg ${addClass} position-absolute`}

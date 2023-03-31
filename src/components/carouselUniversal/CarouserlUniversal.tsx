@@ -1,17 +1,24 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { wrap } from "@popmotion/popcorn";
-import { Article } from "./Article";
-import { ArrowButtons } from "./ArrowButtons";
+import { CarouselInner } from "../hero/CarouselUniversalInner";
+import { ArrowButtons } from "../hero/ArrowButtons";
 import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { pauseHero } from "../../features/pauseHeroPage/pauseHeroPage";
+import { pauseCarousel } from "../../features/pauseHeroPage/pauseHeroPage";
 import { RootState } from "../../app/store";
-import { ESection } from "../../interfaces/interfaces";
+import { useKeyPress } from "../hooks/useKeyPress";
+import { ESection, IDataDetails } from "../../interfaces/interfaces";
+import { TIME } from "../../constants/constants";
 
-import { HeroCircularProgress } from "./HeroCircularProgress";
-
-import { useKeyPress } from "./hooks/useKeyPress";
+interface ICarouselUniversal {
+  isLoaded: boolean;
+  data: IDataDetails;
+  error: string;
+  section: ESection;
+  children: React.ReactNode;
+  btnOnOff: boolean;
+}
 
 const xOffset = 100;
 const variants = {
@@ -40,76 +47,68 @@ const swipePower = (offset: number, velocity: number) => {
   return Math.abs(offset) * velocity;
 };
 
-export const Carousel: React.FC = () => {
-  const time = 6000;
-
+export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
+  isLoaded,
+  data,
+  error,
+  section,
+  children,
+  btnOnOff,
+}) => {
   const dispatch = useAppDispatch();
 
-  const [pause, setPause] = useState<boolean>(true);
   const { pauseAnim } = useAppSelector((state: RootState) => state.pause);
-
 
   const arrowUpPressed = useKeyPress("ArrowLeft");
   const arrowDownPressed = useKeyPress("ArrowRight");
   const keyPPressed = useKeyPress("KeyP");
 
-
-
-  const { heroDetailsIsLoaded, heroDetailsData, heroDetailsError } =
-    useAppSelector((state: RootState) => state.heroDetails);
-  
   const [[page, direction], setPage] = useState([0, 1]);
-  const detailIndex: number = wrap(0, heroDetailsData.hero.length, page);
+  const detailIndex: number = wrap(0, data[section].length, page);
 
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
   };
 
-  //SET TIME
-  const [seconds, setSeconds] = useState<number>(time);
-  const remap = Math.trunc((seconds / time) * 100);
+  const [seconds, setSeconds] = useState<number>(TIME);
+  const remap = Math.trunc((seconds / TIME) * 100);
 
   useEffect(() => {
     if (arrowUpPressed) {
-      setSeconds(time);
+      setSeconds(TIME);
       paginate(-1);
-      dispatch(pauseHero(true))
+      dispatch(pauseCarousel(true));
     }
   }, [arrowUpPressed]);
 
   useEffect(() => {
     if (arrowDownPressed) {
-      setSeconds(time);
+      setSeconds(TIME);
       paginate(1);
-      dispatch(pauseHero(true))
+      dispatch(pauseCarousel(true));
     }
   }, [arrowDownPressed]);
 
   useEffect(() => {
     if (keyPPressed) {
-      dispatch(pauseHero(!pauseAnim))
+      dispatch(pauseCarousel(!pauseAnim));
     }
   }, [keyPPressed]);
 
-
-
   const interval: any = useRef(null);
-
 
   const runInterval = useCallback(() => {
     interval.current = setInterval(() => {
       setSeconds((seconds) => seconds - 100);
       if (seconds <= 0) {
         paginate(direction);
-        setSeconds(time);
+        setSeconds(TIME);
       }
     }, 100);
   }, [seconds]);
 
-
   const pauseInterval = useCallback(() => {
     clearInterval(interval.current);
-
   }, []);
 
   const resetInterval = useCallback(() => {
@@ -124,9 +123,9 @@ export const Carousel: React.FC = () => {
     };
   }, [seconds]);
 
-  useEffect(()=>{
-    dispatch(pauseHero(true)) 
-  },[])
+  useEffect(() => {
+    dispatch(pauseCarousel(true));
+  }, []);
 
   useEffect(() => {
     pauseAnim ? runInterval() : pauseInterval();
@@ -134,28 +133,29 @@ export const Carousel: React.FC = () => {
 
   return (
     <>
-      <div className="buttons-wrapper">
+      {btnOnOff && (
+        <div className="buttons-wrapper">
+          <ArrowButtons
+            paginate={paginate}
+            direction={-1}
+            addClass="btn-left"
+            directionTrigger={direction}
+          >
+            <ChevronLeft size={24} />
+          </ArrowButtons>
 
-        <ArrowButtons
-          paginate={paginate}
-          direction={-1}
-          addClass="btn-left"
-          directionTrigger={direction}
-        >
-          <ChevronLeft size={24} />
-        </ArrowButtons>
+          <ArrowButtons
+            paginate={paginate}
+            direction={1}
+            addClass="btn-right"
+            directionTrigger={direction}
+          >
+            <ChevronRight size={24} />
+          </ArrowButtons>
+        </div>
+      )}
 
-        <ArrowButtons
-          paginate={paginate}
-          direction={1}
-          addClass="btn-right"
-          directionTrigger={direction}
-        >
-          <ChevronRight size={24} />
-        </ArrowButtons>
-      </div>
       <div className="carusel-mask w-100 h-100 position-relative">
-
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             style={{}}
@@ -175,8 +175,8 @@ export const Carousel: React.FC = () => {
             dragElastic={0.5}
             onDragEnd={(e, { offset, velocity }) => {
               const swipe = swipePower(offset.x, velocity.x);
-              setSeconds(time);
-              dispatch(pauseHero(true))
+              setSeconds(TIME);
+              dispatch(pauseCarousel(true));
               if (swipe < -swipeConfidenceThreshold) {
                 paginate(1);
               } else if (swipe > swipeConfidenceThreshold) {
@@ -185,19 +185,16 @@ export const Carousel: React.FC = () => {
             }}
           >
             {/* OVO JE UNIVERZALNO */}
-            <Article
-              data={heroDetailsData.hero}
+            
+            <CarouselInner
+              data={data}
+              section={section}
               index={detailIndex}
-              isHeroDataLoaded={heroDetailsIsLoaded}
+              isDataLoaded={isLoaded}
               remap={remap}
             />
           </motion.div>
         </AnimatePresence>
-
-        {/* <motion.div className="position-absolute swipe d-flex justify-content-center border border-1 border-grey-700 align-items-center gap-3 p-2 rounded-2 shadow-lg text-dark">
-          <MdOutlineSwipe size={24} />
-          <div className="fs-13">swipe left / right</div>
-        </motion.div> */}
       </div>
     </>
   );

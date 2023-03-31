@@ -9,7 +9,7 @@ import { ContactUs } from "./components/contactus/ContactUs";
 import { Footer } from "./components/footer/Footer";
 import { Numbers } from "./components/numbers/Numbers";
 import { Land } from "./components/Land/Land";
-import { heroDetailsPedding } from "./features/heroDetails/heroDetails.slice";
+import { dataPedding } from "./features/data/data.slice";
 import { useAppDispatch, useAppSelector } from "./app/hooks";
 import { switchLanguage } from "./features/changeLanguage/changeLanguage.slice";
 import { RootState } from "./app/store";
@@ -25,12 +25,9 @@ function App() {
     dispatch(switchLanguage(storedSelectedOption))
   }, [])
 
-
   useEffect(() => {
-    dispatch(heroDetailsPedding(`json/${language}/data.json`));
+    dispatch(dataPedding(`json/${language}/data.json`));
   }, [dispatch, language]);
-
-
 
   return (
     <>

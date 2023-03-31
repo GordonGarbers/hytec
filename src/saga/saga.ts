@@ -1,9 +1,9 @@
 import { takeEvery, all, call, put } from "redux-saga/effects";
 import {
-  heroDetailsPedding,
-  heroDetailsFulfilled,
-  heroDetailsReject,
-} from "../features/heroDetails/heroDetails.slice";
+  dataPedding,
+  dataFulfilled,
+  dataReject,
+} from "../features/data/data.slice";
 import {IResponseGenerator } from "../interfaces/interfaces";
 import axios, { AxiosError } from "axios";
 
@@ -18,18 +18,18 @@ function* getHeroDetailsWorker(action: { type: string; payload: string }) {
       action.payload
     );
 
-    yield put(heroDetailsFulfilled(response.data));
+    yield put(dataFulfilled(response.data));
 
   } catch (error: any | unknown) {
     let err = "";
     if (error instanceof AxiosError) err = error.message;
     else err = "Something went wrong";
-    yield put(heroDetailsReject(err));
+    yield put(dataReject(err));
   }
 }
 
 function* getHeroDetails() {
-  yield takeEvery(heroDetailsPedding.type, getHeroDetailsWorker);
+  yield takeEvery(dataPedding.type, getHeroDetailsWorker);
 }
 
 export default function* rootSaga() {

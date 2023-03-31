@@ -38,14 +38,14 @@ export interface IHero{
   image: string;  
 }
 
-export interface IHeroDetails {
+export interface IDataDetails {
   hero:IHero[]
   products: []
 }
 
 export interface IResponseGenerator {
   config?: string;
-  data: IHeroDetails;
+  data: IDataDetails;
   headers?: string;
   request?: string;
   status?: string;

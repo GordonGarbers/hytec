@@ -4,7 +4,7 @@ import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { RootState } from "../../app/store";
 import { BsPlayFill } from "react-icons/bs";
 import { BsPauseFill } from "react-icons/bs";
-import { pauseHero } from "../../features/pauseHeroPage/pauseHeroPage";
+import { pauseCarousel } from "../../features/pauseHeroPage/pauseHeroPage";
 
 interface ICircularProgressProps {
   remap: number;
@@ -53,7 +53,7 @@ export const HeroCircularProgress: React.FC<ICircularProgressProps> = ({
       />
       <div
         role="button"
-        onClick={() => dispatch(pauseHero(!pauseAnim))}
+        onClick={() => dispatch(pauseCarousel(!pauseAnim))}
         style={{ width: "20px", height: "20px", ...style }}
         className="position-absolute position-relative"
       >

@@ -3,7 +3,7 @@ import counterReducer from "../features/counter/counterSlice";
 import showAndHideMenuReducer from "../features/menu/showAndHideMenu.slice";
 import navButtonsReducer from "../features/navButton/navButtons.slice";
 import scrollYReducer from "../features/scrollPosition/scrollPosition.slice";
-import heroDetailsReducer from "../features/heroDetails/heroDetails.slice";
+import dataReducer from "../features/data/data.slice";
 import windowWidthReducer from "../features/windowWidth/windowWidth.slice";
 import pauseReducer from "../features/pauseHeroPage/pauseHeroPage";
 import changeLanguageReducer from '../features/changeLanguage/changeLanguage.slice'
@@ -18,7 +18,7 @@ export const store = configureStore({
     menu: showAndHideMenuReducer,
     navButtons: navButtonsReducer,
     scrollPos: scrollYReducer,
-    heroDetails: heroDetailsReducer,
+    data: dataReducer,
     width: windowWidthReducer,
     pause: pauseReducer,
     lang: changeLanguageReducer
