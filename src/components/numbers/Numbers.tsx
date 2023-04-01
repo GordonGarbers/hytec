@@ -11,7 +11,7 @@ export const Numbers: React.FC = () => {
       <div className="">
         <div
           style={{ maxWidth: "1400px"}}
-          className="container-fluid-02 my-6 d-flex flex-column flex-sm-row gap-3 gap-sm-4 gap-lg-6 px-3 px-sm-3"
+          className="container-fluid-02 my-8 d-flex flex-column flex-sm-row gap-3 gap-sm-4 gap-lg-6 px-3 px-sm-3"
         >
           <CardNumber
             number={2005}
