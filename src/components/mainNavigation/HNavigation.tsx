@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { NavMenuIconSM } from "./NavMenuIconSM";
 import { XLg } from "react-bootstrap-icons";
-import { Translate } from "react-bootstrap-icons";
 import { Ul } from "./Ul";
 import { MAXIMUM_CONTAINER_WIDTH } from "../../constants/constants";
 import { Language } from "./Language";
@@ -11,7 +10,6 @@ interface INavigationProps {
 }
 
 export const HNavigation: React.FC<INavigationProps> = ({ windowWidth }) => {
-
 
 
   return (

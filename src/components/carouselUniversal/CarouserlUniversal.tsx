@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { wrap } from "@popmotion/popcorn";
-import { CarouselInner } from "../hero/CarouselUniversalInner";
+import { CarouselUniversalInner } from "./CarouselUniversalInner";
 import { ArrowButtons } from "../hero/ArrowButtons";
 import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
@@ -18,6 +18,7 @@ interface ICarouselUniversal {
   section: ESection;
   children: React.ReactNode;
   btnOnOff: boolean;
+  useKey: boolean;
 }
 
 const xOffset = 100;
@@ -54,6 +55,7 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
   section,
   children,
   btnOnOff,
+  useKey,
 }) => {
   const dispatch = useAppDispatch();
 
@@ -64,7 +66,7 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
   const keyPPressed = useKeyPress("KeyP");
 
   const [[page, direction], setPage] = useState([0, 1]);
-  const detailIndex: number = wrap(0, data[section].length, page);
+  const index: number = wrap(0, data[section].length, page);
 
   const paginate = (newDirection: number) => {
     setPage([page + newDirection, newDirection]);
@@ -74,7 +76,7 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
   const remap = Math.trunc((seconds / TIME) * 100);
 
   useEffect(() => {
-    if (arrowUpPressed) {
+    if (arrowUpPressed && useKey) {
       setSeconds(TIME);
       paginate(-1);
       dispatch(pauseCarousel(true));
@@ -82,7 +84,7 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
   }, [arrowUpPressed]);
 
   useEffect(() => {
-    if (arrowDownPressed) {
+    if (arrowDownPressed && useKey) {
       setSeconds(TIME);
       paginate(1);
       dispatch(pauseCarousel(true));
@@ -90,7 +92,7 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
   }, [arrowDownPressed]);
 
   useEffect(() => {
-    if (keyPPressed) {
+    if (keyPPressed && useKey) {
       dispatch(pauseCarousel(!pauseAnim));
     }
   }, [keyPPressed]);
@@ -133,6 +135,9 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
 
   return (
     <>
+
+
+      <div className="carusel-mask w-100 h-100 position-relative">
       {btnOnOff && (
         <div className="buttons-wrapper">
           <ArrowButtons
@@ -154,8 +159,6 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
           </ArrowButtons>
         </div>
       )}
-
-      <div className="carusel-mask w-100 h-100 position-relative">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             style={{}}
@@ -184,15 +187,13 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
               }
             }}
           >
-            {/* OVO JE UNIVERZALNO */}
-            
-            <CarouselInner
+            <CarouselUniversalInner
               data={data}
+              index={index}
               section={section}
-              index={detailIndex}
               isDataLoaded={isLoaded}
               remap={remap}
-            />
+            ></CarouselUniversalInner>
           </motion.div>
         </AnimatePresence>
       </div>

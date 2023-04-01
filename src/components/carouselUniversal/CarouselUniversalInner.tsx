@@ -1,30 +1,30 @@
 import React, { useState } from "react";
-import { ESection, IDataDetails, IHero } from "../../interfaces/interfaces";
+import { ESection, IDataDetails } from "../../interfaces/interfaces";
 import Skeleton from "react-loading-skeleton";
-import { HeroCircularProgress } from "./HeroCircularProgress";
+import { HeroCircularProgress } from "../hero/HeroCircularProgress";
 import { getImageRatio } from "../../utils/createImagePlaceholder";
 import { Spinner } from "../spinner/Spinner";
 import { useImageCache } from "../hooks/useImageCache";
 
 
-interface IArticleProps {
+interface ICarouselUniversalInnerProps {
   data: IDataDetails;
   index: number;
   isDataLoaded: boolean;
   remap: number;
-  section: ESection
+  section: ESection,
 }
 
 
-export const CarouselInner: React.FC<IArticleProps> = ({
+export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
   data,
   index,
   isDataLoaded,
   remap,
-  section
+  section,
 }) => {
   const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
-
+  
   //cache all images
   const imageUrl = useImageCache(data[section][index]?.image, isImgLoaded)
 

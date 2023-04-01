@@ -11,7 +11,7 @@ export interface ElementBoundingBox {
 
 export interface INavigationButton {
   activeBtnValue: number;
-  activeBtnName: string;
+  activeBtnName?: string;
 }
 
 export interface ILogoVariants {
@@ -28,19 +28,23 @@ export interface ILogoVariants {
   };
 }
 
-export interface IHero{
+export interface IHero {
   id: number;
   smallTitle: string;
   titleNormalBefore: string;
   titleAccent: string;
-  titleNormalAfter:string;
+  titleNormalAfter: string;
   text: string;
-  image: string;  
+  image: string;
 }
 
 export interface IDataDetails {
-  hero:IHero[]
-  products: []
+  hero: IHero[];
+  products: [];
+  nav: string[];
+  sections: {
+    contact: string
+  };
 }
 
 export interface IResponseGenerator {
@@ -52,7 +56,7 @@ export interface IResponseGenerator {
   statusText?: string;
 }
 
-export enum ESection{
-  hero = 'hero',
-  products = 'products'
+export enum ESection {
+  hero = "hero",
+  products = "products",
 }

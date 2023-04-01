@@ -4,14 +4,19 @@ import { HiOutlineMail } from "react-icons/hi";
 import { MdTitle } from "react-icons/md";
 import { MdEmail, MdLocationOn } from "react-icons/md";
 import { BsTelephoneFill } from "react-icons/bs";
+import { useAppSelector } from "../../app/hooks";
+import { RootState } from "../../app/store";
+import Skeleton from "react-loading-skeleton";
 
 
 export const Form: React.FC = () => {
+  const { dataIsLoaded, data, dataError } = useAppSelector((state: RootState) => state.data);
+
   return (
     <form className="form-wrapper">
       <div className="">
         <h1 style={{ fontWeight: "600"}} className="fs-6 pt-0 text-primary">
-          CONTACT US
+            {data.sections?.contact}
         </h1>
 
         <div className="d-flex flex-column gap-2 gap-md-3 gap-lg-4 mt-4">

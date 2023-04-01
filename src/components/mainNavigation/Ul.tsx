@@ -11,12 +11,20 @@ interface IUlProps {
 }
 
 export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
+  const { dataIsLoaded, data, dataError } = useAppSelector(
+    (state: RootState) => state.data
+  );
+
+  const { scrollY} = useAppSelector(
+    (state: RootState) => state.scrollPos
+  );
 
   const ref = useRef<HTMLUListElement>(null);
 
   const { activeBtnValue, activeBtnName } = useAppSelector(
     (state: RootState) => state.navButtons
   );
+
   const dispatch = useAppDispatch();
 
   const onLiBtnClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
@@ -36,7 +44,7 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
         ref={ref}
         className=" text-secondary mt-7 mt-sm-1 list-unstyled d-flex flex-column align-items-start flex-sm-row gap-4 gap-sm-6 px-3 pb-0"
       >
-        {navButtons.map((item: string, idx: number) => {
+        {data.nav.map((item: string, idx: number) => {
           return (
             <Li
               key={idx}
@@ -53,7 +61,9 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
             />
           );
         })}
-      <Mover show={windowWidth} ulRef={ref} btnToMove={activeBtnValue} />
+        {windowWidth > 620 && (
+          <Mover show={windowWidth} ulRef={ref} btnToMove={activeBtnValue} />
+        )}
       </ul>
     </>
   );

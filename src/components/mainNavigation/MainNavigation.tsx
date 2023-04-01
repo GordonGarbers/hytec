@@ -12,6 +12,7 @@ import {motion} from 'framer-motion';
 
 
 export const MainNavigation = () => {
+
   const {windowWidth} = useAppSelector((state: RootState) => state.width)
 
   const {scrollY} =  useAppSelector((state:RootState) => state.scrollPos)

@@ -38,23 +38,9 @@
     }
   ],
 
-  "menu":[
-    {
-      "id":1,
-      "home":"Home"
-    },
-    {
-      "id":2,
-      "machinery":"Machinery"
-    },
-    {
-      "id":3,
-      "aboutus":"About Us"
-    },
-    {
-      "id":4,
-      "contact":"Contact"
-    }
-  ]
+  "nav":["Home", "Machinery", "About Us", "Contact"],
+  "sections":{
+    "contact":"CONTACT US"
+  }
 } 
 
