@@ -9,12 +9,11 @@ interface ILiProps {
 }
 
 export const Li: React.FC<ILiProps> = ({ btnName, value, data, func, addToClassName}) => {
-
   return (
     <li
       onClick={(e) => func(e)}
       role="button"
-      className={`${addToClassName} d-flex justify-content-center align-items-center text-capitalize`}
+      className={`${addToClassName} d-flex justify-content-center align-items-center text-capitalize `}
       data-add-btn={data}
       value={value}
     >

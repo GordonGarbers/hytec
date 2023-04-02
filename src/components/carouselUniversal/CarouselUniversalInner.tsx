@@ -3,18 +3,17 @@ import { ESection, IDataDetails } from "../../interfaces/interfaces";
 import Skeleton from "react-loading-skeleton";
 import { HeroCircularProgress } from "../hero/HeroCircularProgress";
 import { getImageRatio } from "../../utils/createImagePlaceholder";
-import { Spinner } from "../spinner/Spinner";
+import { Spinner } from "../loaders/Spinner";
 import { useImageCache } from "../hooks/useImageCache";
-
+import { useImagePlaceholder } from "../hooks/useImagePlaceholder";
 
 interface ICarouselUniversalInnerProps {
   data: IDataDetails;
   index: number;
   isDataLoaded: boolean;
   remap: number;
-  section: ESection,
+  section: ESection;
 }
-
 
 export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
   data,
@@ -24,14 +23,13 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
   section,
 }) => {
   const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
-  
+
   //cache all images
-  const imageUrl = useImageCache(data[section][index]?.image, isImgLoaded)
+  const imageUrl = useImageCache(data[section][index]?.image, isImgLoaded);
 
   const handleImageOnLoad = () => {
     setIsImgLoaded(true);
   };
-
 
   return (
     <article className="d-flex flex-column-reverse flex-lg-row w-100 position-relative">
@@ -59,8 +57,8 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
                 <Skeleton count={1} />
               )}
             </h1>
-            <p className="mt-3 mt-sm-4 fs-13">
-              {!isDataLoaded ? data.hero[index]?.text : <Skeleton count={4} />}
+            <p className="mt-3 mt-sm-4 fs-13" style={{ fontWeight:'400'}}>
+              {!isDataLoaded ? data.hero[index]?.text.split('\n').map((item:string)=> <p style={{textIndent:'30px'}}>{item}</p>) : <Skeleton count={5} />}
             </p>
             <div>
               {!isDataLoaded ? (
@@ -72,13 +70,12 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
               )}
             </div>
           </div>
-          <div className="h-100 article-left-right"></div>
+          <div  className="h-100 article-left-right"></div>
         </div>
       </div>
       <div className="w-100 overflow-hidden article-right position-relative">
-        <HeroCircularProgress remap={remap} />
-        {
-          imageUrl &&
+        <HeroCircularProgress remap={remap}/>
+        {imageUrl && (
           <img
             onLoad={handleImageOnLoad}
             src={isImgLoaded ? imageUrl : getImageRatio(1920, 1080)}
@@ -86,8 +83,8 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
             draggable="false"
             className="w-100"
           />
-        }
-        {!isImgLoaded &&<Spinner size={50} width={8}/>}
+        )}
+        {!isImgLoaded && <Spinner size={50} width={8} />}
       </div>
     </article>
   );

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { navButtons } from "../../constants/constants";
 import { Li } from "./Li";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
@@ -15,9 +15,7 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
     (state: RootState) => state.data
   );
 
-  const { scrollY} = useAppSelector(
-    (state: RootState) => state.scrollPos
-  );
+  const { scrollY } = useAppSelector((state: RootState) => state.scrollPos);
 
   const ref = useRef<HTMLUListElement>(null);
 
@@ -36,7 +34,22 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
           e.currentTarget.textContent?.split(" ").join("").toLowerCase() ?? "",
       })
     );
+    sessionStorage.setItem("btnValue", e.currentTarget.value.toString());
+    sessionStorage.setItem("btnName", e.currentTarget.textContent?.split(" ").join("").toLowerCase()??"");
   };
+
+  useEffect(() => {
+    const btnValue = sessionStorage.getItem("btnValue") || activeBtnValue;
+    const btnName = sessionStorage.getItem("btnName") || activeBtnName;
+    dispatch(
+      setNavButton({
+        activeBtnValue: parseInt(btnValue as string),
+        activeBtnName: btnName
+      })
+    );
+  }, [activeBtnValue, activeBtnName, dispatch]);
+
+  // console.log('Active btn name: ', typeof activeBtnValue);
 
   return (
     <>
@@ -45,6 +58,7 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
         className=" text-secondary mt-7 mt-sm-1 list-unstyled d-flex flex-column align-items-start flex-sm-row gap-4 gap-sm-6 px-3 pb-0"
       >
         {data.nav.map((item: string, idx: number) => {
+          // console.log('Prvi broj: ', activeBtnValue as number, 'Drugi broj: ', idx, typeof activeBtnValue, typeof idx);
           return (
             <Li
               key={idx}
@@ -53,7 +67,8 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
               data={false}
               func={onLiBtnClick}
               addToClassName={
-                item.split(" ").join("").toLowerCase() === activeBtnName &&
+                // item.split(" ").join("").toLowerCase() === activeBtnName &&
+                activeBtnValue === idx &&
                 windowWidth < 620
                   ? "selected-button"
                   : ""

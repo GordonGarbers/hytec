@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useAppSelector } from "../../app/hooks";
 import { RootState } from "../../app/store";
 import { getImageRatio } from "../../utils/createImagePlaceholder";
-import { Spinner } from "../spinner/Spinner";
+import { Spinner } from "../loaders/Spinner";
 import Tilt from "react-parallax-tilt";
 import Skeleton from "react-loading-skeleton";
 import { PrimaryButton } from "../primaryButton/PrimaryButton";
@@ -69,7 +69,7 @@ export const Land: React.FC = () => {
 
   return (
     <div style={{ backgroundColor: "#fff" }} className="mt-6 py-6 w-100 h-100">
-      <div className="container-fluid-02 d-flex w-100 align-items-center">
+      <div className="container-fluid-02 d-flex flex-column flex-lg-row w-100 align-items-center">
         <div
           ref={ref}
           style={{ maxWidth: "600px" }}
@@ -92,7 +92,7 @@ export const Land: React.FC = () => {
             {!isImgLoaded ? <Spinner size={50} width={8} /> : logoPosElements}
           </Tilt>
         </div>
-        <div className="ms-3 article-left-left w-100 px-8">
+        <div className="article-left-left w-100 px-4 px-sm-6 px-lg-8 mt-5 mt-lg-0">
           <h1 className="fw-bold fs-5">
             {!dataIsLoaded ? (
               <>
@@ -102,7 +102,7 @@ export const Land: React.FC = () => {
               <Skeleton count={1} />
             )}
           </h1>
-          <p style={{ tabSize: "5" }} className="mt-3 mt-sm-4 fs-13">
+          <p style={{ tabSize: "5", textIndent:'30px'}} className="mt-3 mt-sm-4 fs-13">
             {!dataIsLoaded ? (
               `Are you interested in becoming a dealer for our heavy machinery products? We're looking for dedicated individuals or companies who are passionate about construction and heavy equipment. As a dealer, you'll have access to our full range of high-quality products, competitive pricing, and comprehensive support. Join us and help us bring the best in heavy machinery to customers worldwide. Contact us today to learn more about this exciting opportunity.`
             ) : (

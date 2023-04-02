@@ -14,6 +14,7 @@ const style = {
   left: "50%",
   top: "50%",
   transform: "translate(-50%, -50%)",
+  zIndex: '3'
 };
 
 export const HeroCircularProgress: React.FC<ICircularProgressProps> = ({
