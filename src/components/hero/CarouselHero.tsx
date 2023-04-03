@@ -10,6 +10,8 @@ export const CarouselHero: React.FC = () => {
     (state: RootState) => state.data
   );
 
+  
+
   return (
     <>
       <CarouselUniversal isLoaded={dataIsLoaded} data={data} error={dataError} section = {ESection.hero} btnOnOff = {true} useKey={true}>

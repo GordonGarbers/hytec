@@ -13,7 +13,9 @@ const initialState: IInitialState = {
     hero: [],
     products: [],
     nav: ["Home", "Machinery", "About Us", "Contact"],
-    sections: { contact: "" },
+    sections: {},
+    dealer: {},
+    buttons: {},
   },
   dataError: "",
 };
@@ -40,7 +42,9 @@ const datasSlice = createSlice({
         hero: [],
         products: [],
         nav: [],
-        sections: { contact: "" },
+        sections: {},
+        dealer: {},
+        buttons: {},
       };
       state.dataError = action.payload;
     },

@@ -92,7 +92,7 @@ export const Form: React.FC = () => {
         type="submit"
       >
         {/* <BiMailSend size={20} className="me-2" /> */}
-        <span>Send Message</span>
+        <span>{data.buttons.send}</span>
       </button>
     </form>
   );

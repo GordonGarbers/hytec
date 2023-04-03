@@ -43,7 +43,7 @@
     
                     }
                     .article-right{
-                        clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
+                        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 10% 50%);
                         img{
                             min-width:1300px;
                         }
@@ -111,7 +111,7 @@
 @media (max-width: 620px){
     .section{
         z-index: 0;
-        height:700px;
+        height:720px;
         // margin-top: 50px;
 
     

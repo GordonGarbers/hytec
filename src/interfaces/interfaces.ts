@@ -28,23 +28,38 @@ export interface ILogoVariants {
   };
 }
 
-export interface IHero {
-  id: number;
+interface ITextCommon {
   smallTitle: string;
   titleNormalBefore: string;
   titleAccent: string;
   titleNormalAfter: string;
   text: string;
+}
+
+export interface IHero extends ITextCommon {
+  id: number;
   image: string;
+}
+
+export interface IDealer extends ITextCommon {}
+
+export interface ISection {
+  contact: string;
+}
+
+export interface IButtons {
+  contact: string;
+  apply: "Jetzt bewerben";
+  send: "Nachricht senden";
 }
 
 export interface IDataDetails {
   hero: IHero[];
   products: [];
   nav: string[];
-  sections: {
-    contact: string
-  };
+  sections: Partial<ISection>;
+  dealer: Partial<IDealer>;
+  buttons: Partial<IButtons>;
 }
 
 export interface IResponseGenerator {

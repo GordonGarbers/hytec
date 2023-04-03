@@ -6,6 +6,8 @@ import { getImageRatio } from "../../utils/createImagePlaceholder";
 import { Spinner } from "../loaders/Spinner";
 import { useImageCache } from "../hooks/useImageCache";
 import { useImagePlaceholder } from "../hooks/useImagePlaceholder";
+import { ProcessText } from "../layout/ProcessText";
+import { PrimaryButton } from "../primaryButton/PrimaryButton";
 
 interface ICarouselUniversalInnerProps {
   data: IDataDetails;
@@ -35,7 +37,7 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
     <article className="d-flex flex-column-reverse flex-lg-row w-100 position-relative">
       <div className="w-100 h-100 article-left">
         <div className="container-fluid-02 h-100 w-100 d-flex justify-content-center align-items-center mt-3 mt-sm-3 mt-lt-5  article-left-wrapper">
-          <div className="ms-3 article-left-left">
+          <div className="ms-3 article-left-left ps-2 pe-3">
             <p className="text-uppercase text-primary">
               {!isDataLoaded ? (
                 data.hero[index]?.smallTitle
@@ -57,14 +59,11 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
                 <Skeleton count={1} />
               )}
             </h1>
-            <p className="mt-3 mt-sm-4 fs-13" style={{ fontWeight:'400'}}>
-              {!isDataLoaded ? data.hero[index]?.text.split('\n').map((item:string)=> <p style={{textIndent:'30px'}}>{item}</p>) : <Skeleton count={5} />}
-            </p>
+            
+            <ProcessText isLoaded={isDataLoaded} text={data.hero[index]?.text??""} />
             <div>
               {!isDataLoaded ? (
-                <button className="btn btn-primary mt-2 mt-sm-3 rounded-2">
-                  Contact us
-                </button>
+                  <PrimaryButton>{data.buttons.contact}</PrimaryButton>
               ) : (
                 <Skeleton width={100} height={40} />
               )}

@@ -138,6 +138,8 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
 
 
       <div className="carusel-mask w-100 h-100 position-relative">
+      {/* <div style={{clipPath: 'polygon(0% 10%, 40% 10%, 100% 100%, 100% 0%, 0% 0%)'}}className="w-100 h-100 bg-primary position-absolute"></div> */}
+
       {btnOnOff && (
         <div className="buttons-wrapper">
           <ArrowButtons
@@ -194,6 +196,7 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
               isDataLoaded={isLoaded}
               remap={remap}
             ></CarouselUniversalInner>
+            
           </motion.div>
         </AnimatePresence>
       </div>

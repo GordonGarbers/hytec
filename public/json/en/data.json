@@ -1,12 +1,12 @@
 {
-  "hero":[
+  "hero": [
     {
       "id": 1,
       "smallTitle": "HYTEC",
       "titleNormalBefore": "We're the Leaders in Heavy ",
       "titleAccent": "Machinery Solutions",
       "titleNormalAfter": "",
-      "text": "Hytec is the industry leader in top-quality heavy machinery solutions. Our selection of tractors, excavators, and other equipment is designed to meet the needs of any industry. \nWe partner with leading manufacturers to offer advanced and reliable machinery. Our team of experts provides customized solutions that fit your needs and budget, and we offer comprehensive maintenance and repair services to keep your equipment running smoothly. Trust Hytec to be your partner for all your heavy machinery needs. Contact us today to experience the difference.",
+      "text": "Hytec is a leading provider of top-quality heavy machinery solutions. Our selection of tractors, excavators, and other equipment meets the needs of any industry. \nWe partner with leading manufacturers to offer advanced and reliable machinery, and our team provides customized solutions to fit your needs and budget. Trust Hytec as your partner for all your heavy machinery needs. Contact us today to learn more.",
       "image": "assets/carusel/baumachine_01.jpg"
     },
     {
@@ -21,10 +21,10 @@
     {
       "id": 3,
       "smallTitle": "HYTEC",
-      "titleNormalBefore": "We have more then",
-      "titleAccent": "10000",
-      "titleNormalAfter": "clients",
-      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga maxime minus laboriosam ex officia ea, maiores aut nostrum quisquam. Blanditiis beatae ipsum in impedit, tempora repudiandae inventore reprehenderit ut labore!",
+      "titleNormalBefore": "Over",
+      "titleAccent": "10.000",
+      "titleNormalAfter": "Satisfied Customers and Counting",
+      "text": "HYTEC provides high-quality heavy machinery solutions to meet industry-specific needs. With 10,000+ satisfied customers, our experts offer custom solutions within budget while partnering with leading manufacturers for advanced and dependable machinery. Count on us for your heavy machinery needs. Contact us today to learn more.",
       "image": "assets/carusel/baumachine_03.jpg"
     },
     {
@@ -38,9 +38,23 @@
     }
   ],
 
-  "nav":["Home", "Machinery", "About Us", "Contact"],
-  "sections":{
-    "contact":"CONTACT US"
-  }
-} 
+  "dealer": {
+    "smallTitle": "HYTEC",
+    "titleNormalBefore": "Became a",
+    "titleAccent": "HYTEC",
+    "titleNormalAfter": "dealer",
+    "text": "Are you interested in becoming a dealer for our heavy machinery products? We're looking for dedicated individuals or companies who are passionate about construction and heavy equipment. \nAs a dealer, you'll have access to our full range of high-quality products, competitive pricing, and comprehensive support. Join us and help us bring the best in heavy machinery to customers worldwide. Contact us today to learn more about this exciting opportunity."
+  },
 
+  "nav": ["Home", "Machinery", "About Us", "Contact"],
+
+  "sections": {
+    "contact": "CONTACT US"
+  },
+
+  "buttons": {
+    "contact": "Contact us",
+    "apply": "Apply now",
+    "send": "Send Message"
+  }
+}

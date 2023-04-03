@@ -9,6 +9,7 @@ import { Spinner } from "../loaders/Spinner";
 import Tilt from "react-parallax-tilt";
 import Skeleton from "react-loading-skeleton";
 import { PrimaryButton } from "../primaryButton/PrimaryButton";
+import { ProcessText } from "../layout/ProcessText";
 
 const variants = {
   from: {
@@ -96,22 +97,19 @@ export const Land: React.FC = () => {
           <h1 className="fw-bold fs-5">
             {!dataIsLoaded ? (
               <>
-                Became a <span className="text-primary">dealer</span>
+                {data.dealer?.titleNormalBefore}{" "}
+                <span className="text-primary">{data.dealer?.titleAccent}</span>{" "}
+                {data.dealer?.titleNormalAfter}
               </>
             ) : (
               <Skeleton count={1} />
             )}
           </h1>
-          <p style={{ tabSize: "5", textIndent:'30px'}} className="mt-3 mt-sm-4 fs-13">
-            {!dataIsLoaded ? (
-              `Are you interested in becoming a dealer for our heavy machinery products? We're looking for dedicated individuals or companies who are passionate about construction and heavy equipment. As a dealer, you'll have access to our full range of high-quality products, competitive pricing, and comprehensive support. Join us and help us bring the best in heavy machinery to customers worldwide. Contact us today to learn more about this exciting opportunity.`
-            ) : (
-              <Skeleton count={4} />
-            )}
-          </p>
+          <ProcessText isLoaded={dataIsLoaded} text={data.dealer?.text??""} />
+
           <div>
             {!dataIsLoaded ? (
-              <PrimaryButton>Apply now</PrimaryButton>
+              <PrimaryButton>{data.buttons.apply}</PrimaryButton>
             ) : (
               <Skeleton width={100} height={40} />
             )}
