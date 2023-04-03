@@ -13,9 +13,9 @@ export const Footer: React.FC = () => {
   );
   return (
     <>
-      <footer className="bg-dark">
+      <footer className="bg-dark " style={{zIndex:'1'}}>
         <div
-          style={{ maxWidth: `${MAXIMUM_CONTAINER_WIDTH}px` }}
+          style={{ maxWidth: `${MAXIMUM_CONTAINER_WIDTH}px`}}
           className="container-fluid-02 gap-2 py-4 px-3 fs-14  text-grey-600 d-flex flex-column flex-sm-row align-items-center justify-content-between"
         >
           <div

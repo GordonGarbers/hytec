@@ -11,6 +11,7 @@ import Skeleton from 'react-loading-skeleton';
 import { PrimaryButton } from '../primaryButton/PrimaryButton';
 import { ProcessText } from '../layout/ProcessText';
 import { EColors } from '../../constants/constants';
+import './land.scss'
 
 const variants = {
   from: {
@@ -81,8 +82,29 @@ export const Land: React.FC = () => {
   });
 
   return (
-    <div style={{ backgroundColor: '#fff' }} className="mt-6 py-6 w-100 h-100">
-      <div className="container-fluid-02 d-flex flex-column flex-lg-row w-100 align-items-center">
+    <div
+      style={{ backgroundColor: '#fff', zIndex:'0'}}
+      className="w-100 h-100 position-relative"
+    >
+      {/* <div style={{clipPath: 'polygon(0% 30%, 100% 10%, 100% 0%, 0% 0%)', zIndex:'-1'}}className="w-100 h-100 bg-grey-900 position-absolute"/> */}
+      {/* <div className="parent position-absolute w-100">
+        <div className="my-element-to-clip bg-primary"></div>
+      </div>
+      <svg width="0" height="0">
+        <defs>
+          <clipPath id="myCurve" clipPathUnits="objectBoundingBox">
+            <path
+              d="M 0,1
+									L 0,0
+									L 1,0
+									L 1,1
+									C .65 .4, .9 .8, 0 .2
+									Z"
+            />
+          </clipPath>
+        </defs>
+      </svg> */}
+      <div className="container-fluid-02 d-flex flex-column flex-lg-row w-100 align-items-center py-6">
         <div
           ref={ref}
           style={{ maxWidth: '600px' }}
@@ -113,9 +135,9 @@ export const Land: React.FC = () => {
           transition={{
             delay: 0,
             type: 'tween',
-            duration: .5
-            
+            duration: 0.5,
           }}
+
           className="article-left-left w-100 px-4 px-sm-6 px-lg-8 mt-5 mt-lg-0"
         >
           <h1 className="fw-bold fs-5">
@@ -126,16 +148,20 @@ export const Land: React.FC = () => {
                 {data.dealer?.titleNormalAfter}
               </>
             ) : (
-              <Skeleton count={1} baseColor={EColors.primary}/>
+              <Skeleton count={1} baseColor={EColors.primary} />
             )}
           </h1>
-          <ProcessText isLoaded={dataIsLoaded} text={data.dealer?.text ?? ''} color={EColors.primary}/>
+          <ProcessText
+            isLoaded={dataIsLoaded}
+            text={data.dealer?.text ?? ''}
+            color={EColors.primary}
+          />
 
           <div>
             {!dataIsLoaded ? (
               <PrimaryButton>{data.buttons.apply}</PrimaryButton>
             ) : (
-              <Skeleton width={100} height={40} baseColor={EColors.primary}/>
+              <Skeleton width={100} height={40} baseColor={EColors.primary} />
             )}
           </div>
         </motion.div>
