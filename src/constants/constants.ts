@@ -24,3 +24,11 @@ export const logoPos: logoPosType[] = [
 export const languageButtons = ["en", "de"];
 
 export const TIME = 6000;
+
+export enum EColors{
+  primary = "#f7d100",
+  primaryMono = "#FFDE2B",
+  dark = "#26272e",
+  darkForm = "#2d2e36",
+  darkLight = "#373943"
+}

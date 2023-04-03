@@ -47,7 +47,7 @@ export const Form: React.FC = () => {
               className="form-control bg-dark-form border-0 fs-13 text-grey-700 rounded-1"
               // className="form-control bg-dark border-0 border-bottom border-grey-300 fs-13 text-grey-700 rounded-0"
               id="validationDefault01"
-              placeholder="Name"
+              placeholder={data.form.name??""}
               required
             />
           </div>
@@ -59,7 +59,7 @@ export const Form: React.FC = () => {
             <input
               type="email"
               className="form-control bg-dark-form border-0 fs-13 text-grey-700 rounded-1"              id="validationDefault02"
-              placeholder="Email"
+              placeholder={data.form.email??""}
               required
             />
           </div>
@@ -71,7 +71,7 @@ export const Form: React.FC = () => {
             <input
               type="text"
               className="form-control bg-dark-form border-0 fs-13 text-grey-700 rounded-1"              id="validationDefaultUsername"
-              placeholder="Subject"
+              placeholder={data.form.subject??""}
               aria-describedby="inputGroupPrepend2"
               required
             />
@@ -82,7 +82,7 @@ export const Form: React.FC = () => {
           <textarea
             className="form-control bg-dark-form border-0 fs-13 text-grey-700 rounded-1"
             rows={5}
-            placeholder="Type your message"
+            placeholder={data.form.text??""}
           ></textarea>
         </div>
       </div>
@@ -91,7 +91,6 @@ export const Form: React.FC = () => {
         className="btn btn-primary fs-13 fw-bold px-2 px-sm-5 py-2 d-flex align-items-center"
         type="submit"
       >
-        {/* <BiMailSend size={20} className="me-2" /> */}
         <span>{data.buttons.send}</span>
       </button>
     </form>

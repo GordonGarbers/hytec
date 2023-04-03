@@ -3,21 +3,23 @@
     {
       "id": 1,
       "smallTitle": "HYTEC",
-      "titleNormalBefore": "We're the Leaders in Heavy ",
-      "titleAccent": "Machinery Solutions",
-      "titleNormalAfter": "",
-      "text": "Hytec is a leading provider of top-quality heavy machinery solutions. Our selection of tractors, excavators, and other equipment meets the needs of any industry. \nWe partner with leading manufacturers to offer advanced and reliable machinery, and our team provides customized solutions to fit your needs and budget. Trust Hytec as your partner for all your heavy machinery needs. Contact us today to learn more.",
-      "image": "assets/carusel/baumachine_01.jpg"
+      "titleNormalBefore": " Welcome to the world of",
+      "titleAccent": "HYTEC",
+      "titleNormalAfter": "heavy machinery",
+      "text": "HYTEC is your reliable partner for purchasing quality heavy machinery. With years of experience, we offer the best products from leading manufacturers. \nOur team of experts can help you find the machine that meets your needs, whether it's new or used. Contact us today to discover why we are leaders in heavy machinery sales.",
+      "image": "assets/carusel/baumachine_02.jpg"
     },
+
     {
       "id": 2,
       "smallTitle": "HYTEC",
-      "titleNormalBefore": "We have the best",
-      "titleAccent": "heavy",
-      "titleNormalAfter": "machines",
-      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga maxime minus laboriosam ex officia ea, maiores aut nostrum quisquam. Blanditiis beatae ipsum in impedit, tempora repudiandae inventore reprehenderit ut labore!",
-      "image": "assets/carusel/baumachine_02.jpg"
+      "titleNormalBefore": "We're the Leaders in",
+      "titleAccent": "Heavy Machinery",
+      "titleNormalAfter": "Solutions",
+      "text": "Hytec is a leading provider of top-quality heavy machinery solutions. Our selection of tractors, excavators, and other equipment meets the needs of any industry. \nWe partner with leading manufacturers to offer advanced and reliable machinery, and our team provides customized solutions to fit your needs and budget. Trust Hytec as your partner for all your heavy machinery needs. Contact us today to learn more.",
+      "image": "assets/carusel/baumachine_01.jpg"
     },
+
     {
       "id": 3,
       "smallTitle": "HYTEC",
@@ -26,15 +28,6 @@
       "titleNormalAfter": "Satisfied Customers and Counting",
       "text": "HYTEC provides high-quality heavy machinery solutions to meet industry-specific needs. With 10,000+ satisfied customers, our experts offer custom solutions within budget while partnering with leading manufacturers for advanced and dependable machinery. Count on us for your heavy machinery needs. Contact us today to learn more.",
       "image": "assets/carusel/baumachine_03.jpg"
-    },
-    {
-      "id": 4,
-      "smallTitle": "HYTEC",
-      "titleNormalBefore": "We can deliver to ",
-      "titleAccent": "your",
-      "titleNormalAfter": "adress",
-      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga maxime minus laboriosam ex officia ea, maiores aut nostrum quisquam. Blanditiis beatae ipsum in impedit, tempora repudiandae inventore reprehenderit ut labore!",
-      "image": "assets/carusel/baumachine_04.jpg"
     }
   ],
 
@@ -56,5 +49,28 @@
     "contact": "Contact us",
     "apply": "Apply now",
     "send": "Send Message"
+  },
+
+  "numbers":{
+    "founded":"Founded",
+    "sold":"Machines sold",
+    "dealers":"Dealers"
+  },
+
+  "form":{
+    "name":"Name",
+    "email":"Email",
+    "subject":"Subject",
+    "text":"Type your message"
+  },
+
+  "footer":{
+    "imprint":"Imprint",
+    "privacyPolicy":"Privacy Policy",
+    "termsAndConditions":"Terms and Conditions"
   }
 }
+
+
+
+

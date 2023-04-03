@@ -4,11 +4,13 @@ import Skeleton from "react-loading-skeleton";
 interface IProcessTextProps {
   isLoaded: boolean;
   text: string;
+  color: string
 }
 
 export const ProcessText: React.FC<IProcessTextProps> = ({
   isLoaded,
   text,
+  color
 }) => {
   return (
     <div className="mt-3 mt-sm-4 fs-13" style={{ fontWeight: "400" }}>
@@ -19,7 +21,7 @@ export const ProcessText: React.FC<IProcessTextProps> = ({
           </p>
         ))
       ) : (
-        <Skeleton count={5} />
+        <Skeleton count={5} baseColor={color}/>
       )}
     </div>
   );

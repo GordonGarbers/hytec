@@ -195,6 +195,7 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
               section={section}
               isDataLoaded={isLoaded}
               remap={remap}
+              direction={direction}
             ></CarouselUniversalInner>
             
           </motion.div>

@@ -49,8 +49,27 @@ export interface ISection {
 
 export interface IButtons {
   contact: string;
-  apply: "Jetzt bewerben";
-  send: "Nachricht senden";
+  apply: string;
+  send: string;
+}
+
+export interface INumbers {
+  founded: string;
+  sold: string;
+  dealers: string;
+}
+
+export interface IFrom {
+  name: string;
+  email: string;
+  subject: string;
+  text: string;
+}
+
+export interface IFooter {
+  imprint: string;
+  privacyPolicy: string;
+  termsAndConditions: string;
 }
 
 export interface IDataDetails {
@@ -60,6 +79,9 @@ export interface IDataDetails {
   sections: Partial<ISection>;
   dealer: Partial<IDealer>;
   buttons: Partial<IButtons>;
+  numbers: Partial<INumbers>;
+  form: Partial<IFrom>;
+  footer:Partial<IFooter>;
 }
 
 export interface IResponseGenerator {
@@ -72,6 +94,6 @@ export interface IResponseGenerator {
 }
 
 export enum ESection {
-  hero = "hero",
-  products = "products",
+  hero = 'hero',
+  products = 'products',
 }

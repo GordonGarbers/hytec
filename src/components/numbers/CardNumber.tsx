@@ -96,7 +96,7 @@ export const CardNumber: React.FC<ICardNumberProps> = ({
             />
             
           </div>
-          <div style={{ fontWeight: "400" }} className="fs-10 text-grey-400">
+          <div style={{ fontWeight: "500"}} className="fs-10 text-grey-400">
             {script}
           </div>
         </div>
