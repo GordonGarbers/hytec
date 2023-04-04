@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { ReactNode, useState } from "react";
 import { pauseCarousel } from "../../features/pauseHeroPage/pauseHeroPage";
+import { useAppDispatch } from "../../app/hooks";
 
 interface IArrowButtonsProps {
   paginate: (newDirection: number) => void | null;
@@ -8,6 +9,7 @@ interface IArrowButtonsProps {
   children: ReactNode;
   addClass: string;
   directionTrigger: number;
+  handleClick: ()=>void;
 }
 
 
@@ -16,30 +18,31 @@ export const ArrowButtons: React.FC<IArrowButtonsProps> = ({
   direction,
   children,
   addClass,
-  directionTrigger
+  directionTrigger,
+  handleClick
 }) => {
+  const  dispatch = useAppDispatch()
   const [hover, setHover] = useState<boolean>(false);
-  function dispatch(arg0: any) {
-    throw new Error("Function not implemented.");
-  }
+  
 
   return (
     <motion.button
-        whileTap={{backgroundColor:'#f7d100'}}
+        whileTap={{}}
         transition = {{duration:.2}}
-      style={{ backgroundColor: "rgba(255,255,255,1)" }}
+      style={{ }}
     //   data-slide = {directionTrigger===direction ? true : false}
       onClick={() => {
+        handleClick()
         paginate(direction)
         dispatch(pauseCarousel(true))}}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      className={`m-3 p-3 btn border rounded-0 border-0 shadow-lg ${addClass} position-absolute`}
+      className={`p-2 btn border rounded-0 border-0 shadow-lg ${addClass} d-none`}
     >
       <AnimatePresence>
         <motion.div
-        initial={{x: 10}}
-        animate={{ x: hover ? 10*direction : 0 }}
+        initial={{x: 5}}
+        animate={{ x: hover ? 5*direction : 0 }}
         >
             {children}
         </motion.div>

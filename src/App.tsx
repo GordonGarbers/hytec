@@ -17,6 +17,7 @@ import { Background } from './components/background/Background';
 import { Products } from './components/products/Products';
 import { StartLogoAnim } from './components/loaders/StartLogoAnim';
 import { motion } from 'framer-motion';
+import { YellowDetails } from './components/yellowDetails/YellowDetails';
 // import { IProducts } from './interfaces/interfaces';
 
 const variants = {
@@ -95,19 +96,7 @@ function App() {
                 {name}
               </table> */}
               <Products />
-              <div
-                style={{ maxWidth: '1400px', zIndex: '0' }}
-                className="container-fluid bg-primary my-6 py-6 rounded-1 position-relative overflow-hidden"
-              >
-                <div
-                  style={{
-                    left: '0px',
-                    top: '0px',
-                    clipPath: 'polygon(60% 100%, 100% 100%, 100% 0%, 65% 0%)',
-                  }}
-                  className="bg-primary-mono w-100 h-100 position-absolute"
-                ></div>
-              </div>
+              <YellowDetails/>
               <Land />
               <Numbers />
               <ContactUs />

@@ -193,38 +193,25 @@
 }
 
 
-@media (min-width: 1500px ) {
-    .buttons-wrapper{
-        .btn{
-            z-index: 2;
-            top:50%;
-            transform: translate(0%, -50%);
-        }
-        .btn-left{
-            left:0%;
-        }
-        .btn-right{
-            right:0%;
-        }   
+.buttons-wrapper{
+    .btn{
+        z-index: 2;
+        bottom:25px;
     }
+    .btn-left{
+        right:100px;
+    }
+    .btn-right{
+        right:10px;
+    }   
 }
 
-@media (max-width: 1500px ) {
-    .buttons-wrapper{
-        display: none;
-        .btn{
-            z-index: 2;
-            top:50%;
-            transform: translate(0%, -50%);
-        }
-        .btn-left{
-            left:0%;
-        }
-        .btn-right{
-            right:0%;
-        } 
-    } 
+.time-controler{
+    bottom: 15px;
+    right:15px;
 }
+
+
 
 .swipe{
     z-index: 4;

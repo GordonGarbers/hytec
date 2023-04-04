@@ -28,14 +28,14 @@ export const HeroCircularProgress: React.FC<ICircularProgressProps> = ({
   return (
     <div
       style={{
-        position: "relative",
         width: windowWidth < 960 ? "35px" : "50px",
         height: windowWidth < 960 ? "35px" : "50px",
         bottom: windowWidth < 960 ? "10px" : "20px",
-        right: windowWidth < 960 ? "10px" : "20px",
+        right: windowWidth < 960 ? "10px" : "50px",
         zIndex: "2",
       }}
-      className="position-absolute"
+      // className="position-absolute"
+      className=""
     >
       <CircularProgressbar
         value={remap}

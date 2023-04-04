@@ -75,6 +75,11 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
   const [seconds, setSeconds] = useState<number>(TIME);
   const remap = Math.trunc((seconds / TIME) * 100);
 
+  const handleClick = () => {
+    setSeconds(TIME);
+    dispatch(pauseCarousel(true));
+  };
+
   useEffect(() => {
     if (arrowUpPressed && useKey) {
       setSeconds(TIME);
@@ -135,32 +140,9 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
 
   return (
     <>
-
-
       <div className="carusel-mask w-100 h-100 position-relative">
-      {/* <div style={{clipPath: 'polygon(0% 10%, 40% 10%, 100% 100%, 100% 0%, 0% 0%)'}}className="w-100 h-100 bg-primary position-absolute"></div> */}
+        {/* <div style={{clipPath: 'polygon(0% 10%, 40% 10%, 100% 100%, 100% 0%, 0% 0%)'}}className="w-100 h-100 bg-primary position-absolute"></div> */}
 
-      {btnOnOff && (
-        <div className="buttons-wrapper">
-          <ArrowButtons
-            paginate={paginate}
-            direction={-1}
-            addClass="btn-left"
-            directionTrigger={direction}
-          >
-            <ChevronLeft size={24} />
-          </ArrowButtons>
-
-          <ArrowButtons
-            paginate={paginate}
-            direction={1}
-            addClass="btn-right"
-            directionTrigger={direction}
-          >
-            <ChevronRight size={24} />
-          </ArrowButtons>
-        </div>
-      )}
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             style={{}}
@@ -196,8 +178,10 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
               isDataLoaded={isLoaded}
               remap={remap}
               direction={direction}
+              paginate={paginate}
+              btnOnOff={btnOnOff}
+              handleClick={handleClick}
             ></CarouselUniversalInner>
-            
           </motion.div>
         </AnimatePresence>
       </div>

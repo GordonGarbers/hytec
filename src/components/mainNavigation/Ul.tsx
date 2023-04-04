@@ -1,11 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { navButtons } from '../../constants/constants';
-import { Li } from './Li';
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import { RootState } from '../../app/store';
-import { setNavButton } from '../../features/navButton/navButtons.slice';
-import { Mover } from '../mover/Mover';
-import { useWindowAndScrollDetection } from '../hooks/useWindowAndScrollDetection';
+import React, { useEffect, useRef, useState } from "react";
+import { EColors, navButtons } from "../../constants/constants";
+import { Li } from "./Li";
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import { RootState } from "../../app/store";
+import { setNavButton } from "../../features/navButton/navButtons.slice";
+import { Mover } from "../mover/Mover";
+import { useWindowAndScrollDetection } from "../hooks/useWindowAndScrollDetection";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface IUlProps {
   windowWidth: number;
@@ -34,19 +35,19 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
       setNavButton({
         activeBtnValue: e.currentTarget.value,
         activeBtnName:
-          e.currentTarget.textContent?.split(' ').join('').toLowerCase() ?? '',
+          e.currentTarget.textContent?.split(" ").join("").toLowerCase() ?? "",
       })
     );
-    sessionStorage.setItem('btnValue', e.currentTarget.value.toString());
+    sessionStorage.setItem("btnValue", e.currentTarget.value.toString());
     sessionStorage.setItem(
-      'btnName',
-      e.currentTarget.textContent?.split(' ').join('').toLowerCase() ?? ''
+      "btnName",
+      e.currentTarget.textContent?.split(" ").join("").toLowerCase() ?? ""
     );
   };
 
   useEffect(() => {
-    const btnValue = sessionStorage.getItem('btnValue') || activeBtnValue;
-    const btnName = sessionStorage.getItem('btnName') || activeBtnName;
+    const btnValue = sessionStorage.getItem("btnValue") || activeBtnValue;
+    const btnName = sessionStorage.getItem("btnName") || activeBtnName;
     dispatch(
       setNavButton({
         activeBtnValue: parseInt(btnValue as string),
@@ -55,7 +56,6 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
     );
   }, [activeBtnValue, activeBtnName, dispatch]);
 
-  // console.log('Active btn name: ', typeof activeBtnValue);
   return (
     <>
       <ul
@@ -71,13 +71,15 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
               value={idx}
               data={false}
               func={onLiBtnClick}
+              btnValue={activeBtnValue}
               addToClassName={
                 // item.split(" ").join("").toLowerCase() === activeBtnName &&
                 activeBtnValue === idx && windowWidth < 620
-                  ? 'selected-button'
-                  : ''
+                  ? "selected-button position-relative"
+                  : ""
               }
-            />
+            >
+            </Li>
           );
         })}
         {windowWidth > 620 && (
@@ -90,7 +92,7 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
             zIndex="3"
             expand={0}
             rounded={false}
-            speed={isScrolling||isWindowChange ? 0 : .3}
+            speed={isScrolling || isWindowChange ? 0 : 0.3}
           />
         )}
       </ul>

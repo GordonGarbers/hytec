@@ -3,15 +3,16 @@ import { motion } from "framer-motion";
 import { Centerize } from "../layout/Centerize";
 import { Background } from "../background/Background";
 import { Svg } from "../header/Svg";
+import { EColors } from "../../constants/constants";
 
 export const StartLogoAnim: React.FC = () => {
   const fillVariant = {
     initial: {
-      fill: "#9a9eb3",
+      fill: EColors.dark,
       scale: 1,
     },
     animate: {
-      fill: "#9a9eb3",
+      fill: EColors.primary,
       scale: 1.1,
     },
   };
@@ -29,7 +30,7 @@ export const StartLogoAnim: React.FC = () => {
 
   return (
       //   <Centerize color="#26272e">
-      <Centerize color="#2d2e36">
+      <Centerize color="">
       
         <div style={{zIndex:0}} className=" d-flex flex-column align-items-center position-relative ">
           
