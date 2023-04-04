@@ -30,5 +30,6 @@ export enum EColors{
   primaryMono = "#FFDE2B",
   dark = "#26272e",
   darkForm = "#2d2e36",
-  darkLight = "#373943"
+  darkLight = "#373943",
+  skeletonBaseColorDefault = "#ebebeb"
 }

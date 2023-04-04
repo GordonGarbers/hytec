@@ -9,40 +9,43 @@ import { getScrollY } from "../../features/scrollPosition/scrollPosition.slice";
 import { RootState } from "../../app/store";
 import { getWindowWidth } from "../../features/windowWidth/windowWidth.slice";
 import {motion} from 'framer-motion';
+import { useRefresh } from "../hooks/useRefresh";
 
 
 export const MainNavigation = () => {
 
-  const {windowWidth} = useAppSelector((state: RootState) => state.width)
+  const  {windowWidth, scrollY} = useRefresh()
 
-  const {scrollY} =  useAppSelector((state:RootState) => state.scrollPos)
-  const dispatch = useAppDispatch();
+  // const {windowWidth} = useAppSelector((state: RootState) => state.width)
 
-  // const [windowWidth, setWindowWidth] = useState(0);
-  const [windowHeight, setWindowHeight] = useState(0);
+  // const {scrollY} =  useAppSelector((state:RootState) => state.scrollPos)
+  // const dispatch = useAppDispatch();
 
-  const handleScroll = () => {
-    const position = window.pageYOffset;
-    dispatch(getScrollY(position))
-  };
+  // // const [windowWidth, setWindowWidth] = useState(0);
+  // const [windowHeight, setWindowHeight] = useState(0);
 
-  let resizeWindow = () => {
-    // setWindowWidth(window.innerWidth);
-    dispatch(getWindowWidth(window.innerWidth))
-    setWindowHeight(window.innerHeight);
-  };
+  // const handleScroll = () => {
+  //   const position = window.pageYOffset;
+  //   dispatch(getScrollY(position))
+  // };
+
+  // let resizeWindow = () => {
+  //   // setWindowWidth(window.innerWidth);
+  //   dispatch(getWindowWidth(window.innerWidth))
+  //   setWindowHeight(window.innerHeight);
+  // };
 
 
-  useEffect(() => {
-    handleScroll();
-    resizeWindow();
-    window.addEventListener("resize", resizeWindow);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("resize", resizeWindow);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  // useEffect(() => {
+  //   handleScroll();
+  //   resizeWindow();
+  //   window.addEventListener("resize", resizeWindow);
+  //   window.addEventListener("scroll", handleScroll, { passive: true });
+  //   return () => {
+  //     window.removeEventListener("resize", resizeWindow);
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
 
   return (

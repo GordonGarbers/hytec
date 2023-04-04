@@ -64,14 +64,14 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
                   {data.hero[index]?.titleNormalAfter}{' '}
                 </>
               ) : (
-                <Skeleton count={1} baseColor={EColors.primary}/>
+                <Skeleton count={1}/>
               )}
             </h1>
 
             <ProcessText
               isLoaded={isDataLoaded}
               text={data.hero[index]?.text ?? ''}
-              color={EColors.primary}
+              color={EColors.skeletonBaseColorDefault}
               size={13}
             />
             <div>

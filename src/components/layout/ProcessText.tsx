@@ -4,7 +4,7 @@ import Skeleton from "react-loading-skeleton";
 interface IProcessTextProps {
   isLoaded: boolean;
   text: string;
-  color: string;
+  color?: string;
   size:number
 }
 

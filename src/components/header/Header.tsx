@@ -40,6 +40,7 @@ export const Header: React.FC = () => {
             delayConst={0.2}
             duration={1}
             repeat={0}
+            size={250}
           />
         </div>
 

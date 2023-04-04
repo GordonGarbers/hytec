@@ -1,0 +1,29 @@
+.grid-wrapper{
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+    gap: 1.5rem;
+}
+
+@media (max-width: 960px){
+    .grid-wrapper{
+        display: grid;
+        grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 620px){
+    .grid-wrapper{
+        display: grid;
+        grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 500px){
+    .grid-wrapper{
+        display: grid;
+        grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
+        gap: 1.5rem;
+    }
+}

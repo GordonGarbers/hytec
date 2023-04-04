@@ -10,7 +10,8 @@ interface ISvgProps {
   delay: number;
   duration: number;
   repeat: number;
-  delayConst: number
+  delayConst: number,
+  size:number
 }
 
 export const Svg: React.FC<ISvgProps> = ({
@@ -21,7 +22,8 @@ export const Svg: React.FC<ISvgProps> = ({
   delay,
   duration,
   repeat,
-  delayConst
+  delayConst,
+  size
 }) => {
   const fillVariant = {
     initial: {
@@ -40,10 +42,11 @@ export const Svg: React.FC<ISvgProps> = ({
       transition={{
         delay: delay,
         duration: duration,
+        repeat:repeat
       }}
       width="100%"
       height="100%"
-      viewBox="0 0 250 48"
+      viewBox={`0 0 ${size} 48`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

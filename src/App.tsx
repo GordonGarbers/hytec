@@ -15,14 +15,25 @@ import { switchLanguage } from './features/changeLanguage/changeLanguage.slice';
 import { RootState } from './app/store';
 import { Background } from './components/background/Background';
 import { Products } from './components/products/Products';
+import { StartLogoAnim } from './components/loaders/StartLogoAnim';
+import { motion } from 'framer-motion';
 // import { IProducts } from './interfaces/interfaces';
 
+const variants = {
+  from: {
+    y: 0,
+    // scale:1.2
+  },
+  to: {
+    y: '-100%',
+    // scale:0
+  },
+};
+
 function App() {
-
-  // const { dataIsLoaded, data, dataError } = useAppSelector(
-  //   (state: RootState) => state.data
-  // );
-
+  const { dataIsLoaded, data, dataError } = useAppSelector(
+    (state: RootState) => state.data
+  );
 
   const { language } = useAppSelector((state: RootState) => state.lang);
 
@@ -37,7 +48,6 @@ function App() {
   useEffect(() => {
     dispatch(dataPedding(`json/${language}/data.json`));
   }, [dispatch, language]);
-
 
   // const name = data.products.map((item:IProducts, idx: number)=>{
   //   const specs = item.specifications.map((spec:string, idx:number) => {
@@ -56,33 +66,57 @@ function App() {
   // })
 
   return (
-    <>
+
+        <>
+          {/* <motion.div
+          className='position-fixed w-100 h-100 bg-dark-form'
+          style={{zIndex:'3'}}
+            variants={variants}
+            initial="from"
+            animate="to"
+            transition={{
+              duration: 1,
+              type:'tween'
+            }}
+          ></motion.div> */}
+
+          <Background />
+          <Header />
+          <MainNavigation />
+          <FlexMainWrapper>
+            <Main>
+              <Hero />
+              {/* <table style={{width:'600px', zIndex:'0'}} className='fs-13'>
+                <thead className='bg-primary'>
+                <th className='p-3'>Name</th>
+                <th>Value</th>
+                <th>Units</th>
+                </thead>
+                {name}
+              </table> */}
+              <Products />
+              <div
+                style={{ maxWidth: '1400px', zIndex: '0' }}
+                className="container-fluid bg-primary my-6 py-6 rounded-1 position-relative overflow-hidden"
+              >
+                <div
+                  style={{
+                    left: '0px',
+                    top: '0px',
+                    clipPath: 'polygon(60% 100%, 100% 100%, 100% 0%, 65% 0%)',
+                  }}
+                  className="bg-primary-mono w-100 h-100 position-absolute"
+                ></div>
+              </div>
+              <Land />
+              <Numbers />
+              <ContactUs />
+              <Footer />
+            </Main>
+          </FlexMainWrapper>
+        </>
       
-      <Background/>
-      <Header />
-      <MainNavigation />
-      <FlexMainWrapper>
-        <Main>
-          <Hero />
-          {/* <table style={{width:'600px', zIndex:'0'}} className='fs-13'>
-            <thead className='bg-primary'>
-            <th className='p-3'>Name</th>
-            <th>Value</th>
-            <th>Units</th>
-            </thead>
-            {name}
-          </table> */}
-          <Products/>
-          <div style = {{maxWidth:'1400px', zIndex:'0'}} className="container-fluid bg-primary my-6 py-6 rounded-1 position-relative overflow-hidden">
-            <div style={{left:'0px', top:'0px', clipPath: 'polygon(60% 100%, 100% 100%, 100% 0%, 65% 0%)'}} className='bg-primary-mono w-100 h-100 position-absolute'></div>
-          </div>
-          <Land />
-          <Numbers />
-          <ContactUs />
-          <Footer />
-        </Main>
-      </FlexMainWrapper>
-    </>
+   
   );
 }
 

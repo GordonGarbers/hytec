@@ -59,7 +59,7 @@
 @media (max-width: 959px) {
     .section{
         z-index: 0;
-        height:870px;
+        height:900px;
         // margin-top: 100px;
     
     
@@ -113,7 +113,7 @@
 @media (max-width: 620px){
     .section{
         z-index: 0;
-        height:720px;
+        height:760px;
         // margin-top: 50px;
 
     
@@ -163,10 +163,24 @@
 }
 
 
-@media (max-width: 460px){
+@media (max-width: 520px){
     .section{
         z-index: 0;
-        height:780px;
+        height:820px;
+    }
+}
+
+@media (max-width: 389px){
+    .section{
+        z-index: 0;
+        height:880px;
+    }
+}
+
+@media (max-width: 300px){
+    .section{
+        z-index: 0;
+        height:1000px;
     }
 }
 
