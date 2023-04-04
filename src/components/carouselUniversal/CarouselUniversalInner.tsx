@@ -54,7 +54,7 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
               )}
             </p>
 
-            <h1 className="fw-bold fs-5">
+            <h1 className="fs-5" style={{fontWeight:900}}>
               {!isDataLoaded ? (
                 <>
                   {data.hero[index]?.titleNormalBefore}{' '}
@@ -72,6 +72,7 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
               isLoaded={isDataLoaded}
               text={data.hero[index]?.text ?? ''}
               color={EColors.primary}
+              size={13}
             />
             <div>
               {!isDataLoaded ? (

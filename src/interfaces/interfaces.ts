@@ -72,18 +72,6 @@ export interface IFooter {
   termsAndConditions: string;
 }
 
-export interface IDataDetails {
-  hero: IHero[];
-  products: [];
-  nav: string[];
-  sections: Partial<ISection>;
-  dealer: Partial<IDealer>;
-  buttons: Partial<IButtons>;
-  numbers: Partial<INumbers>;
-  form: Partial<IFrom>;
-  footer:Partial<IFooter>;
-}
-
 export interface IResponseGenerator {
   config?: string;
   data: IDataDetails;
@@ -94,6 +82,52 @@ export interface IResponseGenerator {
 }
 
 export enum ESection {
-  hero = 'hero',
-  products = 'products',
+  hero = "hero",
+  // products = "products",
+}
+
+
+export interface IFilter{
+  categorie: string,
+  fuelType: string,
+  kw: number,
+  ps: number,
+  displacement: number,
+  fuelTankCapacity: number,
+  speed: number,
+  weight: number,
+  liftingCapacity: number,
+  liftingHeight: number,
+  totalLength: number,
+  totalWidth: number,
+  totalHeight: number,
+  wheelbase: number 
+}
+export interface IProducts {
+  id: number;
+  categorie: string;
+  name: string;
+  price: string;
+  extras: string[];
+  description: string;
+  accessories:string[];
+  specifications:string[];
+  filter: Partial<IFilter>,
+  basePath: string,
+  productNamePath: string,
+  heroImage:string,
+  carouselImages: string[],
+  video:string
+}
+
+export interface IDataDetails {
+  hero: IHero[];
+  products: IProducts[];
+  nav: string[];
+  sections: Partial<ISection>;
+  dealer: Partial<IDealer>;
+  buttons: Partial<IButtons>;
+  numbers: Partial<INumbers>;
+  form: Partial<IFrom>;
+  footer: Partial<IFooter>;
 }

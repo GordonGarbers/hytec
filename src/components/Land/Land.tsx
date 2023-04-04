@@ -140,7 +140,7 @@ export const Land: React.FC = () => {
 
           className="article-left-left w-100 px-4 px-sm-6 px-lg-8 mt-5 mt-lg-0"
         >
-          <h1 className="fw-bold fs-5">
+          <h1 className="fs-5" style={{fontWeight:900}}>
             {!dataIsLoaded ? (
               <>
                 {data.dealer?.titleNormalBefore}{' '}
@@ -155,6 +155,7 @@ export const Land: React.FC = () => {
             isLoaded={dataIsLoaded}
             text={data.dealer?.text ?? ''}
             color={EColors.primary}
+            size={13}
           />
 
           <div>

@@ -10,8 +10,8 @@ interface IInitialState {
 const initialState: IInitialState = {
   dataIsLoaded: false,
   data: {
+    products:[],
     hero: [],
-    products: [],
     nav: ["Home", "Machinery", "About Us", "Contact"],
     sections: {},
     dealer: {},

@@ -44,7 +44,7 @@ export const Form: React.FC = () => {
             <FaRegUser size={16} className="icon" />
             <input
               type="text"
-              className="form-control bg-dark-form border-0 fs-13 text-grey-700 rounded-1"
+              className="form-control bg-dark-form border-0 fs-14 text-grey-700 rounded-1"
               // className="form-control bg-dark border-0 border-bottom border-grey-300 fs-13 text-grey-700 rounded-0"
               id="validationDefault01"
               placeholder={data.form.name??""}
@@ -58,7 +58,7 @@ export const Form: React.FC = () => {
             <HiOutlineMail size={18} className="icon" />
             <input
               type="email"
-              className="form-control bg-dark-form border-0 fs-13 text-grey-700 rounded-1"              id="validationDefault02"
+              className="form-control bg-dark-form border-0 fs-14 text-grey-700 rounded-1"              id="validationDefault02"
               placeholder={data.form.email??""}
               required
             />
@@ -70,7 +70,7 @@ export const Form: React.FC = () => {
             <MdTitle size={16} className="icon" />
             <input
               type="text"
-              className="form-control bg-dark-form border-0 fs-13 text-grey-700 rounded-1"              id="validationDefaultUsername"
+              className="form-control bg-dark-form border-0 fs-14 text-grey-700 rounded-1"              id="validationDefaultUsername"
               placeholder={data.form.subject??""}
               aria-describedby="inputGroupPrepend2"
               required
@@ -80,7 +80,7 @@ export const Form: React.FC = () => {
 
         <div className="form-group mb-3 mb-md-3 ">
           <textarea
-            className="form-control bg-dark-form border-0 fs-13 text-grey-700 rounded-1"
+            className="form-control bg-dark-form border-0 fs-14 text-grey-700 rounded-1"
             rows={5}
             placeholder={data.form.text??""}
           ></textarea>
@@ -88,7 +88,7 @@ export const Form: React.FC = () => {
       </div>
 
       <button
-        className="btn btn-primary fs-13 fw-bold px-2 px-sm-5 py-2 d-flex align-items-center"
+        className="btn btn-primary fs-14 fw-bold px-2 px-sm-4 py-2 d-flex align-items-center"
         type="submit"
       >
         <span>{data.buttons.send}</span>

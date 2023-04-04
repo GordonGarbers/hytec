@@ -44,7 +44,7 @@ export const Header: React.FC = () => {
         </div>
 
         <div className="d-none d-sm-flex gap-3 gap-lg-5 info-header-wrapper">
-          <div className=" text-grey-700 d-flex justify-content-center align-items-center fs-14 gap-1 gap-lg-2">
+          <div className=" text-grey-700 d-flex justify-content-center align-items-center fs-15 gap-1 gap-lg-2">
             <MdLocationOn size={18} />
             <div className=" d-block">
               Borgwardstrasse 6, 21423 Winsen / Luhe
@@ -53,7 +53,7 @@ export const Header: React.FC = () => {
 
           <a
             href="tel: 041716691100"
-            className={`border border-grey-300 p-2 rounded-2 text-grey-700 d-flex justify-content-center align-items-center fs-14 gap-1 gap-lg-2`}
+            className={`border border-grey-300 p-2 rounded-2 text-grey-700 d-flex justify-content-center align-items-center fs-15 gap-1 gap-lg-2`}
           >
             <div>
               <BsTelephoneFill size={14} className='info-icon'/>
@@ -63,7 +63,7 @@ export const Header: React.FC = () => {
 
           <a
             href="mailto: info@hytec-baumaschinen.de"
-            className={`border border-grey-300 p-2 rounded-2 text-grey-700 d-flex justify-content-center align-items-center fs-14 gap-1 gap-lg-2`}
+            className={`border border-grey-300 p-2 rounded-2 text-grey-700 d-flex justify-content-center align-items-center fs-15 gap-1 gap-lg-2`}
           >
             <div>
               <MdEmail size={16} className='info-icon'/>

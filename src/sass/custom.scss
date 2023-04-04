@@ -10,6 +10,7 @@
 $theme-colors: (
   "primary": $primary,
   "primary-mono": $primary-mono,
+  "primary-dark":$primary-dark,
   "secondary": #383b4d,
   "success": $success,
   "danger": $danger,
@@ -76,9 +77,9 @@ $font-sizes:(
   10: 1.125rem,
   11: 1.025rem,
   12: 1rem,
-  13: .8rem,
-  14: .7rem, 
-  15: .6rem, 
+  13: .9rem,
+  14: .8rem, 
+  15: .7rem, 
 );
 
 $grid-breakpoints: (
