@@ -70,7 +70,8 @@
         "totalLength": 4950,
         "totalWidth": 1850,
         "totalHeight": 2600,
-        "wheelbase": 2000
+        "wheelbase": 2000,
+        "price": 16950
       },
       "basePath": "assets/machinery/",
       "productNamePath": "F30/",
@@ -156,7 +157,8 @@
         "totalLength": 4950,
         "totalWidth": 1850,
         "totalHeight": 2600,
-        "wheelbase": 2000
+        "wheelbase": 2000,
+        "price": 19950
       },
       "basePath": "assets/machinery/",
       "productNamePath": "F35/",
@@ -238,7 +240,8 @@
         "totalLength": 3950,
         "totalWidth": 1180,
         "totalHeight": 2499,
-        "wheelbase": 1540
+        "wheelbase": 1540,
+        "price": 18000
       },
       "basePath": "assets/machinery/",
       "productNamePath": "F35-roll-bar/",
@@ -322,7 +325,8 @@
         "totalLength": 3950,
         "totalWidth": 1180,
         "totalHeight": 2499,
-        "wheelbase": 1540
+        "wheelbase": 1540,
+        "price": 18000
       },
       "basePath": "assets/machinery/",
       "productNamePath": "F35-roll-bar/",
@@ -406,7 +410,8 @@
         "totalLength": 3950,
         "totalWidth": 1180,
         "totalHeight": 2499,
-        "wheelbase": 1540
+        "wheelbase": 1540,
+        "price": 23000
       },
       "basePath": "assets/machinery/",
       "productNamePath": "F35-roll-bar/",
@@ -490,7 +495,8 @@
         "totalLength": 3950,
         "totalWidth": 1180,
         "totalHeight": 2499,
-        "wheelbase": 1540
+        "wheelbase": 1540,
+        "price":14500
       },
       "basePath": "assets/machinery/",
       "productNamePath": "F35-roll-bar/",
@@ -574,7 +580,8 @@
         "totalLength": 3950,
         "totalWidth": 1180,
         "totalHeight": 2499,
-        "wheelbase": 1540
+        "wheelbase": 1540,
+        "price":24500
       },
       "basePath": "assets/machinery/",
       "productNamePath": "F35-roll-bar/",
@@ -658,7 +665,8 @@
         "totalLength": 3950,
         "totalWidth": 1180,
         "totalHeight": 2499,
-        "wheelbase": 1540
+        "wheelbase": 1540,
+        "price":17500
       },
       "basePath": "assets/machinery/",
       "productNamePath": "F35-roll-bar/",
@@ -742,7 +750,8 @@
         "totalLength": 3950,
         "totalWidth": 1180,
         "totalHeight": 2499,
-        "wheelbase": 1540
+        "wheelbase": 1540,
+        "price":18000
       },
       "basePath": "assets/machinery/",
       "productNamePath": "F35-roll-bar/",
@@ -826,7 +835,8 @@
         "totalLength": 3950,
         "totalWidth": 1180,
         "totalHeight": 2499,
-        "wheelbase": 1540
+        "wheelbase": 1540,
+        "price":18000
       },
       "basePath": "assets/machinery/",
       "productNamePath": "F35-roll-bar/",

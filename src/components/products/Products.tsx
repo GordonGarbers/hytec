@@ -17,6 +17,7 @@ import { useWindowAndScrollDetection } from "../hooks/useWindowAndScrollDetectio
 import { AnimatePresence, motion } from "framer-motion";
 import "./products.scss";
 import { SideFollowUs } from "../sideFollowUs/SideFollowUs";
+import { FilterProduct } from "./FilterProduct";
 
 // const variants = {
 //   from: {
@@ -56,21 +57,14 @@ export const Products: React.FC = () => {
 
   const onLiBtnClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
     e.preventDefault();
-
     setBtnClicked(e.currentTarget.value);
-
-    // sessionStorage.setItem("btnValue3", e.currentTarget.value.toString());
+    sessionStorage.setItem("productsSelected", e.currentTarget.value.toString());
   };
 
-  // useEffect(() => {
-  //   const btnValue = sessionStorage.getItem("btnValue") || btnClicked;
-  //   setBtnClicked(parseInt(btnValue as string))
-  //   // dispatch(
-  //   //   setNavButton({
-  //   //     activeBtnValue: parseInt(btnValue as string),
-  //   //   })
-  //   // );
-  // }, [btnClicked]);
+  useEffect(() => {
+    const btnValue = sessionStorage.getItem("productsSelected") || btnClicked;
+    setBtnClicked(parseInt(btnValue as string))
+  }, [btnClicked]);
 
   const productArticle = data.products
     .slice(0, next)
@@ -78,12 +72,6 @@ export const Products: React.FC = () => {
       const fullImagePath = `${product.basePath}${product.productNamePath}${product.heroImage}`;
       return (
         <li
-          // variants={variants}
-          // initial="from"
-          // whileInView="to"
-          // viewport={{ once: true, amount: 0.8 }}
-          // transition={{ delay: idx * .02, type: "spring", stiffness: 100 }}
-          // onMouseEnter={onLiBtnClick}
           onClick={onLiBtnClick}
           value={idx}
           key={product.id}
@@ -105,7 +93,6 @@ export const Products: React.FC = () => {
             </AnimatePresence>
           ) : null}
 
-          {/* <div style={{zIndex:'-1', transform:'scaleX(1.07) scaleY(1.055)'}} className='position-absolute w-100 h-100 bg-primary rounded-3'></div> */}
           <div className="w-100 position-relative" style={{}}>
             {!isImgLoaded && <Spinner size={50} width={8} />}
             <img
@@ -183,14 +170,15 @@ export const Products: React.FC = () => {
       className="bg-grey-900 overflow-hidden position-relative"
     >
 
-      <div className="container-fluid-02 mb-6 mt-5 mt-md-8 p-3">
+      <div className="container-fluid-02 mb-6 mt-5 mt-md-8 p-3 position-relative">
         <div className="text-primary fw-bold text-center ">HYTEC EQUIPMENT</div>
         <h1
           style={{ fontWeight: "900" }}
-          className="text-dark fs-6 mb-6 text-center "
+          className="text-dark fs-6 mb-5 text-center "
         >
           Browse our machinery
         </h1>
+        <FilterProduct/>
         {dataIsLoaded ? (
           <div style={{ height: "500px" }} className="w-100">
             {/* <StartLogoAnim/> */}

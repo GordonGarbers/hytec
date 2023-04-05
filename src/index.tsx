@@ -5,6 +5,7 @@ import { store } from './app/store';
 import App from './App';
 import './index.css';
 import 'react-loading-skeleton/dist/skeleton.css'
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);

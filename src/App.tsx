@@ -18,6 +18,7 @@ import { Products } from './components/products/Products';
 import { StartLogoAnim } from './components/loaders/StartLogoAnim';
 import { motion } from 'framer-motion';
 import { YellowDetails } from './components/yellowDetails/YellowDetails';
+
 // import { IProducts } from './interfaces/interfaces';
 
 const variants = {
