@@ -278,9 +278,7 @@ export const Products: React.FC = () => {
                 style={{
                   display: "grid",
                   gap: "1rem",
-                  gridTemplateColumns: `repeat( auto-fit, minmax(180px, ${
-                    filterProductArticle.length <= 2 ? "140px" : "1fr"
-                  }))`,
+                  gridTemplateColumns: `repeat( auto-fit, minmax(190px, 1fr))`,
                 }}
                 className="w-100 h-100 list-unstyled grid-wrapper"
               >
@@ -294,7 +292,7 @@ export const Products: React.FC = () => {
                 style={{
                   display: "grid",
                   gap: "1rem",
-                  gridTemplateColumns: `repeat( auto-fit, minmax(140px, 1fr))`,
+                  gridTemplateColumns: `repeat( auto-fit, minmax(180px, 1fr))`,
                 }}
                 className="w-100 h-100 list-unstyled grid-wrapper"
               >
