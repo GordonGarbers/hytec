@@ -769,7 +769,7 @@
     },
     {
       "id": 10,
-      "categorie": "hoflader",
+      "categorie": "stapler",
       "name": "FM35 Überrollbügel",
       "price": "18.000€",
       "extras": [
@@ -822,7 +822,7 @@
         "Bereifung:26x12-15: "
       ],
       "filter": {
-        "categorie": "hoflader",
+        "categorie": "stapler",
         "fuelType": "diesel",
         "kw": 25,
         "ps": 25,

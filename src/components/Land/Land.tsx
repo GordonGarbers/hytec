@@ -26,7 +26,7 @@ const variants = {
 
 const variantsText = {
   from: {
-    y: 30,
+    y: -40,
     opacity: 0,
   },
   to: {
@@ -134,8 +134,9 @@ export const Land: React.FC = () => {
           viewport={{ once: true, amount: 0.8 }}
           transition={{
             delay: 0,
-            type: 'tween',
-            duration: 0.5,
+            type: 'spring',
+            stiffness:100
+            // duration: 0.5,
           }}
 
           className="article-left-left w-100 px-4 px-sm-6 px-lg-8 mt-5 mt-lg-0"

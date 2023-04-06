@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { useAppSelector } from '../../app/hooks';
-import { RootState } from '../../app/store';
-import { IProducts } from '../../interfaces/interfaces';
-import { count } from 'console';
+import React, { useEffect } from "react";
+import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import { RootState } from "../../app/store";
+import { IProducts } from "../../interfaces/interfaces";
+import { addCategory, removeCategory } from "../../features/products/productCategories/productCategories.slice";
 
 interface ICategory {
   category: string;
+  categoryLabel: string;
   count: number;
 }
 
@@ -14,22 +15,26 @@ export const FilterProduct: React.FC = () => {
     (state: RootState) => state.data
   );
 
-  const [isSubscribed, setIsSubscribed] = useState<string[]>([]);
+  const { categories } = useAppSelector((state: RootState) => state.categories);
+
+  const dispatch = useAppDispatch();
 
   const onCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
-      setIsSubscribed([...isSubscribed, e.target.value]);
+      dispatch(addCategory(e.target.value));
+    }else{
+      dispatch(removeCategory(e.target.value))
     }
   };
 
   const getCategories = data.products.reduce(
     (accu: ICategory[], curr: IProducts, idx: number): ICategory[] => {
       const index = accu.findIndex((accuItem) => {
-        return accuItem.category === curr.categorie;
+        return accuItem.category === curr.filter.categorie;
       });
 
       if (index === -1) {
-        accu = [...accu, { category: curr.categorie, count: 1 }];
+        accu = [...accu, { category: curr.filter.categorie??"", categoryLabel: curr.categorie, count: 1 }];
       } else {
         accu[index].count++;
       }
@@ -39,9 +44,7 @@ export const FilterProduct: React.FC = () => {
     []
   );
 
- 
-
-  const createCategories = getCategories.map(
+  const createCategoriyElements = getCategories.map(
     (categorie: ICategory, idx: number) => {
       return (
         <div key={idx} className="form-check">
@@ -52,12 +55,13 @@ export const FilterProduct: React.FC = () => {
             type="checkbox"
             value={categorie.category}
             id="flexCheckDefault"
+            // checked={false}
           />
           <label
-            style={{ textTransform: 'capitalize' }}
+            style={{ textTransform: "capitalize" }}
             className="form-check-label fs-14"
           >
-            {categorie.category}
+            {categorie.categoryLabel}
             <span className="text-grey-500 fs-14"> ({categorie.count})</span>
           </label>
         </div>
@@ -66,24 +70,28 @@ export const FilterProduct: React.FC = () => {
   );
 
   //set default categorie state
-  useEffect(()=>{
-    setIsSubscribed([...getCategories.map((item:ICategory)=>item.category)])
-  }, [data])
+  useEffect(() => {
+    getCategories.map((categorie: ICategory) => {
+      return dispatch(addCategory(categorie.category))
+    })
+  }, [data]);
 
-  useEffect(()=>{
-    console.log(isSubscribed);
-  }, [isSubscribed])
+  //print categories
+  useEffect(() => {
+    console.log(categories);
+  }, [categories]);
+
 
   return (
-    <div style={{ backgroundColor: '#fff' }} className="p-4 mb-5 rounded-2">
+    <div style={{ backgroundColor: "#fff" }} className="p-4 mb-5 rounded-2">
       <label
-        style={{ textTransform: 'uppercase' }}
+        style={{ textTransform: "uppercase" }}
         className="mb-4 fs-13 fw-bold text-dark"
         htmlFor=""
       >
         Categories
       </label>
-      {createCategories}
+      {createCategoriyElements}
     </div>
   );
 };
