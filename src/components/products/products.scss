@@ -32,3 +32,26 @@
 //     }
 
 // }
+
+.container-fluid-02{
+  ul{
+    display: grid;
+    gap: 1.5rem;
+  }
+}
+
+.filter-wrapper{
+  transition:all 1s ease;
+  // -moz-transition:height 2s; /* Firefox 4 */
+  // -webkit-transition:height 2s; /* Safari and Chrome */
+  // -o-transition:height 2s; /* Opera */
+}
+
+[data-filter-wrapper = 'true']{
+  height:100%;
+  // margin-top: 200px;
+}
+
+[data-filter-wrapper = 'false']{
+  height:0px;
+}

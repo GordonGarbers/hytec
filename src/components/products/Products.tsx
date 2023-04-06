@@ -4,21 +4,22 @@ import React, {
   useMemo,
   useRef,
   useState,
-} from "react";
-import { useAppSelector } from "../../app/hooks";
-import { RootState } from "../../app/store";
-import { IProducts } from "../../interfaces/interfaces";
-import { HiOutlineArrowNarrowRight } from "react-icons/hi";
-import { EColors } from "../../constants/constants";
-import Skeleton from "react-loading-skeleton";
-import { getImageRatio } from "../../utils/createImagePlaceholder";
-import { Spinner } from "../loaders/Spinner";
-import { useWindowAndScrollDetection } from "../hooks/useWindowAndScrollDetection";
-import { AnimatePresence, motion } from "framer-motion";
-import "./products.scss";
-import { SideFollowUs } from "../sideFollowUs/SideFollowUs";
-import { FilterProduct } from "./FilterProduct";
-import { useMediaQuery } from "react-responsive";
+} from 'react';
+import { useAppSelector } from '../../app/hooks';
+import { RootState } from '../../app/store';
+import { IProducts } from '../../interfaces/interfaces';
+import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
+import { EColors } from '../../constants/constants';
+import Skeleton from 'react-loading-skeleton';
+import { getImageRatio } from '../../utils/createImagePlaceholder';
+import { Spinner } from '../loaders/Spinner';
+import { useWindowAndScrollDetection } from '../hooks/useWindowAndScrollDetection';
+import { AnimatePresence, motion } from 'framer-motion';
+import './products.scss';
+import { SideFollowUs } from '../sideFollowUs/SideFollowUs';
+import { FilterProduct } from './FilterProduct';
+import { useMediaQuery } from 'react-responsive';
+import { ProductUi } from './ProductUl';
 
 // const variants = {
 //   from: {
@@ -44,13 +45,12 @@ export const Products: React.FC = () => {
   const [next, setNext] = useState<number>(imageToLoad);
 
   const handleMoreImage = () => {
-    setNext(next + imageToLoad);
+    setNext(next + imageToLoad + 10);
   };
 
   const { categories } = useAppSelector((state: RootState) => state.categories);
   const { windowWidth } = useAppSelector((state: RootState) => state.width);
   const { isScrolling, isWindowChange } = useWindowAndScrollDetection();
-  // const [clicked, setClicked] = useState<boolean>(false);
 
   const { dataIsLoaded, data, dataError } = useAppSelector(
     (state: RootState) => state.data
@@ -69,20 +69,23 @@ export const Products: React.FC = () => {
     e.preventDefault();
     setBtnClicked(e.currentTarget.value);
     sessionStorage.setItem(
-      "productsSelected",
+      'productsSelected',
       e.currentTarget.value.toString()
     );
   };
 
+
   useEffect(() => {
-    const btnValue = sessionStorage.getItem("productsSelected") || btnClicked;
+    const btnValue = sessionStorage.getItem('productsSelected') || btnClicked;
     setBtnClicked(parseInt(btnValue as string));
   }, [btnClicked]);
 
   const filterProductArticle = data.products
     .slice(0, next)
     .filter((product: IProducts) => {
-      return categories.includes(product.filter.categorie ?? "");
+      return categories !== 'all'
+        ? categories === product.filter.categorie ?? ''
+        : true;
     });
 
   const productArticle = filterProductArticle.map(
@@ -94,8 +97,8 @@ export const Products: React.FC = () => {
           value={idx}
           key={product.id}
           style={{
-            backgroundColor: "#fff",
-            transition: "all 1s ease",
+            backgroundColor: '#fff',
+            transition: 'all 1s ease',
           }}
           className="w-100 rounded-2 shadow-sm position-relative list"
         >
@@ -103,7 +106,7 @@ export const Products: React.FC = () => {
             <AnimatePresence mode="wait">
               <motion.div
                 key={btnClicked}
-                initial={{ scale: .7, opacity: 1 }}
+                initial={{ scale: 0.7, opacity: 1 }}
                 animate={{ scale: 1, opacity: 1 }}
                 // exit={{ x: 100, opacity: 0 }}
                 transition={{ duration: 0.35 }}
@@ -120,8 +123,10 @@ export const Products: React.FC = () => {
               onLoad={handleImageOnLoad}
               // src={fullImagePath}
               src={isImgLoaded ? fullImagePath : getImageRatio(1067, 756)}
-              className={`${windowWidth > 327 && windowWidth < 487 ? 'p-1' : 'p-3'}`}
-              style={{ width: "100%" }}
+              className={`${
+                windowWidth > 327 && windowWidth < 487 ? 'p-1' : 'p-3'
+              }`}
+              style={{ width: '100%' }}
               loading="lazy"
               alt={product.productNamePath}
             />
@@ -138,7 +143,7 @@ export const Products: React.FC = () => {
             {!dataIsLoaded ? (
               <p
                 className="fs-11 fs-sm-9 fw-bold text-dark-light"
-                style={{ fontWeight: "400" }}
+                style={{ fontWeight: '400' }}
               >
                 {product.name}
               </p>
@@ -148,10 +153,15 @@ export const Products: React.FC = () => {
 
             {!dataIsLoaded ? (
               <p
-                style={{ fontWeight: "400", lineHeight: "1rem" }}
-                className={`fs-15 fs-sm-14 text-grey-500 ${windowWidth > 327 && windowWidth < 487 ? 'mb-2' : 'mb-3'} mb-sm-5`}
+                style={{ fontWeight: '400', lineHeight: '1rem' }}
+                className={`fs-15 fs-sm-14 text-grey-500 ${
+                  windowWidth > 327 && windowWidth < 487 ? 'mb-2' : 'mb-3'
+                } mb-sm-5`}
               >
-                {product.description.substring(0, windowWidth > 327 && windowWidth < 487 ? 65 : 130) + "..."}
+                {product.description.substring(
+                  0,
+                  windowWidth > 428 && windowWidth < 487 ? 65 : 130
+                ) + '...'}
               </p>
             ) : (
               <Skeleton count={3} />
@@ -189,115 +199,97 @@ export const Products: React.FC = () => {
 
   return (
     <div
-      style={{ zIndex: "1" }}
+      style={{ zIndex: '1' }}
       className="bg-grey-900 overflow-hidden position-relative"
     >
+      <div
+        style={{
+          left: 0,
+          top: 0,
+          backgroundColor:'rgba(255,255,255, .3)',
+          clipPath: 'polygon(0% 700px, 500px 100%, 0% 100%)',
+        }}
+        className="position-absolute w-100 h-100"
+      ></div>
+
       <div className="container-fluid-02 mb-6 mt-5 mt-md-8 p-3 position-relative">
         <div className="text-primary fw-bold text-center ">HYTEC EQUIPMENT</div>
         <h1
-          style={{ fontWeight: "900" }}
-          className="text-dark fs-6 mb-5 text-center "
+          style={{ fontWeight: '900' }}
+          className="text-dark fs-6 mb-7 text-center "
         >
           Browse our machinery
         </h1>
         <FilterProduct />
         {dataIsLoaded ? (
-          <div style={{ height: "500px" }} className="w-100">
+          <div style={{ height: '500px' }} className="w-100">
             {/* <StartLogoAnim/> */}
             <Spinner size={60} width={5} />
           </div>
         ) : (
           <>
             {isBigScreen && (
-              <ul
-                ref={ref}
-                style={{
-                  display: "grid",
-                  gap: "1.5rem",
-                  gridTemplateColumns: `repeat( auto-fit, minmax(300px, ${
-                    filterProductArticle.length <= 3 ? "324px" : "1fr"
-                  }))`,
-                }}
-                className="w-100 h-100 list-unstyled grid-wrapper"
-              >
-                {productArticle}
-              </ul>
+              <ProductUi
+                filterProductArticle={filterProductArticle}
+                productArticle={productArticle}
+                length={3}
+                minMaxFirst={300}
+                minMaxSecond={324}
+                useLength={true}
+              />
             )}
 
             {isMidScreen && (
-              <ul
-                ref={ref}
-                style={{
-                  display: "grid",
-                  gap: "1.5rem",
-                  gridTemplateColumns: `repeat( auto-fit, minmax(240px, ${
-                    filterProductArticle.length <= 2 ? "280px" : "1fr"
-                  }))`,
-                }}
-                className="w-100 h-100 list-unstyled grid-wrapper"
-              >
-                {productArticle}
-              </ul>
+              <ProductUi
+                filterProductArticle={filterProductArticle}
+                productArticle={productArticle}
+                length={2}
+                minMaxFirst={240}
+                minMaxSecond={280}
+                useLength={true}
+              />
             )}
 
             {isSmScreen && (
-              <ul
-                ref={ref}
-                style={{
-                  display: "grid",
-                  gap: "1.2rem",
-                  gridTemplateColumns: `repeat( auto-fit, minmax(220px, ${
-                    filterProductArticle.length <= 2 ? "240px" : "1fr"
-                  }))`,
-                }}
-                className="w-100 h-100 list-unstyled grid-wrapper"
-              >
-                {productArticle}
-              </ul>
+              <ProductUi
+                filterProductArticle={filterProductArticle}
+                productArticle={productArticle}
+                length={2}
+                minMaxFirst={220}
+                minMaxSecond={240}
+                useLength={true}
+              />
             )}
 
             {isXsScreen && (
-              <ul
-                ref={ref}
-                style={{
-                  display: "grid",
-                  gap: "1rem",
-                  gridTemplateColumns: `repeat( auto-fit, minmax(190px, ${
-                    filterProductArticle.length <= 2 ? "200px" : "1fr"
-                  }))`,
-                }}
-                className="w-100 h-100 list-unstyled grid-wrapper"
-              >
-                {productArticle}
-              </ul>
+              <ProductUi
+                filterProductArticle={filterProductArticle}
+                productArticle={productArticle}
+                length={2}
+                minMaxFirst={190}
+                minMaxSecond={190}
+                useLength={true}
+              />
             )}
 
             {isXxsScreen && (
-              <ul
-                ref={ref}
-                style={{
-                  display: "grid",
-                  gap: "1rem",
-                  gridTemplateColumns: `repeat( auto-fit, minmax(190px, 1fr))`,
-                }}
-                className="w-100 h-100 list-unstyled grid-wrapper"
-              >
-                {productArticle}
-              </ul>
+              <ProductUi
+                filterProductArticle={filterProductArticle}
+                productArticle={productArticle}
+                length={100}
+                minMaxFirst={190}
+                useLength={false}
+              />
             )}
 
             {isXxxsScreen && (
-              <ul
-                ref={ref}
-                style={{
-                  display: "grid",
-                  gap: "1rem",
-                  gridTemplateColumns: `repeat( auto-fit, minmax(180px, 1fr))`,
-                }}
-                className="w-100 h-100 list-unstyled grid-wrapper"
-              >
-                {productArticle}
-              </ul>
+              <ProductUi
+                filterProductArticle={filterProductArticle}
+                productArticle={productArticle}
+                length={100}
+                minMaxFirst={180}
+                useLength={false}
+              />
             )}
 
             {next < data.products.length && (
