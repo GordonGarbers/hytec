@@ -86,22 +86,22 @@ export enum ESection {
   // products = "products",
 }
 
-
-export interface IFilter{
-  categorie: string,
-  fuelType: string,
-  kw: number,
-  ps: number,
-  displacement: number,
-  fuelTankCapacity: number,
-  speed: number,
-  weight: number,
-  liftingCapacity: number,
-  liftingHeight: number,
-  totalLength: number,
-  totalWidth: number,
-  totalHeight: number,
-  wheelbase: number 
+export interface IFilter {
+  categorie: string;
+  fuelType: string;
+  kw: number;
+  ps: number;
+  displacement: number;
+  fuelTankCapacity: number;
+  speed: number;
+  weight: number;
+  liftingCapacity: number;
+  liftingHeight: number;
+  totalLength: number;
+  totalWidth: number;
+  totalHeight: number;
+  wheelbase: number;
+  price: number;
 }
 export interface IProducts {
   id: number;
@@ -110,14 +110,14 @@ export interface IProducts {
   price: string;
   extras: string[];
   description: string;
-  accessories:string[];
-  specifications:string[];
-  filter: Partial<IFilter>,
-  basePath: string,
-  productNamePath: string,
-  heroImage:string,
-  carouselImages: string[],
-  video:string
+  accessories: string[];
+  specifications: string[];
+  filter: Partial<IFilter>;
+  basePath: string;
+  productNamePath: string;
+  heroImage: string;
+  carouselImages: string[];
+  video: string;
 }
 
 export interface IDataDetails {
@@ -131,3 +131,15 @@ export interface IDataDetails {
   form: Partial<IFrom>;
   footer: Partial<IFooter>;
 }
+
+export interface ICategory {
+  category: string;
+  categoryLabel: string;
+  count: number;
+}
+
+export interface IPriceRange {
+  min: number,
+  max: number
+}
+

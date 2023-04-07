@@ -8,6 +8,7 @@ import windowWidthReducer from "../features/windowWidth/windowWidth.slice";
 import pauseReducer from "../features/pauseHeroPage/pauseHeroPage";
 import changeLanguageReducer from '../features/changeLanguage/changeLanguage.slice'
 import productCategoriesReducer from '../features/products/productCategories/productCategories.slice'
+import productPriceReducer from '../features/products/productPrices/productPrices.slice'
 import createSagaMiddleware from "@redux-saga/core";
 import rootSaga from "../saga/saga";
 
@@ -23,7 +24,8 @@ export const store = configureStore({
     width: windowWidthReducer,
     pause: pauseReducer,
     lang: changeLanguageReducer,
-    categories: productCategoriesReducer
+    categories: productCategoriesReducer,
+    prices: productPriceReducer
   },
   middleware: (defaultMiddleware) => defaultMiddleware().concat(saga),
 });

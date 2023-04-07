@@ -49,6 +49,7 @@ export const Products: React.FC = () => {
   };
 
   const { categories } = useAppSelector((state: RootState) => state.categories);
+  const {min, max} = useAppSelector((state: RootState) => state.prices)
   const { windowWidth } = useAppSelector((state: RootState) => state.width);
   const { isScrolling, isWindowChange } = useWindowAndScrollDetection();
 
@@ -74,6 +75,7 @@ export const Products: React.FC = () => {
     );
   };
 
+  console.log(min, max);
 
   useEffect(() => {
     const btnValue = sessionStorage.getItem('productsSelected') || btnClicked;
@@ -93,6 +95,7 @@ export const Products: React.FC = () => {
       const fullImagePath = `${product.basePath}${product.productNamePath}${product.heroImage}`;
       return (
         <li
+          // onMouseEnter ={onLiBtnClick}
           onClick={onLiBtnClick}
           value={idx}
           key={product.id}
@@ -100,21 +103,25 @@ export const Products: React.FC = () => {
             backgroundColor: '#fff',
             transition: 'all 1s ease',
           }}
-          className="w-100 rounded-2 shadow-sm position-relative list"
+          className="w-100 rounded-2 shadow-sm position-relative list overflow-hidden"
         >
           {idx === btnClicked ? (
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={btnClicked}
-                initial={{ scale: 0.7, opacity: 1 }}
-                animate={{ scale: 1, opacity: 1 }}
-                // exit={{ x: 100, opacity: 0 }}
-                transition={{ duration: 0.35 }}
-                className="underline bg-primary rounded-2"
-                layoutId="underline"
-                style={{ outline: `10px solid ${EColors.primary}` }}
-              />
-            </AnimatePresence>
+            <>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={btnClicked}
+                  initial={{ scale: 0.7, opacity: 1 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  // exit={{ scale: 2, opacity: 1 }}
+                  transition={{ duration: .3 }}
+                  // className="underline bg-primary rounded-2"
+                  className="underline bg-primary"
+                  layoutId="underline"
+                  // style={{ outline: `10px solid ${EColors.primary}` }}
+                />
+              </AnimatePresence>
+            </>
+            
           ) : null}
 
           <div className="w-100 position-relative" style={{}}>
@@ -132,7 +139,7 @@ export const Products: React.FC = () => {
             />
           </div>
 
-          <div className="w-100 p-3 text-dark" style={{ fontWeight: 500 }}>
+          <div className="w-100 p-3 text-dark" style={{ fontWeight: 500}}>
             {!dataIsLoaded ? (
               <div className="text-primary-dark fs-15">
                 {product.categorie.toUpperCase()}

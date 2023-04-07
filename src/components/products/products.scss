@@ -1,15 +1,86 @@
 
+//arround
+// .underline {
+//     z-index: -1;
+//     position: absolute;
+//     bottom: -1px;
+//     left: 0;
+//     right: 0;
+//     top:0;
+//     height: 100%;
+//     background: var(--accent);
+    
+//   }
+
+//corner  
 .underline {
-    z-index: -1;
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
-    top:0;
-    height: 100%;
-    background: var(--accent);
+  z-index: 1;
+  position: absolute;
+  right: 0px;
+  top:0px;
+  height: 30px;
+  width:30px;
+  // background: var(--accent);
+  border-top-right-radius:7px;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+}
+
+.filter-bg-colors{
+  left:0;
+  top:0;
+  z-index: 0; 
+}
+.accordion-header{
+
+  .filter-bg-colors1{
+    clip-path: polygon(0% 0%, 200px 0%, 140px 100%, 0% 100%);
+    transition: all 1s ease;
+  }
+  .filter-bg-colors2{
+    clip-path: polygon(0% 0%, 180px 0%, 90px 100%, 0% 100%);
+    transition: all 1s ease;
+  }
+
+  .filter-text{
+    font-weight:500;
+    opacity: 0;
+    transition: all .6s ease;
+  }
+}
+
+.accordion-header:hover{
+  .filter-bg-colors1{
+    clip-path: polygon(0% 0%, 170px 0%, 230px 100%, 0% 100%);
     
   }
+  .filter-bg-colors2{
+    clip-path: polygon(0% 0%, 200px 0%, 110px 100%, 0% 100%);
+  }
+
+  .filter-text{
+    font-weight:500;
+    opacity: 1;
+  }
+}
+
+.accordion-header:active{
+  .filter-bg-colors1{
+    clip-path: polygon(0% 0%, 170px 0%, 230px 100%, 0% 100%);
+  }
+  .filter-bg-colors2{
+    clip-path: polygon(0% 0%, 200px 0%, 110px 100%, 0% 100%);
+  }
+
+  .filter-text{
+    font-weight:500;
+    opacity: 1;
+  }
+
+}
+
+
+
+
 
   .form-check-input{
     box-shadow: none !important;
