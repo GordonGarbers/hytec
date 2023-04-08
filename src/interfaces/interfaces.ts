@@ -103,6 +103,24 @@ export interface IFilter {
   wheelbase: number;
   price: number;
 }
+
+export enum EUseRangeSections {
+  categorie="categorie",
+  fuelType ="fuelType",
+  kw = "kw",
+  ps = "ps",
+  displacement = "displacement",
+  fuelTankCapacity = "fuelTankCapacity",
+  speed = "speed",
+  weight = "weight",
+  liftingCapacity = "liftingCapacity",
+  liftingHeight = "liftingHeight",
+  totalLength = "totalLength",
+  totalWidth = "totalWidth",
+  totalHeight = "totalHeight",
+  wheelbase = "wheelbase",
+  price = "price"
+}
 export interface IProducts {
   id: number;
   categorie: string;
@@ -112,7 +130,7 @@ export interface IProducts {
   description: string;
   accessories: string[];
   specifications: string[];
-  filter: Partial<IFilter>;
+  filter: IFilter;
   basePath: string;
   productNamePath: string;
   heroImage: string;
@@ -138,7 +156,7 @@ export interface ICategory {
   count: number;
 }
 
-export interface IPriceRange {
+export interface IRange {
   min: number,
   max: number
 }

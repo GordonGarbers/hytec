@@ -1,7 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { RootState } from "../../app/store";
-import { IProducts } from "../../interfaces/interfaces";
+import {
+  EUseRangeSections,
+  IProducts,
+  IRange,
+} from "../../interfaces/interfaces";
 import { BsSliders } from "react-icons/bs";
 import { ICategory } from "../../interfaces/interfaces";
 import { motion } from "framer-motion";
@@ -11,7 +15,10 @@ import {
 } from "../../features/products/productCategories/productCategories.slice";
 import { EColors } from "../../constants/constants";
 import { CreateCategoriyElements } from "./CreateCategoryElements";
-import { addPrice } from "../../features/products/productPrices/productPrices.slice";
+import { RangeSlider } from "./RangeSlider";
+import { useRange } from "./hooks/useRange";
+
+import { filterPrice, filterWeight } from "./features/filter.slice";
 
 export const FilterProduct: React.FC = () => {
   const { dataIsLoaded, data, dataError } = useAppSelector(
@@ -20,7 +27,6 @@ export const FilterProduct: React.FC = () => {
 
   const [filter, setFilter] = useState<boolean>(true);
 
-  //   console.log(ref.current?.getBoundingClientRect().height);
   const dispatch = useAppDispatch();
 
   const getCategories = data.products.reduce(
@@ -28,7 +34,6 @@ export const FilterProduct: React.FC = () => {
       const index = accu.findIndex((accuItem) => {
         return accuItem.category === curr.filter.categorie;
       });
-
       if (index === -1) {
         accu = [
           ...accu,
@@ -41,22 +46,11 @@ export const FilterProduct: React.FC = () => {
       } else {
         accu[index].count++;
       }
-
       accu[0].count++;
       return accu;
     },
     [{ category: "all", categoryLabel: " All", count: 0 }]
   );
-
-  const getPrices = data.products.map((product: IProducts) => {
-    if (product.filter.price && product.filter.price !== Infinity)
-      return product.filter.price;
-    else return 0;
-  });
-  const minMaxPrice = {
-    min: Math.min(...getPrices),
-    max: Math.max(...getPrices),
-  };
 
   const createCategoriyElements = getCategories.map(
     (categorie: ICategory, idx: number) => {
@@ -66,15 +60,40 @@ export const FilterProduct: React.FC = () => {
     }
   );
 
-  //set default categorie state
   useEffect(() => {
     dispatch(addCategory(getCategories[0]?.category || ""));
   }, [data]);
 
-  //set default price range
-  useEffect(() => {
-    dispatch(addPrice(minMaxPrice));
-  }, [data]);
+  /////////////////////////////
+  //SET RANGE PRICE CUSTOM HOOK
+  const {
+    initialValue: initalValuePrice,
+    distance: distancePrice,
+    step: stepPrice,
+  } = useRange(data, EUseRangeSections.price, filterPrice);
+
+  const {
+    initialValue: initalValueWeight,
+    distance: distanceWeight,
+    step: stepWeight,
+  } = useRange(data, EUseRangeSections.weight, filterWeight);
+  ///////////////////////////////////////////////////////////
+  const {
+    kw,
+    ps,
+    displacement,
+    fuelTankCapacity,
+    speed,
+    weight,
+    liftingCapacity,
+    liftingHeight,
+    totalLength,
+    totalWidth,
+    totalHeight,
+    wheelbase,
+    price,
+  } = useAppSelector((state: RootState) => state.filter);
+
 
   return (
     <div className="accordion mb-4" id="accordionExample">
@@ -117,6 +136,26 @@ export const FilterProduct: React.FC = () => {
                 </div>
               </div>
             </div>
+
+            <RangeSlider
+              min={initalValuePrice.min}
+              max={initalValuePrice.max}
+              step={stepPrice}
+              value={price}
+              filterFunc={filterPrice}
+              distance={distancePrice}
+              sufix={"€"}
+            />
+
+            <RangeSlider
+              min={initalValueWeight.min}
+              max={initalValueWeight.max}
+              step={stepWeight}
+              value={weight}
+              filterFunc={filterWeight}
+              distance={distanceWeight}
+              sufix={"kg"}
+            />
           </div>
         </div>
       </div>

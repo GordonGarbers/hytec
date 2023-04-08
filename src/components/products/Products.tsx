@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import { useAppSelector } from '../../app/hooks';
 import { RootState } from '../../app/store';
-import { IProducts } from '../../interfaces/interfaces';
+import { IProducts, IRange } from '../../interfaces/interfaces';
 import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
 import { EColors } from '../../constants/constants';
 import Skeleton from 'react-loading-skeleton';
@@ -16,21 +16,11 @@ import { Spinner } from '../loaders/Spinner';
 import { useWindowAndScrollDetection } from '../hooks/useWindowAndScrollDetection';
 import { AnimatePresence, motion } from 'framer-motion';
 import './products.scss';
-import { SideFollowUs } from '../sideFollowUs/SideFollowUs';
 import { FilterProduct } from './FilterProduct';
 import { useMediaQuery } from 'react-responsive';
 import { ProductUi } from './ProductUl';
 
-// const variants = {
-//   from: {
-//     scale: 0.7,
-//     opacity: 0,
-//   },
-//   to: {
-//     scale: 1,
-//     opacity: 1,
-//   },
-// };
+
 
 const imageToLoad = 4;
 
@@ -49,7 +39,6 @@ export const Products: React.FC = () => {
   };
 
   const { categories } = useAppSelector((state: RootState) => state.categories);
-  const {min, max} = useAppSelector((state: RootState) => state.prices)
   const { windowWidth } = useAppSelector((state: RootState) => state.width);
   const { isScrolling, isWindowChange } = useWindowAndScrollDetection();
 
@@ -60,7 +49,24 @@ export const Products: React.FC = () => {
   const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
   const [btnClicked, setBtnClicked] = useState<number>(0);
 
-  const ref = useRef<HTMLUListElement>(null);
+  const {
+    kw,
+    ps,
+    displacement,
+    fuelTankCapacity,
+    speed,
+    weight,
+    liftingCapacity,
+    liftingHeight,
+    totalLength,
+    totalWidth,
+    totalHeight,
+    wheelbase,
+    price,
+  } = useAppSelector((state: RootState) => state.filter);
+
+
+  // const ref = useRef<HTMLUListElement>(null);
 
   const handleImageOnLoad = () => {
     setIsImgLoaded(true);
@@ -75,7 +81,6 @@ export const Products: React.FC = () => {
     );
   };
 
-  console.log(min, max);
 
   useEffect(() => {
     const btnValue = sessionStorage.getItem('productsSelected') || btnClicked;
@@ -88,7 +93,10 @@ export const Products: React.FC = () => {
       return categories !== 'all'
         ? categories === product.filter.categorie ?? ''
         : true;
-    });
+    })
+    .filter((product: IProducts)=>{
+      return product.filter.price >= price.min && product.filter.price <= price.max
+    })
 
   const productArticle = filterProductArticle.map(
     (product: IProducts, idx: number) => {
@@ -204,6 +212,13 @@ export const Products: React.FC = () => {
     }
   );
 
+  //get prices range func
+  const getPricesRange = (price: IRange) => {
+
+  }
+
+
+
   return (
     <div
       style={{ zIndex: '1' }}
@@ -227,7 +242,7 @@ export const Products: React.FC = () => {
         >
           Browse our machinery
         </h1>
-        <FilterProduct />
+        <FilterProduct/>
         {dataIsLoaded ? (
           <div style={{ height: '500px' }} className="w-100">
             {/* <StartLogoAnim/> */}
