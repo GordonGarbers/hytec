@@ -64,8 +64,7 @@ export const Products: React.FC = () => {
     wheelbase,
     price,
   } = useAppSelector((state: RootState) => state.filter);
-
-
+ 
   // const ref = useRef<HTMLUListElement>(null);
 
   const handleImageOnLoad = () => {
@@ -87,6 +86,7 @@ export const Products: React.FC = () => {
     setBtnClicked(parseInt(btnValue as string));
   }, [btnClicked]);
 
+  //FILTERING
   const filterProductArticle = data.products
     .slice(0, next)
     .filter((product: IProducts) => {
@@ -97,6 +97,8 @@ export const Products: React.FC = () => {
     .filter((product: IProducts)=>{
       return product.filter.price >= price.min && product.filter.price <= price.max
     })
+
+    
 
   const productArticle = filterProductArticle.map(
     (product: IProducts, idx: number) => {
@@ -109,7 +111,7 @@ export const Products: React.FC = () => {
           key={product.id}
           style={{
             backgroundColor: '#fff',
-            transition: 'all 1s ease',
+            
           }}
           className="w-100 rounded-2 shadow-sm position-relative list overflow-hidden"
         >
@@ -141,7 +143,7 @@ export const Products: React.FC = () => {
               className={`${
                 windowWidth > 327 && windowWidth < 487 ? 'p-1' : 'p-3'
               }`}
-              style={{ width: '100%' }}
+              style={{ width: '100%'}}
               loading="lazy"
               alt={product.productNamePath}
             />
@@ -216,7 +218,6 @@ export const Products: React.FC = () => {
   const getPricesRange = (price: IRange) => {
 
   }
-
 
 
   return (
@@ -318,7 +319,7 @@ export const Products: React.FC = () => {
               <div className="p-4 text-center mt-4 d-flex justify-content-center">
                 <button
                   onClick={handleMoreImage}
-                  className="btn btn-dark fs-14 rounded-1 px-3 py-2 d-flex  align-items-center gap-2"
+                  className="btn btn-dark fs-14 rounded-1 px-3 py-2 d-flex align-items-center gap-2"
                 >
                   View more <HiOutlineArrowNarrowRight size={20} />
                 </button>

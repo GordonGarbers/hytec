@@ -49,8 +49,22 @@ export const useRange = (
 
   //set distance and step from initial values
   useEffect(() => {
-    setDistance(Math.floor((initialValue.max - initialValue.min) / 10));
-    setStep(Math.ceil(initialValue.max / 200));
+    // setDistance(Math.floor((initialValue.max - initialValue.min) / 10));
+    
+    // setStep(Math.ceil(initialValue.max / 200));
+    const diff = initialValue.max - initialValue.min
+    if(diff >= 500)
+    {
+      setStep(50);
+      setDistance(Math.floor(diff / 10));
+    } else if(diff >= 100 && diff <= 500){
+      setStep(5);
+      setDistance(10);  
+    }else if(diff < 100){
+      setStep(1);
+      setDistance(2);  
+    }
+
   }, [initialValue]);
 
   return { initialValue, distance, step };

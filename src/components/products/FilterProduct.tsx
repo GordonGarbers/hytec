@@ -18,7 +18,12 @@ import { CreateCategoriyElements } from "./CreateCategoryElements";
 import { RangeSlider } from "./RangeSlider";
 import { useRange } from "./hooks/useRange";
 
-import { filterPrice, filterWeight } from "./features/filter.slice";
+import {
+  filterKw,
+  filterPrice,
+  filterPs,
+  filterWeight,
+} from "./features/filter.slice";
 
 export const FilterProduct: React.FC = () => {
   const { dataIsLoaded, data, dataError } = useAppSelector(
@@ -65,18 +70,35 @@ export const FilterProduct: React.FC = () => {
   }, [data]);
 
   /////////////////////////////
-  //SET RANGE PRICE CUSTOM HOOK
+  //RANGE CUSTOM HOOK
+
+  //hook price
   const {
     initialValue: initalValuePrice,
     distance: distancePrice,
     step: stepPrice,
   } = useRange(data, EUseRangeSections.price, filterPrice);
 
+  //hook weight
   const {
     initialValue: initalValueWeight,
     distance: distanceWeight,
     step: stepWeight,
   } = useRange(data, EUseRangeSections.weight, filterWeight);
+
+  //hook weight
+  const {
+    initialValue: initalValueKw,
+    distance: distanceKw,
+    step: stepKw,
+  } = useRange(data, EUseRangeSections.kw, filterKw);
+
+  //hook weight
+  const {
+    initialValue: initalValuePs,
+    distance: distancePs,
+    step: stepPs,
+  } = useRange(data, EUseRangeSections.kw, filterPs);
   ///////////////////////////////////////////////////////////
   const {
     kw,
@@ -93,7 +115,6 @@ export const FilterProduct: React.FC = () => {
     wheelbase,
     price,
   } = useAppSelector((state: RootState) => state.filter);
-
 
   return (
     <div className="accordion mb-4" id="accordionExample">
@@ -121,33 +142,61 @@ export const FilterProduct: React.FC = () => {
           aria-labelledby="headingOne"
           data-bs-parent="#accordionExample"
         >
-          <div className="accordion-body">
-            <div className="position-relative">
-              <div>
-                <div>
-                  <label
-                    style={{ textTransform: "uppercase" }}
-                    className="mb-3 fs-13 fw-bold text-dark"
-                    htmlFor=""
-                  >
-                    Categories
-                  </label>
-                  {createCategoriyElements}
-                </div>
+          <div className="accordion-body w-100 d-flex">
+            <div className="position-relative w-50">
+              <label
+                style={{ textTransform: "capitalize" }}
+                className="mb-3 fs-13 fw-bold text-dark-light"
+                htmlFor=""
+              >
+                Categories
+              </label>
+              {createCategoriyElements}
+            </div>
+
+            <div className="filter-range-wrapper w-50 d-flex flex-column justify-content-between pe-4">
+              <div className="position-relative w-100">
+                <label
+                  style={{ textTransform: "capitalize" }}
+                  className="mb-3 fs-13 fw-bold text-dark-light w-100 text-center"
+                  htmlFor=""
+                >
+                  <span>Price</span>
+                  <span className="text-grey-500 fs-15">{" "}(€)</span> 
+                </label>
+                <RangeSlider
+                  min={initalValuePrice.min}
+                  max={initalValuePrice.max}
+                  step={stepPrice}
+                  value={price}
+                  filterFunc={filterPrice}
+                  distance={distancePrice}
+                  sufix={"€"}
+                />
+              </div>
+
+              <div className="position-relative w-100">
+                <label
+                  style={{ textTransform: "capitalize" }}
+                  className="mb-3 fs-13 fw-bold text-dark-light w-100 text-center"
+                  htmlFor=""
+                >
+                  <span>Weight</span>
+                  <span className="text-grey-500 fs-15">{" "}(kg)</span> 
+                </label>
+                <RangeSlider
+                  min={initalValueWeight.min}
+                  max={initalValueWeight.max}
+                  step={stepWeight}
+                  value={weight}
+                  filterFunc={filterWeight}
+                  distance={distanceWeight}
+                  sufix={"kg"}
+                />
               </div>
             </div>
 
-            <RangeSlider
-              min={initalValuePrice.min}
-              max={initalValuePrice.max}
-              step={stepPrice}
-              value={price}
-              filterFunc={filterPrice}
-              distance={distancePrice}
-              sufix={"€"}
-            />
-
-            <RangeSlider
+            {/* <RangeSlider
               min={initalValueWeight.min}
               max={initalValueWeight.max}
               step={stepWeight}
@@ -156,6 +205,26 @@ export const FilterProduct: React.FC = () => {
               distance={distanceWeight}
               sufix={"kg"}
             />
+
+            <RangeSlider
+              min={initalValueKw.min}
+              max={initalValueKw.max}
+              step={stepKw}
+              value={kw}
+              filterFunc={filterKw}
+              distance={distanceKw}
+              sufix={"kw"}
+            />
+
+            <RangeSlider
+              min={initalValuePs.min}
+              max={initalValuePs.max}
+              step={stepPs}
+              value={ps}
+              filterFunc={filterPs}
+              distance={distancePs}
+              sufix={""}
+            /> */}
           </div>
         </div>
       </div>

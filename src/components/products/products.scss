@@ -201,6 +201,6 @@ $thumb-size: 16px;
   width: $thumb-size;
   height: $thumb-size;
   margin-left: calc(#{$thumb-size} / -2);
-  transform: translate3d(0, -50%, 0);
+  transform: translate(0, -50%);
   z-index: 2;
 }
