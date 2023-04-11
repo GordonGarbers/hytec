@@ -23,7 +23,21 @@ import {
   filterPrice,
   filterPs,
   filterWeight,
+  filterDisplacement,
+  filterFuelTankCapacity,
+  filterLiftingCapacity,
+  filterLiftingHeight,
+  filterSpeed,
+  filterTotalHeight,
+  filterTotalLength,
+  filterTotalWidth,
+  filterWheelbase,
 } from "./features/filter.slice";
+
+import { onResetFilter } from "./features/resetFilters.slice";
+import { onFiltersRemove } from "./features/filtersChanged.slice";
+import { GrFormClose } from "react-icons/gr";
+import { onSliderSpeedChange } from "./features/sliderAnimSpeed.slice";
 
 export const FilterProduct: React.FC = () => {
   const { dataIsLoaded, data, dataError } = useAppSelector(
@@ -31,8 +45,26 @@ export const FilterProduct: React.FC = () => {
   );
 
   const [filter, setFilter] = useState<boolean>(true);
+  const { reset } = useAppSelector((state: RootState) => state.resetFilter);
+  const { filters } = useAppSelector(
+    (state: RootState) => state.changedFilters
+  );
+  const { windowWidth } = useAppSelector((state: RootState) => state.width);
+  const [btnSelected, setButtonSelected] = useState<string>("");
 
   const dispatch = useAppDispatch();
+
+  const onFilterButtonClicked = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    setButtonSelected(e.currentTarget.value);
+    dispatch(onSliderSpeedChange(0.25));
+  };
+
+  useEffect(() => {
+    setButtonSelected("");
+  }, [filters]);
 
   const getCategories = data.products.reduce(
     (accu: ICategory[], curr: IProducts, idx: number): ICategory[] => {
@@ -86,19 +118,77 @@ export const FilterProduct: React.FC = () => {
     step: stepWeight,
   } = useRange(data, EUseRangeSections.weight, filterWeight);
 
-  //hook weight
+  //hook kw
   const {
     initialValue: initalValueKw,
     distance: distanceKw,
     step: stepKw,
   } = useRange(data, EUseRangeSections.kw, filterKw);
 
-  //hook weight
+  //hook ps
   const {
     initialValue: initalValuePs,
     distance: distancePs,
     step: stepPs,
   } = useRange(data, EUseRangeSections.kw, filterPs);
+
+  const {
+    initialValue: initalValueDisplacement,
+    distance: distanceDisplacement,
+    step: stepDisplacement,
+  } = useRange(data, EUseRangeSections.displacement, filterDisplacement);
+
+  const {
+    initialValue: initalValueFuelTankCapacity,
+    distance: distanceFuelTankCapacity,
+    step: stepFuelTankCapacity,
+  } = useRange(
+    data,
+    EUseRangeSections.fuelTankCapacity,
+    filterFuelTankCapacity
+  );
+
+  const {
+    initialValue: initalValueSpeed,
+    distance: distanceSpeed,
+    step: stepSpeed,
+  } = useRange(data, EUseRangeSections.speed, filterSpeed);
+
+  const {
+    initialValue: initalValueLiftingCapacity,
+    distance: distanceLiftingCapacity,
+    step: stepLiftingCapacity,
+  } = useRange(data, EUseRangeSections.liftingCapacity, filterLiftingCapacity);
+
+  const {
+    initialValue: initalValueLiftingHeight,
+    distance: distanceLiftingHeight,
+    step: stepLiftingHeight,
+  } = useRange(data, EUseRangeSections.liftingHeight, filterLiftingHeight);
+
+  const {
+    initialValue: initalValueTotalLength,
+    distance: distanceTotalLength,
+    step: stepTotalLength,
+  } = useRange(data, EUseRangeSections.totalLength, filterTotalLength);
+
+  const {
+    initialValue: initalValueTotalWidth,
+    distance: distanceTotalWidth,
+    step: stepTotalWidth,
+  } = useRange(data, EUseRangeSections.totalWidth, filterTotalWidth);
+
+  const {
+    initialValue: initalValueTotalHeight,
+    distance: distanceTotalHeight,
+    step: stepTotalHeight,
+  } = useRange(data, EUseRangeSections.totalHeight, filterTotalHeight);
+
+  const {
+    initialValue: initalWheelbase,
+    distance: distanceWheelbase,
+    step: stepWheelbase,
+  } = useRange(data, EUseRangeSections.wheelbase, filterWheelbase);
   ///////////////////////////////////////////////////////////
   const {
     kw,
@@ -142,8 +232,11 @@ export const FilterProduct: React.FC = () => {
           aria-labelledby="headingOne"
           data-bs-parent="#accordionExample"
         >
-          <div className="accordion-body w-100 d-flex">
-            <div className="position-relative w-50">
+          <div
+            className="accordion-body w-100 d-flex flex-column d-md-grid gap-4"
+            style={{ gridTemplateColumns: "200px 1fr" }}
+          >
+            <div className="position-relative">
               <label
                 style={{ textTransform: "capitalize" }}
                 className="mb-3 fs-13 fw-bold text-dark-light"
@@ -154,45 +247,105 @@ export const FilterProduct: React.FC = () => {
               {createCategoriyElements}
             </div>
 
-            <div className="filter-range-wrapper w-50 d-flex flex-column justify-content-between pe-4">
-              <div className="position-relative w-100">
-                <label
-                  style={{ textTransform: "capitalize" }}
-                  className="mb-3 fs-13 fw-bold text-dark-light w-100 text-center"
-                  htmlFor=""
-                >
-                  <span>Price</span>
-                  <span className="text-grey-500 fs-15">{" "}(€)</span> 
-                </label>
-                <RangeSlider
-                  min={initalValuePrice.min}
-                  max={initalValuePrice.max}
-                  step={stepPrice}
-                  value={price}
-                  filterFunc={filterPrice}
-                  distance={distancePrice}
-                  sufix={"€"}
-                />
+            <div className="d-flex w-100 flex-column flex-lg-row gap-3">
+              <div className="w-100 filter-range-wrapper d-flex flex-column justify-content-between px-4">
+                <div className="position-relative w-100">
+                  <label
+                    style={{ textTransform: "capitalize" }}
+                    className={`mb-3 ${
+                      windowWidth > 400 ? "fs-13" : "fs-14"
+                    }  fw-bold text-dark-light w-100 text-center`}
+                    htmlFor=""
+                  >
+                    <span>Price</span>
+                    <span className="text-grey-500 fs-15"> (€)</span>
+                  </label>
+                  <RangeSlider
+                    min={initalValuePrice.min}
+                    max={initalValuePrice.max}
+                    step={stepPrice}
+                    value={price}
+                    filterFunc={filterPrice}
+                    distance={distancePrice}
+                    attrName="price"
+                    btnSelected={btnSelected}
+                    sufix={"€"}
+                  />
+                </div>
+
+                <div className="position-relative w-100">
+                  <label
+                    style={{ textTransform: "capitalize" }}
+                    className={`mb-3 ${
+                      windowWidth > 400 ? "fs-13" : "fs-14"
+                    }  fw-bold text-dark-light w-100 text-center`}
+                    htmlFor=""
+                  >
+                    <span>Weight</span>
+                    <span className="text-grey-500 fs-15"> (kg)</span>
+                  </label>
+                  <RangeSlider
+                    min={initalValueWeight.min}
+                    max={initalValueWeight.max}
+                    step={stepWeight}
+                    value={weight}
+                    filterFunc={filterWeight}
+                    distance={distanceWeight}
+                    attrName="weight"
+                    btnSelected={btnSelected}
+                    sufix={"kg"}
+                  />
+                </div>
               </div>
 
-              <div className="position-relative w-100">
-                <label
-                  style={{ textTransform: "capitalize" }}
-                  className="mb-3 fs-13 fw-bold text-dark-light w-100 text-center"
-                  htmlFor=""
-                >
-                  <span>Weight</span>
-                  <span className="text-grey-500 fs-15">{" "}(kg)</span> 
-                </label>
-                <RangeSlider
-                  min={initalValueWeight.min}
-                  max={initalValueWeight.max}
-                  step={stepWeight}
-                  value={weight}
-                  filterFunc={filterWeight}
-                  distance={distanceWeight}
-                  sufix={"kg"}
-                />
+              <div className="w-100 filter-range-wrapper d-flex flex-column justify-content-between px-4">
+                <div className="position-relative w-100">
+                  <label
+                    style={{ textTransform: "capitalize" }}
+                    className={`mb-3 ${
+                      windowWidth > 400 ? "fs-13" : "fs-14"
+                    }  fw-bold text-dark-light w-100 text-center`}
+                    htmlFor=""
+                  >
+                    <span>Displacement</span>
+                    <span className="text-grey-500 fs-15"> (€)</span>
+                  </label>
+                  <RangeSlider
+                    min={initalValueDisplacement.min}
+                    max={initalValueDisplacement.max}
+                    step={stepDisplacement}
+                    value={displacement}
+                    filterFunc={filterDisplacement}
+                    distance={distanceDisplacement}
+                    attrName="displacement"
+                    btnSelected={btnSelected}
+                    sufix={"cm3"}
+                  />
+                </div>
+
+                <div className="position-relative w-100">
+                  <label
+                    style={{ textTransform: "capitalize" }}
+                    className={`mb-3 ${
+                      windowWidth > 400 ? "fs-13" : "fs-14"
+                    }  fw-bold text-dark-light w-100 text-center`}
+                    htmlFor=""
+                  >
+                    <span>Fuel tank</span>
+                    <span className="text-grey-500 fs-15"> (kg)</span>
+                  </label>
+                  <RangeSlider
+                    min={initalValueFuelTankCapacity.min}
+                    max={initalValueFuelTankCapacity.max}
+                    step={stepFuelTankCapacity}
+                    value={fuelTankCapacity}
+                    filterFunc={filterFuelTankCapacity}
+                    distance={distanceFuelTankCapacity}
+                    attrName="fuel tank"
+                    btnSelected={btnSelected}
+                    sufix={"l"}
+                  />
+                </div>
               </div>
             </div>
 
@@ -225,6 +378,38 @@ export const FilterProduct: React.FC = () => {
               distance={distancePs}
               sufix={""}
             /> */}
+          </div>
+
+          {/* MAIN RESET */}
+          {/* <button
+            onClick={() => dispatch(onResetFilter(true))}
+            className="btn btn-primary"
+          >
+            RESET
+          </button> */}
+          {/* CREATE FILTER BUTTONS */}
+          <div className="d-flex gap-1 p-3">
+            {filters.map((filter: string, idx: number) => {
+              return (
+                <button
+                  onClick={(e) => onFilterButtonClicked(e)}
+                  key={idx}
+                  className={`btn btn-grey-900 rounded-3 d-flex align-items-center ${
+                    windowWidth > 490 ? "gap-1 px-2" : "gap-0 px-1"
+                  } `}
+                  value={filter}
+                >
+                  <span
+                    className={`${
+                      windowWidth > 490 ? "fs-14" : "fs-15"
+                    } fw-bold`}
+                  >
+                    {windowWidth > 360 ? filter : `${filter.slice(0, 3)}...`}
+                  </span>
+                  <GrFormClose />
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>

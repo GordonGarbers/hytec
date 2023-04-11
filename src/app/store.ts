@@ -10,6 +10,9 @@ import changeLanguageReducer from '../features/changeLanguage/changeLanguage.sli
 import productCategoriesReducer from '../features/products/productCategories/productCategories.slice'
 import createSagaMiddleware from "@redux-saga/core";
 import filterReducer from '../components/products/features/filter.slice'
+import resetFilterReducer from '../components/products/features/resetFilters.slice'
+import sliderAnimSpeedReducer from '../components/products/features/sliderAnimSpeed.slice'
+import filterChangedReducer from '../components/products/features/filtersChanged.slice'
 import rootSaga from "../saga/saga";
 
 const saga = createSagaMiddleware();
@@ -25,7 +28,10 @@ export const store = configureStore({
     pause: pauseReducer,
     lang: changeLanguageReducer,
     categories: productCategoriesReducer,
-    filter: filterReducer
+    filter: filterReducer,
+    resetFilter: resetFilterReducer,
+    changedFilters: filterChangedReducer,
+    sliderSpeed: sliderAnimSpeedReducer
   },
   middleware: (defaultMiddleware) => defaultMiddleware().concat(saga),
 });

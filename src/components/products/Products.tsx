@@ -19,6 +19,7 @@ import './products.scss';
 import { FilterProduct } from './FilterProduct';
 import { useMediaQuery } from 'react-responsive';
 import { ProductUi } from './ProductUl';
+import { Centerize } from '../layout/Centerize';
 
 
 
@@ -97,6 +98,16 @@ export const Products: React.FC = () => {
     .filter((product: IProducts)=>{
       return product.filter.price >= price.min && product.filter.price <= price.max
     })
+    .filter((product: IProducts)=>{
+      return product.filter.weight >= weight.min && product.filter.weight <= weight.max
+    })
+    .filter((product: IProducts)=>{
+      return product.filter.displacement >= displacement.min && product.filter.displacement <= displacement.max
+    })
+    .filter((product: IProducts)=>{
+      return product.filter.fuelTankCapacity >= fuelTankCapacity.min && product.filter.fuelTankCapacity <= fuelTankCapacity.max
+    })
+
 
     
 
@@ -250,6 +261,8 @@ export const Products: React.FC = () => {
             <Spinner size={60} width={5} />
           </div>
         ) : (
+          filterProductArticle.length > 0
+          ?
           <>
             {isBigScreen && (
               <ProductUi
@@ -326,6 +339,10 @@ export const Products: React.FC = () => {
               </div>
             )}
           </>
+          :
+          <div className='d-flex justify-content-center align-items-center pt-6'>
+            <p className={`${windowWidth > 400 ? "fs-14" : "fs-15"} fw-bold `}>Sorry, no machinery were found matching your filter criteria.</p>
+          </div>
         )}
       </div>
     </div>
