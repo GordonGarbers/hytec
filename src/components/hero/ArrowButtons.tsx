@@ -29,7 +29,7 @@ export const ArrowButtons: React.FC<IArrowButtonsProps> = ({
     <motion.button
         whileTap={{}}
         transition = {{duration:.2}}
-      style={{ }}
+      style={{zIndex:10 }}
     //   data-slide = {directionTrigger===direction ? true : false}
       onClick={() => {
         handleClick()
@@ -37,7 +37,7 @@ export const ArrowButtons: React.FC<IArrowButtonsProps> = ({
         dispatch(pauseCarousel(true))}}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      className={`p-2 btn border rounded-0 border-0 shadow-lg ${addClass} d-none`}
+      className={`p-2 btn border rounded-0 border-0 shadow-lg ${addClass} bg-primary`}
     >
       <AnimatePresence>
         <motion.div

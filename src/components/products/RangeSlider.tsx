@@ -4,10 +4,14 @@ import { IInitialState, filterPrice } from "./features/filter.slice";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { onResetFilter } from "./features/resetFilters.slice";
-import { onFiltersChanged, onFiltersRemove } from "./features/filtersChanged.slice";
+import {
+  onFiltersChanged,
+  onFiltersRemove,
+} from "./features/filtersChanged.slice";
 import { RootState } from "../../app/store";
 import { onSliderSpeedChange } from "./features/sliderAnimSpeed.slice";
-
+import { XLg } from "react-bootstrap-icons";
+import { onMinMaxSave } from "./features/minMaxValues.slice";
 
 interface IRangeSliderProps {
   min: number;
@@ -21,73 +25,104 @@ interface IRangeSliderProps {
   distance: number;
   sufix: string;
   attrName: string;
-  btnSelected: string
+  btnSelected: string;
   // propsFunction: ()=>void
+  storageSufix: string;
 }
 
 export const RangeSlider: React.FC<IRangeSliderProps> = memo(
-  ({ min, max, value, step, filterFunc, distance, sufix, attrName, btnSelected}) => {
-
-    const refMin = useRef<HTMLInputElement>(null)
-    const refMax = useRef<HTMLInputElement>(null)
+  ({
+    min,
+    max,
+    value,
+    step,
+    filterFunc,
+    distance,
+    sufix,
+    attrName,
+    btnSelected,
+    storageSufix,
+  }) => {
+    const refMin = useRef<HTMLInputElement>(null);
+    const refMax = useRef<HTMLInputElement>(null);
 
     const { windowWidth } = useAppSelector((state: RootState) => state.width);
 
-    
     const { filters } = useAppSelector(
       (state: RootState) => state.changedFilters
     );
-      
-    const {animSpeed} =  useAppSelector((state:RootState) => state.sliderSpeed)
+
+    const { animSpeed } = useAppSelector(
+      (state: RootState) => state.sliderSpeed
+    );
 
     const dispatch = useAppDispatch();
 
-    const [minValue, setMinValue] = React.useState<number>(
-      value ? value.min : min
-    );
-    const [maxValue, setMaxValue] = React.useState<number>(
-      value ? value.max : max
-    );
+    const {minimum, maximum} =  useAppSelector((state:RootState) => state.minMax[attrName])
+    // const [minValue, setMinValue] = React.useState<number>(
+    //   value ? value.min : min
+    // );
+    // const [maxValue, setMaxValue] = React.useState<number>(
+    //   value ? value.max : max
+    // );
 
-    //reset to initial state
+    const [minValue, setMinValue] = React.useState<number>(minimum ? minimum : min);
+    const [maxValue, setMaxValue] = React.useState<number>(maximum ? maximum : max);
+
+
     useEffect(()=>{
-      // console.log(btnSelected, attrName);
-      if(btnSelected===attrName){
-        setMinValue(min);
-        setMaxValue(max);
-        dispatch(filterFunc({ min: min, max: max}));
-        dispatch(onFiltersRemove(btnSelected))
+      if(minimum && maximum){
+        setMinValue(minimum) 
+        setMaxValue(maximum) 
+      }else{
+        // console.log('MIN: ', min);
+        // console.log('MAX: ', max);
+        setMinValue(min)  
+        setMaxValue(max)  
       }
-    },[btnSelected])
 
-    // console.log(min, max, value.min, value.max);
+    },[min, max, minimum, maximum])
+
 
     useEffect(() => {
       if (value) {
-        setMinValue(value.min);
-        setMaxValue(value.max);
+        // setMinValue(value.min);
+        // setMaxValue(value.max);
+        dispatch(onMinMaxSave({name: attrName, minMax: {min: minValue, max: maxValue}}))
       }
     }, [value]);
+
+
+    //reset to initial state after presing lower newly created button
+    useEffect(() => {
+      if (btnSelected === attrName) {
+        setMinValue(min);
+        setMaxValue(max);
+        dispatch(filterFunc({ min, max }));
+        dispatch(onFiltersRemove(btnSelected));
+      }
+    }, [btnSelected]);
 
     const handleMinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       e.preventDefault();
       const newMinVal = Math.min(+e.target.value, maxValue - step - distance);
       if (value) setMinValue(newMinVal);
       // dispatch(filterFunc({ min: newMinVal, max: maxValue }))
-      dispatch(onResetFilter(false))
-      dispatch(onSliderSpeedChange(0))
+      dispatch(onResetFilter(false));
+      dispatch(onSliderSpeedChange(0));
     };
 
     const touchHandleMinChange = (e: React.TouchEvent<HTMLInputElement>) => {
-      e.preventDefault()
-      dispatch(onResetFilter(false))
-      dispatch(onSliderSpeedChange(0))
+      e.preventDefault();
+      dispatch(onResetFilter(false));
+      dispatch(onSliderSpeedChange(0));
     };
 
     const onInputLeave = () => {
-      dispatch(filterFunc({ min: minValue, max: maxValue}));
-      if(value.min !== minValue || value.max !== maxValue){
-        dispatch(onFiltersChanged(refMin.current?.dataset.myAttr??""))
+      dispatch(filterFunc({ min: minValue, max: maxValue }));
+      if (value.min !== minValue || value.max !== maxValue) {
+        dispatch(onFiltersChanged(refMin.current?.dataset.myAttr ?? ""));
+        
       }
     };
 
@@ -96,21 +131,18 @@ export const RangeSlider: React.FC<IRangeSliderProps> = memo(
       const newMaxVal = Math.max(+e.target.value, minValue + step + distance);
       if (value) setMaxValue(newMaxVal);
       // dispatch(filterFunc({ min: minValue, max: newMaxVal }))
-      dispatch(onResetFilter(false))
-      dispatch(onSliderSpeedChange(0))
+      dispatch(onResetFilter(false));
+      dispatch(onSliderSpeedChange(0));
     };
 
     const touchHandleMaxChange = (e: React.TouchEvent<HTMLInputElement>) => {
-      e.preventDefault()
-      dispatch(onResetFilter(false))
-      dispatch(onSliderSpeedChange(0))
+      e.preventDefault();
+      dispatch(onResetFilter(false));
+      dispatch(onSliderSpeedChange(0));
     };
-
 
     const minPos = ((minValue - min) / (max - min)) * 100;
     const maxPos = ((maxValue - min) / (max - min)) * 100;
-
-    
 
     return (
       <div className="wrapper position-relative d-flex align-items-center mt-1">
@@ -124,10 +156,10 @@ export const RangeSlider: React.FC<IRangeSliderProps> = memo(
             max={max}
             step={step}
             onChange={handleMinChange}
-            onTouchMove={e => touchHandleMinChange(e)}
+            onTouchMove={(e) => touchHandleMinChange(e)}
             onMouseUp={onInputLeave}
             onTouchEnd={onInputLeave}
-            data-my-attr = {attrName}
+            data-my-attr={attrName}
           />
           <input
             ref={refMax}
@@ -138,52 +170,77 @@ export const RangeSlider: React.FC<IRangeSliderProps> = memo(
             max={max}
             step={step}
             onChange={handleMaxChange}
-            onTouchMove={e => touchHandleMaxChange(e)}
+            onTouchMove={(e) => touchHandleMaxChange(e)}
             onMouseUp={onInputLeave}
             onTouchEnd={onInputLeave}
-            
-            data-my-attr = {attrName}
+            data-my-attr={attrName}
           />
         </div>
-        
-        <div className="control-wrapper w-100 position-absolute">
 
+        <div className="control-wrapper w-100 position-absolute">
           <div
             className="control bg-grey-900 border border-primary border-4 rounded-pill position-absolute top-50"
-            style={{ left: `${minPos}%` , transition:`all ${animSpeed}s ease`}}
+            style={{ left: `${minPos}%`, transition: `all ${animSpeed}s ease` }}
           >
             <div
               className="position-absolute px-2 fw-bold text-dark bg-grey-900 fs-15 rounded-2 d-flex align-items-center gap-1"
-              style={{ left: '50%', top:'-24px', transform:'translate(-50%, 0%)', transition:`all ${animSpeed}s ease`}}
+              style={{
+                left: "50%",
+                top: "-24px",
+                transform: "translate(-50%, 0%)",
+                transition: `all ${animSpeed}s ease`,
+              }}
             >
-              <span className={`${windowWidth < 400 ? 'fs-16' : 'fs-15'}`}>{minValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
-              <span className={`${windowWidth < 400 ? 'fs-17' : 'fs-16'} text-grey-600`}> {sufix}</span>
+              <span className={`${windowWidth < 400 ? "fs-16" : "fs-15"}`}>
+                {minValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              </span>
+              <span
+                className={`${
+                  windowWidth < 400 ? "fs-17" : "fs-16"
+                } text-grey-600`}
+              >
+                {" "}
+                {sufix}
+              </span>
             </div>
-
           </div>
-            
 
           <div className="rail bg-grey-900 position-absolute w-100 rounded-0 top-50">
             <div
               className="inner-rail bg-primary-mono position-absolute h-100 opacity-50"
-              style={{ left: `${ minPos}%`, right: `${100 - maxPos}%` , transition:`all ${animSpeed}s ease`}}
+              style={{
+                left: `${minPos}%`,
+                right: `${100 - maxPos}%`,
+                transition: `all ${animSpeed}s ease`,
+              }}
             />
           </div>
 
           <div
             className="control bg-grey-900 border border-primary border-4 rounded-pill position-absolute position-relative top-50"
-            style={{ left: `${maxPos}%`, transition:`all ${animSpeed}s ease`}}
+            style={{ left: `${maxPos}%`, transition: `all ${animSpeed}s ease` }}
           >
             <div
               className="position-absolute px-2 fw-bold text-dark bg-grey-900 fs-15 rounded-2 d-flex align-items-center gap-1"
-              style={{ left: '50%', top:'-24px', transform:'translate(-50%, 0%)'}}
+              style={{
+                left: "50%",
+                top: "-24px",
+                transform: "translate(-50%, 0%)",
+              }}
             >
-              <span className={`${windowWidth < 400 ? 'fs-16' : 'fs-15'}`}>{maxValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
-              <span className={`${windowWidth < 400 ? 'fs-17' : 'fs-16'} text-grey-600`}> {sufix}</span>
+              <span className={`${windowWidth < 400 ? "fs-16" : "fs-15"}`}>
+                {maxValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              </span>
+              <span
+                className={`${
+                  windowWidth < 400 ? "fs-17" : "fs-16"
+                } text-grey-600`}
+              >
+                {" "}
+                {sufix}
+              </span>
             </div>
-
           </div>
-
         </div>
       </div>
     );

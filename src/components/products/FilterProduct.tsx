@@ -66,6 +66,7 @@ export const FilterProduct: React.FC = () => {
     setButtonSelected("");
   }, [filters]);
 
+
   const getCategories = data.products.reduce(
     (accu: ICategory[], curr: IProducts, idx: number): ICategory[] => {
       const index = accu.findIndex((accuItem) => {
@@ -269,6 +270,7 @@ export const FilterProduct: React.FC = () => {
                     distance={distancePrice}
                     attrName="price"
                     btnSelected={btnSelected}
+                    storageSufix = "1"
                     sufix={"€"}
                   />
                 </div>
@@ -294,6 +296,7 @@ export const FilterProduct: React.FC = () => {
                     attrName="weight"
                     btnSelected={btnSelected}
                     sufix={"kg"}
+                    storageSufix = "2"
                   />
                 </div>
               </div>
@@ -320,6 +323,7 @@ export const FilterProduct: React.FC = () => {
                     attrName="displacement"
                     btnSelected={btnSelected}
                     sufix={"cm3"}
+                    storageSufix = "3"
                   />
                 </div>
 
@@ -344,6 +348,7 @@ export const FilterProduct: React.FC = () => {
                     attrName="fuel tank"
                     btnSelected={btnSelected}
                     sufix={"l"}
+                    storageSufix = "4"
                   />
                 </div>
               </div>
@@ -402,7 +407,7 @@ export const FilterProduct: React.FC = () => {
                   <span
                     className={`${
                       windowWidth > 490 ? "fs-14" : "fs-15"
-                    } fw-bold`}
+                    } fw-bold text-dark-light`}
                   >
                     {windowWidth > 360 ? filter : `${filter.slice(0, 3)}...`}
                   </span>

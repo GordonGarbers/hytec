@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import { EColors } from "../../constants/constants";
+import { NavLink } from "react-router-dom";
 
 interface ILiProps {
   children: React.ReactNode;
@@ -21,6 +22,7 @@ export const Li: React.FC<ILiProps> = ({
 
 }) => {
 
+
   return (
     <li
       onClick={(e) => func(e)}
@@ -29,7 +31,7 @@ export const Li: React.FC<ILiProps> = ({
       data-add-btn={data}
       value={value}
     >
-      <div>{btnName}</div>
+      <div >{btnName}</div>
     </li>
   );
 };

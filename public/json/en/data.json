@@ -158,7 +158,7 @@
         "totalWidth":1850,
         "totalHeight":2600,
         "wheelbase":2000,
-        "price":16950
+        "price":19950
       },
       "basePath": "assets/machinery/",
       "productNamePath": "F35/",
@@ -411,7 +411,7 @@
         "totalWidth":1180,
         "totalHeight":2499,
         "wheelbase":1540,
-        "price":18000
+        "price":23000
       },
       "basePath": "assets/machinery/",
       "productNamePath": "F35-roll-bar/",
@@ -496,7 +496,7 @@
         "totalWidth":1180,
         "totalHeight":2499,
         "wheelbase":1540,
-        "price":18000
+        "price":14500
       },
       "basePath": "assets/machinery/",
       "productNamePath": "F35-roll-bar/",
@@ -581,7 +581,7 @@
         "totalWidth":1180,
         "totalHeight":2499,
         "wheelbase":1540,
-        "price":18000
+        "price":24500
       },
       "basePath": "assets/machinery/",
       "productNamePath": "F35-roll-bar/",
@@ -666,7 +666,7 @@
         "totalWidth":1180,
         "totalHeight":2499,
         "wheelbase":1540,
-        "price":21000
+        "price":17500
       },
       "basePath": "assets/machinery/",
       "productNamePath": "F35-roll-bar/",
@@ -751,7 +751,7 @@
         "totalWidth":1180,
         "totalHeight":2499,
         "wheelbase":1540,
-        "price":20000
+        "price":18000
       },
       "basePath": "assets/machinery/",
       "productNamePath": "F35-roll-bar/",
@@ -890,6 +890,7 @@
     "text": "Are you interested in becoming a dealer for our heavy machinery products? We're looking for dedicated individuals or companies who are passionate about construction and heavy equipment. \nAs a dealer, you'll have access to our full range of high-quality products, competitive pricing, and comprehensive support. Join us and help us bring the best in heavy machinery to customers worldwide. Contact us today to learn more about this exciting opportunity."
   },
   "nav": ["Home", "Machinery", "About Us", "Contact"],
+  
   "sections": {
     "contact": "CONTACT US"
   },

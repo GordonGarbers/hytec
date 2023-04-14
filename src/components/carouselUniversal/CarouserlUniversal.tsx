@@ -108,7 +108,7 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
     interval.current = setInterval(() => {
       setSeconds((seconds) => seconds - 100);
       if (seconds <= 0) {
-        paginate(direction);
+        // paginate(direction);
         setSeconds(TIME);
       }
     }, 100);
@@ -121,8 +121,10 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
   const resetInterval = useCallback(() => {
     clearInterval(interval.current);
   }, []);
+  // clearInterval(interval.current);
 
   useEffect(() => {
+    clearInterval(interval.current);
     runInterval();
 
     return () => {
@@ -141,6 +143,28 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
   return (
     <>
       <div className="carusel-mask w-100 h-100 position-relative">
+      <div className="position-absolute time-controler d-flex align-items-center">
+          <ArrowButtons
+            paginate={paginate}
+            direction={-1}
+            addClass="btn-left"
+            directionTrigger={direction}
+            handleClick={handleClick}
+          >
+            <ChevronLeft size={24} color={"#fff"} />
+          </ArrowButtons>
+
+          {/* <HeroCircularProgress remap={remap} /> */}
+          <ArrowButtons
+            paginate={paginate}
+            direction={1}
+            addClass="btn-right"
+            directionTrigger={direction}
+            handleClick={handleClick}
+          >
+            <ChevronRight size={24} color={"#fff"} />
+          </ArrowButtons>
+        </div>
         {/* <div style={{clipPath: 'polygon(0% 10%, 40% 10%, 100% 100%, 100% 0%, 0% 0%)'}}className="w-100 h-100 bg-primary position-absolute"></div> */}
 
         <AnimatePresence initial={false} custom={direction}>

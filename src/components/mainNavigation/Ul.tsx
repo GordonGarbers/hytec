@@ -7,6 +7,7 @@ import { setNavButton } from "../../features/navButton/navButtons.slice";
 import { Mover } from "../mover/Mover";
 import { useWindowAndScrollDetection } from "../hooks/useWindowAndScrollDetection";
 import { AnimatePresence, motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 interface IUlProps {
   windowWidth: number;
@@ -16,6 +17,11 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
   const { dataIsLoaded, data, dataError } = useAppSelector(
     (state: RootState) => state.data
   );
+
+  const {minimum, maximum} =  useAppSelector((state:RootState) => state.minMax["price"])
+    // console.log('ENEE:' , minimum);
+
+  const navigate = useNavigate()
 
   const { isScrolling, isWindowChange } = useWindowAndScrollDetection();
 
@@ -29,7 +35,7 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
 
   const dispatch = useAppDispatch();
 
-  const onLiBtnClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+  const onLiBtnClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>, btnName: string) => {
     e.preventDefault();
     dispatch(
       setNavButton({
@@ -43,6 +49,8 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
       "btnName",
       e.currentTarget.textContent?.split(" ").join("").toLowerCase() ?? ""
     );
+      // console.log(btnName.split(" ").join("").toLowerCase());
+      navigate(btnName==="Home" || btnName==="Start" ? "/" : btnName.split(" ").join("").toLowerCase())
   };
 
   useEffect(() => {
@@ -70,7 +78,7 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
               btnName={item}
               value={idx}
               data={false}
-              func={onLiBtnClick}
+              func={(e) => onLiBtnClick(e, item)}
               btnValue={activeBtnValue}
               addToClassName={
                 // item.split(" ").join("").toLowerCase() === activeBtnName &&

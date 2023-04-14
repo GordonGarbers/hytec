@@ -12,7 +12,9 @@ import createSagaMiddleware from "@redux-saga/core";
 import filterReducer from '../components/products/features/filter.slice'
 import resetFilterReducer from '../components/products/features/resetFilters.slice'
 import sliderAnimSpeedReducer from '../components/products/features/sliderAnimSpeed.slice'
+import nextReducer from '../features/next/next.slice'
 import filterChangedReducer from '../components/products/features/filtersChanged.slice'
+import minMaxValueReducer from '../components/products/features/minMaxValues.slice'
 import rootSaga from "../saga/saga";
 
 const saga = createSagaMiddleware();
@@ -31,7 +33,9 @@ export const store = configureStore({
     filter: filterReducer,
     resetFilter: resetFilterReducer,
     changedFilters: filterChangedReducer,
-    sliderSpeed: sliderAnimSpeedReducer
+    sliderSpeed: sliderAnimSpeedReducer,
+    next: nextReducer,
+    minMax: minMaxValueReducer
   },
   middleware: (defaultMiddleware) => defaultMiddleware().concat(saga),
 });
