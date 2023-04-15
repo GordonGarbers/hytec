@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { RootState } from "../../app/store";
-import { IProducts, IRange } from "../../interfaces/interfaces";
+import { IDataDetails, IProducts, IRange } from "../../interfaces/interfaces";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { EColors } from "../../constants/constants";
 import Skeleton from "react-loading-skeleton";
@@ -70,6 +70,7 @@ export const Products: React.FC = () => {
 
   // const ref = useRef<HTMLUListElement>(null);
 
+
   const handleImageOnLoad = () => {
     setIsImgLoaded(true);
   };
@@ -87,6 +88,8 @@ export const Products: React.FC = () => {
     const btnValue = sessionStorage.getItem("productsSelected") || btnClicked;
     setBtnClicked(parseInt(btnValue as string));
   }, [btnClicked]);
+
+  
 
   //FILTERING
   const filterProductArticle = data.products
@@ -248,6 +251,7 @@ export const Products: React.FC = () => {
       style={{ zIndex: "1" }}
       className="bg-grey-900 overflow-hidden position-relative"
     >
+      
       <div
         style={{
           left: 0,
@@ -267,6 +271,7 @@ export const Products: React.FC = () => {
           Browse our machinery
         </h1>
         <FilterProduct />
+        <div className="ps-3 pb-3 fs-14 text-grey-500"><span className="fw-bold text-grey-200">{filterProductArticle.length}</span> {filterProductArticle.length === 1 ? "result" : "results"} found</div>
         {dataIsLoaded ? (
           <div style={{ height: "500px" }} className="w-100">
             {/* <StartLogoAnim/> */}

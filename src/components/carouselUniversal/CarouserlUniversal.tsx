@@ -1,5 +1,11 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  Children,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { wrap } from "@popmotion/popcorn";
 import { CarouselUniversalInner } from "./CarouselUniversalInner";
 import { ArrowButtons } from "../hero/ArrowButtons";
@@ -143,7 +149,7 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
   return (
     <>
       <div className="carusel-mask w-100 h-100 position-relative">
-      <div className="position-absolute time-controler d-flex align-items-center">
+        <div className="position-absolute time-controler d-flex align-items-center">
           <ArrowButtons
             paginate={paginate}
             direction={-1}
@@ -195,6 +201,7 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
               }
             }}
           >
+
             <CarouselUniversalInner
               data={data}
               index={index}
@@ -205,7 +212,8 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
               paginate={paginate}
               btnOnOff={btnOnOff}
               handleClick={handleClick}
-            ></CarouselUniversalInner>
+            />
+            
           </motion.div>
         </AnimatePresence>
       </div>

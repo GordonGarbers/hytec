@@ -44,6 +44,8 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
   const handleImageOnLoad = () => {
     setIsImgLoaded(true);
   };
+
+  // console.log(data[section][index]?.image);
   return (
     <article className="d-flex flex-column-reverse flex-lg-row w-100 position-relative">
 
@@ -90,11 +92,8 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
         </div>
       </div>
 
+              
       <div className="w-100 overflow-hidden article-right position-relative">
-
-
-
-
         {imageUrl && (
           <img
             onLoad={handleImageOnLoad}

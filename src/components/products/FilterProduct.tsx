@@ -416,6 +416,7 @@ export const FilterProduct: React.FC = () => {
               );
             })}
           </div>
+          
         </div>
       </div>
     </div>

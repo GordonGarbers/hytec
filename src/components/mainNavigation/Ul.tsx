@@ -1,12 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
-import { EColors, navButtons } from "../../constants/constants";
+import React, { useEffect, useRef } from "react";
 import { Li } from "./Li";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { RootState } from "../../app/store";
 import { setNavButton } from "../../features/navButton/navButtons.slice";
 import { Mover } from "../mover/Mover";
 import { useWindowAndScrollDetection } from "../hooks/useWindowAndScrollDetection";
-import { AnimatePresence, motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 interface IUlProps {
@@ -18,8 +16,6 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
     (state: RootState) => state.data
   );
 
-  const {minimum, maximum} =  useAppSelector((state:RootState) => state.minMax["price"])
-    // console.log('ENEE:' , minimum);
 
   const navigate = useNavigate()
 

@@ -15,7 +15,6 @@ export const CarouselHero: React.FC = () => {
   return (
     <>
       <CarouselUniversal isLoaded={dataIsLoaded} data={data} error={dataError} section = {ESection.hero} btnOnOff = {true} useKey={true}>
-
       </CarouselUniversal>
     </>
   )

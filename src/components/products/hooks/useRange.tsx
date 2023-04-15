@@ -40,7 +40,7 @@ export const useRange = (
     if (getFilterValue && getFilterValue.length) {
       dispatch(filterFunc({ min, max }));
       // setValue({ min, max });
-      setInitialValue({ min, max });
+      setInitialValue({ min, max});
     }
   }, [data.products]);
 // 
@@ -55,13 +55,13 @@ export const useRange = (
     const diff = initialValue.max - initialValue.min
     if(diff >= 500)
     {
-      setStep(50);
+      // setStep(50);
       setDistance(Math.floor(diff / 10));
     } else if(diff >= 100 && diff <= 500){
-      setStep(5);
+      // setStep(5);
       setDistance(10);  
     }else if(diff < 100){
-      setStep(1);
+      // setStep(1);
       setDistance(2);  
     }
 

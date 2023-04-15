@@ -1,15 +1,9 @@
 import React, { useEffect } from 'react';
 import '../src/sass/main.scss';
-import { Header } from './components/header/Header';
-import { MainNavigation } from './components/mainNavigation/MainNavigation';
-import { Main } from './components/main/Main';
-import { FlexMainWrapper } from './components/layout/FlexMainWrapper';
-import { Footer } from './components/footer/Footer';
 import { dataPedding } from './features/data/data.slice';
 import { useAppDispatch, useAppSelector } from './app/hooks';
 import { switchLanguage } from './features/changeLanguage/changeLanguage.slice';
 import { RootState } from './app/store';
-import { Background } from './components/background/Background';
 import { Home } from './pages/Home';
 import { Details } from './pages/Details';
 import {createBrowserRouter, createRoutesFromElements, Route, Link, NavLink, RouterProvider} from 'react-router-dom'
@@ -31,6 +25,7 @@ function App() {
   );
 
   const { language } = useAppSelector((state: RootState) => state.lang);
+
 
   const dispatch = useAppDispatch();
 

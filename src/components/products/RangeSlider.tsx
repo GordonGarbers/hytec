@@ -59,24 +59,15 @@ export const RangeSlider: React.FC<IRangeSliderProps> = memo(
     const dispatch = useAppDispatch();
 
     const {minimum, maximum} =  useAppSelector((state:RootState) => state.minMax[attrName])
-    // const [minValue, setMinValue] = React.useState<number>(
-    //   value ? value.min : min
-    // );
-    // const [maxValue, setMaxValue] = React.useState<number>(
-    //   value ? value.max : max
-    // );
 
     const [minValue, setMinValue] = React.useState<number>(minimum ? minimum : min);
     const [maxValue, setMaxValue] = React.useState<number>(maximum ? maximum : max);
-
 
     useEffect(()=>{
       if(minimum && maximum){
         setMinValue(minimum) 
         setMaxValue(maximum) 
       }else{
-        // console.log('MIN: ', min);
-        // console.log('MAX: ', max);
         setMinValue(min)  
         setMaxValue(max)  
       }
@@ -98,10 +89,13 @@ export const RangeSlider: React.FC<IRangeSliderProps> = memo(
       if (btnSelected === attrName) {
         setMinValue(min);
         setMaxValue(max);
-        dispatch(filterFunc({ min, max }));
+        // dispatch(filterFunc({ min: minimum ? minimum : min, max: maximum ? maximum : max }));
+        dispatch(filterFunc({ min,  max }));
         dispatch(onFiltersRemove(btnSelected));
       }
     }, [btnSelected]);
+
+    console.log(minValue, maxValue);
 
     const handleMinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       e.preventDefault();
@@ -112,8 +106,10 @@ export const RangeSlider: React.FC<IRangeSliderProps> = memo(
       dispatch(onSliderSpeedChange(0));
     };
 
+
+
     const touchHandleMinChange = (e: React.TouchEvent<HTMLInputElement>) => {
-      e.preventDefault();
+      // e.preventDefault();
       dispatch(onResetFilter(false));
       dispatch(onSliderSpeedChange(0));
     };
@@ -126,6 +122,7 @@ export const RangeSlider: React.FC<IRangeSliderProps> = memo(
       }
     };
 
+        
     const handleMaxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       e.preventDefault();
       const newMaxVal = Math.max(+e.target.value, minValue + step + distance);
@@ -134,15 +131,49 @@ export const RangeSlider: React.FC<IRangeSliderProps> = memo(
       dispatch(onResetFilter(false));
       dispatch(onSliderSpeedChange(0));
     };
-
+    
     const touchHandleMaxChange = (e: React.TouchEvent<HTMLInputElement>) => {
-      e.preventDefault();
+      // e.preventDefault();
       dispatch(onResetFilter(false));
       dispatch(onSliderSpeedChange(0));
     };
-
+  
     const minPos = ((minValue - min) / (max - min)) * 100;
     const maxPos = ((maxValue - min) / (max - min)) * 100;
+
+    
+    const { language } = useAppSelector((state: RootState) => state.lang);
+
+    const {
+      kw,
+      ps,
+      displacement,
+      fuelTankCapacity,
+      speed,
+      weight,
+      liftingCapacity,
+      liftingHeight,
+      totalLength,
+      totalWidth,
+      totalHeight,
+      wheelbase,
+      price,
+    } = useAppSelector((state: RootState) => state.filter);
+
+    // console.log('FROM SLIDER: ', minimum, minValue, maximum, maxValue);
+    useEffect(()=>{
+      if(minimum && maximum){
+        // console.log('FROM PRICE: ', minimum, maximum, language);
+        // dispatch(filterFunc({ min: minimum , max: maximum}));
+        dispatch(filterFunc({ min: minValue , max: maxValue}));
+      }
+    }, [minimum, maximum, min, max, btnSelected])
+
+
+    useEffect(()=>{
+      dispatch(onMinMaxSave({name: attrName,  minMax: {min: 0,  max: 1}}))
+    }, [language])
+
 
     return (
       <div className="wrapper position-relative d-flex align-items-center mt-1">
