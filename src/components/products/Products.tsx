@@ -93,7 +93,7 @@ export const Products: React.FC = () => {
   
   //FILTERING
   const filterProductArticle = data.products
-    .slice(0, 100)
+    .slice(0, next)
     .filter((product: IProducts) => {
       return categories !== "all"
         ? categories === product.filter.categorie ?? ""

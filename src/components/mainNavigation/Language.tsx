@@ -7,6 +7,7 @@ import { switchLanguage } from "../../features/changeLanguage/changeLanguage.sli
 import { onFiltersClear } from "../products/features/filtersChanged.slice";
 import { useNavigate } from "react-router-dom";
 import { onMinMaxSave } from "../products/features/minMaxValues.slice";
+import { addCategory } from "../../features/products/productCategories/productCategories.slice";
 
 export const Language: React.FC = () => {
   const { language } = useAppSelector((state: RootState) => state.lang);
@@ -33,6 +34,8 @@ export const Language: React.FC = () => {
     dispatch(onMinMaxSave({name: ECategories.displacement,  minMax: {min: 0,  max: 1}}))
     dispatch(onMinMaxSave({name: ECategories.fuelTank,  minMax: {min: 0,  max: 1}}))
     
+    dispatch(addCategory("all"));
+
     const radioButtonCategories = document.getElementById("exampleRadios1") as HTMLInputElement;
     if(radioButtonCategories){
       radioButtonCategories.checked = true;
