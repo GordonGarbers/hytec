@@ -91,15 +91,22 @@ export const Products: React.FC = () => {
   }, [btnClicked]);
 
   
-
   //FILTERING
   const filterProductArticle = data.products
-    .slice(0, next)
+    .slice(0, 100)
     .filter((product: IProducts) => {
       return categories !== "all"
         ? categories === product.filter.categorie ?? ""
         : true;
     })
+    // .filter((product: IProducts) => {
+    //   if(categories!== 'all'){
+    //     console.log(product.filter.categorie, categories);
+    //     return product.filter.categorie === categories
+    //   }else{
+    //     return true;
+    //   }
+    // })
     .filter((product: IProducts) => {
       return (
         product.filter.price >= price.min && product.filter.price <= price.max

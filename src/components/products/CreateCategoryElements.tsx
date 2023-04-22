@@ -11,7 +11,11 @@ interface ICreateCategoriyElementsProps{
 
 
 export const CreateCategoriyElements:React.FC<ICreateCategoriyElementsProps> = ({categorie, idx}) => {
+
+  const {categories} = useAppSelector((state: RootState) => state.categories)
+
   const dispatch = useAppDispatch();
+
   const onRadioChange = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
     dispatch(addCategory(e.currentTarget.value));
   };
@@ -27,7 +31,7 @@ export const CreateCategoriyElements:React.FC<ICreateCategoriyElementsProps> = (
         id={`exampleRadios${idx + 1}`}
         value={categorie.category}
         // checked = {false}
-        defaultChecked={idx === 0 ? true : false}
+        defaultChecked={categorie.category === categories? true : false}
       />
       <label
         style={{ textTransform: "capitalize" }}

@@ -98,9 +98,11 @@ export const FilterProduct: React.FC = () => {
     }
   );
 
-  useEffect(() => {
-    dispatch(addCategory(getCategories[0]?.category || ""));
-  }, [data]);
+
+  //RESTE TO all - categories
+  // useEffect(() => {
+  //   dispatch(addCategory(getCategories[0]?.category || ""));
+  // }, [data]);
 
   /////////////////////////////
   //RANGE CUSTOM HOOK

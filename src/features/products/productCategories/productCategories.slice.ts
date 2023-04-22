@@ -5,7 +5,7 @@ interface IInitialState {
 }
 
 const initialState: IInitialState = {
-  categories: '',
+  categories: 'all',
 };
 
 const productCategoriesSlice = createSlice({
