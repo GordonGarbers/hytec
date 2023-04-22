@@ -126,7 +126,7 @@ export const Products: React.FC = () => {
 
 
   const onDetailsChange = (product: IProducts) => {
-    navigate(`details/${product.categorie}/${product.name}`, {
+    navigate(`${product.categorie}/${product.name}`, {
       state: { product, data },
     });
   };
