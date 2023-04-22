@@ -79,6 +79,7 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
               text={data.hero[index]?.text ?? ""}
               color={EColors.skeletonBaseColorDefault}
               size={13}
+              textColor="text-dark-light"
             />
             <div>
               {!isDataLoaded ? (

@@ -6,7 +6,7 @@ interface IButtonProps {
 
 export const PrimaryButton: React.FC<IButtonProps> = ({ children }) => {
   return (
-    <button className="btn btn-primary mt-2 mt-sm-3 rounded-2" style={{fontWeight:500}}>
+    <button className="btn btn-primary rounded-2" style={{fontWeight:500}}>
       {children}
     </button>
   );

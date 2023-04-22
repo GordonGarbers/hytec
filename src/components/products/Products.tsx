@@ -239,7 +239,7 @@ export const Products: React.FC = () => {
               )}
               {!dataIsLoaded ? (
                 <div className="fw-bold text-dark-light fs-12">
-                  {product.price}
+                  {product.price} <span className="fw-bold fs-14">&euro;</span>
                 </div>
               ) : (
                 <Skeleton count={1} width={50} />

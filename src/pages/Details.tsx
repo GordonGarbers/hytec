@@ -19,6 +19,8 @@ interface INavigateType {
 }
 
 export const Details: React.FC = () => {
+  const { windowWidth } = useAppSelector((state: RootState) => state.width);
+
 
   const { dataIsLoaded, data, dataError } = useAppSelector(
     (state: RootState) => state.data
@@ -95,7 +97,7 @@ export const Details: React.FC = () => {
 
           <NavLink
             to="/"
-            className='text-dark-form'
+            className='text-grey-400'
           >
             Home  
           </NavLink>
@@ -104,7 +106,7 @@ export const Details: React.FC = () => {
           
           <NavLink
             to="/"
-            className='text-dark-form'
+            className='text-grey-400'
           >
              {decodeURIComponent(finalProduct?.categorie)}
           </NavLink>
@@ -112,17 +114,18 @@ export const Details: React.FC = () => {
           <IoIosArrowForward className="text-primary"/> 
 
           <div
-            className='text-dark-form'
-          >
+            className='text-grey-400'
+            >
             {decodeURIComponent(finalProduct?.name)}
           </div>
 
         </nav>
-        <div className="w-100 d-flex flex-column flex-lg-row gap-6">
+        <div className={`w-100 d-flex ${windowWidth < 800 ? 'flex-column' : 'flex-row'} gap-4`}>
+          {/*  */}
           <div
-            style={{ transition: "all 1s ease" }}
+            style={{ transition: "all 1s ease", width:`${windowWidth < 800 ? '100%' : '60%'}`}}
             id="carouselExampleIndicators"
-            className="carousel slide overflow-hidden rounded-2  w-100"
+            className={`carousel slide overflow-hidden rounded-2`}
             data-bs-ride="carousel"
           >
             <div className="carousel-indicators">{carouselButtons}</div>
@@ -154,20 +157,27 @@ export const Details: React.FC = () => {
               <span className="visually-hidden">Next</span>
             </button>
           </div>
+          {/*  */}
+          <div className={`d-flex flex-column gap-5`} style={{ width:`${windowWidth < 800 ? '100%' : '40%'}`}}>
+            <div className="d-flex flex-column">
+              <h3 className="fs-9 ">
+                <span style={{ fontWeight: "900" }} className="text-primary">
+                  HYTEC
+                </span>{" "}
+                {finalProduct?.name}
+              </h3>
+              <ProcessText
+                isLoaded={dataIsLoaded}
+                text={finalProduct?.description}
+                size={14}
+                textColor="text-grey-500"
+              />
+            </div>
+            <div className="d-flex flex-row align-items-center justify-content-between">
+              <div className="fw-bold fs-8 text-dark-light">{finalProduct?.price} <span className="fs-10 text-dark-light">&euro;</span> <span className="fs-14 text-grey-400">(zzgl. MwSt.)</span></div>
+              <PrimaryButton>{data.buttons.contact}</PrimaryButton>
+            </div>
 
-          <div className=" w-100">
-            <h3 className="fs-9 mb-4">
-              <span style={{ fontWeight: "900" }} className="text-primary">
-                HYTEC
-              </span>{" "}
-              {finalProduct?.name}
-            </h3>
-            <ProcessText
-              isLoaded={dataIsLoaded}
-              text={finalProduct?.description}
-              size={14}
-            />
-            <PrimaryButton>{data.buttons.contact}</PrimaryButton>
           </div>
         </div>
       </article>

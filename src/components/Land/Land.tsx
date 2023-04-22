@@ -157,6 +157,7 @@ export const Land: React.FC = () => {
             text={data.dealer?.text ?? ''}
             color={EColors.primary}
             size={13}
+            textColor="text-dark-light"
           />
 
           <div>
