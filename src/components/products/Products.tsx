@@ -23,6 +23,7 @@ import { Centerize } from "../layout/Centerize";
 import { useNavigate } from "react-router-dom";
 import { setNext } from "../../features/next/next.slice";
 
+
 export const Products: React.FC = () => {
   const isBigScreen = useMediaQuery({ minWidth: 1052 });
   const isMidScreen = useMediaQuery({ minWidth: 800, maxWidth: 1051 });

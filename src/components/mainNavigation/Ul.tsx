@@ -31,6 +31,8 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
 
   const dispatch = useAppDispatch();
 
+
+
   const onLiBtnClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>, btnName: string) => {
     e.preventDefault();
     dispatch(

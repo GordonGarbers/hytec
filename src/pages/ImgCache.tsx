@@ -8,9 +8,12 @@ interface IImgCacheProps {
   idx: number;
   basePath: string;
   productNamePath: string;
+  imgSizeX: number;
+  imgSizeY: number;
+  imageAlt: string;
 }
 
-export const ImgCache: React.FC<IImgCacheProps> = ({ url, idx, basePath, productNamePath}) => {
+export const ImgCache: React.FC<IImgCacheProps> = ({ url, idx, basePath, productNamePath, imgSizeX, imgSizeY, imageAlt}) => {
   const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
 
   const handleImageOnLoad = () => {
@@ -29,7 +32,7 @@ export const ImgCache: React.FC<IImgCacheProps> = ({ url, idx, basePath, product
         {imageUrl && (
             <img
             onLoad={handleImageOnLoad}
-            src={isImgLoaded ? imageUrl : getImageRatio(983, 737)}
+            src={isImgLoaded ? imageUrl : getImageRatio(imgSizeX, imgSizeY)}
             alt="img"
             draggable="false"
             className="w-100"

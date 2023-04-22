@@ -5,10 +5,12 @@ import { RootState } from "../../app/store";
 import { languageButtons } from "../../constants/constants";
 import { switchLanguage } from "../../features/changeLanguage/changeLanguage.slice";
 import { onFiltersClear } from "../products/features/filtersChanged.slice";
+import { useNavigate } from "react-router-dom";
 
 export const Language: React.FC = () => {
   const { language } = useAppSelector((state: RootState) => state.lang);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleLanguage = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -18,6 +20,7 @@ export const Language: React.FC = () => {
     dispatch(switchLanguage(lang));
     dispatch(onFiltersClear());
     sessionStorage.setItem("selectedOption", lang);
+
   };
 
   const lngButtons = languageButtons.map((lang: string, idx: number) => {

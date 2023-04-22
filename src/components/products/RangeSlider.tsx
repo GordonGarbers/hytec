@@ -95,7 +95,6 @@ export const RangeSlider: React.FC<IRangeSliderProps> = memo(
       }
     }, [btnSelected]);
 
-    console.log(minValue, maxValue);
 
     const handleMinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       e.preventDefault();
