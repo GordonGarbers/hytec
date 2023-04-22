@@ -5,10 +5,13 @@ import { Spinner } from "../components/loaders/Spinner";
 import { useImageCache } from "../components/hooks/useImageCache";
 import { IDataDetails, IProducts } from "../interfaces/interfaces";
 import { ImgCache } from "./ImgCache";
-import { useAppSelector } from "../app/hooks";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { RootState } from "../app/store";
 import { ProcessText } from "../components/layout/ProcessText";
 import { PrimaryButton } from "../components/primaryButton/PrimaryButton";
+import {IoIosArrowForward} from 'react-icons/io'
+import { addCategory } from "../features/products/productCategories/productCategories.slice";
+import { onMinMaxSave } from "../components/products/features/minMaxValues.slice";
 
 interface INavigateType {
   product: IProducts;
@@ -16,6 +19,7 @@ interface INavigateType {
 }
 
 export const Details: React.FC = () => {
+
   const { dataIsLoaded, data, dataError } = useAppSelector(
     (state: RootState) => state.data
   );
@@ -87,31 +91,34 @@ export const Details: React.FC = () => {
           </span>{" "}
           {finalProduct?.name}
         </h3> */}
-        <nav className="fs-14">
+        <nav className="fs-14 d-flex align-items-center gap-1 mb-3">
 
           <NavLink
             to="/"
-            className='text-dark'
+            className='text-dark-form'
           >
-            Home 
+            Home  
           </NavLink>
 
+          <IoIosArrowForward className="text-primary"/> 
+          
           <NavLink
             to="/"
-            className='text-dark'
+            className='text-dark-form'
           >
-            /{decodeURIComponent(finalProduct?.categorie)}
+             {decodeURIComponent(finalProduct?.categorie)}
           </NavLink>
 
-          <NavLink
-            to={`/${finalProduct?.categorie}/${finalProduct?.name}`}
-            className='text-dark'
+          <IoIosArrowForward className="text-primary"/> 
+
+          <div
+            className='text-dark-form'
           >
-            /{decodeURIComponent(finalProduct?.name)}
-          </NavLink>
+            {decodeURIComponent(finalProduct?.name)}
+          </div>
 
         </nav>
-        <div className="w-100 d-flex flex-column flex-lg-row gap-5">
+        <div className="w-100 d-flex flex-column flex-lg-row gap-6">
           <div
             style={{ transition: "all 1s ease" }}
             id="carouselExampleIndicators"

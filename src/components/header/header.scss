@@ -3,14 +3,14 @@
 
 }
 
-a{
+.header-info{
   transition:all .5s ease;
   .info-icon{
     transition:all .3s ease; 
   }
 }
 
-a:hover{
+.header-info:hover{
   background-color: #2d2e36;
   .info-icon{
     transform: scale(1.2);

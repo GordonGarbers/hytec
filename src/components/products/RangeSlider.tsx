@@ -168,7 +168,7 @@ export const RangeSlider: React.FC<IRangeSliderProps> = memo(
       }
     }, [minimum, maximum, min, max, btnSelected])
 
-
+    // console.log(language);
     useEffect(()=>{
       dispatch(onMinMaxSave({name: attrName,  minMax: {min: 0,  max: 1}}))
     }, [language])

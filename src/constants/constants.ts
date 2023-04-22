@@ -33,3 +33,11 @@ export enum EColors{
   darkLight = "#373943",
   skeletonBaseColorDefault = "#ebebeb"
 }
+
+
+export enum ECategories{
+  price = "price",
+  displacement = "displacement",
+  weight = "weight",
+  fuelTank = "fuel tank"
+}

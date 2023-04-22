@@ -5,8 +5,29 @@ import { ContactUs } from "../components/contactus/ContactUs";
 import { Numbers } from "../components/numbers/Numbers";
 import { Products } from "../components/products/Products";
 import { YellowDetails } from "../components/yellowDetails/YellowDetails";
+import { onMinMaxSave } from "../components/products/features/minMaxValues.slice";
+import { useAppDispatch, useAppSelector } from "../app/hooks";
+import { RootState } from "../app/store";
 
 export const Home: React.FC = () => {
+
+  const dispatch = useAppDispatch()
+
+
+
+  useEffect(() => {
+    document.addEventListener("DOMContentLoaded", function(event) { 
+      const scrollpos = localStorage.getItem('scrollpos');
+      if (scrollpos) window.scrollTo(0, parseInt(scrollpos));
+  });
+
+  window.onbeforeunload = function(e) {
+      localStorage.setItem('scrollpos', window.scrollY.toString());
+  };
+  }, []);
+
+
+
   // const scrollDown = () => {
   //   window.scrollTo({
   //     top:0,
@@ -32,13 +53,15 @@ export const Home: React.FC = () => {
     }
   };
 
-  useEffect(()=>{
-    if(yellowDetailsRef.current){
 
-      console.log(yellowDetailsRef.current.offsetTop);
-      scrollToRef();
-    }
-  },[])
+
+  // useEffect(()=>{
+  //   if(yellowDetailsRef.current){
+
+  //     console.log(yellowDetailsRef.current.offsetTop);
+  //     scrollToRef();
+  //   }
+  // },[])
 
   return (
     <>
@@ -52,3 +75,7 @@ export const Home: React.FC = () => {
     </>
   );
 };
+function dispatch(arg0: any) {
+  throw new Error("Function not implemented.");
+}
+

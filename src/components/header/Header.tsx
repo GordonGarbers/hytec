@@ -54,7 +54,7 @@ export const Header: React.FC = () => {
 
           <a
             href="tel: 041716691100"
-            className={`border border-grey-300 p-2 rounded-2 text-grey-700 d-flex justify-content-center align-items-center fs-15 gap-1 gap-lg-2`}
+            className={`border border-grey-300 p-2 rounded-2 text-grey-700 d-flex justify-content-center align-items-center fs-15 gap-1 gap-lg-2 header-info`}
           >
             <div>
               <BsTelephoneFill size={14} className='info-icon'/>
@@ -64,7 +64,7 @@ export const Header: React.FC = () => {
 
           <a
             href="mailto: info@hytec-baumaschinen.de"
-            className={`border border-grey-300 p-2 rounded-2 text-grey-700 d-flex justify-content-center align-items-center fs-15 gap-1 gap-lg-2`}
+            className={`border border-grey-300 p-2 rounded-2 text-grey-700 d-flex justify-content-center align-items-center fs-15 gap-1 gap-lg-2  header-info`}
           >
             <div>
               <MdEmail size={16} className='info-icon'/>

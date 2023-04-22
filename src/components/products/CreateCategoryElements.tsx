@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ICategory } from "../../interfaces/interfaces";
 import { addCategory } from "../../features/products/productCategories/productCategories.slice";
-import { useAppDispatch } from "../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { RootState } from "../../app/store";
 
 interface ICreateCategoriyElementsProps{
     categorie: ICategory,
@@ -14,6 +15,7 @@ export const CreateCategoriyElements:React.FC<ICreateCategoriyElementsProps> = (
   const onRadioChange = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
     dispatch(addCategory(e.currentTarget.value));
   };
+
 
   return (
     <div className="form-check">

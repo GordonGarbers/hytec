@@ -13,7 +13,7 @@ import {
   addCategory,
   removeCategory,
 } from "../../features/products/productCategories/productCategories.slice";
-import { EColors } from "../../constants/constants";
+import { ECategories, EColors } from "../../constants/constants";
 import { CreateCategoriyElements } from "./CreateCategoryElements";
 import { RangeSlider } from "./RangeSlider";
 import { useRange } from "./hooks/useRange";
@@ -268,7 +268,7 @@ export const FilterProduct: React.FC = () => {
                     value={price}
                     filterFunc={filterPrice}
                     distance={distancePrice}
-                    attrName="price"
+                    attrName={ECategories.price}
                     btnSelected={btnSelected}
                     storageSufix = "1"
                     sufix={"€"}
@@ -293,7 +293,7 @@ export const FilterProduct: React.FC = () => {
                     value={weight}
                     filterFunc={filterWeight}
                     distance={distanceWeight}
-                    attrName="weight"
+                    attrName={ECategories.weight}
                     btnSelected={btnSelected}
                     sufix={"kg"}
                     storageSufix = "2"
@@ -320,7 +320,7 @@ export const FilterProduct: React.FC = () => {
                     value={displacement}
                     filterFunc={filterDisplacement}
                     distance={distanceDisplacement}
-                    attrName="displacement"
+                    attrName={ECategories.displacement}
                     btnSelected={btnSelected}
                     sufix={"cm3"}
                     storageSufix = "3"
@@ -345,7 +345,7 @@ export const FilterProduct: React.FC = () => {
                     value={fuelTankCapacity}
                     filterFunc={filterFuelTankCapacity}
                     distance={distanceFuelTankCapacity}
-                    attrName="fuel tank"
+                    attrName={ECategories.fuelTank}
                     btnSelected={btnSelected}
                     sufix={"l"}
                     storageSufix = "4"
