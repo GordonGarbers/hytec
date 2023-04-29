@@ -14,7 +14,7 @@ import Skeleton from "react-loading-skeleton";
 import { getImageRatio } from "../../utils/createImagePlaceholder";
 import { Spinner } from "../loaders/Spinner";
 import { useWindowAndScrollDetection } from "../hooks/useWindowAndScrollDetection";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, Variants, motion } from "framer-motion";
 import "./products.scss";
 import { FilterProduct } from "./FilterProduct";
 import { useMediaQuery } from "react-responsive";
@@ -23,6 +23,25 @@ import { Centerize } from "../layout/Centerize";
 import { useNavigate } from "react-router-dom";
 import { setNext } from "../../features/next/next.slice";
 
+const cardVariants: Variants = {
+  offscreen: {
+    y:50,
+    rotate: -10,
+    scale: .6,
+    opacity:0,
+  },
+  onscreen: {
+    y: 0,
+    rotate: 0,
+    scale: 1,
+    opacity:1,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8
+    }
+  }
+};
 
 export const Products: React.FC = () => {
   const isBigScreen = useMediaQuery({ minWidth: 1052 });
@@ -142,7 +161,12 @@ export const Products: React.FC = () => {
     (product: IProducts, idx: number) => {
       const fullImagePath = `${product.basePath}${product.productNamePath}${product.heroImage}`;
       return (
-        <li
+        //////////////////////////////////////////////////////////////////
+        <motion.li
+        variants={cardVariants}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.8 }}
           // onMouseEnter ={onLiBtnClick}
           onClick={onLiBtnClick}
           value={idx}
@@ -246,7 +270,7 @@ export const Products: React.FC = () => {
               )}
             </div>
           </div>
-        </li>
+        </motion.li>
       );
     }
   );

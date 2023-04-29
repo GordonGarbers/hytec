@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { useAppSelector } from "../../app/hooks";
 import { RootState } from "../../app/store";
 import { EColors } from "../../constants/constants";
@@ -17,6 +17,7 @@ interface IMoverProps {
 
 export const Mover: React.FC<IMoverProps> = ({ show, ulRef, btnToMove, offest, bgColor, zIndex, expand, rounded, speed}) => {
 
+
   const [i, setI] = useState<number>(0);
 
   useEffect(()=>{
@@ -25,18 +26,23 @@ export const Mover: React.FC<IMoverProps> = ({ show, ulRef, btnToMove, offest, b
     }, 150)
   },[])
 
-  const width =
-    ulRef.current &&
-    ulRef.current.children[btnToMove].getBoundingClientRect().width + expand;
-  const height =
-    ulRef.current &&
-    ulRef.current.children[btnToMove].getBoundingClientRect().height + expand;
-  const x =
-    ulRef.current &&
-    ulRef.current.children[btnToMove].getBoundingClientRect().x - expand/2;
-  const y =
-    ulRef.current &&
-    ulRef.current.children[btnToMove].getBoundingClientRect().y+offest-expand/2;
+
+    const width =
+      ulRef.current &&
+      ulRef.current.children[btnToMove].getBoundingClientRect().width + expand;
+
+    const height =
+      ulRef.current &&
+      ulRef.current.children[btnToMove].getBoundingClientRect().height + expand;
+
+    const x =
+      ulRef.current &&
+      ulRef.current.children[btnToMove].getBoundingClientRect().x - expand/2;
+
+    const y =
+      ulRef.current &&
+      ulRef.current.children[btnToMove].getBoundingClientRect().y+offest-expand/2;
+
   
 
 

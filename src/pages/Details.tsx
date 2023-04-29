@@ -12,6 +12,7 @@ import { PrimaryButton } from "../components/primaryButton/PrimaryButton";
 import {IoIosArrowForward} from 'react-icons/io'
 import { addCategory } from "../features/products/productCategories/productCategories.slice";
 import { onMinMaxSave } from "../components/products/features/minMaxValues.slice";
+import { ContactUs } from "../components/contactus/ContactUs";
 
 interface INavigateType {
   product: IProducts;
@@ -120,70 +121,89 @@ export const Details: React.FC = () => {
           </div>
 
         </nav>
-        <div className={`w-100 d-flex ${windowWidth < 800 ? 'flex-column' : 'flex-row'} gap-4`}>
+        <div className={`w-100 rounded-3`} style={{}}>
+
+
+        <div className="fs-6 mt-4">
+          <span style={{ fontWeight: "900" }} className="text-primary">
+            HYTEC
+          </span>{" "}
+          {finalProduct?.name}
+        </div>
+        <div className='fs-13 text-grey-400 mb-5'>{finalProduct?.categorie.toUpperCase()}</div>
+                  
           {/*  */}
-          <div
-            style={{ transition: "all 1s ease", width:`${windowWidth < 800 ? '100%' : '60%'}`}}
-            id="carouselExampleIndicators"
-            className={`carousel slide overflow-hidden rounded-2`}
-            data-bs-ride="carousel"
-          >
-            <div className="carousel-indicators">{carouselButtons}</div>
-            <div className="carousel-inner">{carouselImages}</div>
 
-            <button
-              className="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide="prev"
-            >
-              <span
-                className="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
-              <span className="visually-hidden">Previous</span>
-            </button>
+          {/* <div className="d-grid" style={{gridTemplateColumns:'fit-content(700px) auto', gap:'20px'}}> */}
+          {/* <div className="d-grid gap-5" style={{gridTemplateColumns:'repeat(minmax(300px, 1fr))'}}> */}
+          <div className="d-flex" style={{gap:'40px'}}>
 
-            <button
-              className="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselExampleIndicators"
-              data-bs-slide="next"
-            >
-              <span
-                className="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
-              <span className="visually-hidden">Next</span>
-            </button>
-          </div>
-          {/*  */}
-          <div className={`d-flex flex-column gap-5`} style={{ width:`${windowWidth < 800 ? '100%' : '40%'}`}}>
-            <div className="d-flex flex-column">
-              <h3 className="fs-9 ">
-                <span style={{ fontWeight: "900" }} className="text-primary">
-                  HYTEC
-                </span>{" "}
-                {finalProduct?.name}
-              </h3>
-              <ProcessText
-                isLoaded={dataIsLoaded}
-                text={finalProduct?.description}
-                size={14}
-                textColor="text-grey-500"
-              />
+            <div className="d-flex flex-column gap-4" style={{width:'60%'}}>
+
+              <div
+                style={{ transition: "all .3s ease"}}
+                id="carouselExampleIndicators"
+                className={`carousel slide overflow-hidden rounded-1`}
+                data-bs-ride="carousel"
+              >
+                <div className="carousel-indicators">{carouselButtons}</div>
+                <div className="carousel-inner">{carouselImages}</div>
+
+                <button
+                  className="carousel-control-prev"
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="prev"
+                >
+                  <span
+                    className="carousel-control-prev-icon"
+                    aria-hidden="true"
+                  ></span>
+                  <span className="visually-hidden">Previous</span>
+                </button>
+
+                <button
+                  className="carousel-control-next"
+                  type="button"
+                  data-bs-target="#carouselExampleIndicators"
+                  data-bs-slide="next"
+                >
+                  <span
+                    className="carousel-control-next-icon"
+                    aria-hidden="true"
+                  ></span>
+                  <span className="visually-hidden">Next</span>
+                </button>
+              </div>
             </div>
-            <div className="d-flex flex-row align-items-center justify-content-between">
-              <div className="fw-bold fs-8 text-dark-light">{finalProduct?.price} <span className="fs-10 text-dark-light">&euro;</span> <span className="fs-14 text-grey-400">(zzgl. MwSt.)</span></div>
-              <PrimaryButton>{data.buttons.contact}</PrimaryButton>
-            </div>
+              {/*  */}
+              <div className={`d-flex flex-column gap-5 p-4 rounded-1`} style={{width:'40%', backgroundColor:'#fff'}}>
+                <div className="d-flex flex-column">
+                  <h2 className='fs-10 text-grey-400'>Description:</h2>
+                  
+
+                    <ProcessText
+                      isLoaded={dataIsLoaded}
+                      text={finalProduct?.description}
+                      size={14}
+                      textColor="text-grey-500"
+                    />
+                </div>
+                <div className="d-flex flex-row align-items-start justify-content-between">
+                  <div className="fw-bold fs-8 text-dark-light mb-4">{finalProduct?.price} <span className="fs-10 text-dark-light">&euro;</span> <span className="fs-14 text-grey-400">(zzgl. MwSt.)</span></div>
+                  <PrimaryButton>{data.buttons.contact}</PrimaryButton>
+                </div>
+
+              </div>
+
 
           </div>
+
+
+
+
         </div>
       </article>
     </div>
   );
 };
-function stringToBytes(originalString: string) {
-  throw new Error("Function not implemented.");
-}
