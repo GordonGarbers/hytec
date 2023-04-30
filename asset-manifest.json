@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/hytec.github.io/static/css/main.eccb43f8.css",
+    "main.js": "/hytec.github.io/static/js/main.b2c4cf5c.js",
+    "index.html": "/hytec.github.io/index.html",
+    "main.eccb43f8.css.map": "/hytec.github.io/static/css/main.eccb43f8.css.map",
+    "main.b2c4cf5c.js.map": "/hytec.github.io/static/js/main.b2c4cf5c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eccb43f8.css",
+    "static/js/main.b2c4cf5c.js"
+  ]
+}
