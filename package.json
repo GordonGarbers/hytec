@@ -1,5 +1,6 @@
 {
   "name": "hytec",
+  "homepage":"http://3dgenerik.github.io/hytec.github.io",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -50,7 +51,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy" : "npm run build",
+	  "deploy" : "gh-pages -d build"
   },
   "jest": {
     "transformIgnorePatterns": [
@@ -76,6 +79,7 @@
     ]
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.192"
+    "@types/lodash": "^4.14.192",
+    "gh-pages": "^5.0.0"
   }
 }
