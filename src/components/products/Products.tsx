@@ -305,7 +305,7 @@ export const Products: React.FC = () => {
         <FilterProduct />
         <div className="ps-3 pb-3 fs-14 text-grey-500"><span className="fw-bold text-grey-200">{filterProductArticle.length}</span> {filterProductArticle.length === 1 ? "result" : "results"} found</div>
         {dataIsLoaded ? (
-          <div style={{ height: "500px" }} className="w-100">
+          <div style={{ height: "100vh" }} className="w-100">
             {/* <StartLogoAnim/> */}
             <Spinner size={60} width={5} />
           </div>

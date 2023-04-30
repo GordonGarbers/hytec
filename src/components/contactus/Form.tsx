@@ -9,11 +9,18 @@ import { RootState } from "../../app/store";
 import Skeleton from "react-loading-skeleton";
 
 
+const form = document.querySelector('form');
+
 export const Form: React.FC = () => {
   const { dataIsLoaded, data, dataError } = useAppSelector((state: RootState) => state.data);
 
   return (
-    <form className="form-wrapper">
+    <form
+    className="form-wrapper"
+    action="https://formspree.io/f/mjvdlklv"
+    // action="https://formsubmit.co/milesoda@yahoo.com"
+    method="POST"
+    >
       <div className="">
         <h1 style={{ fontWeight: "600"}} className="fs-6 pt-0 text-primary">
             {data.sections?.contact}
@@ -44,6 +51,7 @@ export const Form: React.FC = () => {
             <FaRegUser size={16} className="icon" />
             <input
               type="text"
+              name="name"
               className="form-control bg-dark-form border-0 fs-14 text-grey-700 rounded-1"
               // className="form-control bg-dark border-0 border-bottom border-grey-300 fs-13 text-grey-700 rounded-0"
               id="validationDefault01"
@@ -58,7 +66,9 @@ export const Form: React.FC = () => {
             <HiOutlineMail size={18} className="icon" />
             <input
               type="email"
-              className="form-control bg-dark-form border-0 fs-14 text-grey-700 rounded-1"              id="validationDefault02"
+              name="email"
+              className="form-control bg-dark-form border-0 fs-14 text-grey-700 rounded-1"
+              id="validationDefault02"
               placeholder={data.form.email??""}
               required
             />
@@ -70,7 +80,9 @@ export const Form: React.FC = () => {
             <MdTitle size={16} className="icon" />
             <input
               type="text"
-              className="form-control bg-dark-form border-0 fs-14 text-grey-700 rounded-1"              id="validationDefaultUsername"
+              name="subject"
+              className="form-control bg-dark-form border-0 fs-14 text-grey-700 rounded-1"
+              id="validationDefaultUsername"
               placeholder={data.form.subject??""}
               aria-describedby="inputGroupPrepend2"
               required
@@ -82,6 +94,7 @@ export const Form: React.FC = () => {
           <textarea
             className="form-control bg-dark-form border-0 fs-14 text-grey-700 rounded-1"
             rows={5}
+            name="message"
             placeholder={data.form.text??""}
           ></textarea>
         </div>
