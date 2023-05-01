@@ -39,7 +39,7 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
   const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
 
   //cache all images
-  const imageUrl = useImageCache(data[section][index]?.image, isImgLoaded);
+  const imageUrl = useImageCache(`${process.env.PUBLIC_URL}/${data[section][index]?.image}`, isImgLoaded);
 
   const handleImageOnLoad = () => {
     setIsImgLoaded(true);
