@@ -27,7 +27,7 @@ export const VNavigation: React.FC<INavigationProps> = ({ windowWidth }) => {
     >
       <div className="d-flex justify-content-between w-100 align-items-center border-bottom pb-2">
         <div style={{ width: '120px' }}>
-          <img className="w-100" src="assets/hytec-06.png" alt="logo" />
+          <img className="w-100" src={`${process.env.PUBLIC_URL}/assets/hytec-06.png`} alt="logo" />
         </div>
         <NavMenuIconSM bool={true}>
           <XLg size={32} color="#000" />

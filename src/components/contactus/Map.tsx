@@ -23,7 +23,7 @@ export const PigeonMap: React.FC = ()=>{
           className="rounded-0 me-3 map-wrapper"
         >
           <Map defaultCenter={[ windowWidth > 620 ? 53.3327 : 53.345, 10.2165]} twoFingerDrag={true} metaWheelZoom={false} zoom={zoom}>
-            <Overlay anchor={center} offset={[121, 144]} className={`${close ? 'd-none' : 'd-block'}`}>
+            <Overlay anchor={center} offset={[131, 144]} className={`${close ? 'd-none' : 'd-block'}`}>
               <motion.div
                 animate={{y: close ? 40 : 0, scale: close ? .5:1, opacity: close ? 0 : 1}}
                 transition={{
@@ -43,7 +43,7 @@ export const PigeonMap: React.FC = ()=>{
                       className="rounded-pill overflow-hidden"
                     >
                       <img
-                        src="assets/thumbnails/traktor.webp"
+                        src={`${process.env.PUBLIC_URL}/assets/thumbnails/traktor.webp`}
                         alt="traktor"
                         style={{ width: '100%' }}
                       />
