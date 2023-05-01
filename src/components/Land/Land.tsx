@@ -74,7 +74,7 @@ export const Land: React.FC = () => {
         <img
           style={{ width: '100%' }}
           className="bg-dark-light border border-1 border-grey-400 p-2 rounded-2 shadow"
-          src="assets/hytec-05.png"
+          src={`${process.env.PUBLIC_URL}/assets/hytec-05.png`}
           alt="hytec-logo"
         />
       </motion.div>
@@ -117,7 +117,7 @@ export const Land: React.FC = () => {
                 style={{ width: '100%', filter: 'brightness(150%)' }}
                 src={
                   isImgLoaded
-                    ? 'assets/png/DE_01.png'
+                    ? `${process.env.PUBLIC_URL}/assets/png/DE_01.png`
                     : getImageRatio(2392, 3198)
                 }
                 alt="DE-map"

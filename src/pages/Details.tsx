@@ -99,13 +99,13 @@ export const Details: React.FC = () => {
           {finalProduct?.name}
         </h3> */}
         <nav className="fs-14 d-flex align-items-center gap-1 mb-3">
-          <NavLink to="/" className="text-grey-400">
+          <NavLink to={process.env.PUBLIC_URL} className="text-grey-400">
             Home
           </NavLink>
 
           <IoIosArrowForward className="text-primary" />
 
-          <NavLink to="/" className="text-grey-400">
+          <NavLink to={process.env.PUBLIC_URL} className="text-grey-400">
             {!dataIsLoaded ? (
               finalProduct?.categorie ? (
                 decodeURIComponent(finalProduct?.categorie)

@@ -159,7 +159,8 @@ export const Products: React.FC = () => {
 
   const productArticle = filterProductArticle.map(
     (product: IProducts, idx: number) => {
-      const fullImagePath = `${product.basePath}${product.productNamePath}${product.heroImage}`;
+      const fullImagePath = `${process.env.PUBLIC_URL}/${product.basePath}${product.productNamePath}${product.heroImage}`;
+      console.log(fullImagePath);
       return (
         //////////////////////////////////////////////////////////////////
         <motion.li

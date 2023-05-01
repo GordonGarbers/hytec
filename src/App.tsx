@@ -12,13 +12,13 @@ import { setNext } from './features/next/next.slice';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<MainLayout/>}>
+    <Route path={process.env.PUBLIC_URL} element={<MainLayout/>}>
       <Route index element={<Home/>}/>
-      <Route path='/:type/:id' element={<Details/>}/>
+      <Route path={`${process.env.PUBLIC_URL}/:type/:id`} element={<Details/>}/>
     </Route>
   )
 )
-
+// console.log(process.env.PUBLIC_URL);
 function App() {
   const { dataIsLoaded, data, dataError } = useAppSelector(
     (state: RootState) => state.data
