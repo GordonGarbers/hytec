@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/hytec/static/css/main.eccb43f8.css",
-    "main.js": "/hytec/static/js/main.656117ad.js",
+    "main.js": "/hytec/static/js/main.21a33e42.js",
     "index.html": "/hytec/index.html",
     "main.eccb43f8.css.map": "/hytec/static/css/main.eccb43f8.css.map",
-    "main.656117ad.js.map": "/hytec/static/js/main.656117ad.js.map"
+    "main.21a33e42.js.map": "/hytec/static/js/main.21a33e42.js.map"
   },
   "entrypoints": [
     "static/css/main.eccb43f8.css",
-    "static/js/main.656117ad.js"
+    "static/js/main.21a33e42.js"
   ]
 }
