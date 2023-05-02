@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from './app/hooks';
 import { switchLanguage } from './features/changeLanguage/changeLanguage.slice';
 import { RootState } from './app/store';
 import { Home } from './pages/Home';
-import { Details } from './pages/Details';
+import { Details } from './pages/details/Details';
 import {createBrowserRouter, createRoutesFromElements, Route, Link, NavLink, RouterProvider} from 'react-router-dom'
 import { MainLayout } from './components/layout/MainLayout';
 import { setNext } from './features/next/next.slice';

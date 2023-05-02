@@ -41,3 +41,9 @@ export enum ECategories{
   weight = "weight",
   fuelTank = "fuel tank"
 }
+
+export const enum EProductSections {
+  specifications = 'specifications',
+  accessories = 'accessories'
+}
+
