@@ -221,7 +221,7 @@ export const Details: React.FC = () => {
                           ? finalProduct?.description.slice(0, 200) + '...'
                           : ''
                       }
-                      size={windowWidth > 500 ? 14 : 15}
+                      size={windowWidth > 500 ? 13 : 14}
                       textColor="text-grey-500"
                     >
                       <button
