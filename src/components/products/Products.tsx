@@ -56,7 +56,7 @@ export const Products: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const handleMoreImage = () => {
-    dispatch(setNext(next + 4));
+    dispatch(setNext(4));
   };
 
   const { categories } = useAppSelector((state: RootState) => state.categories);
@@ -112,7 +112,7 @@ export const Products: React.FC = () => {
   
   //FILTERING
   const filterProductArticle = data.products
-    .slice(0, next)
+    
     .filter((product: IProducts) => {
       return categories !== "all"
         ? categories === product.filter.categorie ?? ""
@@ -148,26 +148,30 @@ export const Products: React.FC = () => {
         product.filter.fuelTankCapacity >= fuelTankCapacity.min &&
         product.filter.fuelTankCapacity <= fuelTankCapacity.max
       );
-    });
+    })
 
+    const sliceFilterProductArticle = filterProductArticle.slice(0, next)
 
+    console.log('FILTER PRODUCT NUM: ', filterProductArticle.length, 'SLICE: ', sliceFilterProductArticle.length, 'ALL DATA: ', data.products.length);
+
+    
   const onDetailsChange = (product: IProducts) => {
     navigate(`${product.categorie}/${product.name}`, {
       state: { product, data },
     });
   };
 
-  const productArticle = filterProductArticle.map(
+  const productArticle = sliceFilterProductArticle.map(
     (product: IProducts, idx: number) => {
       const fullImagePath = `${process.env.PUBLIC_URL}/${product.basePath}${product.productNamePath}${product.heroImage}`;
-      console.log(fullImagePath);
+
       return (
         //////////////////////////////////////////////////////////////////
-        <motion.li
-        variants={cardVariants}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.8 }}
+        <li
+        // variants={cardVariants}
+          // initial="offscreen"
+          // whileInView="onscreen"
+          // viewport={{ once: true, amount: 0.8 }}
           // onMouseEnter ={onLiBtnClick}
           onClick={onLiBtnClick}
           value={idx}
@@ -177,7 +181,7 @@ export const Products: React.FC = () => {
           }}
           className="w-100 rounded-2 shadow-sm position-relative list overflow-hidden"
         >
-          {idx === btnClicked ? (
+          {/* {idx === btnClicked ? (
             <>
               <AnimatePresence mode="wait">
                 <motion.div
@@ -193,13 +197,12 @@ export const Products: React.FC = () => {
                 />
               </AnimatePresence>
             </>
-          ) : null}
+          ) : null} */}
 
           <div className="w-100 position-relative" style={{}}>
             {!isImgLoaded && <Spinner size={50} width={8} />}
             <img
               onLoad={handleImageOnLoad}
-              // src={fullImagePath}
               src={isImgLoaded ? fullImagePath : getImageRatio(1067, 756)}
               className={`${
                 windowWidth > 327 && windowWidth < 487 ? "p-1" : "p-3"
@@ -271,13 +274,15 @@ export const Products: React.FC = () => {
               )}
             </div>
           </div>
-        </motion.li>
+        </li>
       );
     }
   );
 
   //get prices range func
   const getPricesRange = (price: IRange) => {};
+
+
 
   return (
     <div
@@ -376,7 +381,7 @@ export const Products: React.FC = () => {
               />
             )}
 
-            {next < data.products.length && (
+            {next < filterProductArticle.length && filterProductArticle.length !== sliceFilterProductArticle.length && (
               <div className="p-4 text-center mt-4 d-flex justify-content-center">
                 <button
                   onClick={handleMoreImage}
