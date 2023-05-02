@@ -134,8 +134,8 @@ export const Details: React.FC = () => {
         <div className={`w-100 rounded-3`}>
           {/*  */}
 
-          <div className="d-flex gap-4">
-            <div className="d-flex flex-column gap-4 details-article-wrapper-left">
+          <div className="details-article">
+            <div className="d-flex flex-column gap-4 details-article-left">
               {!dataIsLoaded ? (
                 <div
                   style={{ transition: 'all .3s ease' }}
@@ -181,111 +181,117 @@ export const Details: React.FC = () => {
 
             {/*  */}
             <div
-              className={`d-flex flex-column gap-5 justify-content-between p-4 rounded-1 details-article-wrapper-right`}
+              className={`d-flex flex-column rounded-1 details-article-right`}
             >
-              <div className="d-flex flex-column">
-                <div className="fs-13 text-grey-400">
-                  {!dataIsLoaded ? (
-                    finalProduct?.categorie.toUpperCase()
-                  ) : (
-                    <Skeleton count={1} height={16} width={80} />
-                  )}
-                </div>
-                <div className="fs-6">
-                  <span style={{ fontWeight: '900' }} className="text-primary">
-                    HYTEC
-                  </span>{' '}
-                  {!dataIsLoaded ? (
-                    finalProduct?.name
-                  ) : (
-                    <div className="w-100 h-100 position-relative">
-                      <Skeleton count={1} height={28} width={80} />
-                    </div>
-                  )}
-                </div>
+                <div>
 
-                <ProcessText
-                  isLoaded={dataIsLoaded}
-                  text={
-                    showMore
-                      ? finalProduct?.description
-                        ? finalProduct?.description
-                        : ''
-                      : finalProduct?.description
-                      ? finalProduct?.description.slice(0, 200) + '...'
-                      : ''
-                  }
-                  size={14}
-                  textColor="text-grey-500"
-                >
-                  <button
-                    className=" fw-bold fs-15 text-dark btn btn-outline-primary-500 p-1"
-                    onClick={() => setShowMore(!showMore)}
-                  >
-                    <span>show {!showMore ? 'more' : 'less'}</span>{' '}
-                    {showMore ? <IoIosArrowUp /> : <IoIosArrowDown />}{' '}
-                  </button>
-                </ProcessText>
-              </div>
-
-              <div className="d-flex flex-column gap-4">
-                <div className="d-flex flex-column align-items-start bg-grey-900 p-3 rounded-1">
-                  <div className="d-flex flex-row align-items-start justify-content-between w-100">
-                    <div
-                      className="fs-8 text-dark-light mb-4"
-                      style={{ fontWeight: '800' }}
-                    >
-                      {!dataIsLoaded ? (
-                        finalProduct?.price ? (
-                          finalProduct?.price + ' '
-                        ) : (
-                          ''
-                        )
-                      ) : (
-                        <Skeleton count={1} height={24} width={80} />
-                      )}
-                      <span className="fs-10 text-dark-light">&euro;</span>{' '}
-                      <span className="fs-14 text-grey-500">(zzgl. MwSt.)</span>
-                    </div>
-                  </div>
-                  <div className=" w-100 ">
-                    <h3 className="fs-13 fw-bold">Kostenlose Extras:</h3>
-
+                  <div className="fs-13 text-grey-400">
                     {!dataIsLoaded ? (
-                      finalProduct?.extras.map((item: string, idx: number) => {
-                        return (
-                          <div key={idx} className="fs-14">
-                            {' '}
-                            &bull; {item}
-                          </div>
-                        );
-                      })
+                      finalProduct?.categorie.toUpperCase()
                     ) : (
-                      <Skeleton count={5} width={'100%'} />
+                      <Skeleton count={1} height={16} width={80} />
+                    )}
+                  </div>
+                  <div className="fs-6">
+                    <span style={{ fontWeight: '900' }} className="text-primary">
+                      HYTEC
+                    </span>{' '}
+                    {!dataIsLoaded ? (
+                      finalProduct?.name
+                    ) : (
+                      <div className="w-100 h-100 position-relative">
+                        <Skeleton count={1} height={28} width={80} />
+                      </div>
                     )}
                   </div>
                 </div>
-                {!dataIsLoaded ? (
-                  <PrimaryButton>{data.buttons.contact}</PrimaryButton>
-                ) : (
-                  <Skeleton
-                    count={1}
-                    height={28}
-                    width={'100%'}
-                    baseColor={EColors.primary}
-                  />
-                )}
-              </div>
+
+
+
+                  <div className="article-body h-100">
+
+                    <ProcessText
+                      isLoaded={dataIsLoaded}
+                      text={
+                        showMore
+                          ? finalProduct?.description
+                            ? finalProduct?.description
+                            : ''
+                          : finalProduct?.description
+                          ? finalProduct?.description.slice(0, 200) + '...'
+                          : ''
+                      }
+                      size={windowWidth > 500 ? 14 : 15}
+                      textColor="text-grey-500"
+                    >
+                      <button
+                        className=" fw-bold fs-15 text-dark btn btn-outline-primary-500 p-1"
+                        onClick={() => setShowMore(!showMore)}
+                      >
+                        <span>show {!showMore ? 'more' : 'less'}</span>{' '}
+                        {showMore ? <IoIosArrowUp /> : <IoIosArrowDown />}{' '}
+                      </button>
+                    </ProcessText>
+
+                  <div className="d-flex flex-column gap-4 article-price">
+                    <div className="d-flex flex-column align-items-start bg-grey-900 p-3 rounded-1">
+                      <div className="d-flex flex-row align-items-start justify-content-between w-100">
+                        <div
+                          className="fs-8 text-dark-light mb-4"
+                          style={{ fontWeight: '800' }}
+                        >
+                          {!dataIsLoaded ? (
+                            finalProduct?.price ? (
+                              finalProduct?.price + ' '
+                            ) : (
+                              ''
+                            )
+                          ) : (
+                            <Skeleton count={1} height={24} width={80} />
+                          )}
+                          <span className="fs-10 text-dark-light">&euro;</span>{' '}
+                          <span className="fs-14 text-grey-500">(zzgl. MwSt.)</span>
+                        </div>
+                      </div>
+                      <div className=" w-100 ">
+                        <h3 className="fs-13 fw-bold">Kostenlose Extras:</h3>
+
+                        {!dataIsLoaded ? (
+                          finalProduct?.extras.map((item: string, idx: number) => {
+                            return (
+                              <div key={idx} className="fs-14">
+                                {' '}
+                                &bull; {item}
+                              </div>
+                            );
+                          })
+                        ) : (
+                          <Skeleton count={5} width={'100%'} />
+                        )}
+                      </div>
+                    </div>
+                    {!dataIsLoaded ? (
+                      <PrimaryButton fontSize={windowWidth > 500 ? 13 : 14}>{data.buttons.contact}</PrimaryButton>
+                    ) : (
+                      <Skeleton
+                        count={1}
+                        height={28}
+                        width={'100%'}
+                        baseColor={EColors.primary}
+                      />
+                    )}
+                  </div>
+                  </div>
             </div>
           </div>
         </div>
 
         {/* TABLE SPECIFICATION */}
-        <div className='mt-7'>
-                <h3 className='fs-11 ' style={{fontWeight:'400'}}>Product details for <span className='fw-bold'>{finalProduct?.name}</span> </h3>
-                <div className='tables-wrapper d-grid '>
-                  <Table finalProduct={finalProduct} sectionName={EProductSections.specifications}/>
-                  <Table finalProduct={finalProduct} sectionName={EProductSections.accessories}/>
+        <div className='mt-7 w-100'>
+                {/* <h3 className='fs-11 ' style={{fontWeight:'400'}}>Product details for <span className='fw-bold'>{finalProduct?.name}</span> </h3> */}
+                <div className='tables-wrapper w-100'>
+                  <Table finalProduct={finalProduct} sectionName={EProductSections.accessories} sectionClass='table-second'/>
+                  <Table finalProduct={finalProduct} sectionName={EProductSections.specifications} sectionClass='table-first'/>
                 </div>
           
         </div>

@@ -6,9 +6,10 @@ import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 interface ITableProps {
   finalProduct: IProducts;
   sectionName: EProductSections;
+  sectionClass: string;
 }
 
-export const Table: React.FC<ITableProps> = ({ finalProduct, sectionName }) => {
+export const Table: React.FC<ITableProps> = ({ finalProduct, sectionName, sectionClass }) => {
   const [showMore, setShowMore] = useState<boolean>(false);
 
   const rows =
@@ -24,7 +25,7 @@ export const Table: React.FC<ITableProps> = ({ finalProduct, sectionName }) => {
           {sectionName === EProductSections.accessories ? (
             <>
               <td>{section}</td>
-              <td className="">
+              <td className="" style={{textAlign:'right'}}>
                 {spec} <span className="fs-15">{value}</span>
               </td>
               <td style={{ width: '0px' }}></td>
@@ -41,12 +42,12 @@ export const Table: React.FC<ITableProps> = ({ finalProduct, sectionName }) => {
     });
 
   return (
-    <div className="mb-6 d-flex flex-column align-items-center justify-content-center table-wrapper">
-      <table className="table rounded-2 fs-14">
+    <div className={`mb-4 d-flex flex-column align-items-center justify-content-center table-wrapper ${sectionClass}`}>
+      <table className="table rounded-2">
         <thead className="bg-dark-light text-grey-900">
           <tr className="">
-            {/* <th >{sectionName.toUpperCase()}:  <span style={{fontWeight:'300'}} className='fs-14 text-primary'> {finalProduct?.name}</span></th> */}
-            <th>{sectionName.toUpperCase()}:</th>
+            {/* <th >{sectionName.toUpperCase()} <span style={{fontWeight:'300'}} className='fs-14 text-primary'> {finalProduct?.name}</span></th> */}
+            <th>{sectionName.toUpperCase()}</th>
             <th></th>
             <th></th>
           </tr>

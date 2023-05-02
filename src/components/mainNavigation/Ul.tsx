@@ -48,7 +48,7 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
       e.currentTarget.textContent?.split(" ").join("").toLowerCase() ?? ""
     );
       // console.log(btnName.split(" ").join("").toLowerCase());
-      navigate(btnName==="Home" || btnName==="Start" ? "/" : btnName.split(" ").join("").toLowerCase())
+      navigate(btnName==="Home" || btnName==="Start" ? process.env.PUBLIC_URL : btnName.split(" ").join("").toLowerCase())
   };
 
   useEffect(() => {

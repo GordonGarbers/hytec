@@ -2,11 +2,12 @@ import React from "react";
 
 interface IButtonProps {
   children: React.ReactNode;
+  fontSize?: number;
 }
 
-export const PrimaryButton: React.FC<IButtonProps> = ({ children }) => {
+export const PrimaryButton: React.FC<IButtonProps> = ({ children, fontSize }) => {
   return (
-    <button className="btn btn-primary rounded-2" style={{fontWeight:500}}>
+    <button className={`btn btn-primary rounded-2 fs-${fontSize ? fontSize : 13}`} style={{fontWeight:500}}>
       {children}
     </button>
   );
