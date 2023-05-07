@@ -26,6 +26,7 @@ import { YTDetails } from "./YTDetails";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   A11y,
+  Keyboard,
   Pagination,
   Scrollbar,
   Navigation as swiperNavigation,
@@ -34,6 +35,7 @@ import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 import "swiper/scss/scrollbar";
+import { ToDetailsBtn } from "../../components/ToDetailsBtn/ToDetailsBtn";
 
 interface INavigateType {
   product: IProducts;
@@ -42,6 +44,7 @@ interface INavigateType {
 
 export const Details: React.FC = () => {
   const { windowWidth } = useAppSelector((state: RootState) => state.width);
+  const {value} = useAppSelector((state: RootState) => state.counter);
   const [showMore, setShowMore] = useState<boolean>(false);
   const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
 
@@ -53,8 +56,11 @@ export const Details: React.FC = () => {
   const products = location.state.product as IProducts;
   // const data = location.state.data as IDataDetails;
 
-  //scrolling
+
+
+  //scrolling without animation
   const scrollToOptions = { top: 0, left: 0, behavior: "instant" };
+  // const scrollToOptions = { top: 0, left: 0, behavior: "smooth" };
 
   const scrollTop = () => {
     window.scrollTo(scrollToOptions as unknown as ScrollToOptions);
@@ -62,8 +68,11 @@ export const Details: React.FC = () => {
 
   useEffect(() => {
     scrollTop();
-  }, []);
-  //
+  }, [value]);
+
+
+
+  
 
   const finalProduct = data.products.filter(
     (dataProducts: IProducts, idx: number) => {
@@ -75,16 +84,19 @@ export const Details: React.FC = () => {
   const carouselImages = products.carouselImages.map(
     (url: string, idx: number) => {
       return (
-        <ImgCache
-          key={idx}
-          url={url}
-          idx={idx}
-          basePath={products?.basePath}
-          productNamePath={products?.productNamePath}
-          imgSizeX={983}
-          imgSizeY={737}
-          imageAlt={url}
-        />
+        <SwiperSlide
+        key={idx}>
+          <ImgCache
+            key={idx}
+            url={url}
+            idx={idx}
+            basePath={products?.basePath}
+            productNamePath={products?.productNamePath}
+            imgSizeX={983}
+            imgSizeY={737}
+            imageAlt={url}
+          />
+        </SwiperSlide>
       );
     }
   );
@@ -109,20 +121,38 @@ export const Details: React.FC = () => {
   //create random articles with same categorie
   const randomProductPerCategorie = data.products.filter(
     (dataProduct: IProducts, idx: number) => {
-      return dataProduct.categorie === products?.categorie;
+      return dataProduct.filter.categorie === products?.filter?.categorie && dataProduct.id !== products?.id;
     }
   );
+
+  
 
   const randomProductPerCategorieElements = randomProductPerCategorie.map(
     (randomProduct: IProducts, idx: number) => {
       const fullImagePath = `${process.env.PUBLIC_URL}/${randomProduct.basePath}${randomProduct.productNamePath}${randomProduct.heroImage}`;
 
       return (
-        <SwiperSlide key={idx} className="rounded-2 shadow-sm">
-          <img src={fullImagePath} alt="imd" />
+        <SwiperSlide key={idx} className="rounded-2 shadow-sm" style={{backgroundColor:'#fff'}}>
+          {/* <img src={fullImagePath} alt="imd" className="pt-3"/> */}
+          <div className="pt-3"></div>
+
+          <ImgCache
+            key={idx}
+            url={randomProduct.heroImage}
+            idx={idx}
+            basePath={randomProduct.basePath}
+            productNamePath={randomProduct.productNamePath}
+            imgSizeX={983}
+            imgSizeY={737}
+            imageAlt={randomProduct.heroImage}
+          />
+
           <div className="d-flex flex-column p-3">
-            <div className="text-primary-dark fs-15" style={{fontWeight:500}}>{products.categorie.toUpperCase()}</div>
-            <div className="fs-10 ">{products.name}</div>
+            <div className="text-primary-dark fs-15" style={{fontWeight:500}}>{randomProduct.categorie.toUpperCase()}</div>
+            <div className="fs-11 fw-bold">{randomProduct.name}</div>
+          </div>
+          <div className="w-100 px-3 pb-3">
+            <ToDetailsBtn dataIsLoaded={false} product={randomProduct} data={data} fullWidth={true} reloadPage={false}/>
           </div>
         </SwiperSlide>
       );
@@ -142,41 +172,56 @@ export const Details: React.FC = () => {
           <div className="details-article">
             <div className="d-flex flex-column gap-4 details-article-left">
               {!dataIsLoaded ? (
-                <div
-                  style={{ transition: "all .3s ease" }}
-                  id="carouselExampleIndicators"
-                  className={`carousel slide overflow-hidden rounded-1`}
-                  data-bs-ride="carousel"
-                >
-                  <div className="carousel-indicators">{carouselButtons}</div>
-                  <div className="carousel-inner">{carouselImages}</div>
+                <Swiper
+                slidesPerView={1}
+                spaceBetween={30}
+                keyboard={{
+                  enabled: true,
+                }}
+                pagination={{
+                  clickable: true,
+                }}
+                navigation={true}
+                modules={[Keyboard, Pagination, swiperNavigation]}
+                className="mySwiper"
+              >
+                {carouselImages}
+              </Swiper>
+                // <div
+                //   style={{ transition: "all .3s ease" }}
+                //   id="carouselExampleIndicators"
+                //   className={`carousel slide overflow-hidden rounded-1`}
+                //   data-bs-ride="carousel"
+                // >
+                //   <div className="carousel-indicators">{carouselButtons}</div>
+                //   <div className="carousel-inner">{carouselImages}</div>
 
-                  <button
-                    className="carousel-control-prev"
-                    type="button"
-                    data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev"
-                  >
-                    <span
-                      className="carousel-control-prev-icon"
-                      aria-hidden="true"
-                    ></span>
-                    <span className="visually-hidden">Previous</span>
-                  </button>
+                //   <button
+                //     className="carousel-control-prev"
+                //     type="button"
+                //     data-bs-target="#carouselExampleIndicators"
+                //     data-bs-slide="prev"
+                //   >
+                //     <span
+                //       className="carousel-control-prev-icon"
+                //       aria-hidden="true"
+                //     ></span>
+                //     <span className="visually-hidden">Previous</span>
+                //   </button>
 
-                  <button
-                    className="carousel-control-next"
-                    type="button"
-                    data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next"
-                  >
-                    <span
-                      className="carousel-control-next-icon"
-                      aria-hidden="true"
-                    ></span>
-                    <span className="visually-hidden">Next</span>
-                  </button>
-                </div>
+                //   <button
+                //     className="carousel-control-next"
+                //     type="button"
+                //     data-bs-target="#carouselExampleIndicators"
+                //     data-bs-slide="next"
+                //   >
+                //     <span
+                //       className="carousel-control-next-icon"
+                //       aria-hidden="true"
+                //     ></span>
+                //     <span className="visually-hidden">Next</span>
+                //   </button>
+                // </div>
               ) : (
                 <div className="position-relative w-100 h-100">
                   <Spinner size={60} width={5} />
@@ -196,7 +241,7 @@ export const Details: React.FC = () => {
                     <Skeleton count={1} height={16} width={80} />
                   )}
                 </div>
-                <div className="fs-6">
+                <div className="fs-7">
                   <span style={{ fontWeight: "900" }} className="text-primary">
                     HYTEC
                   </span>{" "}
@@ -293,10 +338,11 @@ export const Details: React.FC = () => {
           </div>
         </div>
 
+      </article>
         {/* TABLE SPECIFICATION */}
-        <div className="mt-7 w-100">
+        <div className="mt-4 w-100 bg-grey-900">
           {/* <h3 className='fs-11 ' style={{fontWeight:'400'}}>Product details for <span className='fw-bold'>{finalProduct?.name}</span> </h3> */}
-          <div className="tables-wrapper w-100">
+          <div className="tables-wrapper container-fluid-02 pt-6 pb-2 px-3">
             <Table
               finalProduct={finalProduct}
               sectionName={EProductSections.accessories}
@@ -309,12 +355,24 @@ export const Details: React.FC = () => {
             />
           </div>
         </div>
-        <YTDetails />
-      </article>
-      <div className="w-100 mt-5 bg-grey-900 p-5">
-        <div className="container-fluid-02">
+
+        <div className="container-fluid-02 pt-6 pb-4 px-3">
+          <YTDetails url={finalProduct?.video}/>
+        </div>
+
+      <div className="w-100 mt-5 bg-grey-900 ">
+        <div className="container-fluid-02 ps-3 pe-3 pt-4 pb-5">
+
+        <div className="text-primary fw-bold text-center fs-13">HYTEC EQUIPMENT</div>
+        <h1
+          style={{ fontWeight: "900" }}
+          className="text-dark fs-8 mb-5 text-center "
+        >
+          Related Products
+        </h1>
+        
           <Swiper
-            slidesPerView={4}
+            slidesPerView={windowWidth > 1080 ? 4 : windowWidth > 780 ? 3 : windowWidth < 370 ? 1 : 2}
             spaceBetween={30}
             pagination={{
               clickable: true,
@@ -326,6 +384,8 @@ export const Details: React.FC = () => {
           </Swiper>
         </div>
       </div>
+      
     </div>
+
   );
 };

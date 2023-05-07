@@ -175,8 +175,8 @@
     {
       "id": 3,
       "categorie": "compact loader",
-      "name": "FM35 Roll bar",
-      "price": "18.000",
+      "name": "FM35 Roll bar 02",
+      "price": "38.000",
       "extras": [
         "Quick change system",
         "Bucket",
@@ -241,7 +241,7 @@
         "totalWidth":1180,
         "totalHeight":2499,
         "wheelbase":1540,
-        "price":18000
+        "price":38000
       },
       "basePath": "assets/machinery/",
       "productNamePath": "F35-roll-bar/",
@@ -255,7 +255,7 @@
         "06.webp",
         "07.webp"
       ],
-      "video":"https://www.youtube.com/watch?v=CJW59TkI1ic"
+      "video":"https://www.youtube.com/watch?v=hLwli41C08k"
     },
     {
       "id": 4,

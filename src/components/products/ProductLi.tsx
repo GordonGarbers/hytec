@@ -9,6 +9,7 @@ import { getImageRatio } from "../../utils/createImagePlaceholder";
 import { RootState } from "../../app/store";
 import { EColors } from "../../constants/constants";
 import { useImageCache } from "../hooks/useImageCache";
+import { ToDetailsBtn } from "../ToDetailsBtn/ToDetailsBtn";
 
 interface IProductLiProps{
     product: IProducts,
@@ -25,14 +26,6 @@ export const ProductLi: React.FC<IProductLiProps> = ({product, data, idx, fullIm
 
     const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
     const imageUrl = useImageCache(fullImagePath, isImgLoaded);
-
-    const navigate = useNavigate();
-    
-    const onDetailsChange = (product: IProducts) => {
-        navigate(`${product.categorie}/${product.name}`, {
-          state: { product, data },
-        });
-      };
 
     const handleImageOnLoad = () => {
     setIsImgLoaded(true);
@@ -75,7 +68,8 @@ export const ProductLi: React.FC<IProductLiProps> = ({product, data, idx, fullIm
             {!isImgLoaded && <Spinner size={50} width={8} />}
             <img
               onLoad={handleImageOnLoad}
-              src={isImgLoaded ? imageUrl : getImageRatio(1067, 756)}
+            //   src={isImgLoaded ? imageUrl : getImageRatio(1067, 756)}
+              src={isImgLoaded ? fullImagePath : getImageRatio(1067, 756)}
               className={`${
                 windowWidth > 327 && windowWidth < 487 ? "p-1" : "p-3"
               }`}
@@ -121,22 +115,8 @@ export const ProductLi: React.FC<IProductLiProps> = ({product, data, idx, fullIm
             )}
 
             <div className=" details-button">
-              {!dataIsLoaded ? (
-                <button
-                  style={{ fontWeight: 600 }}
-                  onClick={() => onDetailsChange(product)}
-                  className="btn btn-primary fs-13 fs-sm-12 rounded-1 d-flex gap-2 align-items-center px-2 px-sm-3 text-dark-form"
-                >
-                  Details <HiOutlineArrowNarrowRight size={20} />
-                </button>
-              ) : (
-                <Skeleton
-                  count={1}
-                  width={100}
-                  height={40}
-                  baseColor={EColors.primary}
-                />
-              )}
+                <ToDetailsBtn dataIsLoaded={dataIsLoaded} product={product} data={data} fullWidth={false}  reloadPage={false}/>
+
               {!dataIsLoaded ? (
                 <div className="fw-bold text-dark-light fs-12">
                   {product.price} <span className="fw-bold fs-14">&euro;</span>

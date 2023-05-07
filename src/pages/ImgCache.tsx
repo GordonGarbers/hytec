@@ -19,7 +19,6 @@ export const ImgCache: React.FC<IImgCacheProps> = ({ url, idx, basePath, product
   const handleImageOnLoad = () => {
     setIsImgLoaded(true);
   };
-
   const imageUrl = useImageCache(
     `${process.env.PUBLIC_URL}/${basePath}${productNamePath}${url}`,
     isImgLoaded
@@ -27,7 +26,7 @@ export const ImgCache: React.FC<IImgCacheProps> = ({ url, idx, basePath, product
 
 
   return (
-    <div key = {idx} className={`carousel-item ${url === '01.webp' ? 'active' : ''}`}>
+    <div key = {idx} className={`${url === '01.webp' ? 'active' : ''}`}>
         <div className="w-100 overflow-hidden article-right position-relative">
         {imageUrl && (
             <img

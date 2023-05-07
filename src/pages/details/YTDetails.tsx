@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactPlayer from "react-player";
 import { Centerize } from "../../components/layout/Centerize";
 import { EColors } from "../../constants/constants";
 import { RootState } from "../../app/store";
 import { useAppSelector } from "../../app/hooks";
 
-export const YTDetails: React.FC = () => {
+interface IYTDetailsProps{
+    url: string;
+}
 
+
+export const YTDetails: React.FC<IYTDetailsProps> = ({url}) => {
+    const {value} = useAppSelector((state: RootState) => state.counter);
     const { windowWidth } = useAppSelector((state: RootState) => state.width);
-
 
   return (
     <div
+        key={value}
       style={{ position: "relative", paddingTop: "56.25%", overflow: "hidden" }}
       className="rounded-2"
     >
@@ -59,7 +64,7 @@ export const YTDetails: React.FC = () => {
 
         style={{ position: "absolute", top: "0", left: "0" }}
         className="react-player"
-        url="https://www.youtube.com/watch?v=CJW59TkI1ic"
+        url={url}
         width="100%"
         height="100%"
         controls
