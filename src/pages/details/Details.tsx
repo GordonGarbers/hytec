@@ -1,26 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
-import { getImageRatio } from '../../utils/createImagePlaceholder';
-import { Spinner } from '../../components/loaders/Spinner';
-import { useImageCache } from '../../components/hooks/useImageCache';
-import { IDataDetails, IProducts } from '../../interfaces/interfaces';
-import { ImgCache } from '../ImgCache';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { RootState } from '../../app/store';
-import { ProcessText } from '../../components/layout/ProcessText';
-import { PrimaryButton } from '../../components/primaryButton/PrimaryButton';
-import { IoIosArrowForward } from 'react-icons/io';
-import { addCategory } from '../../features/products/productCategories/productCategories.slice';
-import { onMinMaxSave } from '../../components/products/features/minMaxValues.slice';
-import { ContactUs } from '../../components/contactus/ContactUs';
+import React, { useEffect, useState } from "react";
+import { Link, NavLink, Navigation, useLocation } from "react-router-dom";
+import { getImageRatio } from "../../utils/createImagePlaceholder";
+import { Spinner } from "../../components/loaders/Spinner";
+import { useImageCache } from "../../components/hooks/useImageCache";
+import { IDataDetails, IProducts } from "../../interfaces/interfaces";
+import { ImgCache } from "../ImgCache";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { RootState } from "../../app/store";
+import { ProcessText } from "../../components/layout/ProcessText";
+import { PrimaryButton } from "../../components/primaryButton/PrimaryButton";
+import { IoIosArrowForward } from "react-icons/io";
+import { addCategory } from "../../features/products/productCategories/productCategories.slice";
+import { onMinMaxSave } from "../../components/products/features/minMaxValues.slice";
+import { ContactUs } from "../../components/contactus/ContactUs";
 
-import { IoIosArrowUp } from 'react-icons/io';
-import { IoIosArrowDown } from 'react-icons/io';
-import Skeleton from 'react-loading-skeleton';
-import { EColors, EProductSections } from '../../constants/constants';
+import { IoIosArrowUp } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
+import Skeleton from "react-loading-skeleton";
+import { EColors, EProductSections } from "../../constants/constants";
+import { NavDetails } from "./NavDetails";
 
-import './details.scss'
-import { Table } from './Table';
+import "./details.scss";
+import { Table } from "./Table";
+import { YTDetails } from "./YTDetails";
+import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  A11y,
+  Pagination,
+  Scrollbar,
+  Navigation as swiperNavigation,
+} from "swiper";
+import "swiper/scss";
+import "swiper/scss/navigation";
+import "swiper/scss/pagination";
+import "swiper/scss/scrollbar";
 
 interface INavigateType {
   product: IProducts;
@@ -30,6 +43,7 @@ interface INavigateType {
 export const Details: React.FC = () => {
   const { windowWidth } = useAppSelector((state: RootState) => state.width);
   const [showMore, setShowMore] = useState<boolean>(false);
+  const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
 
   const { dataIsLoaded, data, dataError } = useAppSelector(
     (state: RootState) => state.data
@@ -40,7 +54,7 @@ export const Details: React.FC = () => {
   // const data = location.state.data as IDataDetails;
 
   //scrolling
-  const scrollToOptions = { top: 0, left: 0, behavior: 'instant' };
+  const scrollToOptions = { top: 0, left: 0, behavior: "instant" };
 
   const scrollTop = () => {
     window.scrollTo(scrollToOptions as unknown as ScrollToOptions);
@@ -84,52 +98,43 @@ export const Details: React.FC = () => {
           type="button"
           data-bs-target="#carouselExampleIndicators"
           data-bs-slide-to={idx}
-          className={`${idx === 0 ? 'active' : ''}`}
-          aria-current={`${idx === 0 ? 'true' : 'false'}`}
+          className={`${idx === 0 ? "active" : ""}`}
+          aria-current={`${idx === 0 ? "true" : "false"}`}
           aria-label={`Slide ${idx + 1}`}
         ></button>
       );
     }
   );
 
+  //create random articles with same categorie
+  const randomProductPerCategorie = data.products.filter(
+    (dataProduct: IProducts, idx: number) => {
+      return dataProduct.categorie === products?.categorie;
+    }
+  );
 
+  const randomProductPerCategorieElements = randomProductPerCategorie.map(
+    (randomProduct: IProducts, idx: number) => {
+      const fullImagePath = `${process.env.PUBLIC_URL}/${randomProduct.basePath}${randomProduct.productNamePath}${randomProduct.heroImage}`;
+
+      return (
+        <SwiperSlide key={idx} className="rounded-2 shadow-sm">
+          <img src={fullImagePath} alt="imd" />
+          <div className="d-flex flex-column p-3">
+            <div className="text-primary-dark fs-15" style={{fontWeight:500}}>{products.categorie.toUpperCase()}</div>
+            <div className="fs-10 ">{products.name}</div>
+          </div>
+        </SwiperSlide>
+      );
+    }
+  );
+
+  // const fullImagePath = `${process.env.PUBLIC_URL}/${product.basePath}${product.productNamePath}${product.heroImage}`;
 
   return (
-    <div className ="details-article-wrapper">
+    <div className="details-article-wrapper">
       <article className="container-fluid-02 p-3">
-
-
-        <nav className="fs-14 d-flex align-items-center gap-1 mb-3">
-          <NavLink to={process.env.PUBLIC_URL} className="text-grey-400">
-            Home
-          </NavLink>
-          <IoIosArrowForward className="text-primary" />
-          <NavLink to={process.env.PUBLIC_URL} className="text-grey-400">
-            {!dataIsLoaded ? (
-              finalProduct?.categorie ? (
-                decodeURIComponent(finalProduct?.categorie)
-              ) : (
-                ''
-              )
-            ) : (
-              <Skeleton count={1} width={60} />
-            )}
-          </NavLink>
-          <IoIosArrowForward className="text-primary" />
-          <div className="text-grey-400">
-            {!dataIsLoaded ? (
-              finalProduct?.name ? (
-                decodeURIComponent(finalProduct?.name)
-              ) : (
-                ''
-              )
-            ) : (
-              <Skeleton count={1} width={60} />
-            )}
-          </div>
-        </nav>
-
-
+        <NavDetails finalProduct={finalProduct} dataIsLoaded={dataIsLoaded} />
 
         <div className={`w-100 rounded-3`}>
           {/*  */}
@@ -138,7 +143,7 @@ export const Details: React.FC = () => {
             <div className="d-flex flex-column gap-4 details-article-left">
               {!dataIsLoaded ? (
                 <div
-                  style={{ transition: 'all .3s ease' }}
+                  style={{ transition: "all .3s ease" }}
                   id="carouselExampleIndicators"
                   className={`carousel slide overflow-hidden rounded-1`}
                   data-bs-ride="carousel"
@@ -183,121 +188,144 @@ export const Details: React.FC = () => {
             <div
               className={`d-flex flex-column rounded-1 details-article-right`}
             >
-                <div>
-
-                  <div className="fs-13 text-grey-400">
-                    {!dataIsLoaded ? (
-                      finalProduct?.categorie.toUpperCase()
-                    ) : (
-                      <Skeleton count={1} height={16} width={80} />
-                    )}
-                  </div>
-                  <div className="fs-6">
-                    <span style={{ fontWeight: '900' }} className="text-primary">
-                      HYTEC
-                    </span>{' '}
-                    {!dataIsLoaded ? (
-                      finalProduct?.name
-                    ) : (
-                      <div className="w-100 h-100 position-relative">
-                        <Skeleton count={1} height={28} width={80} />
-                      </div>
-                    )}
-                  </div>
+              <div>
+                <div className="fs-13 text-grey-400">
+                  {!dataIsLoaded ? (
+                    finalProduct?.categorie.toUpperCase()
+                  ) : (
+                    <Skeleton count={1} height={16} width={80} />
+                  )}
                 </div>
+                <div className="fs-6">
+                  <span style={{ fontWeight: "900" }} className="text-primary">
+                    HYTEC
+                  </span>{" "}
+                  {!dataIsLoaded ? (
+                    finalProduct?.name
+                  ) : (
+                    <div className="w-100 h-100 position-relative">
+                      <Skeleton count={1} height={28} width={80} />
+                    </div>
+                  )}
+                </div>
+              </div>
 
+              <div className="article-body h-100">
+                <ProcessText
+                  isLoaded={dataIsLoaded}
+                  text={
+                    showMore
+                      ? finalProduct?.description
+                        ? finalProduct?.description
+                        : ""
+                      : finalProduct?.description
+                      ? finalProduct?.description.slice(0, 200) + "..."
+                      : ""
+                  }
+                  size={windowWidth > 500 ? 13 : 14}
+                  textColor="text-grey-500"
+                >
+                  <button
+                    className=" fw-bold fs-15 text-dark btn btn-outline-primary-500 p-1"
+                    onClick={() => setShowMore(!showMore)}
+                  >
+                    <span>show {!showMore ? "more" : "less"}</span>{" "}
+                    {showMore ? <IoIosArrowUp /> : <IoIosArrowDown />}{" "}
+                  </button>
+                </ProcessText>
 
-
-                  <div className="article-body h-100">
-
-                    <ProcessText
-                      isLoaded={dataIsLoaded}
-                      text={
-                        showMore
-                          ? finalProduct?.description
-                            ? finalProduct?.description
-                            : ''
-                          : finalProduct?.description
-                          ? finalProduct?.description.slice(0, 200) + '...'
-                          : ''
-                      }
-                      size={windowWidth > 500 ? 13 : 14}
-                      textColor="text-grey-500"
-                    >
-                      <button
-                        className=" fw-bold fs-15 text-dark btn btn-outline-primary-500 p-1"
-                        onClick={() => setShowMore(!showMore)}
+                <div className="d-flex flex-column gap-4 article-price">
+                  <div className="d-flex flex-column align-items-start bg-grey-900 p-3 rounded-1">
+                    <div className="d-flex flex-row align-items-start justify-content-between w-100">
+                      <div
+                        className="fs-8 text-dark-light mb-4"
+                        style={{ fontWeight: "800" }}
                       >
-                        <span>show {!showMore ? 'more' : 'less'}</span>{' '}
-                        {showMore ? <IoIosArrowUp /> : <IoIosArrowDown />}{' '}
-                      </button>
-                    </ProcessText>
-
-                  <div className="d-flex flex-column gap-4 article-price">
-                    <div className="d-flex flex-column align-items-start bg-grey-900 p-3 rounded-1">
-                      <div className="d-flex flex-row align-items-start justify-content-between w-100">
-                        <div
-                          className="fs-8 text-dark-light mb-4"
-                          style={{ fontWeight: '800' }}
-                        >
-                          {!dataIsLoaded ? (
-                            finalProduct?.price ? (
-                              finalProduct?.price + ' '
-                            ) : (
-                              ''
-                            )
-                          ) : (
-                            <Skeleton count={1} height={24} width={80} />
-                          )}
-                          <span className="fs-10 text-dark-light">&euro;</span>{' '}
-                          <span className="fs-14 text-grey-500">(zzgl. MwSt.)</span>
-                        </div>
-                      </div>
-                      <div className=" w-100 ">
-                        <h3 className="fs-13 fw-bold">Kostenlose Extras:</h3>
-
                         {!dataIsLoaded ? (
-                          finalProduct?.extras.map((item: string, idx: number) => {
+                          finalProduct?.price ? (
+                            finalProduct?.price + " "
+                          ) : (
+                            ""
+                          )
+                        ) : (
+                          <Skeleton count={1} height={24} width={80} />
+                        )}
+                        <span className="fs-10 text-dark-light">&euro;</span>{" "}
+                        <span className="fs-14 text-grey-500">
+                          (zzgl. MwSt.)
+                        </span>
+                      </div>
+                    </div>
+                    <div className=" w-100 ">
+                      <h3 className="fs-13 fw-bold">Kostenlose Extras:</h3>
+
+                      {!dataIsLoaded ? (
+                        finalProduct?.extras.map(
+                          (item: string, idx: number) => {
                             return (
                               <div key={idx} className="fs-14">
-                                {' '}
+                                {" "}
                                 &bull; {item}
                               </div>
                             );
-                          })
-                        ) : (
-                          <Skeleton count={5} width={'100%'} />
-                        )}
-                      </div>
+                          }
+                        )
+                      ) : (
+                        <Skeleton count={5} width={"100%"} />
+                      )}
                     </div>
-                    {!dataIsLoaded ? (
-                      <PrimaryButton fontSize={windowWidth > 500 ? 13 : 14}>{data.buttons.contact}</PrimaryButton>
-                    ) : (
-                      <Skeleton
-                        count={1}
-                        height={28}
-                        width={'100%'}
-                        baseColor={EColors.primary}
-                      />
-                    )}
                   </div>
-                  </div>
+                  {!dataIsLoaded ? (
+                    <PrimaryButton fontSize={windowWidth > 500 ? 13 : 14}>
+                      {data.buttons.contact}
+                    </PrimaryButton>
+                  ) : (
+                    <Skeleton
+                      count={1}
+                      height={28}
+                      width={"100%"}
+                      baseColor={EColors.primary}
+                    />
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         {/* TABLE SPECIFICATION */}
-        <div className='mt-7 w-100'>
-                {/* <h3 className='fs-11 ' style={{fontWeight:'400'}}>Product details for <span className='fw-bold'>{finalProduct?.name}</span> </h3> */}
-                <div className='tables-wrapper w-100'>
-                  <Table finalProduct={finalProduct} sectionName={EProductSections.accessories} sectionClass='table-second'/>
-                  <Table finalProduct={finalProduct} sectionName={EProductSections.specifications} sectionClass='table-first'/>
-                </div>
-          
+        <div className="mt-7 w-100">
+          {/* <h3 className='fs-11 ' style={{fontWeight:'400'}}>Product details for <span className='fw-bold'>{finalProduct?.name}</span> </h3> */}
+          <div className="tables-wrapper w-100">
+            <Table
+              finalProduct={finalProduct}
+              sectionName={EProductSections.accessories}
+              sectionClass="table-second"
+            />
+            <Table
+              finalProduct={finalProduct}
+              sectionName={EProductSections.specifications}
+              sectionClass="table-first"
+            />
+          </div>
         </div>
-
-        {/* TABLE ACCESSORIES */}
+        <YTDetails />
       </article>
+      <div className="w-100 mt-5 bg-grey-900 p-5">
+        <div className="container-fluid-02">
+          <Swiper
+            slidesPerView={4}
+            spaceBetween={30}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[swiperNavigation, Pagination, Scrollbar, A11y]}
+            className="mySwiper"
+          >
+            {randomProductPerCategorieElements}
+          </Swiper>
+        </div>
+      </div>
     </div>
   );
 };

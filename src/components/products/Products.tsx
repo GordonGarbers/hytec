@@ -22,6 +22,7 @@ import { ProductUi } from "./ProductUl";
 import { Centerize } from "../layout/Centerize";
 import { useNavigate } from "react-router-dom";
 import { setNext } from "../../features/next/next.slice";
+import { ProductLi } from "./ProductLi";
 
 const cardVariants: Variants = {
   offscreen: {
@@ -152,8 +153,6 @@ export const Products: React.FC = () => {
 
     const sliceFilterProductArticle = filterProductArticle.slice(0, next)
 
-    console.log('FILTER PRODUCT NUM: ', filterProductArticle.length, 'SLICE: ', sliceFilterProductArticle.length, 'ALL DATA: ', data.products.length);
-
     
   const onDetailsChange = (product: IProducts) => {
     navigate(`${product.categorie}/${product.name}`, {
@@ -167,114 +166,115 @@ export const Products: React.FC = () => {
 
       return (
         //////////////////////////////////////////////////////////////////
-        <li
-        // variants={cardVariants}
-          // initial="offscreen"
-          // whileInView="onscreen"
-          // viewport={{ once: true, amount: 0.8 }}
-          // onMouseEnter ={onLiBtnClick}
-          onClick={onLiBtnClick}
-          value={idx}
-          key={product.id}
-          style={{
-            backgroundColor: "#fff",
-          }}
-          className="w-100 rounded-2 shadow-sm position-relative list overflow-hidden"
-        >
-          {/* {idx === btnClicked ? (
-            <>
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={btnClicked}
-                  initial={{ scale: 0.7, opacity: 1 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  // exit={{ scale: 2, opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                  // className="underline bg-primary rounded-2"
-                  className="underline bg-primary"
-                  layoutId="underline"
-                  // style={{ outline: `10px solid ${EColors.primary}` }}
-                />
-              </AnimatePresence>
-            </>
-          ) : null} */}
+        // <li
+        // // variants={cardVariants}
+        //   // initial="offscreen"
+        //   // whileInView="onscreen"
+        //   // viewport={{ once: true, amount: 0.8 }}
+        //   // onMouseEnter ={onLiBtnClick}
+        //   // onClick={onLiBtnClick}
+        //   value={idx}
+        //   key={product.id}
+        //   style={{
+        //     backgroundColor: "#fff",
+        //   }}
+        //   className="w-100 rounded-2 shadow-sm position-relative list overflow-hidden"
+        // >
+        //   {/* {idx === btnClicked ? (
+        //     <>
+        //       <AnimatePresence mode="wait">
+        //         <motion.div
+        //           key={btnClicked}
+        //           initial={{ scale: 0.7, opacity: 1 }}
+        //           animate={{ scale: 1, opacity: 1 }}
+        //           // exit={{ scale: 2, opacity: 1 }}
+        //           transition={{ duration: 0.3 }}
+        //           // className="underline bg-primary rounded-2"
+        //           className="underline bg-primary"
+        //           layoutId="underline"
+        //           // style={{ outline: `10px solid ${EColors.primary}` }}
+        //         />
+        //       </AnimatePresence>
+        //     </>
+        //   ) : null} */}
 
-          <div className="w-100 position-relative" style={{}}>
-            {!isImgLoaded && <Spinner size={50} width={8} />}
-            <img
-              onLoad={handleImageOnLoad}
-              src={isImgLoaded ? fullImagePath : getImageRatio(1067, 756)}
-              className={`${
-                windowWidth > 327 && windowWidth < 487 ? "p-1" : "p-3"
-              }`}
-              style={{ width: "100%" }}
-              loading="lazy"
-              alt={product.productNamePath}
-            />
-          </div>
+        //   <div className="w-100 position-relative" style={{}}>
+        //     {!isImgLoaded && <Spinner size={50} width={8} />}
+        //     <img
+        //       onLoad={handleImageOnLoad}
+        //       src={isImgLoaded ? fullImagePath : getImageRatio(1067, 756)}
+        //       className={`${
+        //         windowWidth > 327 && windowWidth < 487 ? "p-1" : "p-3"
+        //       }`}
+        //       style={{ width: "100%" }}
+        //       loading="lazy"
+        //       alt={product.productNamePath}
+        //     />
+        //   </div>
 
-          <div className="w-100 p-3 text-dark" style={{ fontWeight: 500 }}>
-            {!dataIsLoaded ? (
-              <div className="text-primary-dark fs-15">
-                {product.categorie.toUpperCase()}
-              </div>
-            ) : (
-              <Skeleton count={1} width={60} baseColor={EColors.primary} />
-            )}
-            {!dataIsLoaded ? (
-              <p
-                className="fs-11 fs-sm-9 fw-bold text-dark-light"
-                style={{ fontWeight: "400" }}
-              >
-                {product.name}
-              </p>
-            ) : (
-              <Skeleton count={1} width={40} />
-            )}
+        //   <div className="w-100 p-3 text-dark" style={{ fontWeight: 500 }}>
+        //     {!dataIsLoaded ? (
+        //       <div className="text-primary-dark fs-15">
+        //         {product.categorie.toUpperCase()}
+        //       </div>
+        //     ) : (
+        //       <Skeleton count={1} width={60} baseColor={EColors.primary} />
+        //     )}
+        //     {!dataIsLoaded ? (
+        //       <p
+        //         className="fs-11 fs-sm-9 fw-bold text-dark-light"
+        //         style={{ fontWeight: "400" }}
+        //       >
+        //         {product.name}
+        //       </p>
+        //     ) : (
+        //       <Skeleton count={1} width={40} />
+        //     )}
 
-            {!dataIsLoaded ? (
-              <p
-                style={{ fontWeight: "400", lineHeight: "1rem" }}
-                className={`fs-15 fs-sm-14 text-grey-500 ${
-                  windowWidth > 327 && windowWidth < 487 ? "mb-2" : "mb-3"
-                } mb-sm-5`}
-              >
-                {product.description.substring(
-                  0,
-                  windowWidth > 428 && windowWidth < 487 ? 65 : 130
-                ) + "..."}
-              </p>
-            ) : (
-              <Skeleton count={3} />
-            )}
+        //     {!dataIsLoaded ? (
+        //       <p
+        //         style={{ fontWeight: "400", lineHeight: "1rem" }}
+        //         className={`fs-15 fs-sm-14 text-grey-500 ${
+        //           windowWidth > 327 && windowWidth < 487 ? "mb-2" : "mb-3"
+        //         } mb-sm-5`}
+        //       >
+        //         {product.description.substring(
+        //           0,
+        //           windowWidth > 428 && windowWidth < 487 ? 65 : 130
+        //         ) + "..."}
+        //       </p>
+        //     ) : (
+        //       <Skeleton count={3} />
+        //     )}
 
-            <div className=" details-button">
-              {!dataIsLoaded ? (
-                <button
-                  style={{ fontWeight: 600 }}
-                  onClick={() => onDetailsChange(product)}
-                  className="btn btn-primary fs-13 fs-sm-12 rounded-1 d-flex gap-2 align-items-center px-2 px-sm-3 text-dark-form"
-                >
-                  Details <HiOutlineArrowNarrowRight size={20} />
-                </button>
-              ) : (
-                <Skeleton
-                  count={1}
-                  width={100}
-                  height={40}
-                  baseColor={EColors.primary}
-                />
-              )}
-              {!dataIsLoaded ? (
-                <div className="fw-bold text-dark-light fs-12">
-                  {product.price} <span className="fw-bold fs-14">&euro;</span>
-                </div>
-              ) : (
-                <Skeleton count={1} width={50} />
-              )}
-            </div>
-          </div>
-        </li>
+        //     <div className=" details-button">
+        //       {!dataIsLoaded ? (
+        //         <button
+        //           style={{ fontWeight: 600 }}
+        //           onClick={() => onDetailsChange(product)}
+        //           className="btn btn-primary fs-13 fs-sm-12 rounded-1 d-flex gap-2 align-items-center px-2 px-sm-3 text-dark-form"
+        //         >
+        //           Details <HiOutlineArrowNarrowRight size={20} />
+        //         </button>
+        //       ) : (
+        //         <Skeleton
+        //           count={1}
+        //           width={100}
+        //           height={40}
+        //           baseColor={EColors.primary}
+        //         />
+        //       )}
+        //       {!dataIsLoaded ? (
+        //         <div className="fw-bold text-dark-light fs-12">
+        //           {product.price} <span className="fw-bold fs-14">&euro;</span>
+        //         </div>
+        //       ) : (
+        //         <Skeleton count={1} width={50} />
+        //       )}
+        //     </div>
+        //   </div>
+        // </li>
+        <ProductLi product={product} data={data} idx={idx} fullImagePath={fullImagePath} dataIsLoaded={dataIsLoaded} />
       );
     }
   );
