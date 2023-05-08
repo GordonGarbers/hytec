@@ -2,7 +2,7 @@ import React from "react";
 import { useAppSelector } from "../../app/hooks";
 import { RootState } from "../../app/store";
 import { ESection } from "../../interfaces/interfaces";
-import { CarouselUniversal } from "../carouselUniversal/CarouserlUniversal";
+import { CarouselUniversal } from "./CarouserlUniversal";
 
 export const CarouselHero: React.FC = () => {
 
@@ -11,10 +11,9 @@ export const CarouselHero: React.FC = () => {
   );
 
   
-
   return (
     <>
-      <CarouselUniversal isLoaded={dataIsLoaded} data={data} error={dataError} section = {ESection.hero} btnOnOff = {true} useKey={true}>
+      <CarouselUniversal isLoaded={dataIsLoaded} data={data} error={dataError} section = {ESection.hero} useKey={true}>
       </CarouselUniversal>
     </>
   )
