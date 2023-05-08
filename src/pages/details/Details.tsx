@@ -133,8 +133,8 @@ export const Details: React.FC = () => {
 
       return (
         <SwiperSlide key={idx} className="rounded-2 shadow-sm" style={{backgroundColor:'#fff'}}>
-          {/* <img src={fullImagePath} alt="imd" className="pt-3"/> */}
           <div className="pt-3"></div>
+          {/* <img src={fullImagePath} alt="imd" className="pt-3"/> */}
 
           <ImgCache
             key={idx}
@@ -148,11 +148,27 @@ export const Details: React.FC = () => {
           />
 
           <div className="d-flex flex-column p-3">
-            <div className="text-primary-dark fs-15" style={{fontWeight:500}}>{randomProduct.categorie.toUpperCase()}</div>
-            <div className="fs-11 fw-bold">{randomProduct.name}</div>
+          {!dataIsLoaded ? (
+                <div className="text-primary-dark fs-15" style={{fontWeight:500}}>{randomProduct.categorie.toUpperCase()}</div>
+              ) : (
+                <Skeleton count={1} height={12} width={60} baseColor={EColors.primary}/>
+              )}
+          
+          {!dataIsLoaded ? (
+                <div className="fs-11 fw-bold">{randomProduct.name}</div>
+                ) : (
+                <Skeleton count={1} height={16} width={90}/>
+              )}
+            
+
           </div>
+
           <div className="w-100 px-3 pb-3">
-            <ToDetailsBtn dataIsLoaded={false} product={randomProduct} data={data} fullWidth={true} reloadPage={false}/>
+          {!dataIsLoaded ? (
+                <ToDetailsBtn dataIsLoaded={false} product={randomProduct} data={data} fullWidth={true} reloadPage={false}/>
+                ) : (
+                <Skeleton count={1} height={32} width={'100%'} baseColor={EColors.primary}/>
+              )}
           </div>
         </SwiperSlide>
       );
@@ -347,11 +363,13 @@ export const Details: React.FC = () => {
               finalProduct={finalProduct}
               sectionName={EProductSections.accessories}
               sectionClass="table-second"
+              dataIsLoaded={dataIsLoaded}
             />
             <Table
               finalProduct={finalProduct}
               sectionName={EProductSections.specifications}
               sectionClass="table-first"
+              dataIsLoaded={dataIsLoaded}
             />
           </div>
         </div>

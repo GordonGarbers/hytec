@@ -7,6 +7,7 @@ import { BsTelephoneFill } from "react-icons/bs";
 import { useAppSelector } from "../../app/hooks";
 import { RootState } from "../../app/store";
 import Skeleton from "react-loading-skeleton";
+import { EColors } from "../../constants/constants";
 
 
 const form = document.querySelector('form');
@@ -23,7 +24,11 @@ export const Form: React.FC = () => {
     >
       <div className="">
         <h1 style={{ fontWeight: "600"}} className="fs-6 pt-0 text-primary">
-            {data.sections?.contact}
+          {!dataIsLoaded ? (
+            data.sections?.contact
+            ) : (
+            <Skeleton count={1} height={32} width={'60%'} baseColor={EColors.primary}/>
+          )}
         </h1>
 
         <div className="d-flex flex-column gap-2 gap-md-3 gap-lg-4 mt-4">
@@ -49,21 +54,27 @@ export const Form: React.FC = () => {
         <div className="mb-2 mb-md-3">
           <div className="input-container">
             <FaRegUser size={16} className="icon" />
+            {!dataIsLoaded ? (
             <input
               type="text"
               name="name"
               className="form-control bg-dark-form border-0 fs-14 text-grey-700 rounded-1"
               // className="form-control bg-dark border-0 border-bottom border-grey-300 fs-13 text-grey-700 rounded-0"
               id="validationDefault01"
+              
               placeholder={data.form.name??""}
               required
             />
+            ) : (
+            <Skeleton count={1} height={38} width={'100%'} baseColor={EColors.darkLight}/>
+          )}
           </div>
         </div>
 
         <div className="mb-2 mb-md-3">
           <div className="input-container">
             <HiOutlineMail size={18} className="icon" />
+            {!dataIsLoaded ? (
             <input
               type="email"
               name="email"
@@ -72,12 +83,16 @@ export const Form: React.FC = () => {
               placeholder={data.form.email??""}
               required
             />
+            ) : (
+            <Skeleton count={1} height={38} width={'100%'} baseColor={EColors.darkLight}/>
+          )}
           </div>
         </div>
 
         <div className="mb-2 mb-md-3">
           <div className="input-container">
             <MdTitle size={16} className="icon" />
+            {!dataIsLoaded ? (
             <input
               type="text"
               name="subject"
@@ -87,25 +102,35 @@ export const Form: React.FC = () => {
               aria-describedby="inputGroupPrepend2"
               required
             />
+            ) : (
+            <Skeleton count={1} height={38} width={'100%'} baseColor={EColors.darkLight}/>
+          )}
           </div>
         </div>
 
         <div className="form-group mb-3 mb-md-3 ">
-          <textarea
-            className="form-control bg-dark-form border-0 fs-14 text-grey-700 rounded-1"
-            rows={5}
-            name="message"
-            placeholder={data.form.text??""}
-          ></textarea>
+        {!dataIsLoaded ? (
+            <textarea
+              className="form-control bg-dark-form border-0 fs-14 text-grey-700 rounded-1"
+              rows={5}
+              name="message"
+              placeholder={data.form.text??""}
+            ></textarea>
+            ) : (
+            <Skeleton count={1} height={100} width={'100%'} baseColor={EColors.darkLight}/>
+          )}
         </div>
       </div>
-
+      {!dataIsLoaded ? (
       <button
         className="btn btn-primary fs-14 fw-bold px-2 px-sm-4 py-2 d-flex align-items-center"
         type="submit"
       >
         <span>{data.buttons.send}</span>
       </button>
+            ) : (
+            <Skeleton count={1} height={32} width={150} baseColor={EColors.primary}/>
+          )}
     </form>
   );
 };

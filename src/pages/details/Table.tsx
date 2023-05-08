@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import { IProducts } from '../../interfaces/interfaces';
 import { EProductSections } from '../../constants/constants';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
+import Skeleton from 'react-loading-skeleton';
 
 interface ITableProps {
   finalProduct: IProducts;
   sectionName: EProductSections;
   sectionClass: string;
+  dataIsLoaded: boolean;
 }
 
-export const Table: React.FC<ITableProps> = ({ finalProduct, sectionName, sectionClass }) => {
+export const Table: React.FC<ITableProps> = ({ finalProduct, sectionName, sectionClass, dataIsLoaded }) => {
   const [showMore, setShowMore] = useState<boolean>(false);
 
   const rows =
@@ -24,17 +26,47 @@ export const Table: React.FC<ITableProps> = ({ finalProduct, sectionName, sectio
         <tr key={idx} className="">
           {sectionName === EProductSections.accessories ? (
             <>
-              <td>{section}</td>
+
+              <td>
+              {!dataIsLoaded ? (
+                section
+              ) : (
+                <Skeleton count={1} height={16} width={80} />
+              )}
+                </td>
               <td className="" style={{textAlign:'right'}}>
-                {spec} <span className="fs-15">{value}</span>
+              {!dataIsLoaded ? (
+                <div>{spec} <span className="fs-15">{value}</span></div>
+              ) : (
+                <Skeleton count={1} height={16} width={60} />
+              )}
+                
               </td>
               <td style={{ width: '0px' }}></td>
             </>
           ) : (
             <>
-              <td>{section}</td>
-              <td>{spec}</td>
-              <td>{value}</td>
+              <td>
+              {!dataIsLoaded ? (
+                section
+              ) : (
+                <Skeleton count={1} height={16} width={80} />
+              )}
+                </td>
+              <td>
+              {!dataIsLoaded ? (
+                spec
+              ) : (
+                <Skeleton count={1} height={16} width={80} />
+              )}
+                </td>
+              <td>
+              {!dataIsLoaded ? (
+                value
+              ) : (
+                <Skeleton count={1} height={16} width={60} />
+              )}
+                </td>
             </>
           )}
         </tr>
