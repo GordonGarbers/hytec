@@ -14,6 +14,7 @@ import { ArrowButtons } from './ArrowButtons';
 import { ChevronLeft, ChevronRight } from 'react-bootstrap-icons';
 import { useAppSelector } from '../../app/hooks';
 import { RootState } from '../../app/store';
+import { Centerize } from '../layout/Centerize';
 
 
 interface ICarouselUniversalInnerProps {
@@ -40,108 +41,95 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
   };
 
   return (
-    <article className="w-100">
-      <div className="container-fluid-02 hero-text-image-wrapper position-relative">
-        <div className="hero-text-wrapper">
-          <div className="hero-text">
-            <p className="text-uppercase text-primary hero-text-p">
-              {!isDataLoaded ? (
-                page?.smallTitle
-              ) : (
-                <Skeleton width={40} baseColor={EColors.primary} />
-              )}
-            </p>
 
-            <h1 className={`hero-text-h1`} style={{ fontWeight: 900 }}>
-              {!isDataLoaded ? (
-                <>
-                  {page?.titleNormalBefore}{' '}
-                  <span className="text-primary">{page?.titleAccent}</span>{' '}
-                  {page?.titleNormalAfter}{' '}
-                </>
-              ) : (
-                <Skeleton count={2} />
-              )}
-            </h1>
+      <article className="w-100">
+        <div className="container-fluid-02 hero-text-image-wrapper position-relative">
+          <div className="hero-text-wrapper">
+            <div className="hero-text">
+              <p className="text-uppercase text-primary hero-text-p">
+                {!isDataLoaded ? (
+                  page?.smallTitle
+                ) : (
+                  <Skeleton width={40} baseColor={EColors.primary} />
+                )}
+              </p>
 
-            <div>
-              {!isDataLoaded ? (
-                <ProcessText
-                  isLoaded={isDataLoaded}
-                  text={page?.text ?? ''}
-                  color={EColors.skeletonBaseColorDefault}
-                  size={windowWidth < 1350 ? 14 : 13}
-                  textColor="text-dark-light"
-                />
-              ) : (
-                <Skeleton height={16} count={5} />
-              )}
-            </div>
+              <h1 className={`hero-text-h1`} style={{ fontWeight: 900 }}>
+                {!isDataLoaded ? (
+                  <>
+                    {page?.titleNormalBefore}{' '}
+                    <span className="text-primary">{page?.titleAccent}</span>{' '}
+                    {page?.titleNormalAfter}{' '}
+                  </>
+                ) : (
+                  <Skeleton count={2} />
+                )}
+              </h1>
 
-            <div>
-              {!isDataLoaded ? (
-                <PrimaryButton fontSize={13}>{data.buttons.contact}</PrimaryButton>
-              ) : (
-                <Skeleton width={100} height={40} baseColor={EColors.primary} />
-              )}
+              <div>
+                {!isDataLoaded ? (
+                  <ProcessText
+                    isLoaded={isDataLoaded}
+                    text={page?.text ?? ''}
+                    color={EColors.skeletonBaseColorDefault}
+                    size={windowWidth < 1350 ? 14 : 13}
+                    textColor="text-dark-light"
+                  />
+                ) : (
+                  <Skeleton height={16} count={5} />
+                )}
+              </div>
+
+              <div>
+                {!isDataLoaded ? (
+                  <PrimaryButton fontSize={13}>{data.buttons.contact}</PrimaryButton>
+                ) : (
+                  <Skeleton width={100} height={40} baseColor={EColors.primary} />
+                )}
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="hero-image-wrapper">
-          <div
-            className="hero-image position-relative"
-            style={{ 
-              backgroundImage: `url(${imageUrl})`,
-            }}
-          >
-            {/* <div
-              className="position-absolute"
-              style={{
-                backgroundColor: 'rgba(2550,255,255, 0.2)',
-                width: '100%',
-                height: '100%',
-                clipPath: 'polygon(0% 80%, 20% 100%, 0% 100%)'
-
+          <div className="hero-image-wrapper">
+            <div
+              className="hero-image position-relative"
+              style={{ 
+                // backgroundImage: `url(${imageUrl})`,
+                backgroundImage: `url(${process.env.PUBLIC_URL}/${page?.image})`,
               }}
-            ></div> */}
+            >
+              {/* <div
+                className="position-absolute"
+                style={{
+                  backgroundColor: 'rgba(2550,255,255, 0.2)',
+                  width: '100%',
+                  height: '100%',
+                  clipPath: 'polygon(0% 80%, 20% 100%, 0% 100%)'
+
+                }}
+              ></div> */}
+            </div>
           </div>
+
+          {/* <div>
+
+                <img
+                  onLoad={handleImageOnLoad}
+                  src={isImgLoaded ? imageUrl : getImageRatio(1920, 1080)}
+                  alt="img"
+                  draggable="false"
+                  className="hero-image"
+                  width="1920"
+                  height="1080"
+                  // style={{width:'100vw', height:'100vh'}}
+                /> 
+            </div> */}
+          {/* {imageUrl && (
+
+          )}
+          {!isImgLoaded && <Spinner size={50} width={8} />} */}
         </div>
+      </article>
 
-        {/* <div>
-
-              <img
-                onLoad={handleImageOnLoad}
-                src={isImgLoaded ? imageUrl : getImageRatio(1920, 1080)}
-                alt="img"
-                draggable="false"
-                className="hero-image"
-                width="1920"
-                height="1080"
-                // style={{width:'100vw', height:'100vh'}}
-              /> 
-          </div> */}
-        {/* {imageUrl && (
-
-        )}
-        {!isImgLoaded && <Spinner size={50} width={8} />} */}
-      </div>
-    </article>
-    // <article className="container-fluid-02  d-flex flex-column-reverse flex-lg-row w-100 position-relative">
-
-    //   <div className="w-100 overflow-hidden article-right position-relative">
-    //     {imageUrl && (
-    //       <img
-    //         onLoad={handleImageOnLoad}
-    //         src={isImgLoaded ? imageUrl : getImageRatio(1920, 1080)}
-    //         alt="img"
-    //         draggable="false"
-    //         className="w-100"
-    //       />
-    //     )}
-    //     {!isImgLoaded && <Spinner size={50} width={8} />}
-    //   </div>
-
-    // </article>
   );
 };
