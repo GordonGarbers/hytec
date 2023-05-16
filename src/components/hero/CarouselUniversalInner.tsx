@@ -9,9 +9,12 @@ import { useImagePlaceholder } from '../hooks/useImagePlaceholder';
 import { ProcessText } from '../layout/ProcessText';
 import { PrimaryButton } from '../primaryButton/PrimaryButton';
 import { motion } from 'framer-motion';
-import { EColors } from '../../constants/constants';
+import { EColors, ESizes } from '../../constants/constants';
 import { ArrowButtons } from './ArrowButtons';
 import { ChevronLeft, ChevronRight } from 'react-bootstrap-icons';
+import { useAppSelector } from '../../app/hooks';
+import { RootState } from '../../app/store';
+
 
 interface ICarouselUniversalInnerProps {
   data: IDataDetails;
@@ -24,6 +27,7 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
   page,
   isDataLoaded,
 }) => {
+  const { windowWidth } = useAppSelector((state: RootState) => state.width);
   const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
 
   const imageUrl = useImageCache(
@@ -37,20 +41,10 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
 
   return (
     <article className="w-100">
-      <div className="hero-image-wrapper w-100 d-flex position-relative">
-
-          <div
-            className="hero-image "
-            style={{
-              clipPath: 'polygon(0% 0%, 100% 0%, 90% 100%, 0% 100%)',
-              backgroundImage: `url(${imageUrl})`,
-            }}
-          ></div>
-
-
-        <div className="container-fluid-02 d-flex align-items-center px-5 ">
-          <div className="w-50">
-            <p className="text-uppercase text-primary">
+      <div className="container-fluid-02 hero-text-image-wrapper position-relative">
+        <div className="hero-text-wrapper">
+          <div className="hero-text">
+            <p className="text-uppercase text-primary hero-text-p">
               {!isDataLoaded ? (
                 page?.smallTitle
               ) : (
@@ -58,7 +52,7 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
               )}
             </p>
 
-            <h1 className="fs-5" style={{ fontWeight: 900 }}>
+            <h1 className={`hero-text-h1`} style={{ fontWeight: 900 }}>
               {!isDataLoaded ? (
                 <>
                   {page?.titleNormalBefore}{' '}
@@ -66,24 +60,51 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
                   {page?.titleNormalAfter}{' '}
                 </>
               ) : (
-                <Skeleton count={1} />
+                <Skeleton count={2} />
               )}
             </h1>
 
-            <ProcessText
-              isLoaded={isDataLoaded}
-              text={page?.text ?? ''}
-              color={EColors.skeletonBaseColorDefault}
-              size={13}
-              textColor="text-dark-light"
-            />
             <div>
               {!isDataLoaded ? (
-                <PrimaryButton>{data.buttons.contact}</PrimaryButton>
+                <ProcessText
+                  isLoaded={isDataLoaded}
+                  text={page?.text ?? ''}
+                  color={EColors.skeletonBaseColorDefault}
+                  size={windowWidth < 1350 ? 14 : 13}
+                  textColor="text-dark-light"
+                />
+              ) : (
+                <Skeleton height={16} count={5} />
+              )}
+            </div>
+
+            <div>
+              {!isDataLoaded ? (
+                <PrimaryButton fontSize={13}>{data.buttons.contact}</PrimaryButton>
               ) : (
                 <Skeleton width={100} height={40} baseColor={EColors.primary} />
               )}
             </div>
+          </div>
+        </div>
+
+        <div className="hero-image-wrapper">
+          <div
+            className="hero-image position-relative"
+            style={{ 
+              backgroundImage: `url(${imageUrl})`,
+            }}
+          >
+            {/* <div
+              className="position-absolute"
+              style={{
+                backgroundColor: 'rgba(2550,255,255, 0.2)',
+                width: '100%',
+                height: '100%',
+                clipPath: 'polygon(0% 80%, 20% 100%, 0% 100%)'
+
+              }}
+            ></div> */}
           </div>
         </div>
 

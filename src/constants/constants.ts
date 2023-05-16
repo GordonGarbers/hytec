@@ -1,7 +1,7 @@
 export const MAXIMUM_CONTAINER_WIDTH = 1400;
-export const navButtons = ["Home", "Machinery", "About us", "Contact"];
+export const navButtons = ['Home', 'Machinery', 'About us', 'Contact'];
 export enum ELinks {
-  heroLink = "json/hero.json",
+  heroLink = 'json/hero.json',
 }
 export const MAP_CENTER_LOC = {
   lat: 53.33207271382929,
@@ -21,29 +21,36 @@ export const logoPos: logoPosType[] = [
   { x: 88, y: 47 },
 ];
 
-export const languageButtons = ["en", "de"];
+export const languageButtons = ['en', 'de'];
 
 export const TIME = 8000;
 
-export enum EColors{
-  primary = "#f7d100",
-  primaryMono = "#FFDE2B",
-  dark = "#26272e",
-  darkForm = "#2d2e36",
-  darkLight = "#373943",
-  skeletonBaseColorDefault = "#ebebeb"
+export enum EColors {
+  primary = '#f7d100',
+  primaryMono = '#FFDE2B',
+  dark = '#26272e',
+  darkForm = '#2d2e36',
+  darkLight = '#373943',
+  skeletonBaseColorDefault = '#ebebeb',
 }
 
-
-export enum ECategories{
-  price = "price",
-  displacement = "displacement",
-  weight = "weight",
-  fuelTank = "fuel tank"
+export enum ECategories {
+  price = 'price',
+  displacement = 'displacement',
+  weight = 'weight',
+  fuelTank = 'fuel tank',
 }
 
 export const enum EProductSections {
   specifications = 'specifications',
-  accessories = 'accessories'
+  accessories = 'accessories',
 }
 
+export enum ESizes {
+  xs = 479,
+  sm = 620,
+  md = 789,
+  lg = 960,
+  xl = 1149,
+  xxl = 1400,
+}

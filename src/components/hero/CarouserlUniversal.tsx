@@ -48,7 +48,7 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
 }) => {
   const getHeroPages = data.hero.map((heroPage: IHero, idx: number) => {
     return (
-      <SwiperSlide>
+      <SwiperSlide key={idx}>
 
         <CarouselUniversalInner
           data={data}
