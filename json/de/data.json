@@ -891,7 +891,27 @@
     "titleNormalAfter": "Händler",
     "text": "Sind Sie daran interessiert, ein Händler für unsere Schwermaschinenprodukte zu werden? Wir suchen engagierte Einzelpersonen oder Unternehmen, die sich für den Bau und schwere Ausrüstungen begeistern. \nAls Händler haben Sie Zugang zu unserem gesamten Sortiment an hochwertigen Produkten, wettbewerbsfähigen Preisen und umfassender Unterstützung. Schließen Sie sich uns an und helfen Sie uns, das Beste in der Schwermaschinenindustrie weltweit anzubieten. Kontaktieren Sie uns noch heute, um mehr über diese aufregende Möglichkeit zu erfahren."
   },
-  "nav": ["Start", "Maschinen", "Über Uns", "Kontakt"],
+  "nav":[
+    {
+      "id":1,
+      "displayName":"Start",
+      "idName":"home"
+    },
+    {
+      "id":1,
+      "displayName":"Maschinen",
+      "idName":"machinery"
+    },
+    {
+      "id":1,
+      "displayName":"Über Uns",
+      "idName":"aboutus"
+    },    {
+      "id":1,
+      "displayName":"Kontakt",
+      "idName":"contact"
+    }
+  ],
   "sections": {
     "contact": "KONTAKTIEREN SIE UNS"
   },
