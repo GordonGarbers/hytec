@@ -8,74 +8,34 @@ import { YellowDetails } from "../components/yellowDetails/YellowDetails";
 import { onMinMaxSave } from "../components/products/features/minMaxValues.slice";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { RootState } from "../app/store";
+import {motion} from 'framer-motion';
+import { exit } from "process";
+import { transitionSpeed } from "../constants/constants";
+import { scrollToSection } from "../utils/getActiveElementScrollPos";
+import { setNavButton } from "../features/navButton/navButtons.slice";
+import './home.scss';
 
 export const Home: React.FC = () => {
 
+
   const dispatch = useAppDispatch()
 
+  
 
-
-  useEffect(() => {
-    document.addEventListener("DOMContentLoaded", function(event) { 
-      const scrollpos = localStorage.getItem('scrollpos');
-      if (scrollpos) window.scrollTo(0, parseInt(scrollpos));
-  });
-
-  window.onbeforeunload = function(e) {
-      localStorage.setItem('scrollpos', window.scrollY.toString());
-  };
-  }, []);
-
-
-
-  // const scrollDown = () => {
-  //   window.scrollTo({
-  //     top:0,
-  //     behavior: "smooth"
-  //   });
-  // };
-
-  // useEffect(()=>{
-    //   scrollDown()
-    // },[])
-    
-    const heroRef = useRef<HTMLDivElement>(null);
-    const yellowDetailsRef = useRef<HTMLDivElement>(null);
-
-  // const productsRef = useRef<HTMLDivElement>(null);
-
-  const scrollToRef = () => {
-    if (yellowDetailsRef.current) {
-      window.scrollTo({
-        top: yellowDetailsRef.current.offsetTop,
-        behavior: "smooth"
-      });
-    }
-  };
-
-
-
-  // useEffect(()=>{
-  //   if(yellowDetailsRef.current){
-
-  //     console.log(yellowDetailsRef.current.offsetTop);
-  //     scrollToRef();
-  //   }
-  // },[])
 
   return (
-    <>
-      {/* <div ref={heroRef} className="bg-primary">Jox</div> */}
-      <Hero forwardedRef={heroRef}/>
+    <motion.div
+      animate={{opacity:1}}
+      initial={{opacity:0}}
+      exit = {{opacity:0}}
+      transition={{ duration:`${transitionSpeed}`}}
+      >
+      <Hero/>
       <Products/>
-      <YellowDetails forwardedRef={yellowDetailsRef}/>
+      <YellowDetails/>
       <Land />
       <Numbers />
       <ContactUs />
-    </>
+    </motion.div>
   );
 };
-function dispatch(arg0: any) {
-  throw new Error("Function not implemented.");
-}
-

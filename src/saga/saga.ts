@@ -8,9 +8,10 @@ import {IResponseGenerator } from "../interfaces/interfaces";
 import axios, { AxiosError } from "axios";
 
 const fetchHeroDetails = async (url: string) => {
-  // return await axios.get(url);
+  return await axios.get(url);
   //using WEB SERVER FOR CHROME
-  return await axios.get('http://127.0.0.1:8887/en/data.json');
+  // CHECK THIS TUT: https://www.youtube.com/watch?v=xc4uOzlndAk
+  // return await axios.get('http://127.0.0.1:8887/en/data.json');
 
   // return await axios({
   //   method: 'get',

@@ -889,7 +889,27 @@
     "titleNormalAfter": "dealer",
     "text": "Are you interested in becoming a dealer for our heavy machinery products? We're looking for dedicated individuals or companies who are passionate about construction and heavy equipment. \nAs a dealer, you'll have access to our full range of high-quality products, competitive pricing, and comprehensive support. Join us and help us bring the best in heavy machinery to customers worldwide. Contact us today to learn more about this exciting opportunity."
   },
-  "nav": ["Home", "Machinery", "About Us", "Contact"],
+  "nav":[
+    {
+      "id":1,
+      "displayName":"Home",
+      "idName":"home"
+    },
+    {
+      "id":1,
+      "displayName":"Machinery",
+      "idName":"machinery"
+    },
+    {
+      "id":1,
+      "displayName":"About Us",
+      "idName":"aboutus"
+    },    {
+      "id":1,
+      "displayName":"Contact",
+      "idName":"contact"
+    }
+  ],
   
   "sections": {
     "contact": "CONTACT US"

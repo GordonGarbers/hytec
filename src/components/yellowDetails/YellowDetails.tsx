@@ -5,12 +5,10 @@ interface IYellowDetailsProps {
   forwardedRef: RefObject<HTMLDivElement>;
 }
 
-export const YellowDetails: React.FC<IYellowDetailsProps> = ({
-  forwardedRef,
-}) => {
+export const YellowDetails: React.FC= () => {
   return (
     <div
-      ref={forwardedRef}
+
       style={{ maxWidth: "1400px", zIndex: "0" }}
       className="container-fluid bg-primary my-6 py-6 rounded-1 position-relative overflow-hidden"
     >

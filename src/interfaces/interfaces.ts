@@ -138,10 +138,16 @@ export interface IProducts {
   video: string;
 }
 
+export interface INav {
+  id: number;
+  displayName: string;
+  idName: string;
+}
+
 export interface IDataDetails {
   hero: IHero[];
   products: IProducts[];
-  nav: string[];
+  nav: INav[];
   sections: Partial<ISection>;
   dealer: Partial<IDealer>;
   buttons: Partial<IButtons>;

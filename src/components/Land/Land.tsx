@@ -83,8 +83,9 @@ export const Land: React.FC = () => {
 
   return (
     <div
+      id="aboutus" 
       style={{ backgroundColor: '#fff', zIndex:'0'}}
-      className="w-100 h-100 position-relative"
+      className="w-100 h-100 position-relative nav-sections"
     >
       {/* <div style={{clipPath: 'polygon(0% 30%, 100% 10%, 100% 0%, 0% 0%)', zIndex:'-1'}}className="w-100 h-100 bg-grey-900 position-absolute"/> */}
       {/* <div className="parent position-absolute w-100">

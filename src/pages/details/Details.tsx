@@ -17,7 +17,7 @@ import { ContactUs } from "../../components/contactus/ContactUs";
 import { IoIosArrowUp } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 import Skeleton from "react-loading-skeleton";
-import { EColors, EProductSections } from "../../constants/constants";
+import { EColors, EProductSections, transitionSpeed } from "../../constants/constants";
 import { NavDetails } from "./NavDetails";
 
 import "./details.scss";
@@ -36,6 +36,7 @@ import "swiper/scss/navigation";
 import "swiper/scss/pagination";
 import "swiper/scss/scrollbar";
 import { ToDetailsBtn } from "../../components/ToDetailsBtn/ToDetailsBtn";
+import { motion } from "framer-motion";
 
 interface INavigateType {
   product: IProducts;
@@ -178,7 +179,12 @@ export const Details: React.FC = () => {
   // const fullImagePath = `${process.env.PUBLIC_URL}/${product.basePath}${product.productNamePath}${product.heroImage}`;
 
   return (
-    <div className="details-article-wrapper">
+    <motion.div
+      animate={{opacity:1}}
+      initial={{opacity:0}}
+      exit = {{opacity:0}}
+      transition={{duration:`${transitionSpeed}`}}
+      className="details-article-wrapper">
       <article className="container-fluid-02 p-3">
         <NavDetails finalProduct={finalProduct} dataIsLoaded={dataIsLoaded} />
 
@@ -403,7 +409,7 @@ export const Details: React.FC = () => {
         </div>
       </div>
       
-    </div>
+    </motion.div>
 
   );
 };

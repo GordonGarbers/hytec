@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
-import { useAppSelector } from "../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { RootState } from "../../app/store";
 import { EColors } from "../../constants/constants";
+import { setNavButton } from "../../features/navButton/navButtons.slice";
 
 interface IMoverProps {
   show?: number;
@@ -17,6 +18,7 @@ interface IMoverProps {
 
 export const Mover: React.FC<IMoverProps> = ({ show, ulRef, btnToMove, offest, bgColor, zIndex, expand, rounded, speed}) => {
 
+  const dispatch = useAppDispatch();
 
   const [i, setI] = useState<number>(0);
 
@@ -29,19 +31,19 @@ export const Mover: React.FC<IMoverProps> = ({ show, ulRef, btnToMove, offest, b
 
     const width =
       ulRef.current &&
-      ulRef.current.children[btnToMove].getBoundingClientRect().width + expand;
+      ulRef.current.children[btnToMove]?.getBoundingClientRect().width + expand;
 
     const height =
       ulRef.current &&
-      ulRef.current.children[btnToMove].getBoundingClientRect().height + expand;
+      ulRef.current.children[btnToMove]?.getBoundingClientRect().height + expand;
 
     const x =
       ulRef.current &&
-      ulRef.current.children[btnToMove].getBoundingClientRect().x - expand/2;
+      ulRef.current.children[btnToMove]?.getBoundingClientRect().x - expand/2;
 
     const y =
       ulRef.current &&
-      ulRef.current.children[btnToMove].getBoundingClientRect().y+offest-expand/2;
+      ulRef.current.children[btnToMove]?.getBoundingClientRect().y+offest-expand/2;
 
   
 

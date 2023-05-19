@@ -6,23 +6,12 @@ interface HeroProps {
   forwardedRef: RefObject<HTMLDivElement>;
 }
 
-// export const Hero: React.FC = React.forwardRef<HTMLDivElement, HeroProps>((props, ref)) => {
- 
-//   return (
-//     <>
-//       <section className="section position-relative w-100" ref={ref}>
-//         <CarouselHero/>
-//       </section>
-//     </>
-//   );
-// };
-
-export const Hero: React.FC<HeroProps> = ({forwardedRef}) => {
+export const Hero: React.FC = () => {
 
 
   return (
     
-      <div className="section position-relative w-100" ref={forwardedRef}>
+      <div id="home" className="section position-relative w-100 nav-sections">
         <CarouselHero/>
       </div>
   

@@ -54,3 +54,5 @@ export enum ESizes {
   xl = 1149,
   xxl = 1400,
 }
+
+export const transitionSpeed = .5;

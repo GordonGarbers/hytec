@@ -6,18 +6,22 @@ import { Header } from '../header/Header'
 import { Main } from '../main/Main'
 import { MainNavigation } from '../mainNavigation/MainNavigation'
 import { FlexMainWrapper } from './FlexMainWrapper'
-import { Outlet, NavLink } from 'react-router-dom'
+import { Outlet, NavLink, useLocation } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
 
 export const MainLayout = () => {
-    return <div className='main-layout'>
-          <Background />
-          <Header />
-          <MainNavigation />
-          <FlexMainWrapper>
-            <Main>
-                <Outlet/>
-            </Main>
-          <Footer />
-          </FlexMainWrapper>
-    </div>
+    return(
+      
+      <div className='main-layout'>
+              <Background />
+              <Header />
+              <MainNavigation />
+              <FlexMainWrapper>
+                <Main>
+                  <Outlet/>
+                </Main>
+              <Footer />
+              </FlexMainWrapper>
+        </div>
+    )
 } 

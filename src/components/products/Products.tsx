@@ -158,8 +158,9 @@ export const Products: React.FC = () => {
 
   return (
     <div
+      id="machinery"
       style={{ zIndex: "1" }}
-      className="bg-grey-900 overflow-hidden position-relative"
+      className="bg-grey-900 overflow-hidden position-relative nav-sections"
     >
       
       <div

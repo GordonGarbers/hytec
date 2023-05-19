@@ -9,7 +9,7 @@ import { Container } from "../layout/Container";
 
 export const ContactUs: React.FC = () => {
   return (
-    <div style={{}} className="text-grey-800 bg-dark position-relative">
+    <div id="contact" style={{}} className="text-grey-800 bg-dark position-relative nav-sections">
             {/* <div
         style={{
           top: "0px",
