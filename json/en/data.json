@@ -24,7 +24,7 @@
         "Concrete mixing bucket:2.950:€",
         "Sweeper:2.950:€",
         "Wooden grippe:1.100:€",
-        "Earth auger::2.100:€",
+        "Earth auger:2.100:€",
         "Snow blade:1.900:€",
         "Bale grab:950:€"
       ],
@@ -111,7 +111,7 @@
         "Concrete mixing bucket:2.950:€",
         "Sweeper:2.950:€",
         "Wooden grippe:1.100:€",
-        "Earth auger::2.100:€",
+        "Earth auger:2.100:€",
         "Snow blade:1.900:€",
         "Bale grab:950:€"
       ],
@@ -175,8 +175,8 @@
     {
       "id": 3,
       "categorie": "compact loader",
-      "name": "FM35 Roll bar",
-      "price": "18.000",
+      "name": "FM35 Roll bar 02",
+      "price": "38.000",
       "extras": [
         "Quick change system",
         "Bucket",
@@ -195,7 +195,7 @@
         "Concrete mixing bucket:2.950:€",
         "Sweeper:2.950:€",
         "Wooden grippe:1.100:€",
-        "Earth auger::2.100:€",
+        "Earth auger:2.100:€",
         "Snow blade:1.900:€",
         "Bale grab:950:€"
       ],
@@ -241,7 +241,7 @@
         "totalWidth":1180,
         "totalHeight":2499,
         "wheelbase":1540,
-        "price":18000
+        "price":38000
       },
       "basePath": "assets/machinery/",
       "productNamePath": "F35-roll-bar/",
@@ -255,7 +255,7 @@
         "06.webp",
         "07.webp"
       ],
-      "video":"https://www.youtube.com/watch?v=CJW59TkI1ic"
+      "video":"https://www.youtube.com/watch?v=hLwli41C08k"
     },
     {
       "id": 4,
@@ -280,7 +280,7 @@
         "Concrete mixing bucket:2.950:€",
         "Sweeper:2.950:€",
         "Wooden grippe:1.100:€",
-        "Earth auger::2.100:€",
+        "Earth auger:2.100:€",
         "Snow blade:1.900:€",
         "Bale grab:950:€"
       ],
@@ -365,7 +365,7 @@
         "Concrete mixing bucket:2.950:€",
         "Sweeper:2.950:€",
         "Wooden grippe:1.100:€",
-        "Earth auger::2.100:€",
+        "Earth auger:2.100:€",
         "Snow blade:1.900:€",
         "Bale grab:950:€"
       ],
@@ -450,7 +450,7 @@
         "Concrete mixing bucket:2.950:€",
         "Sweeper:2.950:€",
         "Wooden grippe:1.100:€",
-        "Earth auger::2.100:€",
+        "Earth auger:2.100:€",
         "Snow blade:1.900:€",
         "Bale grab:950:€"
       ],
@@ -535,7 +535,7 @@
         "Concrete mixing bucket:2.950:€",
         "Sweeper:2.950:€",
         "Wooden grippe:1.100:€",
-        "Earth auger::2.100:€",
+        "Earth auger:2.100:€",
         "Snow blade:1.900:€",
         "Bale grab:950:€"
       ],
@@ -620,7 +620,7 @@
         "Concrete mixing bucket:2.950:€",
         "Sweeper:2.950:€",
         "Wooden grippe:1.100:€",
-        "Earth auger::2.100:€",
+        "Earth auger:2.100:€",
         "Snow blade:1.900:€",
         "Bale grab:950:€"
       ],
@@ -705,7 +705,7 @@
         "Concrete mixing bucket:2.950:€",
         "Sweeper:2.950:€",
         "Wooden grippe:1.100:€",
-        "Earth auger::2.100:€",
+        "Earth auger:2.100:€",
         "Snow blade:1.900:€",
         "Bale grab:950:€"
       ],
@@ -790,7 +790,7 @@
         "Concrete mixing bucket:2.950:€",
         "Sweeper:2.950:€",
         "Wooden grippe:1.100:€",
-        "Earth auger::2.100:€",
+        "Earth auger:2.100:€",
         "Snow blade:1.900:€",
         "Bale grab:950:€"
       ],
@@ -861,7 +861,7 @@
       "titleAccent": "HYTEC",
       "titleNormalAfter": "heavy machinery",
       "text": "HYTEC is your reliable partner for purchasing quality heavy machinery. With years of experience, we offer the best products from leading manufacturers. \nOur team of experts can help you find the machine that meets your needs, whether it's new or used. Contact us today to discover why we are leaders in heavy machinery sales.",
-      "image": "assets/carusel/baumachine_02.jpg"
+      "image": "assets/carusel/baumachine_02.webp"
     },
     {
       "id": 2,
@@ -870,7 +870,7 @@
       "titleAccent": "Heavy Machinery",
       "titleNormalAfter": "Solutions",
       "text": "Hytec is a leading provider of top-quality heavy machinery solutions. Our selection of tractors, excavators, and other equipment meets the needs of any industry. \nWe partner with leading manufacturers to offer advanced and reliable machinery, and our team provides customized solutions to fit your needs and budget. Trust Hytec as your partner for all your heavy machinery needs. Contact us today to learn more.",
-      "image": "assets/carusel/baumachine_01.jpg"
+      "image": "assets/carusel/baumachine_01.webp"
     },
     {
       "id": 3,
@@ -879,7 +879,7 @@
       "titleAccent": "10.000",
       "titleNormalAfter": "Satisfied Customers and Counting",
       "text": "HYTEC provides high-quality heavy machinery solutions to meet industry-specific needs. With 10,000+ satisfied customers, our experts offer custom solutions within budget while partnering with leading manufacturers for advanced and dependable machinery. Count on us for your heavy machinery needs. Contact us today to learn more.",
-      "image": "assets/carusel/baumachine_03.jpg"
+      "image": "assets/carusel/baumachine_03.webp"
     }
   ],
   "dealer": {
