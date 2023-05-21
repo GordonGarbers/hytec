@@ -8,36 +8,44 @@ import { scrollToSection } from "../../utils/getActiveElementScrollPos";
 interface INavDetailsProps {
   finalProduct: IProducts;
   dataIsLoaded: boolean;
+  relatedProducts: JSX.Element[]
 }
 
 export const NavDetails: React.FC<INavDetailsProps> = ({
   finalProduct,
   dataIsLoaded,
+  relatedProducts
 }) => {
   const navigate = useNavigate();
 
   const onBreadClick = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    section: string
+    e:React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    url:string,
+    section: JSX.Element[]
   ) => {
-    e.preventDefault();
-    navigate("/", { state: section });
+    e.preventDefault()
+    navigate(url, { state: {section} });
   };
+
 
   return (
     <nav className="fs-14 d-flex align-items-center gap-1 mb-3">
       {/* <NavLink to={process.env.PUBLIC_URL} className="text-grey-400"> */}
       <button
-        onClick={(e) => onBreadClick(e, "home")}
-        className="nav-bread-btn btn btn-primary p-1 rounded-1 fw-bold px-2"
+        // onClick={() => onBreadClick("/", "home")}
+        className="nav-bread-btn btn btn-primary p-1 rounded-1 px-1 fs-14"
       >
         Home
       </button>
-      <IoIosArrowForward className="text-primary" />
+
+      <IoIosArrowForward className="text-dark" />
+
       {/* <NavLink to={process.env.PUBLIC_URL} className="text-grey-400"> */}
+
       <button
-        onClick={(e) => onBreadClick(e, "machinery")}
-        className="nav-bread-btn btn btn-primary p-1 rounded-1 fw-bold px-2"
+        onClick={(e) => onBreadClick(e, `/${finalProduct.categorie}`, relatedProducts)}
+        // to={`/${finalProduct.categorie}`}
+        className="nav-bread-btn btn btn-primary p-1 rounded-1 px-1 fs-14"
       >
         {!dataIsLoaded ? (
           finalProduct?.categorie ? (
@@ -49,7 +57,9 @@ export const NavDetails: React.FC<INavDetailsProps> = ({
           <Skeleton count={1} width={60} />
         )}
       </button>
-      <IoIosArrowForward className="text-primary" />
+
+      <IoIosArrowForward className="text-dark" />
+
       <div className="text-grey-400">
         {!dataIsLoaded ? (
           finalProduct?.name ? (

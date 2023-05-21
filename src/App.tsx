@@ -9,6 +9,7 @@ import { Details } from './pages/details/Details';
 import {createBrowserRouter, createRoutesFromElements, BrowserRouter as Router, Route, Link, NavLink, RouterProvider, useLocation, Routes, BrowserRouter} from 'react-router-dom'
 import { MainLayout } from './components/layout/MainLayout';
 import { setNext } from './features/next/next.slice';
+import { CategoryProducts } from './pages/CategoryProducts';
 
 
 const router = createBrowserRouter(
@@ -16,6 +17,8 @@ const router = createBrowserRouter(
       <Route path="/" element={<MainLayout/>}>
         <Route index element={<Home/>}/>
         <Route path=':type/:id' element={<Details/>}/>
+        <Route path=':type' element={<CategoryProducts/>}/>
+
       </Route>  ),
   {basename:process.env.PUBLIC_URL},
 )

@@ -37,6 +37,7 @@ import "swiper/scss/pagination";
 import "swiper/scss/scrollbar";
 import { ToDetailsBtn } from "../../components/ToDetailsBtn/ToDetailsBtn";
 import { motion } from "framer-motion";
+import { RelatedProducts } from "./RelatedProducts";
 
 interface INavigateType {
   product: IProducts;
@@ -179,6 +180,7 @@ export const Details: React.FC = () => {
 
   // const fullImagePath = `${process.env.PUBLIC_URL}/${product.basePath}${product.productNamePath}${product.heroImage}`;
 
+
   return (
     <motion.div
       animate={{opacity:1}}
@@ -187,7 +189,7 @@ export const Details: React.FC = () => {
       transition={{duration:`${transitionSpeed}`}}
       className="details-article-wrapper">
       <article className="container-fluid-02 p-3">
-        <NavDetails finalProduct={finalProduct} dataIsLoaded={dataIsLoaded} />
+        <NavDetails finalProduct={finalProduct} dataIsLoaded={dataIsLoaded} relatedProducts={randomProductPerCategorieElements}/>
 
         <div className={`w-100 rounded-3`}>
           {/*  */}
@@ -396,17 +398,7 @@ export const Details: React.FC = () => {
           Related Products
         </h1>
         
-          <Swiper
-            slidesPerView={windowWidth > 1080 ? 4 : windowWidth > 780 ? 3 : windowWidth < 370 ? 1 : 2}
-            spaceBetween={30}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[swiperNavigation, Pagination, Scrollbar, A11y]}
-            className="mySwiper"
-          >
-            {randomProductPerCategorieElements}
-          </Swiper>
+            <RelatedProducts relatedProducts={randomProductPerCategorieElements}/>
         </div>
       </div>
       

@@ -26,8 +26,8 @@ export const Home: React.FC = () => {
   useSpy(windowWidth > 620 ? -300 : -100)  
 
   useEffect(()=>{
-    console.log('state: ', state);
-    scrollToSection(state)
+    // console.log('state: ', state);
+    scrollToSection(state?.section)
   },[])
 
 
