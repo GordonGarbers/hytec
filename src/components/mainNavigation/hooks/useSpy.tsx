@@ -3,16 +3,16 @@ import { useAppSelector } from "../../../app/hooks";
 import { RootState } from "../../../app/store";
 
 export const useSpy = (marginRoot: number) => {
-    const [isIntersecting, setIsIntersecting] = useState(false);
+  const [isIntersecting, setIsIntersecting] = useState(false);
   const { dataIsLoaded, data, dataError } = useAppSelector(
     (state: RootState) => state.data
   );
 
   useEffect(() => {
       const navSections = document.querySelectorAll(".nav-sections")
-
       const navButtons = document.querySelectorAll("li")
 
+      console.log('---', navButtons.length);
       const removeActiveClass = () => {
         navButtons.forEach((elem: Element) => {
           // elem.classList.remove("nav-btn-active")
@@ -28,7 +28,6 @@ export const useSpy = (marginRoot: number) => {
         if(entry.isIntersecting){
           setIsIntersecting(entry.isIntersecting);
           const currentNavBtn = document.querySelector(`li[id="${entry.target.id}-nav-btn"]`)
-          console.log(currentNavBtn);
           removeActiveClass();
           // currentNavBtn?.classList.add("nav-btn-active")
           currentNavBtn?.classList.add("nav-text-wrapper")

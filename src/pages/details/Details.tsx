@@ -44,6 +44,7 @@ interface INavigateType {
 }
 
 export const Details: React.FC = () => {
+
   const { windowWidth } = useAppSelector((state: RootState) => state.width);
   const {value} = useAppSelector((state: RootState) => state.counter);
   const [showMore, setShowMore] = useState<boolean>(false);

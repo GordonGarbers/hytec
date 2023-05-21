@@ -49,7 +49,6 @@ export const MainNavigation = () => {
   // }, []);
   
 
-
   return (
     <>
       <motion.nav style={{top:'60px',zIndex: '2' }} className={`position-fixed w-100 nav-mover`}>

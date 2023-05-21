@@ -13,13 +13,22 @@ import { exit } from "process";
 import { transitionSpeed } from "../constants/constants";
 import { scrollToSection } from "../utils/getActiveElementScrollPos";
 import { setNavButton } from "../features/navButton/navButtons.slice";
+import { useSpy } from "../components/mainNavigation/hooks/useSpy";
+import { useLocation } from "react-router-dom";
 
 export const Home: React.FC = () => {
 
-
+  const {windowWidth} = useAppSelector((state: RootState) => state.width)
+  const {state} = useLocation()
+  
   const dispatch = useAppDispatch()
 
-  
+  useSpy(windowWidth > 620 ? -300 : -100)  
+
+  useEffect(()=>{
+    console.log('state: ', state);
+    scrollToSection(state)
+  },[])
 
 
   return (

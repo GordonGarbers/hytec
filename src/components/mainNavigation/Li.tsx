@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect } from "react";
 import { EColors } from "../../constants/constants";
 import { NavLink } from "react-router-dom";
 import {Link} from 'react-scroll';
@@ -25,6 +25,8 @@ export const Li: React.FC<ILiProps> = ({
   addToClassName,
   idName
 }) => {
+
+
 
   return (
     <li

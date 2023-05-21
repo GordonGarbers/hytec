@@ -14,6 +14,7 @@ interface INavigationProps {
 
 export const HNavigation: React.FC<INavigationProps> = ({ windowWidth }) => {
 
+
   useSpy(-300);
 
   return (
