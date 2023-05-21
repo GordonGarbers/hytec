@@ -14,6 +14,7 @@ import { useRefresh } from "../hooks/useRefresh";
 
 export const MainNavigation = () => {
 
+
   const  {windowWidth, scrollY} = useRefresh()
 
   // const {windowWidth} = useAppSelector((state: RootState) => state.width)
@@ -46,6 +47,7 @@ export const MainNavigation = () => {
   //     window.removeEventListener("scroll", handleScroll);
   //   };
   // }, []);
+  
 
 
   return (
@@ -60,8 +62,14 @@ export const MainNavigation = () => {
             <List size={32} color="#fff" />
           </NavMenuIconSM>
         </div>
-        <HNavigation windowWidth={windowWidth} />
-        <VNavigation windowWidth={windowWidth} />
+        {
+          windowWidth > 620
+          ?
+          <HNavigation windowWidth={windowWidth} />
+          :
+          <VNavigation windowWidth={windowWidth} />
+        }
+
       </motion.nav>
     </>
   );

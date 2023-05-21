@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAppSelector } from '../../app/hooks';
 import { RootState } from '../../app/store';
 import { NavMenuIconSM } from './NavMenuIconSM';
@@ -6,6 +6,7 @@ import { XLg } from 'react-bootstrap-icons';
 import { Translate } from 'react-bootstrap-icons';
 import { Ul } from './Ul';
 import { Language } from './Language';
+import { useSpy } from './hooks/useSpy';
 
 interface INavigationProps {
   windowWidth: number;
@@ -13,6 +14,9 @@ interface INavigationProps {
 
 export const VNavigation: React.FC<INavigationProps> = ({ windowWidth }) => {
   const { menu } = useAppSelector((state: RootState) => state.menu);
+
+  useSpy(-100)
+
   return (
     <div
       style={{

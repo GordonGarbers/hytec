@@ -26,24 +26,20 @@ export const Li: React.FC<ILiProps> = ({
   idName
 }) => {
 
-
-  // useEffect(()=>{
-    //   scrollDown()
-    // },[])
-
-
   return (
     <li
       onClick={(e) => func(e)}
       style={{transition:'all .5s ease'}}
       role="button"
-      id={`${idName}`}
-      className={`${addToClassName} d-flex justify-content-center align-items-center text-capitalize position-relative rounded-2`}
+      id={`${idName}-nav-btn`}
+      className={`${addToClassName} text-capitalize position-relative`}
       data-add-btn={data}
       value={value}
     >
       {/* <Link to={idName} smooth={true} offset={-50} duration={0}>{btnName}</Link> */}
-      {btnName}
+        <div className="px-2 py-1">
+            {btnName}
+        </div>
     </li>
   );
 };

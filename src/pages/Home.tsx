@@ -13,7 +13,6 @@ import { exit } from "process";
 import { transitionSpeed } from "../constants/constants";
 import { scrollToSection } from "../utils/getActiveElementScrollPos";
 import { setNavButton } from "../features/navButton/navButtons.slice";
-import './home.scss';
 
 export const Home: React.FC = () => {
 

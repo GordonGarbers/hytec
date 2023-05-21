@@ -52,11 +52,13 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
       // console.log(btnName.split(" ").join("").toLowerCase());
       // navigate(btnName==="Home" || btnName==="Start" ? "/" : btnName.split(" ").join("").toLowerCase())
       navigate("/")
-      scrollToSection(btnName)
+      scrollToSection(btnName);
       
-  };
-
-  useEffect(() => {
+      
+    };
+    
+    useEffect(() => {
+    
     const btnValue = sessionStorage.getItem("btnValue") || activeBtnValue;
     const btnName = sessionStorage.getItem("btnName") || activeBtnName;
     dispatch(
@@ -75,58 +77,16 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
   // };
 
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  // useEffect(()=>{
+  //   // const section = document.getElementById( `${activeBtnName}` );
+  //   // console.log(section);
+  //   if(activeBtnName )
+  //     scrollToSection(activeBtnName);
+  //     // window.scrollTo({ behavior: 'smooth', top:  section.offsetTop})
+  // },[activeBtnName])
 
-  useEffect(()=>{
-    // const section = document.getElementById( `${activeBtnName}` );
-    // console.log(section);
-    if(activeBtnName )
-      scrollToSection(activeBtnName);
-      // window.scrollTo({ behavior: 'smooth', top:  section.offsetTop})
-  },[])
-
-  const [isIntersecting, setIsIntersecting] = useState(false);
-
-  useEffect(() => {
-    const navSections = document.querySelectorAll(".nav-sections")
-
-      const navButtons = document.querySelectorAll("li")
-
-      const removeActiveClass = () => {
-        navButtons.forEach((elem: Element) => {
-          elem.classList.remove("nav-btn-active")
-        })
-      }
-      
-
-    const addActiveClass = (entries: IntersectionObserverEntry[]
-      ) => {
-      entries.forEach((entry)=>{
-
-        if(entry.isIntersecting){
-          setIsIntersecting(entry.isIntersecting);
-          const currentNavBtn = document.querySelector(`li[id="${entry.target.id}"]`)
-          removeActiveClass();
-          currentNavBtn?.classList.add("nav-btn-active")
-        }
-      })
-    }
-
-    const options: IntersectionObserverInit = {
-      // threshold: 0.8,
-      rootMargin: '-300px'
-    }
-
-    const observer = new IntersectionObserver(addActiveClass, options);
-
-
-    if(navSections){
-      navSections.forEach((section:Element) => {
-        observer.observe(section);
-      })
-    }
-
-    return () => observer.disconnect();
-  }, [isIntersecting, data]);
+  
 
 
   const liList = data.nav.map((item: INav, idx: number) => {
@@ -155,7 +115,9 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
     <>
       <ul
         ref={ref}
-        className="scroll-indicator text-secondary mt-sm-1 list-unstyled d-flex flex-column align-items-start flex-sm-row gap-4 gap-sm-6 px-3 pb-0"
+        style={{marginBottom:0}}
+        // className="scroll-indicator text-secondary mt-sm-1 list-unstyled d-flex flex-column align-items-center flex-sm-row gap-4 gap-sm-6 px-3 pb-0"
+        className="scroll-indicator text-secondary list-unstyled d-flex flex-column align-items-center flex-sm-row pe-3"
       >
 
         {liList}

@@ -67,7 +67,7 @@ export const Language: React.FC = () => {
     <div
       // role="button"
       data-add-btn={false}
-      className="position-relative me-auto d-flex align-items-center gap-2 text-secondary fs-13 mb-2 mt-5 mt-sm-1 me-auto me-sm-0 language"
+      className="position-relative d-flex align-items-center gap-2 text-secondary fs-13 mb-2 mt-5 mt-sm-1 me-auto me-sm-0 language"
       style={{ color: "#000" }}
     >
       <Translate size={18} color="#000" />
