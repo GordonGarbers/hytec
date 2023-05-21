@@ -8,7 +8,7 @@ import { scrollToSection } from "../../utils/getActiveElementScrollPos";
 interface INavDetailsProps {
   finalProduct: IProducts;
   dataIsLoaded: boolean;
-  relatedProducts: JSX.Element[]
+  relatedProducts: IProducts
 }
 
 export const NavDetails: React.FC<INavDetailsProps> = ({
@@ -21,7 +21,7 @@ export const NavDetails: React.FC<INavDetailsProps> = ({
   const onBreadClick = (
     e:React.MouseEvent<HTMLButtonElement, MouseEvent>,
     url:string,
-    section: JSX.Element[]
+    section: IProducts
   ) => {
     e.preventDefault()
     navigate(url, { state: {section} });

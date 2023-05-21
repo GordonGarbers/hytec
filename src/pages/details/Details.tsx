@@ -38,6 +38,8 @@ import "swiper/scss/scrollbar";
 import { ToDetailsBtn } from "../../components/ToDetailsBtn/ToDetailsBtn";
 import { motion } from "framer-motion";
 import { RelatedProducts } from "./RelatedProducts";
+import { useRandomProducts } from "./hooks/useRandomProducts";
+import { FadeInMotionWrapper } from "../../components/layout/FadeInMotionWrapper";
 
 interface INavigateType {
   product: IProducts;
@@ -121,65 +123,11 @@ export const Details: React.FC = () => {
     }
   );
 
-  //create random articles with same categorie
-  const randomProductPerCategorie = data.products.filter(
-    (dataProduct: IProducts, idx: number) => {
-      return dataProduct.filter.categorie === products?.filter?.categorie && dataProduct.id !== products?.id;
-    }
-  );
-
   
-
-  const randomProductPerCategorieElements = randomProductPerCategorie.map(
-    (randomProduct: IProducts, idx: number) => {
-      const fullImagePath = `${process.env.PUBLIC_URL}/${randomProduct.basePath}${randomProduct.productNamePath}${randomProduct.heroImage}`;
-
-      return (
-        <SwiperSlide key={idx} className="rounded-2 shadow-sm" style={{backgroundColor:'#fff'}}>
-          <div className="pt-3"></div>
-          {/* <img src={fullImagePath} alt="imd" className="pt-3"/> */}
-
-          <ImgCache
-            key={idx}
-            url={randomProduct.heroImage}
-            idx={idx}
-            basePath={randomProduct.basePath}
-            productNamePath={randomProduct.productNamePath}
-            imgSizeX={983}
-            imgSizeY={737}
-            imageAlt={randomProduct.heroImage}
-          />
-
-          <div className="d-flex flex-column p-3">
-          {!dataIsLoaded ? (
-                <div className="text-primary-dark fs-15" style={{fontWeight:500}}>{randomProduct.categorie.toUpperCase()}</div>
-              ) : (
-                <Skeleton count={1} height={12} width={60} baseColor={EColors.primary}/>
-              )}
-          
-          {!dataIsLoaded ? (
-                <div className="fs-11 fw-bold">{randomProduct.name}</div>
-                ) : (
-                <Skeleton count={1} height={16} width={90}/>
-              )}
-            
-
-          </div>
-
-          <div className="w-100 px-3 pb-3">
-          {!dataIsLoaded ? (
-                <ToDetailsBtn dataIsLoaded={false} product={randomProduct} data={data} fullWidth={true} reloadPage={false}/>
-                ) : (
-                <Skeleton count={1} height={32} width={'100%'} baseColor={EColors.primary}/>
-              )}
-          </div>
-        </SwiperSlide>
-      );
-    }
-  );
 
   // const fullImagePath = `${process.env.PUBLIC_URL}/${product.basePath}${product.productNamePath}${product.heroImage}`;
 
+  const randomProductPerCategorieElements = useRandomProducts(products)
 
   return (
     <motion.div
@@ -189,7 +137,7 @@ export const Details: React.FC = () => {
       transition={{duration:`${transitionSpeed}`}}
       className="details-article-wrapper">
       <article className="container-fluid-02 p-3">
-        <NavDetails finalProduct={finalProduct} dataIsLoaded={dataIsLoaded} relatedProducts={randomProductPerCategorieElements}/>
+        <NavDetails finalProduct={finalProduct} dataIsLoaded={dataIsLoaded} relatedProducts={products}/>
 
         <div className={`w-100 rounded-3`}>
           {/*  */}
