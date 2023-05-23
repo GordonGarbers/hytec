@@ -7,6 +7,7 @@ import './numbers.scss';
 import { useAppSelector } from '../../app/hooks';
 import { RootState } from '../../app/store';
 
+
 export const Numbers: React.FC = () => {
   const { dataIsLoaded, data, dataError } = useAppSelector(
     (state: RootState) => state.data
@@ -14,10 +15,11 @@ export const Numbers: React.FC = () => {
 
   return (
     <>
+    
       <div className="">
         <div
           style={{ maxWidth: '1400px' }}
-          className="container-fluid-02 my-8 d-flex flex-column flex-sm-row gap-6 gap-sm-4 gap-lg-6 px-3 px-sm-3"
+          className="container-fluid-02 my-4 d-flex flex-column flex-sm-row "
         >
           <CardNumber
             number={2005}
