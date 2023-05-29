@@ -19,7 +19,8 @@ const initialState: IInitialState = {
     buttons: {},
     numbers: {},
     form:{},
-    footer:{}
+    footer:{},
+    text:{}
   },
   dataError: "",
 };
@@ -51,7 +52,8 @@ const datasSlice = createSlice({
         buttons: {},
         numbers: {},
         form:{},
-        footer:{}
+        footer:{},
+        text:{}
       };
       state.dataError = action.payload;
     },

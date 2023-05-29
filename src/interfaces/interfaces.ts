@@ -68,6 +68,10 @@ export interface IFrom {
   text: string;
 }
 
+export interface IText {
+  aboutus: string;
+}
+
 export interface IFooter {
   imprint: string;
   privacyPolicy: string;
@@ -156,6 +160,7 @@ export interface IDataDetails {
   numbers: Partial<INumbers>;
   form: Partial<IFrom>;
   footer: Partial<IFooter>;
+  text:Partial<IText>;
 }
 
 export interface ICategory {
