@@ -68,7 +68,7 @@ export const CardNumber: React.FC<ICardNumberProps> = ({
         stiffness: 100,
       }}
       style={{ flex: '4' }}
-      className="w-100 number-wrapper p-5 d-flex flex-column justify-content-center align-items-center  position-relative"
+      className="w-100 number-wrapper d-flex flex-column justify-content-center align-items-center  position-relative"
     >
       <motion.svg
         width="100%"
@@ -82,7 +82,7 @@ export const CardNumber: React.FC<ICardNumberProps> = ({
           style={{filter: 'drop-shadow(10px 10px 20px rgb(0,0,0,.05))'}}
           cx="300"
           cy="300"
-          r="200"
+          r={`${windowWidth >= 620 && windowWidth <= 960 ? 240 : 200}`}
           stroke='#fff'
           strokeWidth='36px'
           custom={1}
@@ -91,7 +91,7 @@ export const CardNumber: React.FC<ICardNumberProps> = ({
         <motion.circle
           cx="300"
           cy="300"
-          r="200"
+          r={`${windowWidth >= 620 && windowWidth <= 960 ? 240 : 200}`}
           // style={{filter: 'drop-shadow(0px 0px 20px rgb(255,255,0,.2))'}}
           stroke={`${EColors.primary}`}
           strokeWidth='30px'
@@ -133,7 +133,7 @@ export const CardNumber: React.FC<ICardNumberProps> = ({
             delay={0 * delayNum}
             // prefix={prefix}
             style={{ fontWeight: '800' }}
-            className="fs-5 text-dark-light"
+            className={`fs-${windowWidth <= 620 ? 3 : 5 } text-dark-light`}
             // start={0}
             end={number}
             enableScrollSpy={true}
@@ -152,7 +152,7 @@ export const CardNumber: React.FC<ICardNumberProps> = ({
           style={{ zIndex: '1' }}
           className="d-flex justify-content-center align-items-center"
         >
-          <div style={{ fontWeight: '500' }} className="fs-10 text-grey-400">
+          <div style={{ fontWeight: '500' }} className={`fs-${windowWidth >=620 && windowWidth <= 790 ? 14 : 11} text-grey-400`}>
             {script.toUpperCase()}
           </div>
         </div>

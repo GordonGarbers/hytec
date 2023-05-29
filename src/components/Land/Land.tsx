@@ -129,6 +129,7 @@ export const Land: React.FC = () => {
           </Tilt>
         </div>
         <motion.div
+
           variants={variantsText}
           initial="from"
           whileInView="to"
@@ -140,7 +141,7 @@ export const Land: React.FC = () => {
             // duration: 0.5,
           }}
 
-          className="article-left-left w-100 px-4 px-sm-6 px-lg-8 mt-5 mt-lg-0"
+          className="article-left-left w-100 px-4 px-sm-9 px-lg-8 mt-5 mt-lg-0"
         >
           <h1 className="fs-5" style={{fontWeight:900}}>
             {!dataIsLoaded ? (

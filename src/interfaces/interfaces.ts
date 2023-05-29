@@ -44,6 +44,8 @@ export interface IHero extends ITextCommon {
 export interface IDealer extends ITextCommon {}
 
 export interface ISection {
+  machinery: string;
+  aboutus: string;
   contact: string;
 }
 

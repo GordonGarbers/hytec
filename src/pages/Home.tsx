@@ -15,6 +15,7 @@ import { scrollToSection } from "../utils/getActiveElementScrollPos";
 import { setNavButton } from "../features/navButton/navButtons.slice";
 import { useSpy } from "../components/mainNavigation/hooks/useSpy";
 import { useLocation } from "react-router-dom";
+import { AboutUs } from "../components/aboutus/AboutUs";
 
 export const Home: React.FC = () => {
 
@@ -41,8 +42,8 @@ export const Home: React.FC = () => {
       <Hero/>
       <Products/>
       <YellowDetails/>
+      <AboutUs/>
       <Land />
-      <Numbers />
       <ContactUs />
     </motion.div>
   );
