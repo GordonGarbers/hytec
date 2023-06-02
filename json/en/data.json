@@ -882,6 +882,9 @@
       "image": "assets/carusel/baumachine_03.webp"
     }
   ],
+  "text":{
+    "aboutus":"Since 2005, we have been one of the leading suppliers of high-quality heavy machinery in Germany. With over 10,000 machines sold and a network of over 100 dealers across the country, we have established a strong presence in the industry. \nOur goal is to provide you with the best solutions in the field of heavy machinery. With our extensive experience and expertise, we offer a diverse selection of machines for various applications."
+  },
   "dealer": {
     "smallTitle": "HYTEC",
     "titleNormalBefore": "Became a",
@@ -912,6 +915,8 @@
   ],
   
   "sections": {
+    "machinery":"Browse our machinery",
+    "aboutus": "About Us",
     "contact": "CONTACT US"
   },
   "buttons": {
@@ -922,7 +927,8 @@
   "numbers": {
     "founded": "Founded",
     "sold": "Machines sold",
-    "dealers": "Dealers"
+    "dealers": "Dealers",
+    "machines":""
   },
   "form": {
     "name": "Name",

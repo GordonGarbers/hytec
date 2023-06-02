@@ -884,6 +884,9 @@
       "image": "assets/carusel/baumachine_03.webp"
     }
   ],
+  "text":{
+    "aboutus":"Seit 2005 sind wir einer der führenden Anbieter von hochwertigen Baumaschinen in Deutschland. Mit über 10.000 verkauften Maschinen und einem Netzwerk von über 100 Händlern im ganzen Land haben wir uns in der Branche etabliert.\nUnser Ziel ist es, Ihnen die besten Lösungen im Bereich der Baumaschinen anzubieten. Mit unserer langjährigen Erfahrung und Expertise bieten wir eine vielfältige Auswahl an Maschinen für verschiedene Anwendungen."
+  },
   "dealer": {
     "smallTitle": "HYTEC",
     "titleNormalBefore": "Werden Sie",
@@ -913,6 +916,8 @@
     }
   ],
   "sections": {
+    "machinery":"Unsere Maschinen.",
+    "aboutus": "Über uns",
     "contact": "KONTAKTIEREN SIE UNS"
   },
   "buttons": {
