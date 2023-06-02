@@ -16,7 +16,7 @@ export const AboutUs = () => {
     (state: RootState) => state.data
   );
   return (
-    <div className="py-7">
+    <div id="aboutus" className="pb-6 pt-6 pt-sm-8 nav-sections" >
       <div
         className="container-fluid-02 d-flex flex-column justify-content-center align-items-center position-relative"
         style={{ zIndex: '1' }}

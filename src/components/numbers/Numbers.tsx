@@ -16,7 +16,7 @@ export const Numbers: React.FC = () => {
   
         <div
           style={{ }}
-          className="d-flex flex-row gap-2 gap-xs-1 gap-lg-5"
+          className="d-flex flex-column flex-xs-row gap-2 gap-xs-1 gap-lg-5"
         >
               <CardNumber
                 number={2005}

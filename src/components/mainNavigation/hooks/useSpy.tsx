@@ -45,6 +45,7 @@ export const useSpy = (marginRoot: number) => {
 
     if(navSections){
       navSections.forEach((section:Element) => {
+        console.log('SECTION: ', section);
         observer.observe(section);
       })
     }

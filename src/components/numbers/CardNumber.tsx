@@ -82,7 +82,7 @@ export const CardNumber: React.FC<ICardNumberProps> = ({
           style={{filter: 'drop-shadow(10px 10px 20px rgb(0,0,0,.05))'}}
           cx="300"
           cy="300"
-          r={`${windowWidth >= 620 && windowWidth <= 960 ? 240 : 240}`}
+          r={`${windowWidth >= 620 && windowWidth <= 960 ? 240 : 250}`}
           stroke='#fff'
           strokeWidth='36px'
           custom={1}
@@ -91,7 +91,7 @@ export const CardNumber: React.FC<ICardNumberProps> = ({
         <motion.circle
           cx="300"
           cy="300"
-          r={`${windowWidth >= 620 && windowWidth <= 960 ? 240 : 240}`}
+          r={`${windowWidth >= 620 && windowWidth <= 960 ? 240 : 250}`}
           // style={{filter: 'drop-shadow(0px 0px 20px rgb(255,255,0,.2))'}}
           stroke={`${EColors.primary}`}
           strokeWidth='30px'
@@ -125,7 +125,7 @@ export const CardNumber: React.FC<ICardNumberProps> = ({
               style={{ fontWeight: '800' }}
               className={`${
                 includeArrow ? 'd-block' : 'd-none'
-              } fs-${windowWidth <= 732 ? 6 : 5 } text-dark-form pe-2`}
+              } fs-${windowWidth <= 732 ? windowWidth <= 479 ? 5 : 7 : 6 } text-dark-form pe-2`}
             >{`>`}</div>
           </div>
 
@@ -133,7 +133,7 @@ export const CardNumber: React.FC<ICardNumberProps> = ({
             delay={0 * delayNum}
             // prefix={prefix}
             style={{ fontWeight: '800' }}
-            className={`fs-${windowWidth <= 732 ? 6 : 5 } text-dark-light`}
+            className={`fs-${windowWidth <= 732 ? windowWidth <= 479 ? 3 : 6  : 5 } text-dark-light`}
             // start={0}
             end={number}
             enableScrollSpy={true}
