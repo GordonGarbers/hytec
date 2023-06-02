@@ -1,16 +1,19 @@
 import React, { RefObject } from "react";
 import { SideFollowUs } from "../sideFollowUs/SideFollowUs";
+import { AboutUs } from "../aboutus/AboutUs";
+import { Numbers } from "../numbers/Numbers";
 
 interface IYellowDetailsProps {
-  forwardedRef: RefObject<HTMLDivElement>;
+  forwardedRef?: RefObject<HTMLDivElement>;
+  children?: React.ReactNode
 }
 
-export const YellowDetails: React.FC= () => {
+export const YellowDetails: React.FC<IYellowDetailsProps>= ({children}) => {
   return (
     <div
 
-      style={{ maxWidth: "1400px", zIndex: "0" }}
-      className="container-fluid bg-primary my-6 py-6 rounded-1 position-relative overflow-hidden"
+      style={{zIndex: "0"}}
+      className="container-fluid-02 bg-primary p-6 position-relative overflow-hidden rounded-2"
     >
       <div
         style={{
@@ -19,8 +22,11 @@ export const YellowDetails: React.FC= () => {
           clipPath: "polygon(60% 100%, 100% 100%, 100% 0%, 65% 0%)",
         }}
         className="bg-primary-mono w-100 h-100 position-absolute"
-      ></div>
-      <SideFollowUs />
+      >
+
+      </div>
+        {/* {children} */}
+        {/* <Numbers /> */}
     </div>
   );
 };

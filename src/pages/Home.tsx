@@ -41,7 +41,6 @@ export const Home: React.FC = () => {
       >
       <Hero/>
       <Products/>
-      <YellowDetails/>
       <AboutUs/>
       <Land />
       <ContactUs />

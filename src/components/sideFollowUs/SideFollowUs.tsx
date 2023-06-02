@@ -9,8 +9,8 @@ import { HiOutlineArrowNarrowUp } from "react-icons/hi";
 export const SideFollowUs = () => {
   return (
     <div
-      style={{ zIndex: "3", backgroundColor: "#fff", top:'50%', right:'30px', transform:'translate(0, -50%)'}}
-      className="d-flex flex-row align-items-center gap-3 position-absolute p-2 shadow rounded-2 "
+      style={{ zIndex: "3"}}
+      className="d-flex flex-row align-items-center gap-3 pt-2 pb-6 rounded-2"
     >
         <div className="fs-13 fw-bold " >Follow Us on</div>
       <HiOutlineArrowNarrowUp size={24} style={{transform:'rotate(90deg)'}}/>

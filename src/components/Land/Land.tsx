@@ -12,6 +12,7 @@ import { PrimaryButton } from '../primaryButton/PrimaryButton';
 import { ProcessText } from '../layout/ProcessText';
 import { EColors } from '../../constants/constants';
 import './land.scss'
+import { YellowDetails } from '../yellowDetails/YellowDetails';
 
 const variants = {
   from: {
@@ -87,6 +88,7 @@ export const Land: React.FC = () => {
       style={{ backgroundColor: '#fff', zIndex:'0'}}
       className="w-100 h-100 position-relative nav-sections"
     >
+
       {/* <div style={{clipPath: 'polygon(0% 30%, 100% 10%, 100% 0%, 0% 0%)', zIndex:'-1'}}className="w-100 h-100 bg-grey-900 position-absolute"/> */}
       {/* <div className="parent position-absolute w-100">
         <div className="my-element-to-clip bg-primary"></div>
