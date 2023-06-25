@@ -274,24 +274,28 @@ export const Details: React.FC = () => {
                         </span>
                       </div>
                     </div>
-                    <div className=" w-100 ">
-                      <h3 className="fs-13 fw-bold">Kostenlose Extras:</h3>
+                    {
+                      finalProduct?.extras.length > 0
+                      &&
+                      <div className=" w-100 ">
+                        <h3 className="fs-13 fw-bold">Kostenlose Extras:</h3>
 
-                      {!dataIsLoaded ? (
-                        finalProduct?.extras.map(
-                          (item: string, idx: number) => {
-                            return (
-                              <div key={idx} className="fs-14">
-                                {" "}
-                                &bull; {item}
-                              </div>
-                            );
-                          }
-                        )
-                      ) : (
-                        <Skeleton count={5} width={"100%"} />
-                      )}
-                    </div>
+                        {!dataIsLoaded ? (
+                          finalProduct?.extras.map(
+                            (item: string, idx: number) => {
+                              return (
+                                <div key={idx} className="fs-14">
+                                  {""}
+                                  &bull; {item}
+                                </div>
+                              );
+                            }
+                          )
+                        ) : (
+                          <Skeleton count={5} width={"100%"} />
+                        )}
+                      </div>
+                    }
                   </div>
                   {!dataIsLoaded ? (
                     <PrimaryButton fontSize={windowWidth > 500 ? 13 : 14}>

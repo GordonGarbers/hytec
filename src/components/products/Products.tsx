@@ -64,10 +64,10 @@ export const Products: React.FC = () => {
   const { windowWidth } = useAppSelector((state: RootState) => state.width);
   const { isScrolling, isWindowChange } = useWindowAndScrollDetection();
 
-
   const { dataIsLoaded, data, dataError } = useAppSelector(
     (state: RootState) => state.data
   );
+  const {vehicleTypeCheckers} = useAppSelector((state: RootState) => state.vehicleType)
 
   const [btnClicked, setBtnClicked] = useState<number>(0);
 
@@ -102,9 +102,17 @@ export const Products: React.FC = () => {
     setBtnClicked(parseInt(btnValue as string));
   }, [btnClicked]);
 
+
+  // OVDE JE FILTER ZA PRO i NON PRO MASINE (MESTO BROJ 2)
+    const getProductsPerVehicleType = data.products.filter((product: IProducts, idx: number)=>{
+      return vehicleTypeCheckers.includes(product.vehicleType)
+  })
+
   
   //FILTERING
-  const filterProductArticle = data.products
+  // const filterProductArticle = data.products
+  const filterProductArticle = getProductsPerVehicleType
+
     
     .filter((product: IProducts) => {
       return categories !== "all"

@@ -108,6 +108,7 @@ export interface IFilter {
   totalHeight: number;
   wheelbase: number;
   price: number;
+  vehicleType: string;
 }
 
 export enum EUseRangeSections {
@@ -125,13 +126,15 @@ export enum EUseRangeSections {
   totalWidth = "totalWidth",
   totalHeight = "totalHeight",
   wheelbase = "wheelbase",
-  price = "price"
+  price = "price",
+  vehicleType = "vehicleType"
 }
 export interface IProducts {
   id: number;
   categorie: string;
   name: string;
   price: string;
+  vehicleType: string;
   extras: string[];
   description: string;
   accessories: string[];

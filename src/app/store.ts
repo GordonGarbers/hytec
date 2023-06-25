@@ -15,6 +15,7 @@ import sliderAnimSpeedReducer from '../components/products/features/sliderAnimSp
 import nextReducer from '../features/next/next.slice'
 import filterChangedReducer from '../components/products/features/filtersChanged.slice'
 import minMaxValueReducer from '../components/products/features/minMaxValues.slice'
+import filterVehicleTypeReducer from '../components/products/features/filterVehicleType.slice'
 import rootSaga from "../saga/saga";
 
 const saga = createSagaMiddleware();
@@ -35,7 +36,8 @@ export const store = configureStore({
     changedFilters: filterChangedReducer,
     sliderSpeed: sliderAnimSpeedReducer,
     next: nextReducer,
-    minMax: minMaxValueReducer
+    minMax: minMaxValueReducer,
+    vehicleType: filterVehicleTypeReducer
   },
   middleware: (defaultMiddleware) => defaultMiddleware().concat(saga),
 });

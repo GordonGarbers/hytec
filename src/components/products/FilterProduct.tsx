@@ -17,6 +17,7 @@ import { ECategories, EColors } from "../../constants/constants";
 import { CreateCategoriyElements } from "./CreateCategoryElements";
 import { RangeSlider } from "./RangeSlider";
 import { useRange } from "./hooks/useRange";
+import { addVehicleType, removeVehicleType } from "./features/filterVehicleType.slice";
 
 import {
   filterKw,
@@ -44,6 +45,8 @@ export const FilterProduct: React.FC = () => {
     (state: RootState) => state.data
   );
 
+  const {vehicleTypeCheckers} = useAppSelector((state: RootState) => state.vehicleType)
+
   const [filter, setFilter] = useState<boolean>(true);
   const { reset } = useAppSelector((state: RootState) => state.resetFilter);
   const { filters } = useAppSelector(
@@ -66,8 +69,23 @@ export const FilterProduct: React.FC = () => {
     setButtonSelected("");
   }, [filters]);
 
+  const [checkedHytec, setCheckedHytec] = useState<boolean>(true);
+  const [checkedHytecPro, setCheckedHytecPro] = useState<boolean>(true);
 
-  const getCategories = data.products.reduce(
+
+  // OVDE JE FILTER ZA PRO i NON PRO MASINE (MESTO BROJ 1)
+  // const getProductsPerVehicleType = data.products.filter((product: IProducts, idx: number)=>{
+  //   return product.filter.categorie === "hoflader"
+  // })
+
+  const getProductsPerVehicleType = data.products.filter((product: IProducts, idx: number)=>{
+    return vehicleTypeCheckers.includes(product.vehicleType)
+})
+
+
+
+  // const getCategories = data.products.reduce(
+  const getCategories = getProductsPerVehicleType.reduce(
     (accu: ICategory[], curr: IProducts, idx: number): ICategory[] => {
       const index = accu.findIndex((accuItem) => {
         return accuItem.category === curr.filter.categorie;
@@ -89,6 +107,8 @@ export const FilterProduct: React.FC = () => {
     },
     [{ category: "all", categoryLabel: " All", count: 0 }]
   );
+
+
 
   const createCategoriyElements = getCategories.map(
     (categorie: ICategory, idx: number) => {
@@ -209,6 +229,23 @@ export const FilterProduct: React.FC = () => {
     price,
   } = useAppSelector((state: RootState) => state.filter);
 
+
+  const onVehicleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if(e.currentTarget.value === "hytec")
+      setCheckedHytec(!checkedHytec);
+    else
+      setCheckedHytecPro(!checkedHytecPro);
+    dispatch(addVehicleType(e.currentTarget.value))
+
+    if(e.currentTarget.checked){
+      dispatch(addVehicleType(e.currentTarget.value))
+    }else{
+      dispatch(removeVehicleType(e.currentTarget.value))
+    }
+  }
+
+  
+
   return (
     <div className="accordion mb-4" id="accordionExample">
       <div className="accordion-item  border-0">
@@ -237,8 +274,41 @@ export const FilterProduct: React.FC = () => {
         >
           <div
             className="accordion-body w-100 d-flex flex-column d-md-grid gap-4"
-            style={{ gridTemplateColumns: "200px 1fr" }}
+            style={{ gridTemplateColumns: "200px 200px 1fr" }}
           >
+            <div className="position-relative">
+              <label
+                style={{ textTransform: "capitalize" }}
+                className="mb-3 fs-13 fw-bold text-dark-light"
+                htmlFor=""
+              >
+                Vehicle type
+              </label>
+
+              <div className="form-check">
+                <input className="form-check-input" type="checkbox" value="hytec" id="hytecChecker" onChange={(e)=>onVehicleChange(e)} checked={checkedHytec} />
+                <label className="form-check-label fs-14" htmlFor="flexCheckDefault">
+                  Hytec
+                </label>
+              </div>
+              <div className="form-check">
+                <input className="form-check-input" type="checkbox" value="hytec pro" id="hytecProChecker" onChange={(e)=>onVehicleChange(e)} checked={checkedHytecPro} />
+                <label className="form-check-label fs-14" htmlFor="flexCheckChecked">
+                  Hytec Pro
+                </label>
+              </div>
+
+              {/* <div className="form-check form-switch">
+                <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault"/>
+                <label className="form-check-label text-grey-500 fs-14" htmlFor="flexSwitchCheckDefault">Hytec</label>
+              </div>
+              <div className="form-check form-switch">
+                <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked/>
+                <label className="form-check-label text-grey-500 fs-14" htmlFor="flexSwitchCheckChecked">Hytec Pro</label>
+              </div> */}
+
+            </div>
+            
             <div className="position-relative">
               <label
                 style={{ textTransform: "capitalize" }}
