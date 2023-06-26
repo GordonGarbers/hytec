@@ -21,7 +21,7 @@ export const logoPos: logoPosType[] = [
   { x: 88, y: 47 },
 ];
 
-export const languageButtons = ['en', 'de'];
+export const languageButtons = ['de', 'en', 'ru'];
 
 export const TIME = 8000;
 
