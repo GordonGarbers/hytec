@@ -1769,5 +1769,28 @@
     "imprint": "Imprint",
     "privacyPolicy": "Privacy Policy",
     "termsAndConditions": "Terms and Conditions"
+  },
+  "filterCategories":{
+    "vehicleType":"Vehicle Type",
+    "categories":"Categories",
+    "price":"Price",
+    "displacement":"Displacement",
+    "weight":"Weight",
+    "fuelTank":"Fuel Tank"
+  },
+  "rest":{
+    "details":"Details",
+    "viewMore":"View more",
+    "followUsOn":"Follow Us on",
+    "showMore":"Show more",
+    "showLess":"Show less",
+    "vat":"plus VAT",
+    "freeExtras":"Free extras",
+    "accessories":"Accessories",
+    "specifications":"Specifications",
+    "relatedProducts":"Related Products",
+    "warningNoProducts":"Sorry, no machinery were found matching your filter criteria.",
+    "resultsFound":"Results found",
+    "home":"Home"
   }
 }

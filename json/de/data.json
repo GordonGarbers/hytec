@@ -1827,7 +1827,7 @@
     }
   ],
   "sections": {
-    "machinery":"Unsere Maschinen.",
+    "machinery":"Unsere Maschinen",
     "aboutus": "Über uns",
     "contact": "KONTAKTIEREN SIE UNS"
   },
@@ -1854,5 +1854,29 @@
     "imprint": "Impressum",
     "privacyPolicy": "Datenschutz",
     "termsAndConditions": "AGB"
-  }
+  },
+
+  "filterCategories": {
+    "vehicleType": "Fahrzeugtyp",
+    "categories": "Kategorien",
+    "price": "Preis",
+    "displacement": "Hubraum",
+    "weight": "Gewicht",
+    "fuelTank": "Kraftstofftank"
+  },
+  "rest": {
+    "details": "Einzelheiten",
+    "viewMore": "Mehr anzeigen",
+    "followUsOn": "Folgen Sie uns auf",
+    "showMore": "Mehr anzeigen",
+    "showLess": "Weniger anzeigen",
+    "vat": "zzgl. MwSt.",
+    "freeExtras": "Kostenlose Extras",
+    "accessories": "Zubehör",
+    "specifications": "Technische Daten",
+    "relatedProducts": "Ähnliche Produkte",
+    "warningNoProducts":"Entschuldigung, es wurden keine Maschinen gefunden, die Ihren Filterkriterien entsprechen.",
+    "resultsFound":"Ergebnisse gefunden",
+    "home":"Start"
+    }
 }
