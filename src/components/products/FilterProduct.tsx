@@ -46,6 +46,7 @@ export const FilterProduct: React.FC = () => {
   );
 
   const {vehicleTypeCheckers} = useAppSelector((state: RootState) => state.vehicleType)
+  const { language } = useAppSelector((state: RootState) => state.lang);
 
   const [filter, setFilter] = useState<boolean>(true);
   const { reset } = useAppSelector((state: RootState) => state.resetFilter);
@@ -282,7 +283,7 @@ export const FilterProduct: React.FC = () => {
                 className="mb-3 fs-13 fw-bold text-dark-light"
                 htmlFor=""
               >
-                Vehicle type
+                {data.filterCategories.vehicleType}
               </label>
 
               <div className="form-check">
@@ -315,7 +316,7 @@ export const FilterProduct: React.FC = () => {
                 className="mb-3 fs-13 fw-bold text-dark-light"
                 htmlFor=""
               >
-                Categories
+                {data.filterCategories.categories}
               </label>
               {createCategoriyElements}
             </div>
@@ -330,7 +331,7 @@ export const FilterProduct: React.FC = () => {
                     }  fw-bold text-dark-light w-100 text-center`}
                     htmlFor=""
                   >
-                    <span>Price</span>
+                    <span>{data.filterCategories.price}</span>
                     <span className="text-grey-500 fs-15"> (€)</span>
                   </label>
                   <RangeSlider
@@ -355,7 +356,7 @@ export const FilterProduct: React.FC = () => {
                     }  fw-bold text-dark-light w-100 text-center`}
                     htmlFor=""
                   >
-                    <span>Weight</span>
+                    <span>{data.filterCategories.weight}</span>
                     <span className="text-grey-500 fs-15"> (kg)</span>
                   </label>
                   <RangeSlider
@@ -382,7 +383,7 @@ export const FilterProduct: React.FC = () => {
                     }  fw-bold text-dark-light w-100 text-center`}
                     htmlFor=""
                   >
-                    <span>Displacement</span>
+                    <span>{data.filterCategories.displacement}</span>
                     <span className="text-grey-500 fs-15"> (€)</span>
                   </label>
                   <RangeSlider
@@ -407,7 +408,7 @@ export const FilterProduct: React.FC = () => {
                     }  fw-bold text-dark-light w-100 text-center`}
                     htmlFor=""
                   >
-                    <span>Fuel tank</span>
+                    <span>{data.filterCategories.fuelTank}</span>
                     <span className="text-grey-500 fs-15"> (kg)</span>
                   </label>
                   <RangeSlider
@@ -467,6 +468,7 @@ export const FilterProduct: React.FC = () => {
           {/* CREATE FILTER BUTTONS */}
           <div className="d-flex gap-1 p-3">
             {filters.map((filter: string, idx: number) => {
+              
               return (
                 <button
                   onClick={(e) => onFilterButtonClicked(e)}
@@ -481,7 +483,8 @@ export const FilterProduct: React.FC = () => {
                       windowWidth > 490 ? "fs-14" : "fs-15"
                     } fw-bold text-dark-light`}
                   >
-                    {windowWidth > 360 ? filter : `${filter.slice(0, 3)}...`}
+                    {windowWidth > 360 ? filter==='fuel tank' ? data.filterCategories['fuelTank'] : data.filterCategories[filter] : filter==='fuel tank' ? ` ${data.filterCategories['fuelTank']?.slice(0,3)}...` : ` ${data.filterCategories[filter]?.slice(0,3)}...`}
+
                   </span>
                   <GrFormClose />
                 </button>

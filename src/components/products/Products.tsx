@@ -187,10 +187,10 @@ export const Products: React.FC = () => {
           style={{ fontWeight: "900" }}
           className="text-dark fs-6 mb-7 text-center "
         >
-          Browse our machinery
+          {data.sections.machinery}
         </h1>
         <FilterProduct />
-        <div className="ps-3 pb-3 fs-14 text-grey-500"><span className="fw-bold text-grey-200">{filterProductArticle.length}</span> {filterProductArticle.length === 1 ? "result" : "results"} found</div>
+        <div className="ps-3 pb-3 fs-14 text-grey-500"><span className="fw-bold text-grey-200">{filterProductArticle.length}</span> {data.rest.resultsFound}</div>
         {dataIsLoaded ? (
           <div style={{ height: "100vh" }} className="w-100">
             {/* <StartLogoAnim/> */}
@@ -268,7 +268,7 @@ export const Products: React.FC = () => {
                   onClick={handleMoreImage}
                   className="btn btn-dark fs-14 rounded-1 px-3 py-2 d-flex align-items-center gap-2"
                 >
-                  View more <HiOutlineArrowNarrowRight size={20} />
+                  {data.rest.viewMore} <HiOutlineArrowNarrowRight size={20} />
                 </button>
               </div>
             )}
@@ -276,7 +276,7 @@ export const Products: React.FC = () => {
         ) : (
           <div className="d-flex justify-content-center align-items-center pt-6">
             <p className={`${windowWidth > 400 ? "fs-14" : "fs-15"} fw-bold `}>
-              Sorry, no machinery were found matching your filter criteria.
+              {data.rest.warningNoProducts}
             </p>
           </div>
         )}

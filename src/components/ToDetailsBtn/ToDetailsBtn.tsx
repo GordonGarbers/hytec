@@ -47,7 +47,7 @@ export const ToDetailsBtn: React.FC<IToDetailsBtnProps> = ({dataIsLoaded, produc
                   onClick={() => onDetailsChange(product)}
                   className={`${fullWidth ? 'w-100 justify-content-center' : ''} btn btn-primary fs-13 fs-sm-12 rounded-1 d-flex gap-2 align-items-center px-2 px-sm-3 text-dark-form`}
                 >
-                  Details <HiOutlineArrowNarrowRight size={20} />
+                  {data.rest.details} <HiOutlineArrowNarrowRight size={20} />
                 </button>
               ) : (
                 <Skeleton

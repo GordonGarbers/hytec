@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
-import { IProducts } from '../../interfaces/interfaces';
+import { IDataDetails, IProducts } from '../../interfaces/interfaces';
 import { EProductSections } from '../../constants/constants';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import Skeleton from 'react-loading-skeleton';
+import { useAppSelector } from '../../app/hooks';
+import { RootState } from '../../app/store';
 
 interface ITableProps {
   finalProduct: IProducts;
   sectionName: EProductSections;
+  displayName: string;
   sectionClass: string;
   dataIsLoaded: boolean;
+  data: IDataDetails;
 }
 
-export const Table: React.FC<ITableProps> = ({ finalProduct, sectionName, sectionClass, dataIsLoaded }) => {
+export const Table: React.FC<ITableProps> = ({ finalProduct, sectionName, displayName, sectionClass, dataIsLoaded, data }) => {
   const [showMore, setShowMore] = useState<boolean>(false);
 
   const rows =
@@ -79,7 +83,7 @@ export const Table: React.FC<ITableProps> = ({ finalProduct, sectionName, sectio
         <thead className="bg-dark-light text-grey-900">
           <tr className="">
             {/* <th >{sectionName.toUpperCase()} <span style={{fontWeight:'300'}} className='fs-14 text-primary'> {finalProduct?.name}</span></th> */}
-            <th>{sectionName.toUpperCase()}</th>
+            <th>{displayName.toUpperCase()}</th>
             <th></th>
             <th></th>
           </tr>
@@ -102,7 +106,7 @@ export const Table: React.FC<ITableProps> = ({ finalProduct, sectionName, sectio
         className=" fw-bold fs-15 text-dark btn btn-outline-primary-500 p-2"
         onClick={() => setShowMore(!showMore)}
       >
-        <span>show {!showMore ? 'more' : 'less'}</span>{' '}
+        <span>{!showMore ? data.rest.showMore : data.rest.showLess}</span>{' '}
         {showMore ? <IoIosArrowUp /> : <IoIosArrowDown />}{' '}
       </button>
     </div>

@@ -1685,89 +1685,112 @@
     {
       "id": 1,
       "smallTitle": "HYTEC",
-      "titleNormalBefore": " Welcome to the world of",
+      "titleNormalBefore": " Добро пожаловать в мир ",
       "titleAccent": "HYTEC",
-      "titleNormalAfter": "heavy machinery",
-      "text": "HYTEC is your reliable partner for purchasing quality heavy machinery. With years of experience, we offer the best products from leading manufacturers. \nOur team of experts can help you find the machine that meets your needs, whether it's new or used. Contact us today to discover why we are leaders in heavy machinery sales.",
+      "titleNormalAfter": "тяжелой техники",
+      "text": "HYTEC - ваш надежный партнер для приобретения качественной тяжелой техники. Со многолетним опытом мы предлагаем лучшие продукты от ведущих производителей. \nНаша команда экспертов поможет вам найти машину, соответствующую вашим потребностям, будь то новая или подержанная. Свяжитесь с нами сегодня, чтобы узнать, почему мы являемся лидерами в продаже тяжелой техники.",
       "image": "assets/carusel/baumachine_02.webp"
     },
     {
       "id": 2,
       "smallTitle": "HYTEC",
-      "titleNormalBefore": "We're the Leaders in",
-      "titleAccent": "Heavy Machinery",
-      "titleNormalAfter": "Solutions",
-      "text": "Hytec is a leading provider of top-quality heavy machinery solutions. Our selection of tractors, excavators, and other equipment meets the needs of any industry. \nWe partner with leading manufacturers to offer advanced and reliable machinery, and our team provides customized solutions to fit your needs and budget. Trust Hytec as your partner for all your heavy machinery needs. Contact us today to learn more.",
+      "titleNormalBefore": "Мы являемся лидерами в ",
+      "titleAccent": "сфере решений",
+      "titleNormalAfter": "для тяжелой техники.",
+      "text": "Hytec - ведущий поставщик первоклассных решений для тяжелой техники. Наш ассортимент тракторов, экскаваторов и другой техники отвечает потребностям любой отрасли. Мы сотрудничаем с ведущими производителями, предлагая передовую и надежную технику, а наша команда предоставляет индивидуальные решения, соответствующие вашим потребностям и бюджету. \nДоверьтесь Hytec в качестве вашего партнера по всем вопросам тяжелой техники. Свяжитесь с нами сегодня, чтобы узнать больше.",
       "image": "assets/carusel/baumachine_01.webp"
     },
     {
       "id": 3,
       "smallTitle": "HYTEC",
-      "titleNormalBefore": "Over",
+      "titleNormalBefore": "Более ",
       "titleAccent": "10.000",
-      "titleNormalAfter": "Satisfied Customers and Counting",
-      "text": "HYTEC provides high-quality heavy machinery solutions to meet industry-specific needs. With 10,000+ satisfied customers, our experts offer custom solutions within budget while partnering with leading manufacturers for advanced and dependable machinery. Count on us for your heavy machinery needs. Contact us today to learn more.",
+      "titleNormalAfter": "довольных клиентов и продолжаем считать.",
+      "text": "HYTEC предоставляет высококачественные решения для тяжелой техники, отвечающие специфическим потребностям отрасли. С более чем 10 000 довольных клиентов наша команда экспертов предлагает индивидуальные решения в рамках бюджета, сотрудничая с ведущими производителями передовой и надежной техники. \nРассчитывайте на нас для удовлетворения ваших потребностей в тяжелой технике. Свяжитесь с нами сегодня, чтобы узнать больше.",
       "image": "assets/carusel/baumachine_03.webp"
     }
   ],
   "text": {
-    "aboutus": "Since 2005, we have been one of the leading suppliers of high-quality heavy machinery in Germany. With over 10,000 machines sold and a network of over 100 dealers across the country, we have established a strong presence in the industry. \nOur goal is to provide you with the best solutions in the field of heavy machinery. With our extensive experience and expertise, we offer a diverse selection of machines for various applications."
+    "aboutus": "С 2005 года мы являемся одним из ведущих поставщиков высококачественной тяжелой техники в Германии. Благодаря продаже более 10 000 машин и наличию более 100 дилеров по всей стране, мы установили прочное присутствие в отрасли. \nНаша цель - предоставить вам лучшие решения в области тяжелой техники. С нашим обширным опытом и экспертизой мы предлагаем разнообразный выбор машин для различных применений."
   },
   "dealer": {
     "smallTitle": "HYTEC",
-    "titleNormalBefore": "Became a",
+    "titleNormalBefore": "Станьте дилером ",
     "titleAccent": "HYTEC",
-    "titleNormalAfter": "dealer",
-    "text": "Are you interested in becoming a dealer for our heavy machinery products? We're looking for dedicated individuals or companies who are passionate about construction and heavy equipment. \nAs a dealer, you'll have access to our full range of high-quality products, competitive pricing, and comprehensive support. Join us and help us bring the best in heavy machinery to customers worldwide. Contact us today to learn more about this exciting opportunity."
+    "titleNormalAfter": "",
+    "text": "Вы заинтересованы в становлении дилером нашей продукции тяжелой техники? Мы ищем преданных физических лиц или компаний, которые разделяют нашу страсть к строительству и тяжелому оборудованию. \nКак дилер, у вас будет доступ ко всем нашим полному ассортименту высококачественных продуктов, конкурентоспособным ценам и всесторонней поддержке. Присоединяйтесь к нам и помогайте нам предлагать лучшую тяжелую технику клиентам по всему миру. Свяжитесь с нами сегодня, чтобы узнать больше об этой захватывающей возможности."
   },
   "nav": [
     {
       "id": 1,
-      "displayName": "Home",
+      "displayName": "Главная",
       "idName": "home"
     },
     {
       "id": 1,
-      "displayName": "Machinery",
+      "displayName": "Техника",
       "idName": "machinery"
     },
     {
       "id": 1,
-      "displayName": "About Us",
+      "displayName": "О нас",
       "idName": "aboutus"
     },
     {
       "id": 1,
-      "displayName": "Contact",
+      "displayName": "Контакты",
       "idName": "contact"
     }
   ],
 
   "sections": {
-    "machinery": "Browse our machinery",
-    "aboutus": "About Us",
-    "contact": "CONTACT US"
+    "machinery": "Просмотрите нашу технику",
+    "aboutus": "О нас",
+    "contact": "СВЯЖИТЕСЬ С НАМИ"
   },
   "buttons": {
-    "contact": "Contact us",
-    "apply": "Apply now",
-    "send": "Send Message"
+    "contact": "Свяжитесь с нами",
+    "apply": "Подайте заявку сейчас",
+    "send": "Отправить сообщение"
   },
   "numbers": {
-    "founded": "Founded",
-    "sold": "Machines sold",
-    "dealers": "Dealers",
+    "founded": "Основано",
+    "sold": "Продано машин",
+    "dealers": "Дилеры",
     "machines": ""
   },
   "form": {
-    "name": "Name",
+    "name": "Имя",
     "email": "Email",
-    "subject": "Subject",
-    "text": "Type your message"
+    "subject": "Тема",
+    "text": "Введите ваше сообщение"
   },
   "footer": {
-    "imprint": "Imprint",
-    "privacyPolicy": "Privacy Policy",
-    "termsAndConditions": "Terms and Conditions"
-  }
+    "imprint": "Импринт",
+    "privacyPolicy": "Политика конфиденциальности",
+    "termsAndConditions": "Условия использования"
+  },
+  "filterCategories": {
+    "vehicleType": "Тип ТС",
+    "categories": "Категории",
+    "price": "Цена",
+    "displacement": "Объем двигателя",
+    "weight": "Вес",
+    "fuelTank": "Топливный бак"
+  },
+  "rest": {
+    "details": "Детали",
+    "viewMore": "Показать больше",
+    "followUsOn": "Подписывайтесь на нас в",
+    "showMore": "Показать больше",
+    "showLess": "Показать меньше",
+    "vat": "плюс НДС",
+    "freeExtras": "Бесплатные дополнительные услуги",
+    "accessories": "Аксессуары",
+    "specifications": "Технические характеристики",
+    "relatedProducts": "Связанные товары",
+    "warningNoProducts":"Извините, не найдено ни одной машины, соответствующей вашим критериям фильтра.",
+    "resultsFound":"Результаты найдены",
+    "home":"Главная"
+    }
 }

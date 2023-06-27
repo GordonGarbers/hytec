@@ -52,13 +52,21 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
                 ) : (
                   <Skeleton width={40} baseColor={EColors.primary} />
                 )}
+                
               </p>
 
               <h1 className={`hero-text-h1`} style={{ fontWeight: 900 }}>
                 {!isDataLoaded ? (
                   <>
                     {page?.titleNormalBefore}{' '}
-                    <span className="text-primary">{page?.titleAccent}</span>{' '}
+                    {
+                      page?.titleAccent.toUpperCase() !== 'HYTEC'
+                      ?
+                      <span className="text-primary">{page?.titleAccent}</span>
+                      :
+                      <span style={{position:'relative'}} className="text-primary">{page?.titleAccent}<span className='fs-9' style={{verticalAlign:'super'}}>&reg;</span></span>
+                    }
+                    {' '}
                     {page?.titleNormalAfter}{' '}
                   </>
                 ) : (

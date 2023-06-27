@@ -4,15 +4,20 @@ import { BsFacebook } from "react-icons/bs";
 import { FaYoutube } from "react-icons/fa";
 import { EColors } from "../../constants/constants";
 import { HiOutlineArrowNarrowUp } from "react-icons/hi";
+import { useAppSelector } from "../../app/hooks";
+import { RootState } from "../../app/store";
 
 
 export const SideFollowUs = () => {
+  const { dataIsLoaded, data, dataError } = useAppSelector(
+    (state: RootState) => state.data
+  );
   return (
     <div
       style={{ zIndex: "3"}}
       className="d-flex flex-row align-items-center gap-3 pt-2 pb-6 rounded-2"
     >
-        <div className="fs-13 fw-bold " >Follow Us on</div>
+        <div className="fs-13 fw-bold " >{data.rest.followUsOn}</div>
       <HiOutlineArrowNarrowUp size={24} style={{transform:'rotate(90deg)'}}/>
       <a
         className="text-grey-600"

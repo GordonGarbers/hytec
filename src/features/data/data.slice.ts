@@ -20,6 +20,8 @@ const initialState: IInitialState = {
     numbers: {},
     form:{},
     footer:{},
+    filterCategories:{},
+    rest:{},
     text:{}
   },
   dataError: "",
@@ -53,6 +55,8 @@ const datasSlice = createSlice({
         numbers: {},
         form:{},
         footer:{},
+        filterCategories:{},
+        rest:{},
         text:{}
       };
       state.dataError = action.payload;

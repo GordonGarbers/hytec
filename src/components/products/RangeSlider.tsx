@@ -117,7 +117,6 @@ export const RangeSlider: React.FC<IRangeSliderProps> = memo(
       dispatch(filterFunc({ min: minValue, max: maxValue }));
       if (value.min !== minValue || value.max !== maxValue) {
         dispatch(onFiltersChanged(refMin.current?.dataset.myAttr ?? ""));
-        
       }
     };
 

@@ -78,6 +78,15 @@ export interface IFooter {
   termsAndConditions: string;
 }
 
+export interface IFilterCategories{
+  vehicleType: string;
+  categories: string;
+  price: string;
+  displacement:string;
+  weight: string;
+  [key: string]: string;
+}
+
 export interface IResponseGenerator {
   config?: string;
   data: IDataDetails;
@@ -153,6 +162,22 @@ export interface INav {
   idName: string;
 }
 
+export interface IRest{
+  details: string;
+  viewMore: string;
+  followUsOn: string;
+  showMore: string;
+  showLess: string;
+  vat: string;
+  freeExtras: string;
+  accessories: string;
+  specifications: string;
+  relatedProducts: string;
+  warningNoProducts: string;
+  resultsFound: string;
+  home:string;
+}
+
 export interface IDataDetails {
   hero: IHero[];
   products: IProducts[];
@@ -163,6 +188,8 @@ export interface IDataDetails {
   numbers: Partial<INumbers>;
   form: Partial<IFrom>;
   footer: Partial<IFooter>;
+  filterCategories: Partial<IFilterCategories>;
+  rest: Partial<IRest>;
   text:Partial<IText>;
 }
 

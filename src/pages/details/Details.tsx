@@ -137,7 +137,7 @@ export const Details: React.FC = () => {
       transition={{duration:`${transitionSpeed}`}}
       className="details-article-wrapper">
       <article className="container-fluid-02 p-3">
-        <NavDetails finalProduct={finalProduct} dataIsLoaded={dataIsLoaded} relatedProducts={products}/>
+        <NavDetails finalProduct={finalProduct} dataIsLoaded={dataIsLoaded} relatedProducts={products} data={data}/>
 
         <div className={`w-100 rounded-3`}>
           {/*  */}
@@ -216,7 +216,7 @@ export const Details: React.FC = () => {
                 </div>
                 <div className="fs-7">
                   <span style={{ fontWeight: "900" }} className="text-primary">
-                    HYTEC
+                    HYTEC<span className='fs-12' style={{verticalAlign:'super'}}>&reg;</span>
                   </span>{" "}
                   {!dataIsLoaded ? (
                     finalProduct?.name
@@ -247,7 +247,7 @@ export const Details: React.FC = () => {
                     className=" fw-bold fs-15 text-dark btn btn-outline-primary-500 p-1"
                     onClick={() => setShowMore(!showMore)}
                   >
-                    <span>show {!showMore ? "more" : "less"}</span>{" "}
+                    <span>{!showMore ? data.rest.showMore: data.rest.showLess}</span>{" "}
                     {showMore ? <IoIosArrowUp /> : <IoIosArrowDown />}{" "}
                   </button>
                 </ProcessText>
@@ -270,7 +270,7 @@ export const Details: React.FC = () => {
                         )}
                         <span className="fs-10 text-dark-light">&euro;</span>{" "}
                         <span className="fs-14 text-grey-500">
-                          (zzgl. MwSt.)
+                          ({data.rest.vat})
                         </span>
                       </div>
                     </div>
@@ -278,7 +278,7 @@ export const Details: React.FC = () => {
                       finalProduct?.extras.length > 0
                       &&
                       <div className=" w-100 ">
-                        <h3 className="fs-13 fw-bold">Kostenlose Extras:</h3>
+                        <h3 className="fs-13 fw-bold">{data.rest.freeExtras}:</h3>
 
                         {!dataIsLoaded ? (
                           finalProduct?.extras.map(
@@ -323,14 +323,18 @@ export const Details: React.FC = () => {
             <Table
               finalProduct={finalProduct}
               sectionName={EProductSections.accessories}
+              displayName={data.rest.accessories??""}
               sectionClass="table-second"
               dataIsLoaded={dataIsLoaded}
+              data = {data}
             />
             <Table
               finalProduct={finalProduct}
               sectionName={EProductSections.specifications}
+              displayName={data.rest.specifications??""}
               sectionClass="table-first"
               dataIsLoaded={dataIsLoaded}
+              data = {data}
             />
           </div>
         </div>
@@ -347,7 +351,7 @@ export const Details: React.FC = () => {
           style={{ fontWeight: "900" }}
           className="text-dark fs-8 mb-5 text-center "
         >
-          Related Products
+          {data.rest.relatedProducts}
         </h1>
         
             <RelatedProducts relatedProducts={randomProductPerCategorieElements}/>

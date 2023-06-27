@@ -149,7 +149,7 @@ export const Land: React.FC = () => {
             {!dataIsLoaded ? (
               <>
                 {data.dealer?.titleNormalBefore}{' '}
-                <span className="text-primary">{data.dealer?.titleAccent}</span>{' '}
+                <span className="text-primary">{data.dealer?.titleAccent}<span className='fs-10' style={{verticalAlign:'super'}}>&reg;</span></span>{' '}
                 {data.dealer?.titleNormalAfter}
               </>
             ) : (
