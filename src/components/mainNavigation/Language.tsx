@@ -2,30 +2,29 @@ import React, { useState } from "react";
 import { Translate } from "react-bootstrap-icons";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { RootState } from "../../app/store";
-import { ECategories, languageButtons } from "../../constants/constants";
+import { ECategories, EColors, languageButtons } from "../../constants/constants";
 import { switchLanguage } from "../../features/changeLanguage/changeLanguage.slice";
 import { onFiltersClear } from "../products/features/filtersChanged.slice";
 import { useNavigate } from "react-router-dom";
 import { onMinMaxSave } from "../products/features/minMaxValues.slice";
 import { addCategory } from "../../features/products/productCategories/productCategories.slice";
 
+import './language.scss'
+import Select, { SingleValue } from 'react-select';
+import Flag from 'react-world-flags'
+
+
 export const Language: React.FC = () => {
+
   const { language } = useAppSelector((state: RootState) => state.lang);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
 
-
-  // console.log(language);
-  // useEffect(()=>{
-  //   dispatch(onMinMaxSave({name: 'price',  minMax: {min: 0,  max: 1}}))
-  // }, [language])
-
-  const handleLanguage = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    lang: string
+  const handleLanguageOptions2 = (
+    e: SingleValue<{value: string; label: React.ReactNode;}>
   ) => {
-    e.preventDefault();
+    const lang = e?.value??""
     dispatch(switchLanguage(lang));
     dispatch(onFiltersClear());
     sessionStorage.setItem("selectedOption", lang);
@@ -40,38 +39,62 @@ export const Language: React.FC = () => {
     if(radioButtonCategories){
       radioButtonCategories.checked = true;
     }
-
   };
 
-  const lngButtons = languageButtons.map((lang: string, idx: number) => {
+
+  const customStyles = {
+    control: (provided:any, state:any) => ({
+      ...provided,
+      paddingTop: '0px',
+      paddingBottom: '0px',
+      cursor:'pointer',
+      border: '1px solid rgba(0,0,0,.1)',
+      boxShadow: 'none',
+      fontSize:'.8rem',
+      '&:hover': {
+          border: '1px solid rgba(0,0,0,.1)',
+      }
+    }),
+    option: (provided:any, state:any) => ({
+      ...provided,
+      backgroundColor: state.isSelected ? `rgba(0,0,0,.05)` : 'white', 
+      color: state.isSelected ? `${EColors.dark}` : 'black',
+      fontSize:'.8rem',
+      cursor:'pointer',
+      ':hover': {
+        backgroundColor: 'rgba(0,0,0,.05)', // Promenite boju prema potrebi
+      },
+    }),
+  };
+
+  //OPTIONS
+  const lngOptionsRS = languageButtons.map((lang: string, idx: number) => {
     return (
-      <div key={idx}>
+      // { value: lang, label: lang.toUpperCase()}
+      { value: lang, label: <div className="d-flex gap-2 align-items-center"><Flag style={{border:'1px solid rgba(0,0,0,.05)'}} code={`${lang==='en' ? 'gb' : lang}`} width={`${lang==='en'?20:20}`}/>{lang.toUpperCase()}</div> }
+    )
+  })
 
-        <button
-          className={`border-0 ${lang === language ? "text-dark fw-bold" : "text-muted fw-normal"}`}
-          value={lang}
-          disabled={lang===language ? true : false}
-          onClick={(e) => handleLanguage(e, lang)}
-        >
-          {lang.toUpperCase()}
-        </button>
-
-        <span className="ps-2">
-          {idx + 1 !== languageButtons.length ? "|" : ""}
-        </span>
-      </div>
-    );
-  });
+  //DEFAULT SELECTED OPTION
+  const defaultValue = lngOptionsRS.find(lngOptionsRS => lngOptionsRS.value === language);
 
   return (
     <div
       // role="button"
       data-add-btn={false}
-      className="position-relative d-flex align-items-center gap-2 text-secondary fs-13 mb-2 mt-5 mt-sm-1 me-auto me-sm-0 language"
+      className="position-relative d-flex align-items-center gap-2 text-secondary fs-13 mb-1 mt-5 mt-sm-1 me-auto me-sm-0 language"
       style={{ color: "#000" }}
     >
       <Translate size={18} color="#000" />
-      {lngButtons}
+      
+      <Select
+        className="w-100 custom-select"
+        options={lngOptionsRS}
+        styles={customStyles}
+        defaultValue={defaultValue}
+        onChange={(e) => handleLanguageOptions2(e)}
+    />
+
     </div>
   );
 };
