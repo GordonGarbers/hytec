@@ -48,7 +48,7 @@ export const MainNavigation = () => {
   //     window.removeEventListener("scroll", handleScroll);
   //   };
   // }, []);
-  
+
 
   return (
     <>
@@ -58,17 +58,26 @@ export const MainNavigation = () => {
           style={{ zIndex: "1" }}
           className="position-fixed d-flex align-items-center mb-3 gap-4 gap-sm-1 menu-translate"
         >
-          <NavMenuIconSM bool={false}>
-            <List size={32} color="#fff" />
-          </NavMenuIconSM>
+          {
+            !showHideMainMenu
+            ?
+            <NavMenuIconSM bool={false}>
+              <List size={32} color="#fff" />
+            </NavMenuIconSM>
+            :
+            <></>
+          }
         </div>
         {
-          !showHideMainMenu &&
+          !showHideMainMenu
+          ?
           windowWidth > 620
           ?
           <HNavigation windowWidth={windowWidth} />
           :
           <VNavigation windowWidth={windowWidth} />
+          :
+          <></>
         }
 
       </motion.nav>
