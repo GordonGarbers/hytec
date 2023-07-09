@@ -39,6 +39,8 @@ import { onResetFilter } from "./features/resetFilters.slice";
 import { onFiltersRemove } from "./features/filtersChanged.slice";
 import { GrFormClose } from "react-icons/gr";
 import { onSliderSpeedChange } from "./features/sliderAnimSpeed.slice";
+import { onHytecChanged } from "./features/hytec.slice";
+import { onHytecProChanged } from "./features/hytecPro.slice";
 
 export const FilterProduct: React.FC = () => {
   const { dataIsLoaded, data, dataError } = useAppSelector(
@@ -70,8 +72,10 @@ export const FilterProduct: React.FC = () => {
     setButtonSelected("");
   }, [filters]);
 
-  const [checkedHytec, setCheckedHytec] = useState<boolean>(true);
-  const [checkedHytecPro, setCheckedHytecPro] = useState<boolean>(true);
+  const {hytec} = useAppSelector((state:RootState)=>state.hytec)
+  const {hytecPro} =  useAppSelector((state:RootState)=>state.hytecPro)
+
+
 
 
   // OVDE JE FILTER ZA PRO i NON PRO MASINE (MESTO BROJ 1)
@@ -233,9 +237,9 @@ export const FilterProduct: React.FC = () => {
 
   const onVehicleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if(e.currentTarget.value === "hytec")
-      setCheckedHytec(!checkedHytec);
+      dispatch(onHytecChanged(!hytec))
     else
-      setCheckedHytecPro(!checkedHytecPro);
+      dispatch(onHytecProChanged(!hytecPro))
     dispatch(addVehicleType(e.currentTarget.value))
 
     if(e.currentTarget.checked){
@@ -287,13 +291,13 @@ export const FilterProduct: React.FC = () => {
               </label>
 
               <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="hytec" id="hytecChecker" onChange={(e)=>onVehicleChange(e)} checked={checkedHytec} />
+                <input className="form-check-input" type="checkbox" value="hytec" id="hytecChecker" onChange={(e)=>onVehicleChange(e)} checked={hytec} />
                 <label className="form-check-label fs-14" htmlFor="flexCheckDefault">
                   Hytec
                 </label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="hytec pro" id="hytecProChecker" onChange={(e)=>onVehicleChange(e)} checked={checkedHytecPro} />
+                <input className="form-check-input" type="checkbox" value="hytec pro" id="hytecProChecker" onChange={(e)=>onVehicleChange(e)} checked={hytecPro} />
                 <label className="form-check-label fs-14" htmlFor="flexCheckChecked">
                   Hytec Pro
                 </label>

@@ -16,6 +16,8 @@ import nextReducer from '../features/next/next.slice'
 import filterChangedReducer from '../components/products/features/filtersChanged.slice'
 import minMaxValueReducer from '../components/products/features/minMaxValues.slice'
 import filterVehicleTypeReducer from '../components/products/features/filterVehicleType.slice'
+import hytecSlice from '../components/products/features/hytec.slice'
+import hytecProSlice from '../components/products/features/hytecPro.slice'
 import rootSaga from "../saga/saga";
 
 const saga = createSagaMiddleware();
@@ -37,7 +39,9 @@ export const store = configureStore({
     sliderSpeed: sliderAnimSpeedReducer,
     next: nextReducer,
     minMax: minMaxValueReducer,
-    vehicleType: filterVehicleTypeReducer
+    vehicleType: filterVehicleTypeReducer,
+    hytec:hytecSlice,
+    hytecPro:hytecProSlice
   },
   middleware: (defaultMiddleware) => defaultMiddleware().concat(saga),
 });

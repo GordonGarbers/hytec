@@ -12,6 +12,9 @@ import { addCategory } from "../../features/products/productCategories/productCa
 import './language.scss'
 import Select, { SingleValue } from 'react-select';
 import Flag from 'react-world-flags'
+import { onHytecChanged } from "../products/features/hytec.slice";
+import { onHytecProChanged } from "../products/features/hytecPro.slice";
+import { addVehicleType } from "../products/features/filterVehicleType.slice";
 
 
 export const Language: React.FC = () => {
@@ -34,6 +37,12 @@ export const Language: React.FC = () => {
     dispatch(onMinMaxSave({name: ECategories.fuelTank,  minMax: {min: 0,  max: 1}}))
     
     dispatch(addCategory("all"));
+
+    dispatch(onHytecChanged(true))
+    dispatch(onHytecProChanged(true))
+
+    dispatch(addVehicleType("hytec"))
+    dispatch(addVehicleType("hytec pro"))
 
     const radioButtonCategories = document.getElementById("exampleRadios1") as HTMLInputElement;
     if(radioButtonCategories){
