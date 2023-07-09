@@ -332,8 +332,8 @@ export const FilterProduct: React.FC = () => {
               </div>
             </div>
 
-            <div className="d-flex w-100 flex-column flex-lg-row gap-3">
-              <div className="w-100 filter-range-wrapper d-flex flex-column justify-content-between px-4 gap-3">
+            <div className="d-flex w-100 flex-column flex-lg-row gap-3 align-items-start">
+              <div className="w-100 filter-range-wrapper d-flex flex-column justify-content-between px-4 gap-4">
                 <div className="position-relative w-100">
                   <label
                     style={{ textTransform: "capitalize" }}
@@ -385,7 +385,7 @@ export const FilterProduct: React.FC = () => {
                 </div>
               </div>
 
-              <div className="w-100 filter-range-wrapper d-flex flex-column justify-content-between px-4  gap-3">
+              <div className="w-100 filter-range-wrapper d-flex flex-column justify-content-between px-4  gap-4">
                 <div className="position-relative w-100">
                   <label
                     style={{ textTransform: "capitalize" }}
