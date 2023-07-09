@@ -20,7 +20,7 @@ export const PigeonMap: React.FC = ()=>{
             // height:'300px',
             overflow: 'hidden',
           }}
-          className="rounded-0 me-3 map-wrapper"
+          className="rounded-0 me-3 map-wrapper rounded-2"
         >
           <Map defaultCenter={[ windowWidth > 620 ? 53.3327 : 53.345, 10.2165]} twoFingerDrag={true} metaWheelZoom={false} zoom={zoom}>
             <Overlay anchor={center} offset={[131, 144]} className={`${close ? 'd-none' : 'd-block'}`}>

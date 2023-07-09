@@ -278,55 +278,62 @@ export const FilterProduct: React.FC = () => {
           data-bs-parent="#accordionExample"
         >
           <div
-            className="accordion-body w-100 d-flex flex-column d-md-grid gap-4"
-            style={{ gridTemplateColumns: "200px 200px 1fr" }}
+            className="accordion-body w-100 d-flex d-md-grid flex-column gap-5"
+            style={{ gridTemplateColumns: "330px 1fr" }}
           >
-            <div className="position-relative">
-              <label
-                style={{ textTransform: "capitalize" }}
-                className="mb-3 fs-13 fw-bold text-dark-light"
-                htmlFor=""
-              >
-                {data.filterCategories.vehicleType}
-              </label>
+            <div className={`d-flex gap-5 w-100 flex-${windowWidth > 350 ? 'row': 'column'}`}>
 
-              <div className="form-check">
+              <div className="position-relative">
+                <label
+                  style={{ textTransform: "capitalize" }}
+                  className="mb-3 fs-13 fw-bold text-dark-light"
+                  htmlFor=""
+                >
+                  {data.filterCategories.vehicleType}
+                </label>
+
+                {/* <div className="form-check">
+                  <input className="form-check-input" type="checkbox" value="hytec" id="hytecChecker" onChange={(e)=>onVehicleChange(e)} checked={hytec} />
+                  <label className="form-check-label fs-14" htmlFor="flexCheckDefault">
+                    Hytec
+                  </label>
+                </div>
+                <div className="form-check">
+                  <input className="form-check-input" type="checkbox" value="hytec pro" id="hytecProChecker" onChange={(e)=>onVehicleChange(e)} checked={hytecPro} />
+                  <label className="form-check-label fs-14" htmlFor="flexCheckChecked">
+                    Hytec Pro
+                  </label>
+                </div> */}
+
+                <div className="form-check form-switch">
                 <input className="form-check-input" type="checkbox" value="hytec" id="hytecChecker" onChange={(e)=>onVehicleChange(e)} checked={hytec} />
-                <label className="form-check-label fs-14" htmlFor="flexCheckDefault">
-                  Hytec
-                </label>
-              </div>
-              <div className="form-check">
+                  <label className="form-check-label fs-14" htmlFor="flexCheckDefault">
+                    Hytec
+                  </label>
+                </div>
+                <div className="form-check form-switch">
                 <input className="form-check-input" type="checkbox" value="hytec pro" id="hytecProChecker" onChange={(e)=>onVehicleChange(e)} checked={hytecPro} />
-                <label className="form-check-label fs-14" htmlFor="flexCheckChecked">
-                  Hytec Pro
+                  <label className="form-check-label fs-14" htmlFor="flexCheckChecked">
+                    Hytec Pro
+                  </label>
+                </div>
+
+              </div>
+              
+              <div className="position-relative">
+                <label
+                  style={{ textTransform: "capitalize" }}
+                  className="mb-3 fs-13 fw-bold text-dark-light"
+                  htmlFor=""
+                >
+                  {data.filterCategories.categories}
                 </label>
+                {createCategoriyElements}
               </div>
-
-              {/* <div className="form-check form-switch">
-                <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault"/>
-                <label className="form-check-label text-grey-500 fs-14" htmlFor="flexSwitchCheckDefault">Hytec</label>
-              </div>
-              <div className="form-check form-switch">
-                <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked/>
-                <label className="form-check-label text-grey-500 fs-14" htmlFor="flexSwitchCheckChecked">Hytec Pro</label>
-              </div> */}
-
-            </div>
-            
-            <div className="position-relative">
-              <label
-                style={{ textTransform: "capitalize" }}
-                className="mb-3 fs-13 fw-bold text-dark-light"
-                htmlFor=""
-              >
-                {data.filterCategories.categories}
-              </label>
-              {createCategoriyElements}
             </div>
 
             <div className="d-flex w-100 flex-column flex-lg-row gap-3">
-              <div className="w-100 filter-range-wrapper d-flex flex-column justify-content-between px-4">
+              <div className="w-100 filter-range-wrapper d-flex flex-column justify-content-between px-4 gap-3">
                 <div className="position-relative w-100">
                   <label
                     style={{ textTransform: "capitalize" }}
@@ -378,7 +385,7 @@ export const FilterProduct: React.FC = () => {
                 </div>
               </div>
 
-              <div className="w-100 filter-range-wrapper d-flex flex-column justify-content-between px-4">
+              <div className="w-100 filter-range-wrapper d-flex flex-column justify-content-between px-4  gap-3">
                 <div className="position-relative w-100">
                   <label
                     style={{ textTransform: "capitalize" }}
