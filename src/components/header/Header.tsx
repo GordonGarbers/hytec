@@ -11,11 +11,12 @@ import { MAXIMUM_CONTAINER_WIDTH } from "../../constants/constants";
 
 export const Header: React.FC = () => {
   const { scrollY } = useAppSelector((state: RootState) => state.scrollPos);
+  const {showHideMainMenu} = useAppSelector((state:RootState) => state.hideShowMainMenu)
 
   return (
     <header
       style={{ zIndex: "2", top: "0px" }}
-      className={`bg-dark pt-2 pt-sm-2 pb-2 pb-sm-4 position-fixed w-100 position-relative`}
+      className={`bg-dark pt-2 pt-sm-2 pb-2 pb-sm-${showHideMainMenu ? 2 : 4} position-fixed w-100 position-relative`}
     >
       <div
         style={{

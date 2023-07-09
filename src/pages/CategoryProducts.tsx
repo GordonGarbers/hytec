@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { RelatedProducts } from "./details/RelatedProducts";
 import { IProducts } from "../interfaces/interfaces";
 import { useRandomProducts } from "./details/hooks/useRandomProducts";
 import {motion} from 'framer-motion'
 import { transitionSpeed } from "../constants/constants";
+import { onMainMenuShowHide } from "../components/products/features/hideShowMainMenu.slice";
+import { useAppDispatch } from "../app/hooks";
 
 export const CategoryProducts = () => {
     const location = useLocation()
     const section = location.state?.section as IProducts
     const randomProductPerCategorieElements = useRandomProducts(section)
+    const dispatch = useAppDispatch()
     
     // console.log('pppp', location.state);
+
+    useEffect(()=>{
+      dispatch(onMainMenuShowHide(true))
+    },[randomProductPerCategorieElements])
+
+
     return (
         <motion.div
           animate={{opacity:1}}

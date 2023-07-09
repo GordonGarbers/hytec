@@ -40,6 +40,7 @@ import { motion } from "framer-motion";
 import { RelatedProducts } from "./RelatedProducts";
 import { useRandomProducts } from "./hooks/useRandomProducts";
 import { FadeInMotionWrapper } from "../../components/layout/FadeInMotionWrapper";
+import { onMainMenuShowHide } from "../../components/products/features/hideShowMainMenu.slice";
 
 interface INavigateType {
   product: IProducts;
@@ -56,7 +57,8 @@ export const Details: React.FC = () => {
   const { dataIsLoaded, data, dataError } = useAppSelector(
     (state: RootState) => state.data
   );
-
+  
+  const dispatch = useAppDispatch()
   const location = useLocation();
   const products = location.state.product as IProducts;
   // const data = location.state.data as IDataDetails;
@@ -76,7 +78,10 @@ export const Details: React.FC = () => {
   }, [value]);
 
 
-
+  useEffect(()=>{
+    dispatch(onMainMenuShowHide(true))
+    console.log('BOREEEEE');
+  },[windowWidth])
   
 
   const finalProduct = data.products.filter(
@@ -138,7 +143,6 @@ export const Details: React.FC = () => {
       className="details-article-wrapper">
       <article className="container-fluid-02 p-3">
         <NavDetails finalProduct={finalProduct} dataIsLoaded={dataIsLoaded} relatedProducts={products} data={data}/>
-
         <div className={`w-100 rounded-3`}>
           {/*  */}
 

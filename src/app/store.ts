@@ -18,6 +18,7 @@ import minMaxValueReducer from '../components/products/features/minMaxValues.sli
 import filterVehicleTypeReducer from '../components/products/features/filterVehicleType.slice'
 import hytecSlice from '../components/products/features/hytec.slice'
 import hytecProSlice from '../components/products/features/hytecPro.slice'
+import hideShowMainMenuSlice from '../components/products/features/hideShowMainMenu.slice'
 import rootSaga from "../saga/saga";
 
 const saga = createSagaMiddleware();
@@ -41,7 +42,8 @@ export const store = configureStore({
     minMax: minMaxValueReducer,
     vehicleType: filterVehicleTypeReducer,
     hytec:hytecSlice,
-    hytecPro:hytecProSlice
+    hytecPro:hytecProSlice,
+    hideShowMainMenu: hideShowMainMenuSlice
   },
   middleware: (defaultMiddleware) => defaultMiddleware().concat(saga),
 });

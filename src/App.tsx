@@ -10,6 +10,7 @@ import {createBrowserRouter, createRoutesFromElements, BrowserRouter as Router, 
 import { MainLayout } from './components/layout/MainLayout';
 import { setNext } from './features/next/next.slice';
 import { CategoryProducts } from './pages/CategoryProducts';
+import { onMainMenuShowHide } from './components/products/features/hideShowMainMenu.slice';
 
 
 const router = createBrowserRouter(
@@ -36,6 +37,10 @@ function App() {
 
 
   const dispatch = useAppDispatch();
+
+    useEffect(()=>{
+      dispatch(onMainMenuShowHide(false))
+    },[])
 
   useEffect(() => {
     const storedSelectedOption =

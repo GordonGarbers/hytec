@@ -16,6 +16,7 @@ import { setNavButton } from "../features/navButton/navButtons.slice";
 import { useSpy } from "../components/mainNavigation/hooks/useSpy";
 import { useLocation } from "react-router-dom";
 import { AboutUs } from "../components/aboutus/AboutUs";
+import { onMainMenuShowHide } from "../components/products/features/hideShowMainMenu.slice";
 
 export const Home: React.FC = () => {
 
@@ -29,6 +30,7 @@ export const Home: React.FC = () => {
   useEffect(()=>{
     // console.log('state: ', state);
     scrollToSection(state?.section)
+    dispatch(onMainMenuShowHide(false))
   },[])
 
 

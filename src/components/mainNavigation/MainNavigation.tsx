@@ -16,6 +16,7 @@ export const MainNavigation = () => {
 
 
   const  {windowWidth, scrollY} = useRefresh()
+  const {showHideMainMenu} = useAppSelector((state:RootState) => state.hideShowMainMenu)
 
   // const {windowWidth} = useAppSelector((state: RootState) => state.width)
 
@@ -62,6 +63,7 @@ export const MainNavigation = () => {
           </NavMenuIconSM>
         </div>
         {
+          !showHideMainMenu &&
           windowWidth > 620
           ?
           <HNavigation windowWidth={windowWidth} />

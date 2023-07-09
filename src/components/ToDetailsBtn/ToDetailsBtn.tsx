@@ -7,6 +7,7 @@ import { EColors } from '../../constants/constants';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { RootState } from '../../app/store';
 import { increment } from '../../features/counter/counterSlice';
+import { onMainMenuShowHide } from '../products/features/hideShowMainMenu.slice';
 
 interface IToDetailsBtnProps {
     dataIsLoaded: boolean;
@@ -17,6 +18,7 @@ interface IToDetailsBtnProps {
 }
 
 export const ToDetailsBtn: React.FC<IToDetailsBtnProps> = ({dataIsLoaded, product, data, fullWidth, reloadPage}) => {
+    // const {showHideMainMenu} = useAppSelector((state:RootState) => state.hideShowMainMenu)
 
     const dispatch = useAppDispatch()
     const navigate = useNavigate();
@@ -32,6 +34,7 @@ export const ToDetailsBtn: React.FC<IToDetailsBtnProps> = ({dataIsLoaded, produc
         }
 
         dispatch(increment())
+        dispatch(onMainMenuShowHide(true))
         // console.log(`${product.categorie}/${product.name}`);
       };
 
