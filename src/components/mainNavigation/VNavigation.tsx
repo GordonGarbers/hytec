@@ -39,6 +39,7 @@ export const VNavigation: React.FC<INavigationProps> = ({ windowWidth }) => {
       </div>
 
       <Language/>
+      <div className='mt-8'></div>
       <Ul windowWidth={windowWidth} />
     </div>
   );
