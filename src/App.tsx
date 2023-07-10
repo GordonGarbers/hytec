@@ -11,7 +11,7 @@ import { MainLayout } from './components/layout/MainLayout';
 import { setNext } from './features/next/next.slice';
 import { CategoryProducts } from './pages/CategoryProducts';
 import { onMainMenuShowHide } from './components/products/features/hideShowMainMenu.slice';
-
+import { ImprintInfo } from './pages/ImprintInfo';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +19,7 @@ const router = createBrowserRouter(
         <Route index element={<Home/>}/>
         <Route path=':type/:id' element={<Details/>}/>
         <Route path=':type' element={<CategoryProducts/>}/>
+        <Route path='imprint' element={<ImprintInfo/>}/>
 
       </Route>  ),
   {basename:process.env.PUBLIC_URL},

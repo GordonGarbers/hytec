@@ -80,7 +80,6 @@ export const Details: React.FC = () => {
 
   useEffect(()=>{
     dispatch(onMainMenuShowHide(true))
-    console.log('BOREEEEE');
   },[windowWidth])
   
 
