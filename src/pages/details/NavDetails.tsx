@@ -85,7 +85,7 @@ export const NavDetails: React.FC<INavDetailsProps> = ({
                     whileHover={{borderBottom:`1px solid ${EColors.primary}`}}
                     whileTap={{borderBottom:`1px solid rgba(0,0,0,3)`}}
                   style={{paddingBottom:'1px', borderBottom:`1px solid rgba(0,0,0,.4)`, lineHeight:'48px'}}>
-                {decodeURIComponent(finalProduct?.categorie)}</motion.span>
+                {decodeURIComponent(finalProduct?.categorie).charAt(0).toUpperCase()+decodeURIComponent(finalProduct?.categorie).slice(1)}</motion.span>
                 </motion.div>
               ) : (
                 ""
