@@ -1683,11 +1683,11 @@
     {
       "id": 23,
       "categorie": "Wheel loader",
-      "name": "F10 PRO",
+      "name": "F08 PRO",
       "price": "15.000",
       "vehicleType": "hytec pro",
       "extras": ["Quick change system", "Shovel", "Chain"],
-      "description": "The F10 PRO wheel loader is perfect as a strong and compact working machine for construction sites and farms. The entire machine is well-designed and developed to the highest quality standards, capable of withstanding heavy loads. The powerful 4-cylinder diesel engine gives this compact loader enough power to excel even in professional applications. \nWith the control valve, which also allows for a locked third control circuit for float position, the equipment is perfectly suited for applications in garden and landscaping.",
+      "description": "The F08 PRO wheel loader is perfect as a strong and compact working machine for construction sites and farms. The entire machine is well-designed and developed to the highest quality standards, capable of withstanding heavy loads. The powerful 4-cylinder diesel engine gives this compact loader enough power to excel even in professional applications. \nWith the control valve, which also allows for a locked third control circuit for float position, the equipment is perfectly suited for applications in garden and landscaping.",
       "accessories": [],
       "specifications": [
         "Engine: Kubota 3-Cylinder according to EURO 5 Norm:",
@@ -1735,7 +1735,7 @@
         "vehicleType": "hytec pro"
       },
       "basePath": "assets/machinery/",
-      "productNamePath": "F10PRO/",
+      "productNamePath": "F08PRO/",
       "heroImage": "01.webp",
       "carouselImages": ["01.webp"],
       "video": "https://www.youtube.com/watch?v=hLwli41C08k"
@@ -1909,7 +1909,7 @@
         "Battery: 12/45: V/Ah"
         ],
       "filter": {
-        "categorie": "Wheel loader",
+        "categorie": "radlader",
         "fuelType": "diesel",
         "kw": 14.6,
         "ps": 14.6,
