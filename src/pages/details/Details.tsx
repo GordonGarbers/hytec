@@ -360,7 +360,7 @@ export const Details: React.FC = () => {
             <RelatedProducts relatedProducts={randomProductPerCategorieElements}/>
         </div>
       </div>
-      
+      <ContactUs />
     </motion.div>
 
   );
