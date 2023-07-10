@@ -1766,7 +1766,7 @@
     {
       "id": 23,
       "categorie": "radlader",
-      "name": "F10 PRO",
+      "name": "F08 PRO",
       "price": "15.000",
       "vehicleType":"hytec pro",
       "extras": [
@@ -1774,7 +1774,7 @@
         "Schaufel",
         "Kette"
       ],
-      "description": "Der F10 PRO Radlader ist perfekt als starke  und kompakte Arbeitsmaschine für den Bau und Hof. Die komplette Maschine ist durchdacht und nach höchsten Qualitätsstandards entwickelt und hält auch hohen Belastungen stand. Der starke 4 Zylinder Diesel verleiht diesem Kompaktlader genug Leistung, auch im professionellen Einsatz zu glänzen. \nDurch das Steuerventil welches auch mit arretierten dritten Steuerkreis die Schwimmstellung ermöglicht macht das Gerät auch für Anwendungen im Garten-Landschaftsbau perfekt geeignet.",
+      "description": "Der F08 PRO Radlader ist perfekt als starke  und kompakte Arbeitsmaschine für den Bau und Hof. Die komplette Maschine ist durchdacht und nach höchsten Qualitätsstandards entwickelt und hält auch hohen Belastungen stand. Der starke 4 Zylinder Diesel verleiht diesem Kompaktlader genug Leistung, auch im professionellen Einsatz zu glänzen. \nDurch das Steuerventil welches auch mit arretierten dritten Steuerkreis die Schwimmstellung ermöglicht macht das Gerät auch für Anwendungen im Garten-Landschaftsbau perfekt geeignet.",
       "accessories": [
       ],
       "specifications": [
@@ -1823,7 +1823,7 @@
         "vehicleType": "hytec pro"
       },
       "basePath": "assets/machinery/",
-      "productNamePath": "F10PRO/",
+      "productNamePath": "F08PRO/",
       "heroImage": "01.webp",
       "carouselImages": [
         "01.webp"
