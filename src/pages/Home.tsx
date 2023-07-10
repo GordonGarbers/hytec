@@ -17,6 +17,7 @@ import { useSpy } from "../components/mainNavigation/hooks/useSpy";
 import { useLocation } from "react-router-dom";
 import { AboutUs } from "../components/aboutus/AboutUs";
 import { onMainMenuShowHide } from "../components/products/features/hideShowMainMenu.slice";
+import { SparePartsAndTransport } from "../components/SparePartsAndTransport/SparePartsAndTransport";
 
 export const Home: React.FC = () => {
 

@@ -23,7 +23,17 @@ export const ProcessText: React.FC<IProcessTextProps> = ({
       {!isLoaded ? (
         text?.split("\n").map((item: string, idx: number) => (
           <p key={idx} style={{ textIndent: "30px", lineHeight:'1.4rem'}}>
-            {item}
+            {item.split("//").length > 2
+            ?
+            <>
+                {item.split("//")[0]}{" "}
+                <span className="fw-bold">{item.split("//")[1]}</span>{" "}
+                {item.split("//")[2]}
+            </>
+            
+            :
+              item
+            }
             {/* {text?.split("\n").length === (idx + 1) ? children : ''} */}
           </p>
 

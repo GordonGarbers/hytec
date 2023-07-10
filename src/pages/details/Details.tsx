@@ -41,6 +41,7 @@ import { RelatedProducts } from "./RelatedProducts";
 import { useRandomProducts } from "./hooks/useRandomProducts";
 import { FadeInMotionWrapper } from "../../components/layout/FadeInMotionWrapper";
 import { onMainMenuShowHide } from "../../components/products/features/hideShowMainMenu.slice";
+import { SparePartsAndTransport } from "../../components/SparePartsAndTransport/SparePartsAndTransport";
 
 interface INavigateType {
   product: IProducts;
@@ -360,6 +361,7 @@ export const Details: React.FC = () => {
             <RelatedProducts relatedProducts={randomProductPerCategorieElements}/>
         </div>
       </div>
+      <SparePartsAndTransport/>
       <ContactUs />
     </motion.div>
 

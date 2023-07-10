@@ -78,11 +78,11 @@ export interface IFooter {
   termsAndConditions: string;
 }
 
-export interface IFilterCategories{
+export interface IFilterCategories {
   vehicleType: string;
   categories: string;
   price: string;
-  displacement:string;
+  displacement: string;
   weight: string;
   [key: string]: string;
 }
@@ -121,8 +121,8 @@ export interface IFilter {
 }
 
 export enum EUseRangeSections {
-  categorie="categorie",
-  fuelType ="fuelType",
+  categorie = "categorie",
+  fuelType = "fuelType",
   kw = "kw",
   ps = "ps",
   displacement = "displacement",
@@ -136,7 +136,7 @@ export enum EUseRangeSections {
   totalHeight = "totalHeight",
   wheelbase = "wheelbase",
   price = "price",
-  vehicleType = "vehicleType"
+  vehicleType = "vehicleType",
 }
 export interface IProducts {
   id: number;
@@ -162,7 +162,7 @@ export interface INav {
   idName: string;
 }
 
-export interface IRest{
+export interface IRest {
   details: string;
   viewMore: string;
   followUsOn: string;
@@ -175,7 +175,11 @@ export interface IRest{
   relatedProducts: string;
   warningNoProducts: string;
   resultsFound: string;
-  home:string;
+  home: string;
+  sparePartsTitle: string;
+  transportTitle: string;
+  spareParts: string;
+  transport: string;
 }
 
 export interface IDataDetails {
@@ -190,7 +194,7 @@ export interface IDataDetails {
   footer: Partial<IFooter>;
   filterCategories: Partial<IFilterCategories>;
   rest: Partial<IRest>;
-  text:Partial<IText>;
+  text: Partial<IText>;
 }
 
 export interface ICategory {
@@ -200,7 +204,6 @@ export interface ICategory {
 }
 
 export interface IRange {
-  min: number,
-  max: number
+  min: number;
+  max: number;
 }
-
