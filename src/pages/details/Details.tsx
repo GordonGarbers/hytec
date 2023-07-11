@@ -346,6 +346,7 @@ export const Details: React.FC = () => {
         <div className="container-fluid-02 pt-6 pb-4 px-3">
           <YTDetails url={finalProduct?.video}/>
         </div>
+        <SparePartsAndTransport/>
 
       <div className="w-100 mt-5 bg-grey-900 ">
         <div className="container-fluid-02 ps-3 pe-3 pt-4 pb-5">
@@ -361,7 +362,6 @@ export const Details: React.FC = () => {
             <RelatedProducts relatedProducts={randomProductPerCategorieElements}/>
         </div>
       </div>
-      <SparePartsAndTransport/>
       <ContactUs />
     </motion.div>
 

@@ -7,6 +7,7 @@ import Skeleton from 'react-loading-skeleton';
 import { FaTools } from 'react-icons/fa';
 import { TbTruckDelivery } from 'react-icons/tb';
 import './SparePartsAndTransport.scss'
+import { ImgCache } from '../../pages/ImgCache';
 
 export const SparePartsAndTransport = () => {
   const { dataIsLoaded, data, dataError } = useAppSelector(
@@ -39,7 +40,7 @@ export const SparePartsAndTransport = () => {
                     isLoaded={dataIsLoaded}
                     text={data.rest.spareParts ?? ''}
                     color={EColors.skeletonBaseColorDefault}
-                    size={windowWidth < 1350 ? 14 : 14}
+                    size={windowWidth < 1350 ? windowWidth < 500 ? 15 : 14 : 14}
                     textColor="text-dark-light"
                     />
                 ) : (
@@ -50,6 +51,16 @@ export const SparePartsAndTransport = () => {
 
         <div className="spare-transport-image-wrapper">
           <div className='spare-image spare-transport-image-main' >
+          {/* <ImgCache
+            key={0}
+            url="01.webp"
+            idx={0}
+            basePath="assets/machinery/"
+            productNamePath="F170/"
+            imgSizeX={983}
+            imgSizeY={737}
+            imageAlt="01.webp"
+          /> */}
             <img
             className='spare-transport-img'
               width="983"
@@ -96,7 +107,7 @@ export const SparePartsAndTransport = () => {
                     isLoaded={dataIsLoaded}
                     text={data.rest.transport ?? ''}
                     color={EColors.skeletonBaseColorDefault}
-                    size={windowWidth < 1350 ? 14 : 14}
+                    size={windowWidth < 1350 ? windowWidth < 500 ? 15 : 14 : 14}
                     textColor="text-dark-light"
                     />
                 ) : (

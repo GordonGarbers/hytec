@@ -19,6 +19,7 @@ export const ImgCache: React.FC<IImgCacheProps> = ({ url, idx, basePath, product
   const handleImageOnLoad = () => {
     setIsImgLoaded(true);
   };
+  console.log('url: ', url, " basePath: ", basePath, " productNamePath: ", productNamePath, " alt: ", imageAlt);
   const imageUrl = useImageCache(
     `${process.env.PUBLIC_URL}/${basePath}${productNamePath}${url}`,
     isImgLoaded
@@ -42,3 +43,5 @@ export const ImgCache: React.FC<IImgCacheProps> = ({ url, idx, basePath, product
     </div>
   );
 };
+
+// url:  01.webp  basePath:  assets/machinery/  productNamePath:  F20PRO/  alt:  01.webp
