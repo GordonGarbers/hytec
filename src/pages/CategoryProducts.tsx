@@ -23,8 +23,6 @@ export const CategoryProducts = () => {
     (state: RootState) => state.data
   );
 
-  // console.log('pppp', location.state);
-
   useEffect(() => {
     dispatch(onMainMenuShowHide(true));
   }, [randomProductPerCategorieElements]);
@@ -38,7 +36,10 @@ export const CategoryProducts = () => {
         transition={{ duration: `${transitionSpeed}` }}
         className="details-article-wrapper"
       >
-        <div className="container-fluid-02 ps-3 pe-3" style={{paddingTop:'1.85rem'}}>
+        <div
+          className="container-fluid-02 ps-3 pe-3"
+          style={{ paddingTop: '1.85rem' }}
+        >
           <nav className="fs-14 mb-3">
             <ul className="d-flex align-items-center gap-2 list-unstyled ">
               <li className="d-flex align-items-center gap-2">
@@ -61,7 +62,8 @@ export const CategoryProducts = () => {
               <li>
                 <div className="text-grey-500">
                   {!dataIsLoaded ? (
-                    section.categorie.charAt(0).toUpperCase() + section.categorie.slice(1)
+                    section.categorie.charAt(0).toUpperCase() +
+                    section.categorie.slice(1)
                   ) : (
                     <Skeleton count={1} width={60} />
                   )}
@@ -88,7 +90,7 @@ export const CategoryProducts = () => {
             />
           </div>
         </div>
-      <ContactUs />
+        <ContactUs />
       </motion.div>
     </>
   );

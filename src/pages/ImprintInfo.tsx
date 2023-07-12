@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-import { IProducts } from '../interfaces/interfaces';
-import { useRandomProducts } from './details/hooks/useRandomProducts';
+import { useLocation } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { RootState } from '../app/store';
-import Skeleton from 'react-loading-skeleton';
 import { onMainMenuShowHide } from '../components/products/features/hideShowMainMenu.slice';
 
 export const ImprintInfo = () => {

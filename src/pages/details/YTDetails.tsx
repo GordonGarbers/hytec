@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ReactPlayer from "react-player";
 import { Centerize } from "../../components/layout/Centerize";
 import { EColors } from "../../constants/constants";

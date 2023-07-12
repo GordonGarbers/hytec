@@ -17,7 +17,6 @@ export const PigeonMap: React.FC = ()=>{
     return (
         <div
           style={{
-            // height:'300px',
             overflow: 'hidden',
           }}
           className="rounded-0 me-3 map-wrapper rounded-2"
@@ -33,7 +32,6 @@ export const PigeonMap: React.FC = ()=>{
               className="d-flex flex-column position-relative shadow">
                 <div style={{width:'16px', height:'16px', transform:'rotate(45deg) translate(-50%, 0)', backgroundColor:'#fff', bottom:'-14px', left:'50%'}} className='position-absolute'></div>
                 <div
-                  // style={{ backgroundColor: '#eee' }}
                   className="d-flex text-dark-form flex-column gap-1 rounded-top bg-primary"
                 >
                   <div role={"button"} onClick = {() => setClose(true)}><XLg style={{right:'5px', top:'5px'}} size = {16} className='text-dark position-absolute'/></div>
@@ -44,8 +42,10 @@ export const PigeonMap: React.FC = ()=>{
                     >
                       <img
                         src={`${process.env.PUBLIC_URL}/assets/thumbnails/traktor.webp`}
+                        width={200}
+                        height={200}
                         alt="traktor"
-                        style={{ width: '100%' }}
+                        style={{ width: '100%', height:'auto'}}
                       />
                     </div>
 

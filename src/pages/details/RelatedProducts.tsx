@@ -1,8 +1,7 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper } from "swiper/react";
 import {
   A11y,
-  Keyboard,
   Pagination,
   Scrollbar,
   Navigation as swiperNavigation,

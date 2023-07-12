@@ -29,7 +29,6 @@ export const useRandomProducts = (products: IProducts) => {
           return (
             <SwiperSlide key={idx} className="rounded-2 shadow-sm" style={{backgroundColor:'#fff'}}>
               <div className="pt-3"></div>
-              {/* <img src={fullImagePath} alt="imd" className="pt-3"/> */}
     
               <ImgCache
                 key={idx}

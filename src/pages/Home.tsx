@@ -1,23 +1,17 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
 import { Hero } from "../components/hero/Hero";
 import { Land } from "../components/Land/Land";
 import { ContactUs } from "../components/contactus/ContactUs";
-import { Numbers } from "../components/numbers/Numbers";
 import { Products } from "../components/products/Products";
-import { YellowDetails } from "../components/yellowDetails/YellowDetails";
-import { onMinMaxSave } from "../components/products/features/minMaxValues.slice";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { RootState } from "../app/store";
 import {motion} from 'framer-motion';
-import { exit } from "process";
 import { transitionSpeed } from "../constants/constants";
 import { scrollToSection } from "../utils/getActiveElementScrollPos";
-import { setNavButton } from "../features/navButton/navButtons.slice";
 import { useSpy } from "../components/mainNavigation/hooks/useSpy";
 import { useLocation } from "react-router-dom";
 import { AboutUs } from "../components/aboutus/AboutUs";
 import { onMainMenuShowHide } from "../components/products/features/hideShowMainMenu.slice";
-import { SparePartsAndTransport } from "../components/SparePartsAndTransport/SparePartsAndTransport";
 
 export const Home: React.FC = () => {
 
@@ -29,7 +23,6 @@ export const Home: React.FC = () => {
   useSpy(windowWidth > 620 ? -300 : -100)  
 
   useEffect(()=>{
-    // console.log('state: ', state);
     scrollToSection(state?.section)
     dispatch(onMainMenuShowHide(false))
   },[])

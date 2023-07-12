@@ -42,14 +42,6 @@ export const Form: React.FC = () => {
             <MdLocationOn size={16} color="#f7d100" />
             <div className="">Borgwardstrasse 6, 21423 Winsen / Luhe</div>
           </div>
-          {/* <div className="d-flex align-items-center fs-14 gap-2 text-grey-500">
-            <BsTelephoneFill size={16} color="#f7d100" />
-            <div className="">+49 (0) 4171 66 911 00</div>
-          </div>
-          <div className="d-flex align-items-center fs-14 gap-2 text-grey-500">
-            <MdEmail size={16} color="#f7d100" />
-            <div className="">info@hytec-baumaschinen.de</div>
-          </div> */}
           <div className="d-flex align-items-start flex-column gap-2 gap-lg-3">
             <a
               href="tel: 041716691100"
@@ -92,7 +84,6 @@ export const Form: React.FC = () => {
                 type="text"
                 name="name"
                 className="form-control bg-dark-form border-0 fs-14 text-grey-700 rounded-1"
-                // className="form-control bg-dark border-0 border-bottom border-grey-300 fs-13 text-grey-700 rounded-0"
                 id="validationDefault01"
                 placeholder={data.form.name ?? ""}
                 required

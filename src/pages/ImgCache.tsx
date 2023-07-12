@@ -19,7 +19,7 @@ export const ImgCache: React.FC<IImgCacheProps> = ({ url, idx, basePath, product
   const handleImageOnLoad = () => {
     setIsImgLoaded(true);
   };
-  console.log('url: ', url, " basePath: ", basePath, " productNamePath: ", productNamePath, " alt: ", imageAlt);
+  
   const imageUrl = useImageCache(
     `${process.env.PUBLIC_URL}/${basePath}${productNamePath}${url}`,
     isImgLoaded
@@ -32,10 +32,13 @@ export const ImgCache: React.FC<IImgCacheProps> = ({ url, idx, basePath, product
         {imageUrl && (
             <img
             onLoad={handleImageOnLoad}
+            width={imgSizeX}
+            height={imgSizeY}
             src={isImgLoaded ? imageUrl : getImageRatio(imgSizeX, imgSizeY)}
-            alt="img"
+            alt={imageAlt}
             draggable="false"
             className="w-100"
+            style={{width:'100%', height:'auto'}}
             />
         )}
         {!isImgLoaded && <Spinner size={50} width={8} />}
@@ -44,4 +47,3 @@ export const ImgCache: React.FC<IImgCacheProps> = ({ url, idx, basePath, product
   );
 };
 
-// url:  01.webp  basePath:  assets/machinery/  productNamePath:  F20PRO/  alt:  01.webp

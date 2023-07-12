@@ -1,65 +1,64 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { IDataDetails, IProducts } from '../../interfaces/interfaces';
 import { useNavigate } from 'react-router-dom';
 import { HiOutlineArrowNarrowRight } from 'react-icons/hi';
 import Skeleton from 'react-loading-skeleton';
 import { EColors } from '../../constants/constants';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { RootState } from '../../app/store';
+import { useAppDispatch } from '../../app/hooks';
 import { increment } from '../../features/counter/counterSlice';
 import { onMainMenuShowHide } from '../products/features/hideShowMainMenu.slice';
 
 interface IToDetailsBtnProps {
-    dataIsLoaded: boolean;
-    product: IProducts;
-    data: IDataDetails;
-    fullWidth?: boolean;
-    reloadPage: boolean;
+  dataIsLoaded: boolean;
+  product: IProducts;
+  data: IDataDetails;
+  fullWidth?: boolean;
+  reloadPage: boolean;
 }
 
-export const ToDetailsBtn: React.FC<IToDetailsBtnProps> = ({dataIsLoaded, product, data, fullWidth, reloadPage}) => {
-    // const {showHideMainMenu} = useAppSelector((state:RootState) => state.hideShowMainMenu)
+export const ToDetailsBtn: React.FC<IToDetailsBtnProps> = ({
+  dataIsLoaded,
+  product,
+  data,
+  fullWidth,
+  reloadPage,
+}) => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-    const dispatch = useAppDispatch()
-    const navigate = useNavigate();
-    
-    const onDetailsChange = (product: IProducts) => {
-        // navigate(`${process.env.PUBLIC_URL}/${product.categorie}/${product.name}`, {
-        navigate(`/${product.categorie}/${product.name}`, {
-          state: { product, data },
-        });
+  const onDetailsChange = (product: IProducts) => {
+    navigate(`/${product.categorie}/${product.name}`, {
+      state: { product, data },
+    });
 
-        if(reloadPage){
-            window.location.reload()
-        }
+    if (reloadPage) {
+      window.location.reload();
+    }
 
-        dispatch(increment())
-        dispatch(onMainMenuShowHide(true))
-        // console.log(`${product.categorie}/${product.name}`);
-      };
+    dispatch(increment());
+    dispatch(onMainMenuShowHide(true));
+  };
 
-
-    
-
-
-    return (
-        <>
-            {!dataIsLoaded ? (
-                <button
-                  style={{ fontWeight: 600 }}
-                  onClick={() => onDetailsChange(product)}
-                  className={`${fullWidth ? 'w-100 justify-content-center' : ''} btn btn-primary fs-13 fs-sm-12 rounded-1 d-flex gap-2 align-items-center px-2 px-sm-3 text-dark-form`}
-                >
-                  {data.rest.details} <HiOutlineArrowNarrowRight size={20} />
-                </button>
-              ) : (
-                <Skeleton
-                  count={1}
-                  width={100}
-                  height={40}
-                  baseColor={EColors.primary}
-                />
-              )}
-        </>
-    )
-}
+  return (
+    <>
+      {!dataIsLoaded ? (
+        <button
+          style={{ fontWeight: 600 }}
+          onClick={() => onDetailsChange(product)}
+          className={`${
+            fullWidth ? 'w-100 justify-content-center' : ''
+          } btn btn-primary fs-13 fs-sm-12 rounded-1 d-flex gap-2 align-items-center px-2 px-sm-3 text-dark-form`}
+        >
+          {data.rest.details} <HiOutlineArrowNarrowRight size={20} />
+        </button>
+      ) : (
+        <Skeleton
+          count={1}
+          width={100}
+          height={40}
+          baseColor={EColors.primary}
+        />
+      )}
+    </>
+  );
+};

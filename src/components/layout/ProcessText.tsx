@@ -1,7 +1,5 @@
 import React from 'react';
-import { MdEmail } from 'react-icons/md';
 import Skeleton from 'react-loading-skeleton';
-import { EColors } from '../../constants/constants';
 
 interface IProcessTextProps {
   isLoaded: boolean;
@@ -31,19 +29,17 @@ export const ProcessText: React.FC<IProcessTextProps> = ({
             {item.split('//').length > 2 ? (
               <>
                 {item.split('//')[0]}{' '}
-                {/* <span className="fw-bold">{item.split("//")[1]}</span>{" "} */}
                 <a
                   href="mailto: info@hytec-baumaschinen.de"
                   className={`text-dark fw-bold`}
                 >
                   <u>{item.split('//')[1]}</u>
-                </a>{" "}
+                </a>{' '}
                 {item.split('//')[2]}
               </>
             ) : (
               item
             )}
-            {/* {text?.split("\n").length === (idx + 1) ? children : ''} */}
           </p>
         ))
       ) : (

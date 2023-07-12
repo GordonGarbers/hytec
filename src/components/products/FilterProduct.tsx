@@ -1,18 +1,12 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { RootState } from "../../app/store";
 import {
   EUseRangeSections,
   IProducts,
-  IRange,
 } from "../../interfaces/interfaces";
 import { BsSliders } from "react-icons/bs";
 import { ICategory } from "../../interfaces/interfaces";
-import { motion } from "framer-motion";
-import {
-  addCategory,
-  removeCategory,
-} from "../../features/products/productCategories/productCategories.slice";
 import { ECategories, EColors } from "../../constants/constants";
 import { CreateCategoriyElements } from "./CreateCategoryElements";
 import { RangeSlider } from "./RangeSlider";
@@ -35,8 +29,6 @@ import {
   filterWheelbase,
 } from "./features/filter.slice";
 
-import { onResetFilter } from "./features/resetFilters.slice";
-import { onFiltersRemove } from "./features/filtersChanged.slice";
 import { GrFormClose } from "react-icons/gr";
 import { onSliderSpeedChange } from "./features/sliderAnimSpeed.slice";
 import { onHytecChanged } from "./features/hytec.slice";
@@ -76,20 +68,12 @@ export const FilterProduct: React.FC = () => {
   const {hytecPro} =  useAppSelector((state:RootState)=>state.hytecPro)
 
 
-
-
-  // OVDE JE FILTER ZA PRO i NON PRO MASINE (MESTO BROJ 1)
-  // const getProductsPerVehicleType = data.products.filter((product: IProducts, idx: number)=>{
-  //   return product.filter.categorie === "hoflader"
-  // })
-
   const getProductsPerVehicleType = data.products.filter((product: IProducts, idx: number)=>{
     return vehicleTypeCheckers.includes(product.vehicleType)
 })
 
 
 
-  // const getCategories = data.products.reduce(
   const getCategories = getProductsPerVehicleType.reduce(
     (accu: ICategory[], curr: IProducts, idx: number): ICategory[] => {
       const index = accu.findIndex((accuItem) => {
@@ -123,14 +107,6 @@ export const FilterProduct: React.FC = () => {
     }
   );
 
-
-  //RESTE TO all - categories
-  // useEffect(() => {
-  //   dispatch(addCategory(getCategories[0]?.category || ""));
-  // }, [data]);
-
-  /////////////////////////////
-  //RANGE CUSTOM HOOK
 
   //hook price
   const {

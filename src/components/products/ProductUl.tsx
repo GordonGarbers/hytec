@@ -7,7 +7,7 @@ interface IProductUI {
   length: number;
   minMaxFirst: number;
   minMaxSecond?: number;
-  useLength: boolean
+  useLength: boolean;
 }
 
 export const ProductUi: React.FC<IProductUI> = ({
@@ -16,15 +16,16 @@ export const ProductUi: React.FC<IProductUI> = ({
   length,
   minMaxFirst,
   minMaxSecond,
-  useLength
+  useLength,
 }) => {
   return (
     <>
       <ul
-        // ref={ref}
         style={{
           gridTemplateColumns: `repeat( auto-fit, minmax(${minMaxFirst}px, ${
-            filterProductArticle.length <= length && useLength? minMaxSecond+'px' : '1fr'
+            filterProductArticle.length <= length && useLength
+              ? minMaxSecond + 'px'
+              : '1fr'
           }))`,
         }}
         className="w-100 h-100 list-unstyled grid-wrapper"

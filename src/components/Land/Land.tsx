@@ -11,8 +11,7 @@ import Skeleton from 'react-loading-skeleton';
 import { PrimaryButton } from '../primaryButton/PrimaryButton';
 import { ProcessText } from '../layout/ProcessText';
 import { EColors } from '../../constants/constants';
-import './land.scss'
-import { YellowDetails } from '../yellowDetails/YellowDetails';
+import './land.scss';
 
 const variants = {
   from: {
@@ -73,8 +72,10 @@ export const Land: React.FC = () => {
         className="position-absolute"
       >
         <img
-          style={{ width: '100%' }}
+          style={{ width: '100%', height: 'auto' }}
           className="bg-dark-light border border-1 border-grey-400 p-2 rounded-2 shadow"
+          width={256}
+          height={72}
           src={`${process.env.PUBLIC_URL}/assets/hytec-05.png`}
           alt="hytec-logo"
         />
@@ -84,29 +85,9 @@ export const Land: React.FC = () => {
 
   return (
     <div
-      // id="aboutus" 
-      style={{ backgroundColor: '#fff', zIndex:'0'}}
+      style={{ backgroundColor: '#fff', zIndex: '0' }}
       className="w-100 h-100 position-relative "
     >
-
-      {/* <div style={{clipPath: 'polygon(0% 30%, 100% 10%, 100% 0%, 0% 0%)', zIndex:'-1'}}className="w-100 h-100 bg-grey-900 position-absolute"/> */}
-      {/* <div className="parent position-absolute w-100">
-        <div className="my-element-to-clip bg-primary"></div>
-      </div>
-      <svg width="0" height="0">
-        <defs>
-          <clipPath id="myCurve" clipPathUnits="objectBoundingBox">
-            <path
-              d="M 0,1
-									L 0,0
-									L 1,0
-									L 1,1
-									C .65 .4, .9 .8, 0 .2
-									Z"
-            />
-          </clipPath>
-        </defs>
-      </svg> */}
       <div className="container-fluid-02 d-flex flex-column flex-lg-row w-100 align-items-center py-6">
         <div
           ref={ref}
@@ -117,7 +98,13 @@ export const Land: React.FC = () => {
             <div className="w-100 h-100">
               <img
                 onLoad={handleImageOnLoad}
-                style={{ width: '100%', filter: 'brightness(150%)' }}
+                style={{
+                  width: '100%',
+                  filter: 'brightness(150%)',
+                  height: 'auto',
+                }}
+                width={2392}
+                height={3128}
                 src={
                   isImgLoaded
                     ? `${process.env.PUBLIC_URL}/assets/png/DE_01.png`
@@ -131,7 +118,6 @@ export const Land: React.FC = () => {
           </Tilt>
         </div>
         <motion.div
-
           variants={variantsText}
           initial="from"
           whileInView="to"
@@ -139,17 +125,21 @@ export const Land: React.FC = () => {
           transition={{
             delay: 0,
             type: 'spring',
-            stiffness:100
+            stiffness: 100,
             // duration: 0.5,
           }}
-
           className="article-left-left w-100 px-4 px-sm-9 px-lg-8 mt-5 mt-lg-0"
         >
-          <h1 className="fs-5" style={{fontWeight:900}}>
+          <h1 className="fs-5" style={{ fontWeight: 900 }}>
             {!dataIsLoaded ? (
               <>
                 {data.dealer?.titleNormalBefore}{' '}
-                <span className="text-primary">{data.dealer?.titleAccent}<span className='fs-10' style={{verticalAlign:'super'}}>&reg;</span></span>{' '}
+                <span className="text-primary">
+                  {data.dealer?.titleAccent}
+                  <span className="fs-10" style={{ verticalAlign: 'super' }}>
+                    &reg;
+                  </span>
+                </span>{' '}
                 {data.dealer?.titleNormalAfter}
               </>
             ) : (

@@ -11,22 +11,18 @@ export const CarouselHero: React.FC = () => {
     (state: RootState) => state.data
   );
 
-  
   return (
     <>
       {
         dataIsLoaded 
         ?
-
           <div style={{ height: "100vh" }} className="w-100">
             <Spinner size={60} width={5} />
           </div>
-
           :
       <CarouselUniversal isLoaded={dataIsLoaded} data={data} error={dataError} section = {ESection.hero} useKey={true}>
       </CarouselUniversal>
       }
-      
     </>
   )
 };

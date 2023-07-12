@@ -1,14 +1,9 @@
-import { AnimatePresence } from "framer-motion";
-import React, { ReactNode } from "react";
+import React, { ReactNode } from 'react';
 
-interface IMainProps{
-    children: ReactNode;
+interface IMainProps {
+  children: ReactNode;
 }
 
-export const Main: React.FC<IMainProps> = ({children}) => {
-    return(
-        <>
-            {children}
-        </>
-    )
-}
+export const Main: React.FC<IMainProps> = ({ children }) => {
+  return <>{children}</>;
+};

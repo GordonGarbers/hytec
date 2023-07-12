@@ -1,21 +1,6 @@
-import { AnimatePresence, motion } from 'framer-motion';
-import React, {
-  Children,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
-import { wrap } from '@popmotion/popcorn';
+import React from 'react';
 import { CarouselUniversalInner } from './CarouselUniversalInner';
-import { ArrowButtons } from '../hero/ArrowButtons';
-import { ChevronLeft, ChevronRight } from 'react-bootstrap-icons';
-import { useAppSelector, useAppDispatch } from '../../app/hooks';
-import { pauseCarousel } from '../../features/pauseHeroPage/pauseHeroPage';
-import { RootState } from '../../app/store';
-import { useKeyPress } from '../hooks/useKeyPress';
 import { ESection, IDataDetails, IHero } from '../../interfaces/interfaces';
-import { TIME } from '../../constants/constants';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import {
   A11y,
@@ -49,7 +34,6 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
   const getHeroPages = data.hero.map((heroPage: IHero, idx: number) => {
     return (
       <SwiperSlide key={idx}>
-
         <CarouselUniversalInner
           data={data}
           page={heroPage}
@@ -62,8 +46,6 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
   return (
     <>
       <div className="hero-swiper-wrapper">
-        {/* <div style={{clipPath: 'polygon(0% 10%, 40% 10%, 100% 100%, 100% 0%, 0% 0%)'}}className="w-100 h-100 bg-primary position-absolute"></div> */}
-
         <Swiper
           slidesPerView={1}
           spaceBetween={0}
@@ -73,7 +55,6 @@ export const CarouselUniversal: React.FC<ICarouselUniversal> = ({
           autoplay
           pagination={{
             clickable: true,
-          
           }}
           navigation={true}
           modules={[Keyboard, Pagination, swiperNavigation]}

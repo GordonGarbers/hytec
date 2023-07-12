@@ -1,25 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { ICategory } from "../../interfaces/interfaces";
-import { addCategory } from "../../features/products/productCategories/productCategories.slice";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { RootState } from "../../app/store";
+import React from 'react';
+import { ICategory } from '../../interfaces/interfaces';
+import { addCategory } from '../../features/products/productCategories/productCategories.slice';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { RootState } from '../../app/store';
 
-interface ICreateCategoriyElementsProps{
-    categorie: ICategory,
-    idx: number
+interface ICreateCategoriyElementsProps {
+  categorie: ICategory;
+  idx: number;
 }
 
-
-export const CreateCategoriyElements:React.FC<ICreateCategoriyElementsProps> = ({categorie, idx}) => {
-
-  const {categories} = useAppSelector((state: RootState) => state.categories)
+export const CreateCategoriyElements: React.FC<
+  ICreateCategoriyElementsProps
+> = ({ categorie, idx }) => {
+  const { categories } = useAppSelector((state: RootState) => state.categories);
 
   const dispatch = useAppDispatch();
 
   const onRadioChange = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
     dispatch(addCategory(e.currentTarget.value));
   };
-
 
   return (
     <div className="form-check">
@@ -30,11 +29,10 @@ export const CreateCategoriyElements:React.FC<ICreateCategoriyElementsProps> = (
         name="exampleRadios"
         id={`exampleRadios${idx + 1}`}
         value={categorie.category}
-        // checked = {false}
-        defaultChecked={categorie.category === categories? true : false}
+        defaultChecked={categorie.category === categories ? true : false}
       />
       <label
-        style={{ textTransform: "capitalize" }}
+        style={{ textTransform: 'capitalize' }}
         className="form-check-label fs-14"
       >
         {categorie.categoryLabel}

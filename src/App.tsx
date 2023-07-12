@@ -6,42 +6,47 @@ import { switchLanguage } from './features/changeLanguage/changeLanguage.slice';
 import { RootState } from './app/store';
 import { Home } from './pages/Home';
 import { Details } from './pages/details/Details';
-import {createBrowserRouter, createRoutesFromElements, BrowserRouter as Router, Route, Link, NavLink, RouterProvider, useLocation, Routes, BrowserRouter} from 'react-router-dom'
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  BrowserRouter as Router,
+  Route,
+  Link,
+  NavLink,
+  RouterProvider,
+  useLocation,
+  Routes,
+  BrowserRouter,
+} from 'react-router-dom';
 import { MainLayout } from './components/layout/MainLayout';
-import { setNext } from './features/next/next.slice';
 import { CategoryProducts } from './pages/CategoryProducts';
 import { onMainMenuShowHide } from './components/products/features/hideShowMainMenu.slice';
 import { ImprintInfo } from './pages/ImprintInfo';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-      <Route path="/" element={<MainLayout/>}>
-        <Route index element={<Home/>}/>
-        <Route path=':type/:id' element={<Details/>}/>
-        <Route path=':type' element={<CategoryProducts/>}/>
-        <Route path='imprint' element={<ImprintInfo/>}/>
+    <Route path="/" element={<MainLayout />}>
+      <Route index element={<Home />} />
+      <Route path=":type/:id" element={<Details />} />
+      <Route path=":type" element={<CategoryProducts />} />
+      <Route path="imprint" element={<ImprintInfo />} />
+    </Route>
+  ),
+  { basename: process.env.PUBLIC_URL }
+);
 
-      </Route>  ),
-  {basename:process.env.PUBLIC_URL},
-)
-
-// console.log(process.env.PUBLIC_URL);
 function App() {
-
-  
-
   const { dataIsLoaded, data, dataError } = useAppSelector(
     (state: RootState) => state.data
   );
 
   const { language } = useAppSelector((state: RootState) => state.lang);
 
-
   const dispatch = useAppDispatch();
 
-    useEffect(()=>{
-      dispatch(onMainMenuShowHide(false))
-    },[])
+  useEffect(() => {
+    dispatch(onMainMenuShowHide(false));
+  }, []);
 
   useEffect(() => {
     const storedSelectedOption =
@@ -50,17 +55,12 @@ function App() {
   }, [dispatch, language]);
 
   useEffect(() => {
-    dispatch(dataPedding(`${process.env.PUBLIC_URL}/json/${language}/data.json`));
-    // dispatch(dataPedding(`json/${language}/data.json`));
+    dispatch(
+      dataPedding(`${process.env.PUBLIC_URL}/json/${language}/data.json`)
+    );
   }, [dispatch, language]);
 
-  // useEffect(()=>{
-  //   dispatch(setNext(4))
-  // }, [dispatch])
-
-  return (
-      <RouterProvider router={router}/>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

@@ -12,7 +12,6 @@ const initialState: IInitialState = {
   data: {
     products:[],
     hero: [],
-    // nav: ["Home", "Machinery", "About Us", "Contact"],
     nav: [],
     sections: {},
     dealer: {},

@@ -7,17 +7,6 @@ interface IAction{
     minMax: IRange
 }
 
-// interface IInitialProps{
-//     [key:string]: {minimum: number, maximum: number};
-// }
-
-// const initialState: IInitialProps = {
-//     "price":{minimum: 0, maximum: 1},
-//     "weight":{minimum: 0, maximum: 1},
-//     "displacement":{minimum: 0, maximum: 1},
-//     "fuel tank":{minimum: 0, maximum: 1},
-// }
-
 interface IInitialProps{
     [key:string]: {minimum: number | undefined, maximum: number | undefined};
 }

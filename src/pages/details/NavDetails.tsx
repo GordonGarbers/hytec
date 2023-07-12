@@ -78,8 +78,6 @@ export const NavDetails: React.FC<INavDetailsProps> = ({
             {!dataIsLoaded ? (
               finalProduct?.categorie ? (
                 <motion.div
-                // whileTap={{color:EColors.dark}}
-                // whileTap={{scale:0.9}}
                 >
                   <motion.span 
                     whileHover={{borderBottom:`1px solid ${EColors.primary}`}}
@@ -111,24 +109,6 @@ export const NavDetails: React.FC<INavDetailsProps> = ({
           </div>
         </li>
       </ul>
-
-      {/* <NavLink to={process.env.PUBLIC_URL} className="text-grey-400"> */}
-
-      {/* <button
-        onClick={(e) => onBreadClick(e, `/${finalProduct.categorie}`, relatedProducts)}
-        // to={`/${finalProduct.categorie}`}
-        className="nav-bread-btn btn btn-primary p-1 rounded-1 px-1 fs-14"
-      >
-        {!dataIsLoaded ? (
-          finalProduct?.categorie ? (
-            decodeURIComponent(finalProduct?.categorie)
-          ) : (
-            ""
-          )
-        ) : (
-          <Skeleton count={1} width={60} />
-        )}
-      </button> */}
     </nav>
   );
 };

@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../app/hooks";
-import { RootState } from "../../app/store";
-import { EColors } from "../../constants/constants";
-import { setNavButton } from "../../features/navButton/navButtons.slice";
+import React, { useState, useEffect } from 'react';
+import { useAppDispatch } from '../../app/hooks';
+import { EColors } from '../../constants/constants';
 
 interface IMoverProps {
   show?: number;
@@ -11,47 +9,55 @@ interface IMoverProps {
   offest: number;
   bgColor: boolean;
   zIndex: string;
-  expand:number;
+  expand: number;
   rounded: boolean;
   speed: number;
 }
 
-export const Mover: React.FC<IMoverProps> = ({ show, ulRef, btnToMove, offest, bgColor, zIndex, expand, rounded, speed}) => {
-
+export const Mover: React.FC<IMoverProps> = ({
+  show,
+  ulRef,
+  btnToMove,
+  offest,
+  bgColor,
+  zIndex,
+  expand,
+  rounded,
+  speed,
+}) => {
   const dispatch = useAppDispatch();
 
   const [i, setI] = useState<number>(0);
 
-  useEffect(()=>{
-    setTimeout(()=>{
-      setI(1)
-    }, 150)
-  },[])
+  useEffect(() => {
+    setTimeout(() => {
+      setI(1);
+    }, 150);
+  }, []);
 
+  const width =
+    ulRef.current &&
+    ulRef.current.children[btnToMove]?.getBoundingClientRect().width + expand;
 
-    const width =
-      ulRef.current &&
-      ulRef.current.children[btnToMove]?.getBoundingClientRect().width + expand;
+  const height =
+    ulRef.current &&
+    ulRef.current.children[btnToMove]?.getBoundingClientRect().height + expand;
 
-    const height =
-      ulRef.current &&
-      ulRef.current.children[btnToMove]?.getBoundingClientRect().height + expand;
+  const x =
+    ulRef.current &&
+    ulRef.current.children[btnToMove]?.getBoundingClientRect().x - expand / 2;
 
-    const x =
-      ulRef.current &&
-      ulRef.current.children[btnToMove]?.getBoundingClientRect().x - expand/2;
-
-    const y =
-      ulRef.current &&
-      ulRef.current.children[btnToMove]?.getBoundingClientRect().y+offest-expand/2;
-
-  
-
-
+  const y =
+    ulRef.current &&
+    ulRef.current.children[btnToMove]?.getBoundingClientRect().y +
+      offest -
+      expand / 2;
 
   return (
     <div
-      className={`mover fw-bold text-secondary position-fixed ${bgColor&&'bg-primary'} ${rounded ? 'rounded-4' : 'rounded-0'}`}
+      className={`mover fw-bold text-secondary position-fixed ${
+        bgColor && 'bg-primary'
+      } ${rounded ? 'rounded-4' : 'rounded-0'}`}
       style={{
         zIndex: zIndex,
         width: `${width}px`,
@@ -59,9 +65,8 @@ export const Mover: React.FC<IMoverProps> = ({ show, ulRef, btnToMove, offest, b
         left: ` ${x}px`,
         top: `${y}px`,
         borderBottom: `5px solid ${EColors.primary}`,
-        transition: `all ${speed}s ease`
+        transition: `all ${speed}s ease`,
       }}
     ></div>
-
   );
 };

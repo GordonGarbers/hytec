@@ -5,7 +5,6 @@ import { RootState } from '../../app/store';
 import { ProcessText } from '../layout/ProcessText';
 import { EColors } from '../../constants/constants';
 import Skeleton from 'react-loading-skeleton';
-import { YellowDetails } from '../yellowDetails/YellowDetails';
 import { SideFollowUs } from '../sideFollowUs/SideFollowUs';
 import './aboutus.scss';
 
@@ -16,7 +15,7 @@ export const AboutUs = () => {
     (state: RootState) => state.data
   );
   return (
-    <div id="aboutus" className="pb-6 pt-6 pt-sm-8 nav-sections" >
+    <div id="aboutus" className="pb-6 pt-6 pt-sm-8 nav-sections">
       <div
         className="container-fluid-02 d-flex flex-column justify-content-center align-items-center position-relative"
         style={{ zIndex: '1' }}
@@ -52,24 +51,9 @@ export const AboutUs = () => {
               <SideFollowUs />
             </div>
           </div>
-
-          {/* <div
-            className="aboutus-image position-relative rounded-3"
-            
-            style={{
-              backgroundImage: `url(${process.env.PUBLIC_URL}/assets/carusel/baumachine_01.webp)`,
-            }}
-          ></div> */}
-          {/* <div className='aboutus-image d-flex align-items-center justify-content-center p-5 rounded-2'>
-            <svg width="284" height="197" viewBox="0 0 284 197" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M27.5 31.5L1 1.5L117.5 47L126.5 74H158L166.5 47L283 1L256 31.5L180 55.5L163 97.5L183.5 61L241.5 47L222 68.5L180 74L212 79L195 98L172 88L188.5 105L177.5 117.5L164 103.5L175.5 129.5L169 142.5L155.5 123.5L164 151.5L144.5 196.5V120L154.5 85H129.5L139 120V196.5L119.5 151.5L128 123.5L115 142.5L108.5 129.5L119.5 103.5L106 117.5L95.5 105L111.5 88L88.5 98L72.5 79L104 74L62 68.5L42.5 47L100.5 61L121 98L104 55.5L27.5 31.5Z" fill={`${EColors.darkLight}`} stroke="#373943" stroke-width="0"/>
-            </svg>
-          </div> */}
-
         </div>
 
         <Numbers />
-        {/* <YellowDetails/> */}
       </div>
     </div>
   );

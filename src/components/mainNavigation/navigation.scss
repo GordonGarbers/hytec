@@ -12,26 +12,11 @@
   @include dataAdd($grey-500);
 }
 
-.mover {
-  
-}
 
-// ul {
-//   font-weight: 600;
-//   .selected-button{
-//     border-bottom: 4px solid $primary;
-//   }
-//   li:hover{
-//     color:$grey-500;
-//   }
-// }
-
-// MIN WIDTH 620px
 @media (min-width: $sm) {
 
 }
 
-//MAX WIDTH 619px
 @media (max-width: 619px) {
 
   .menu-translate {
@@ -48,23 +33,10 @@
     left:-100%;
 }
 
-// .nav-initial{
-//   transition: all .3s ease;
-//   top:60px;
-// }
-
-// .nav-animate{
-//   transition: all .3s ease;
-//   top:43px;
-// }
 
 .nav-btn-active{
   background-color: #f7d100;
-  // padding:0.5rem;
-  // border-radius: .3rem;
-  // color: #f7d100;
-  // padding-left:.5rem;
-  // padding-right:.5rem;
+
 }
 
 .nav-text-wrapper{
