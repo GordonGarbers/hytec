@@ -48,7 +48,7 @@ export const SparePartsAndTransport = () => {
           <div className="spare-image spare-transport-image-main">
             <img
               className="spare-transport-img"
-              style={{ width: '100%', height: 'auto' }}
+              // style={{ width: '100%', height: 'auto' }}
               width="983"
               height="737"
               src={`${process.env.PUBLIC_URL}/assets/machinery/F170/01.webp`}
@@ -63,7 +63,7 @@ export const SparePartsAndTransport = () => {
           <div className="transport-image spare-transport-image-main">
             <img
               className="spare-transport-img"
-              style={{ width: '100%', height: 'auto' }}
+              // style={{ width: '100%', height: 'auto' }}
               width="983"
               height="737"
               src={`${process.env.PUBLIC_URL}/assets/machinery/F55/01.webp`}
