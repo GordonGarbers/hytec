@@ -87,6 +87,7 @@ export const Form: React.FC = () => {
                 id="validationDefault01"
                 placeholder={data.form.name ?? ""}
                 required
+                autoComplete="off"
               />
             ) : (
               <Skeleton
@@ -110,6 +111,7 @@ export const Form: React.FC = () => {
                 id="validationDefault02"
                 placeholder={data.form.email ?? ""}
                 required
+                autoComplete="off"
               />
             ) : (
               <Skeleton
@@ -134,6 +136,7 @@ export const Form: React.FC = () => {
                 placeholder={data.form.subject ?? ""}
                 aria-describedby="inputGroupPrepend2"
                 required
+                autoComplete="off"
               />
             ) : (
               <Skeleton

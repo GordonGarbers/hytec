@@ -43,6 +43,7 @@ export function Counter() {
           aria-label="Set increment amount"
           value={incrementAmount}
           onChange={(e) => setIncrementAmount(e.target.value)}
+          autoComplete="off"
         />
         <button
           className={styles.button}

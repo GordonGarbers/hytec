@@ -30,6 +30,7 @@ export const CreateCategoriyElements: React.FC<
         id={`exampleRadios${idx + 1}`}
         value={categorie.category}
         defaultChecked={categorie.category === categories ? true : false}
+        autoComplete="off"
       />
       <label
         style={{ textTransform: 'capitalize' }}

@@ -259,7 +259,6 @@ export const FilterProduct: React.FC = () => {
                 <label
                   style={{ textTransform: 'capitalize' }}
                   className="mb-3 fs-13 fw-bold text-dark-light"
-                  htmlFor=""
                 >
                   {data.filterCategories.vehicleType}
                 </label>
@@ -285,10 +284,10 @@ export const FilterProduct: React.FC = () => {
                     id="hytecChecker"
                     onChange={(e) => onVehicleChange(e)}
                     checked={hytec}
+                    autoComplete="off"
                   />
                   <label
                     className="form-check-label fs-14"
-                    htmlFor="flexCheckDefault"
                   >
                     Hytec
                   </label>
@@ -301,10 +300,10 @@ export const FilterProduct: React.FC = () => {
                     id="hytecProChecker"
                     onChange={(e) => onVehicleChange(e)}
                     checked={hytecPro}
+                    autoComplete="off"
                   />
                   <label
                     className="form-check-label fs-14"
-                    htmlFor="flexCheckChecked"
                   >
                     Hytec Pro
                   </label>
@@ -315,7 +314,6 @@ export const FilterProduct: React.FC = () => {
                 <label
                   style={{ textTransform: 'capitalize' }}
                   className="mb-3 fs-13 fw-bold text-dark-light"
-                  htmlFor=""
                 >
                   {data.filterCategories.categories}
                 </label>
@@ -331,7 +329,6 @@ export const FilterProduct: React.FC = () => {
                     className={`mb-3 ${
                       windowWidth > 400 ? 'fs-13' : 'fs-14'
                     }  fw-bold text-dark-light w-100 text-center`}
-                    htmlFor=""
                   >
                     <span>{data.filterCategories.price}</span>
                     <span className="text-grey-500 fs-15"> (€)</span>
@@ -356,7 +353,6 @@ export const FilterProduct: React.FC = () => {
                     className={`mb-3 ${
                       windowWidth > 400 ? 'fs-13' : 'fs-14'
                     }  fw-bold text-dark-light w-100 text-center`}
-                    htmlFor=""
                   >
                     <span>{data.filterCategories.weight}</span>
                     <span className="text-grey-500 fs-15"> (kg)</span>
@@ -383,7 +379,6 @@ export const FilterProduct: React.FC = () => {
                     className={`mb-3 ${
                       windowWidth > 400 ? 'fs-13' : 'fs-14'
                     }  fw-bold text-dark-light w-100 text-center`}
-                    htmlFor=""
                   >
                     <span>{data.filterCategories.displacement}</span>
                     <span className="text-grey-500 fs-15"> (€)</span>
@@ -408,7 +403,6 @@ export const FilterProduct: React.FC = () => {
                     className={`mb-3 ${
                       windowWidth > 400 ? 'fs-13' : 'fs-14'
                     }  fw-bold text-dark-light w-100 text-center`}
-                    htmlFor=""
                   >
                     <span>{data.filterCategories.fuelTank}</span>
                     <span className="text-grey-500 fs-15"> (kg)</span>
