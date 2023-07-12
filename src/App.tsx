@@ -17,6 +17,7 @@ import {
   useLocation,
   Routes,
   BrowserRouter,
+  HashRouter,
 } from 'react-router-dom';
 import { MainLayout } from './components/layout/MainLayout';
 import { CategoryProducts } from './pages/CategoryProducts';

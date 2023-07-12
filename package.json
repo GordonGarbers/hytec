@@ -1,6 +1,6 @@
 {
   "name": "hytec",
-  "homepage": "http://3dgenerik.github.io/hytec",
+  "homepage": "./",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
