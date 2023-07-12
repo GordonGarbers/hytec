@@ -99,6 +99,7 @@ export const Language: React.FC = () => {
             style={{ border: '1px solid rgba(0,0,0,.05)' }}
             code={`${lang === 'en' ? 'gb' : lang}`}
             width={`${lang === 'en' ? 20 : 20}`}
+            alt={lang}
           />
           {lang.toUpperCase()}
         </div>

@@ -24,7 +24,7 @@ export const Form: React.FC = () => {
       method="POST"
     >
       <div className="">
-        <h1 style={{ fontWeight: "600" }} className="fs-6 pt-0 text-primary">
+        <h1 style={{ fontFamily: 'RobotoMedium'}} className="fs-6 pt-0 text-primary">
           {!dataIsLoaded ? (
             data.sections?.contact
           ) : (

@@ -12,7 +12,7 @@ export const PrimaryButton: React.FC<IButtonProps> = ({
   return (
     <button
       className={`btn btn-primary rounded-2 fs-${fontSize ? fontSize : 13}`}
-      style={{ fontWeight: 500 }}
+      style={{ fontFamily: 'RobotoMedium'}}
     >
       {children}
     </button>

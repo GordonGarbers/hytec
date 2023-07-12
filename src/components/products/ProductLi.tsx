@@ -28,7 +28,6 @@ export const ProductLi: React.FC<IProductLiProps> = ({
 
   const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
   const imageUrl = useImageCache(fullImagePath, isImgLoaded);
-  console.log('--PATH: ', fullImagePath);
 
   const handleImageOnLoad = () => {
     setIsImgLoaded(true);
@@ -47,6 +46,8 @@ export const ProductLi: React.FC<IProductLiProps> = ({
         {!isImgLoaded && <Spinner size={50} width={8} />}
         <img
           onLoad={handleImageOnLoad}
+          width={983}
+          height={737}
           src={isImgLoaded ? fullImagePath : getImageRatio(983, 737)}
           className={`${
             windowWidth > 327 && windowWidth < 487 ? 'p-1' : 'p-3'
@@ -57,7 +58,7 @@ export const ProductLi: React.FC<IProductLiProps> = ({
         />
       </div>
 
-      <div className="w-100 p-3 text-dark" style={{ fontWeight: 500 }}>
+      <div className="w-100 p-3 text-dark" style={{ fontFamily: 'RobotoMedium'}}>
         {!dataIsLoaded ? (
           <div className="text-primary-dark fs-15">
             {product.categorie.toUpperCase()}
@@ -68,7 +69,7 @@ export const ProductLi: React.FC<IProductLiProps> = ({
         {!dataIsLoaded ? (
           <p
             className="fs-11 fs-sm-9 fw-bold text-dark-light"
-            style={{ fontWeight: '400' }}
+            style={{ fontFamily: 'RobotoRegular'}}
           >
             {product.name}
           </p>
@@ -78,7 +79,7 @@ export const ProductLi: React.FC<IProductLiProps> = ({
 
         {!dataIsLoaded ? (
           <p
-            style={{ fontWeight: '400', lineHeight: '1rem' }}
+            style={{ fontFamily: 'RobotoRegular', lineHeight: '1rem' }}
             className={`fs-15 fs-sm-14 text-grey-500 ${
               windowWidth > 327 && windowWidth < 487 ? 'mb-2' : 'mb-3'
             } mb-sm-5`}

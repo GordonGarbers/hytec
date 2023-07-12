@@ -49,7 +49,7 @@ export const PigeonMap: React.FC = ()=>{
                       />
                     </div>
 
-                    <div style={{ fontWeight: '600' }} className="fs-14">
+                    <div style={{ fontFamily: 'RobotoMedium'}} className="fs-14">
                       {' '}
                       HYTEC Baumaschinen GmbH
                     </div>

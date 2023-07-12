@@ -24,7 +24,7 @@ export const SparePartsAndTransport = () => {
               <FaTools color={`${EColors.primary}`} size={32} />
               <h1
                 className="spare-transport-text-title"
-                style={{ fontWeight: '900', color: `${EColors.darkLight}` }}
+                style={{ fontFamily: 'RobotoBlack', color: `${EColors.darkLight}` }}
               >
                 {data.rest.sparePartsTitle}
               </h1>
@@ -78,7 +78,7 @@ export const SparePartsAndTransport = () => {
               <TbTruckDelivery color={`${EColors.primary}`} size={40} />
               <h1
                 className="spare-transport-text-title"
-                style={{ fontWeight: '900', color: `${EColors.darkLight}` }}
+                style={{ fontFamily: 'RobotoBlack', color: `${EColors.darkLight}` }}
               >
                 {data.rest.transportTitle}
               </h1>

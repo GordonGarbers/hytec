@@ -166,7 +166,7 @@ export const Details: React.FC = () => {
                   )}
                 </div>
                 <div className="fs-7">
-                  <span style={{ fontWeight: '900' }} className="text-primary">
+                  <span style={{ fontFamily: 'RobotoBlack'}} className="text-primary">
                     HYTEC
                     <span className="fs-12" style={{ verticalAlign: 'super' }}>
                       &reg;
@@ -213,7 +213,7 @@ export const Details: React.FC = () => {
                     <div className="d-flex flex-row align-items-start justify-content-between w-100">
                       <div
                         className="fs-8 text-dark-light mb-4"
-                        style={{ fontWeight: '800' }}
+                        style={{ fontFamily: 'RobotoBold'}}
                       >
                         {!dataIsLoaded ? (
                           finalProduct?.price ? (
@@ -303,7 +303,7 @@ export const Details: React.FC = () => {
             HYTEC EQUIPMENT
           </div>
           <h1
-            style={{ fontWeight: '900' }}
+            style={{ fontFamily: 'RobotoBlack'}}
             className="text-dark fs-8 mb-5 text-center "
           >
             {data.rest.relatedProducts}

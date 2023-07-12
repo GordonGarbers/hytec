@@ -130,7 +130,7 @@ export const Land: React.FC = () => {
           }}
           className="article-left-left w-100 px-4 px-sm-9 px-lg-8 mt-5 mt-lg-0"
         >
-          <h1 className="fs-5" style={{ fontWeight: 900 }}>
+          <h1 className="fs-5" style={{ fontFamily: 'RobotoBlack'}}>
             {!dataIsLoaded ? (
               <>
                 {data.dealer?.titleNormalBefore}{' '}

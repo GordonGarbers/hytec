@@ -30,7 +30,7 @@ export const AboutUs = () => {
                 HYTEC COMPANY
               </div>
               <h1
-                style={{ fontWeight: 900 }}
+                style={{ fontFamily: 'RobotoBlack'}}
                 className="fs-5 text-dark text-center"
               >
                 {data.sections.aboutus}

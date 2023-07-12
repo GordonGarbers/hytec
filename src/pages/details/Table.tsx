@@ -3,8 +3,6 @@ import { IDataDetails, IProducts } from '../../interfaces/interfaces';
 import { EProductSections } from '../../constants/constants';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import Skeleton from 'react-loading-skeleton';
-import { useAppSelector } from '../../app/hooks';
-import { RootState } from '../../app/store';
 
 interface ITableProps {
   finalProduct: IProducts;
@@ -82,7 +80,6 @@ export const Table: React.FC<ITableProps> = ({ finalProduct, sectionName, displa
       <table className="table rounded-2">
         <thead className="bg-dark-light text-grey-900">
           <tr className="">
-            {/* <th >{sectionName.toUpperCase()} <span style={{fontWeight:'300'}} className='fs-14 text-primary'> {finalProduct?.name}</span></th> */}
             <th>{displayName.toUpperCase()}</th>
             <th></th>
             <th></th>

@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
           className="container-fluid-02 gap-2 py-4 px-3 fs-15  text-grey-600 d-flex flex-column flex-sm-row align-items-center justify-content-between"
         >
           <div
-            style={{ fontWeight: '300' }}
+            style={{ fontFamily: 'RobotoLight'}}
             className="list-unstyled d-flex gap-2 gap-sm-3 gap-md-4 align-items-center justify-content-center"
           >
             <a className="text-decoration-none text-grey-600 p-1 rounded-1" href="#">

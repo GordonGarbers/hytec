@@ -6,6 +6,11 @@ import App from './App';
 import './index.css';
 import 'react-loading-skeleton/dist/skeleton.css'
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
+import './fonts/Roboto-Black.ttf'
+import './fonts/Roboto-Bold.ttf'
+import './fonts/Roboto-Medium.ttf'
+import './fonts/Roboto-Regular.ttf'
+import './fonts/Roboto-Light.ttf'
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);

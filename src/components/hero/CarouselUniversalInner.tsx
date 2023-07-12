@@ -47,7 +47,7 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
                 
               </p>
 
-              <h1 className={`hero-text-h1`} style={{ fontWeight: 900 }}>
+              <h1 className={`hero-text-h1`} style={{ fontFamily: 'RobotoBlack'}}>
                 {!isDataLoaded ? (
                   <>
                     {page?.titleNormalBefore}{' '}

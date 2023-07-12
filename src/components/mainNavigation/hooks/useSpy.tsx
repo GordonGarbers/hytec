@@ -12,7 +12,6 @@ export const useSpy = (marginRoot: number) => {
     const navSections = document.querySelectorAll('.nav-sections');
     const navButtons = document.querySelectorAll('li');
 
-    console.log('---', navButtons.length);
     const removeActiveClass = () => {
       navButtons.forEach((elem: Element) => {
         elem.classList.remove('nav-text-wrapper');
@@ -40,7 +39,6 @@ export const useSpy = (marginRoot: number) => {
 
     if (navSections) {
       navSections.forEach((section: Element) => {
-        console.log('SECTION: ', section);
         observer.observe(section);
       });
     }

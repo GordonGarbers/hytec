@@ -43,7 +43,7 @@ export const useRandomProducts = (products: IProducts) => {
     
               <div className="d-flex flex-column p-3">
               {!dataIsLoaded ? (
-                    <div className="text-primary-dark fs-15" style={{fontWeight:500}}>{randomProduct.categorie.toUpperCase()}</div>
+                    <div className="text-primary-dark fs-15" style={{fontFamily: 'RobotoMedium'}}>{randomProduct.categorie.toUpperCase()}</div>
                   ) : (
                     <Skeleton count={1} height={12} width={60} baseColor={EColors.primary}/>
                   )}

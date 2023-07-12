@@ -79,7 +79,7 @@ export const CategoryProducts = () => {
               HYTEC EQUIPMENT
             </div>
             <h1
-              style={{ fontWeight: '900' }}
+              style={{ fontFamily: 'RobotoBlack'}}
               className="text-dark fs-8 mb-5 text-center "
             >
               {section.categorie.toUpperCase()}

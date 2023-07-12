@@ -1,7 +1,7 @@
-import { AnimatePresence, motion } from "framer-motion";
-import React, { ReactNode, useState } from "react";
-import { pauseCarousel } from "../../features/pauseHeroPage/pauseHeroPage";
-import { useAppDispatch } from "../../app/hooks";
+import { AnimatePresence, motion } from 'framer-motion';
+import React, { ReactNode, useState } from 'react';
+import { pauseCarousel } from '../../features/pauseHeroPage/pauseHeroPage';
+import { useAppDispatch } from '../../app/hooks';
 
 interface IArrowButtonsProps {
   paginate: (newDirection: number) => void | null;
@@ -9,9 +9,8 @@ interface IArrowButtonsProps {
   children: ReactNode;
   addClass: string;
   directionTrigger: number;
-  handleClick: ()=>void;
+  handleClick: () => void;
 }
-
 
 export const ArrowButtons: React.FC<IArrowButtonsProps> = ({
   paginate,
@@ -19,32 +18,32 @@ export const ArrowButtons: React.FC<IArrowButtonsProps> = ({
   children,
   addClass,
   directionTrigger,
-  handleClick
+  handleClick,
 }) => {
-  const  dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
   const [hover, setHover] = useState<boolean>(false);
-  
 
   return (
     <motion.button
-        whileTap={{}}
-        transition = {{duration:.2}}
-      style={{zIndex:10 }}
-    //   data-slide = {directionTrigger===direction ? true : false}
+      whileTap={{}}
+      transition={{ duration: 0.2 }}
+      style={{ zIndex: 10 }}
+      //   data-slide = {directionTrigger===direction ? true : false}
       onClick={() => {
-        handleClick()
-        paginate(direction)
-        dispatch(pauseCarousel(true))}}
+        handleClick();
+        paginate(direction);
+        dispatch(pauseCarousel(true));
+      }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       className={`p-2 btn border rounded-0 border-0 shadow-lg ${addClass} bg-primary`}
     >
       <AnimatePresence>
         <motion.div
-        initial={{x: 5}}
-        animate={{ x: hover ? 5*direction : 0 }}
+          initial={{ x: 5 }}
+          animate={{ x: hover ? 5 * direction : 0 }}
         >
-            {children}
+          {children}
         </motion.div>
       </AnimatePresence>
     </motion.button>

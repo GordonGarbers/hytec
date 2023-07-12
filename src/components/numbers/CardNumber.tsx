@@ -114,7 +114,7 @@ export const CardNumber: React.FC<ICardNumberProps> = ({
         <div className="d-flex">
           <div className="d-flex align-items-center">
             <div
-              style={{ fontWeight: '800' }}
+              style={{ fontFamily: 'RobotoBold'}}
               className={`${includeArrow ? 'd-block' : 'd-none'} fs-${
                 windowWidth <= 732 ? (windowWidth <= 479 ? 5 : 7) : 6
               } text-dark-form pe-2`}
@@ -123,7 +123,7 @@ export const CardNumber: React.FC<ICardNumberProps> = ({
 
           <CountUp
             delay={0 * delayNum}
-            style={{ fontWeight: '800' }}
+            style={{ fontFamily: 'RobotoBold'}}
             className={`fs-${
               windowWidth <= 732 ? (windowWidth <= 479 ? 3 : 6) : 5
             } text-dark-light`}
@@ -142,7 +142,7 @@ export const CardNumber: React.FC<ICardNumberProps> = ({
           className="d-flex justify-content-center align-items-center"
         >
           <div
-            style={{ fontWeight: '500' }}
+            style={{ fontFamily: 'RobotoMedium'}}
             className={`fs-${
               windowWidth >= 479 && windowWidth <= 830
                 ? windowWidth <= 670

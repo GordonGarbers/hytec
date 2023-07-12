@@ -21,7 +21,7 @@ export const ProcessText: React.FC<IProcessTextProps> = ({
   return (
     <div
       className={`proces-text mt-3 mt-sm-4 fs-${size} ${textColor}`}
-      style={{ fontWeight: '400' }}
+      style={{ fontFamily: 'RobotoRegular'}}
     >
       {!isLoaded ? (
         text?.split('\n').map((item: string, idx: number) => (

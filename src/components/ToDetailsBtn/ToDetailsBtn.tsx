@@ -43,7 +43,7 @@ export const ToDetailsBtn: React.FC<IToDetailsBtnProps> = ({
     <>
       {!dataIsLoaded ? (
         <button
-          style={{ fontWeight: 600 }}
+          style={{ fontFamily: 'RobotoMedium'}}
           onClick={() => onDetailsChange(product)}
           className={`${
             fullWidth ? 'w-100 justify-content-center' : ''

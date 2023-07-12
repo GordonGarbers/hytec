@@ -172,7 +172,7 @@ export const Products: React.FC = () => {
       <div className="container-fluid-02 mb-6 mt-5 mt-md-8 p-3 position-relative">
         <div className="text-primary fw-bold text-center ">HYTEC EQUIPMENT</div>
         <h1
-          style={{ fontWeight: '900' }}
+          style={{ fontFamily: 'RobotoBlack'}}
           className="text-dark fs-6 mb-7 text-center "
         >
           {data.sections.machinery}
