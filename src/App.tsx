@@ -17,7 +17,6 @@ import { MainLayout } from './components/layout/MainLayout';
 import { CategoryProducts } from './pages/CategoryProducts';
 import { onMainMenuShowHide } from './components/products/features/hideShowMainMenu.slice';
 import { ImprintInfo } from './pages/ImprintInfo';
-import { basename } from 'path';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,7 +27,7 @@ const router = createBrowserRouter(
       <Route path="/:type" element={<CategoryProducts />} />
       <Route path="/imprint" element={<ImprintInfo />} />
     </Route>),
-    {basename:'/hytec'},
+    // {basename:'/hytec'},
     
     );
 
