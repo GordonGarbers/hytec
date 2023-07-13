@@ -11,13 +11,7 @@ import {
   createRoutesFromElements,
   BrowserRouter as Router,
   Route,
-  Link,
-  NavLink,
   RouterProvider,
-  useLocation,
-  Routes,
-  BrowserRouter,
-  HashRouter,
 } from 'react-router-dom';
 import { MainLayout } from './components/layout/MainLayout';
 import { CategoryProducts } from './pages/CategoryProducts';
@@ -32,9 +26,7 @@ const router = createBrowserRouter(
       <Route path=":type" element={<CategoryProducts />} />
       <Route path="imprint" element={<ImprintInfo />} />
     </Route>
-  ),
-  { basename: process.env.PUBLIC_URL }
-);
+  ));
 
 function App() {
   const { dataIsLoaded, data, dataError } = useAppSelector(
