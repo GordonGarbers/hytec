@@ -17,22 +17,25 @@ import { MainLayout } from './components/layout/MainLayout';
 import { CategoryProducts } from './pages/CategoryProducts';
 import { onMainMenuShowHide } from './components/products/features/hideShowMainMenu.slice';
 import { ImprintInfo } from './pages/ImprintInfo';
+import { basename } from 'path';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
+
     <Route path="/" element={<MainLayout />}>
       <Route index element={<Home />} />
-      <Route path=":type/:id" element={<Details />} />
-      <Route path=":type" element={<CategoryProducts />} />
-      <Route path="imprint" element={<ImprintInfo />} />
-    </Route>
-  ));
+      <Route path="/:type/:id" element={<Details />} />
+      <Route path="/:type" element={<CategoryProducts />} />
+      <Route path="/imprint" element={<ImprintInfo />} />
+    </Route>),
+    {basename:'/hytec'},
+    
+    );
 
 function App() {
   const { dataIsLoaded, data, dataError } = useAppSelector(
     (state: RootState) => state.data
   );
-
   const { language } = useAppSelector((state: RootState) => state.lang);
 
   const dispatch = useAppDispatch();
