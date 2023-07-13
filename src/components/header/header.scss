@@ -14,13 +14,13 @@
 
 @media (min-width: 620px) {
   .logo-header {
-    width: 140px;
+    width: 160px;
     padding-top: 10px;
-    padding-bottom: 8px;
+    // padding-bottom: 8px;
   }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 619px) {
   .logo-header {
     width: 120px;
     padding-top: 6px;

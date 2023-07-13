@@ -86,7 +86,7 @@ export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
       <ul
         ref={ref}
         style={{ marginBottom: 0 }}
-        className="scroll-indicator text-secondary list-unstyled d-flex flex-column align-items-center flex-sm-row pe-3"
+        className="scroll-indicator text-secondary list-unstyled d-flex flex-column align-items-center fs-11 flex-sm-row pe-3 gap-4"
       >
         {liList}
 
