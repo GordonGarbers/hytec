@@ -14,19 +14,10 @@ import {
 } from './features/filterVehicleType.slice';
 
 import {
-  filterKw,
   filterPrice,
-  filterPs,
   filterWeight,
   filterDisplacement,
   filterFuelTankCapacity,
-  filterLiftingCapacity,
-  filterLiftingHeight,
-  filterSpeed,
-  filterTotalHeight,
-  filterTotalLength,
-  filterTotalWidth,
-  filterWheelbase,
 } from './features/filter.slice';
 
 import { GrFormClose } from 'react-icons/gr';
@@ -35,17 +26,15 @@ import { onHytecChanged } from './features/hytec.slice';
 import { onHytecProChanged } from './features/hytecPro.slice';
 
 export const FilterProduct: React.FC = () => {
-  const { dataIsLoaded, data, dataError } = useAppSelector(
+  const { data } = useAppSelector(
     (state: RootState) => state.data
   );
 
   const { vehicleTypeCheckers } = useAppSelector(
     (state: RootState) => state.vehicleType
   );
-  const { language } = useAppSelector((state: RootState) => state.lang);
 
   const [filter, setFilter] = useState<boolean>(true);
-  const { reset } = useAppSelector((state: RootState) => state.resetFilter);
   const { filters } = useAppSelector(
     (state: RootState) => state.changedFilters
   );
@@ -121,18 +110,18 @@ export const FilterProduct: React.FC = () => {
   } = useRange(data, EUseRangeSections.weight, filterWeight);
 
   //hook kw
-  const {
-    initialValue: initalValueKw,
-    distance: distanceKw,
-    step: stepKw,
-  } = useRange(data, EUseRangeSections.kw, filterKw);
+  // const {
+  //   initialValue: initalValueKw,
+  //   distance: distanceKw,
+  //   step: stepKw,
+  // } = useRange(data, EUseRangeSections.kw, filterKw);
 
   //hook ps
-  const {
-    initialValue: initalValuePs,
-    distance: distancePs,
-    step: stepPs,
-  } = useRange(data, EUseRangeSections.kw, filterPs);
+  // const {
+  //   initialValue: initalValuePs,
+  //   distance: distancePs,
+  //   step: stepPs,
+  // } = useRange(data, EUseRangeSections.kw, filterPs);
 
   const {
     initialValue: initalValueDisplacement,
@@ -150,61 +139,52 @@ export const FilterProduct: React.FC = () => {
     filterFuelTankCapacity
   );
 
-  const {
-    initialValue: initalValueSpeed,
-    distance: distanceSpeed,
-    step: stepSpeed,
-  } = useRange(data, EUseRangeSections.speed, filterSpeed);
+  // const {
+  //   initialValue: initalValueSpeed,
+  //   distance: distanceSpeed,
+  //   step: stepSpeed,
+  // } = useRange(data, EUseRangeSections.speed, filterSpeed);
 
-  const {
-    initialValue: initalValueLiftingCapacity,
-    distance: distanceLiftingCapacity,
-    step: stepLiftingCapacity,
-  } = useRange(data, EUseRangeSections.liftingCapacity, filterLiftingCapacity);
+  // const {
+  //   initialValue: initalValueLiftingCapacity,
+  //   distance: distanceLiftingCapacity,
+  //   step: stepLiftingCapacity,
+  // } = useRange(data, EUseRangeSections.liftingCapacity, filterLiftingCapacity);
 
-  const {
-    initialValue: initalValueLiftingHeight,
-    distance: distanceLiftingHeight,
-    step: stepLiftingHeight,
-  } = useRange(data, EUseRangeSections.liftingHeight, filterLiftingHeight);
+  // const {
+  //   initialValue: initalValueLiftingHeight,
+  //   distance: distanceLiftingHeight,
+  //   step: stepLiftingHeight,
+  // } = useRange(data, EUseRangeSections.liftingHeight, filterLiftingHeight);
 
-  const {
-    initialValue: initalValueTotalLength,
-    distance: distanceTotalLength,
-    step: stepTotalLength,
-  } = useRange(data, EUseRangeSections.totalLength, filterTotalLength);
+  // const {
+  //   initialValue: initalValueTotalLength,
+  //   distance: distanceTotalLength,
+  //   step: stepTotalLength,
+  // } = useRange(data, EUseRangeSections.totalLength, filterTotalLength);
 
-  const {
-    initialValue: initalValueTotalWidth,
-    distance: distanceTotalWidth,
-    step: stepTotalWidth,
-  } = useRange(data, EUseRangeSections.totalWidth, filterTotalWidth);
+  // const {
+  //   initialValue: initalValueTotalWidth,
+  //   distance: distanceTotalWidth,
+  //   step: stepTotalWidth,
+  // } = useRange(data, EUseRangeSections.totalWidth, filterTotalWidth);
 
-  const {
-    initialValue: initalValueTotalHeight,
-    distance: distanceTotalHeight,
-    step: stepTotalHeight,
-  } = useRange(data, EUseRangeSections.totalHeight, filterTotalHeight);
+  // const {
+  //   initialValue: initalValueTotalHeight,
+  //   distance: distanceTotalHeight,
+  //   step: stepTotalHeight,
+  // } = useRange(data, EUseRangeSections.totalHeight, filterTotalHeight);
 
-  const {
-    initialValue: initalWheelbase,
-    distance: distanceWheelbase,
-    step: stepWheelbase,
-  } = useRange(data, EUseRangeSections.wheelbase, filterWheelbase);
+  // const {
+  //   initialValue: initalWheelbase,
+  //   distance: distanceWheelbase,
+  //   step: stepWheelbase,
+  // } = useRange(data, EUseRangeSections.wheelbase, filterWheelbase);
   ///////////////////////////////////////////////////////////
   const {
-    kw,
-    ps,
     displacement,
     fuelTankCapacity,
-    speed,
     weight,
-    liftingCapacity,
-    liftingHeight,
-    totalLength,
-    totalWidth,
-    totalHeight,
-    wheelbase,
     price,
   } = useAppSelector((state: RootState) => state.filter);
 

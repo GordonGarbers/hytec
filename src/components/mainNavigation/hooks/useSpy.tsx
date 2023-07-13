@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAppSelector } from '../../../app/hooks';
 import { RootState } from '../../../app/store';
 
 export const useSpy = (marginRoot: number) => {
   const [isIntersecting, setIsIntersecting] = useState(false);
-  const { dataIsLoaded, data, dataError } = useAppSelector(
+  const { data } = useAppSelector(
     (state: RootState) => state.data
   );
 

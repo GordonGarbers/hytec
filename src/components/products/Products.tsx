@@ -53,7 +53,7 @@ export const Products: React.FC = () => {
   const { windowWidth } = useAppSelector((state: RootState) => state.width);
   const { isScrolling, isWindowChange } = useWindowAndScrollDetection();
 
-  const { dataIsLoaded, data, dataError } = useAppSelector(
+  const { dataIsLoaded, data } = useAppSelector(
     (state: RootState) => state.data
   );
   const { vehicleTypeCheckers } = useAppSelector(
@@ -63,29 +63,20 @@ export const Products: React.FC = () => {
   const [btnClicked, setBtnClicked] = useState<number>(0);
 
   const {
-    kw,
-    ps,
     displacement,
     fuelTankCapacity,
-    speed,
     weight,
-    liftingCapacity,
-    liftingHeight,
-    totalLength,
-    totalWidth,
-    totalHeight,
-    wheelbase,
-    price,
+    price
   } = useAppSelector((state: RootState) => state.filter);
 
-  const onLiBtnClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-    e.preventDefault();
-    setBtnClicked(e.currentTarget.value);
-    sessionStorage.setItem(
-      'productsSelected',
-      e.currentTarget.value.toString()
-    );
-  };
+  // const onLiBtnClick = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+  //   e.preventDefault();
+  //   setBtnClicked(e.currentTarget.value);
+  //   sessionStorage.setItem(
+  //     'productsSelected',
+  //     e.currentTarget.value.toString()
+  //   );
+  // };
 
   useEffect(() => {
     const btnValue = sessionStorage.getItem('productsSelected') || btnClicked;

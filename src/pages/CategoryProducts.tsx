@@ -19,7 +19,7 @@ export const CategoryProducts = () => {
   const randomProductPerCategorieElements = useRandomProducts(section);
   const dispatch = useAppDispatch();
 
-  const { dataIsLoaded, data, dataError } = useAppSelector(
+  const { dataIsLoaded } = useAppSelector(
     (state: RootState) => state.data
   );
 

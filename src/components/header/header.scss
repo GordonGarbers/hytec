@@ -1,38 +1,29 @@
-// @import "../../sass/custom.scss";
-.info-header-wrapper{
-
-}
-
-.header-info{
-  transition:all .5s ease;
-  .info-icon{
-    transition:all .3s ease; 
+.header-info {
+  transition: all 0.5s ease;
+  .info-icon {
+    transition: all 0.3s ease;
   }
 }
 
-.header-info:hover{
+.header-info:hover {
   background-color: #2d2e36;
-  .info-icon{
+  .info-icon {
     transform: scale(1.2);
   }
 }
 
 @media (min-width: 620px) {
-    .logo-header{
-        width:140px;
-        padding-top: 10px;
-        padding-bottom: 8px;
-        // margin-bottom: ;
-        
-    }
+  .logo-header {
+    width: 140px;
+    padding-top: 10px;
+    padding-bottom: 8px;
+  }
+}
 
+@media (max-width: 620px) {
+  .logo-header {
+    width: 120px;
+    padding-top: 6px;
+    padding-bottom: 5px;
   }
-  
-  @media (max-width: 620px) {
-    .logo-header{
-        width:120px;
-        padding-top: 6px;
-        padding-bottom: 5px;
-    }
-  }
-  
+}

@@ -1,4 +1,3 @@
-import React from 'react';
 import { ProcessText } from '../layout/ProcessText';
 import { useAppSelector } from '../../app/hooks';
 import { RootState } from '../../app/store';
@@ -9,7 +8,7 @@ import { TbTruckDelivery } from 'react-icons/tb';
 import './SparePartsAndTransport.scss';
 
 export const SparePartsAndTransport = () => {
-  const { dataIsLoaded, data, dataError } = useAppSelector(
+  const { dataIsLoaded, data } = useAppSelector(
     (state: RootState) => state.data
   );
 
@@ -48,7 +47,6 @@ export const SparePartsAndTransport = () => {
           <div className="spare-image spare-transport-image-main">
             <img
               className="spare-transport-img"
-              // style={{ width: '100%', height: 'auto' }}
               width="983"
               height="737"
               src={`${process.env.PUBLIC_URL}/assets/machinery/F170/01.webp`}
@@ -63,7 +61,6 @@ export const SparePartsAndTransport = () => {
           <div className="transport-image spare-transport-image-main">
             <img
               className="spare-transport-img"
-              // style={{ width: '100%', height: 'auto' }}
               width="983"
               height="737"
               src={`${process.env.PUBLIC_URL}/assets/machinery/F55/01.webp`}

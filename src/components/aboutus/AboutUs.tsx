@@ -11,7 +11,7 @@ import './aboutus.scss';
 export const AboutUs = () => {
   const { windowWidth } = useAppSelector((state: RootState) => state.width);
 
-  const { dataIsLoaded, data, dataError } = useAppSelector(
+  const { dataIsLoaded, data } = useAppSelector(
     (state: RootState) => state.data
   );
   return (

@@ -10,7 +10,7 @@ import { RootState } from "../../../app/store";
 
 export const useRandomProducts = (products: IProducts) => {
 
-    const { dataIsLoaded, data, dataError } = useAppSelector(
+    const { dataIsLoaded, data } = useAppSelector(
         (state: RootState) => state.data
       );
 
@@ -24,7 +24,7 @@ export const useRandomProducts = (products: IProducts) => {
     
       const randomProductPerCategorieElements = randomProductPerCategorie.map(
         (randomProduct: IProducts, idx: number) => {
-          const fullImagePath = `${process.env.PUBLIC_URL}/${randomProduct.basePath}${randomProduct.productNamePath}${randomProduct.heroImage}`;
+          // const fullImagePath = `${process.env.PUBLIC_URL}/${randomProduct.basePath}${randomProduct.productNamePath}${randomProduct.heroImage}`;
     
           return (
             <SwiperSlide key={idx} className="rounded-2 shadow-sm" style={{backgroundColor:'#fff'}}>

@@ -3,7 +3,6 @@ import { IoIosArrowForward } from 'react-icons/io';
 import Skeleton from 'react-loading-skeleton';
 import { NavLink, useNavigate, Link } from 'react-router-dom';
 import { IDataDetails, IProducts } from '../../interfaces/interfaces';
-import { scrollToSection } from '../../utils/getActiveElementScrollPos';
 import { AiFillHome } from 'react-icons/ai';
 import { EColors } from '../../constants/constants';
 import { Variants, motion } from 'framer-motion';
@@ -33,18 +32,8 @@ export const NavDetails: React.FC<INavDetailsProps> = ({
   finalProduct,
   dataIsLoaded,
   relatedProducts,
-  data,
 }) => {
   const navigate = useNavigate();
-
-  const onBreadClick = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    url: string,
-    section: IProducts
-  ) => {
-    e.preventDefault();
-    navigate(url, { state: { section } });
-  };
 
   return (
     <nav className="fs-14 mb-3">

@@ -36,16 +36,11 @@ export const RangeSlider: React.FC<IRangeSliderProps> = memo(
     sufix,
     attrName,
     btnSelected,
-    storageSufix,
   }) => {
     const refMin = useRef<HTMLInputElement>(null);
     const refMax = useRef<HTMLInputElement>(null);
 
     const { windowWidth } = useAppSelector((state: RootState) => state.width);
-
-    const { filters } = useAppSelector(
-      (state: RootState) => state.changedFilters
-    );
 
     const { animSpeed } = useAppSelector(
       (state: RootState) => state.sliderSpeed
@@ -132,21 +127,6 @@ export const RangeSlider: React.FC<IRangeSliderProps> = memo(
 
     const { language } = useAppSelector((state: RootState) => state.lang);
 
-    const {
-      kw,
-      ps,
-      displacement,
-      fuelTankCapacity,
-      speed,
-      weight,
-      liftingCapacity,
-      liftingHeight,
-      totalLength,
-      totalWidth,
-      totalHeight,
-      wheelbase,
-      price,
-    } = useAppSelector((state: RootState) => state.filter);
 
     useEffect(() => {
       if (minimum && maximum) {

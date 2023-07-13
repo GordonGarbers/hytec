@@ -6,7 +6,6 @@ import { Spinner } from '../loaders/Spinner';
 import { getImageRatio } from '../../utils/createImagePlaceholder';
 import { RootState } from '../../app/store';
 import { EColors } from '../../constants/constants';
-import { useImageCache } from '../hooks/useImageCache';
 import { ToDetailsBtn } from '../ToDetailsBtn/ToDetailsBtn';
 
 interface IProductLiProps {
@@ -27,7 +26,6 @@ export const ProductLi: React.FC<IProductLiProps> = ({
   const { windowWidth } = useAppSelector((state: RootState) => state.width);
 
   const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
-  const imageUrl = useImageCache(fullImagePath, isImgLoaded);
 
   const handleImageOnLoad = () => {
     setIsImgLoaded(true);

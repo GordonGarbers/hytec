@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { IDataDetails, IHero } from '../../interfaces/interfaces';
 import Skeleton from 'react-loading-skeleton';
-import { useImageCache } from '../hooks/useImageCache';
 import { ProcessText } from '../layout/ProcessText';
 import { PrimaryButton } from '../primaryButton/PrimaryButton';
-import { EColors, ESizes } from '../../constants/constants';
+import { EColors } from '../../constants/constants';
 import { useAppSelector } from '../../app/hooks';
 import { RootState } from '../../app/store';
 
@@ -21,16 +20,16 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
   isDataLoaded,
 }) => {
   const { windowWidth } = useAppSelector((state: RootState) => state.width);
-  const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
+  // const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
 
-  const imageUrl = useImageCache(
-    `${process.env.PUBLIC_URL}/${page?.image}`,
-    isImgLoaded
-  );
+  // const imageUrl = useImageCache(
+  //   `${process.env.PUBLIC_URL}/${page?.image}`,
+  //   isImgLoaded
+  // );
 
-  const handleImageOnLoad = () => {
-    setIsImgLoaded(true);
-  };
+  // const handleImageOnLoad = () => {
+  //   setIsImgLoaded(true);
+  // };
 
   return (
 

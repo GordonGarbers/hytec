@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Spinner } from '../../components/loaders/Spinner';
-import { IDataDetails, IProducts } from '../../interfaces/interfaces';
+import { IProducts } from '../../interfaces/interfaces';
 import { ImgCache } from '../ImgCache';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { RootState } from '../../app/store';
@@ -34,18 +34,13 @@ import { useRandomProducts } from './hooks/useRandomProducts';
 import { onMainMenuShowHide } from '../../components/products/features/hideShowMainMenu.slice';
 import { SparePartsAndTransport } from '../../components/SparePartsAndTransport/SparePartsAndTransport';
 
-interface INavigateType {
-  product: IProducts;
-  data: IDataDetails;
-}
 
 export const Details: React.FC = () => {
   const { windowWidth } = useAppSelector((state: RootState) => state.width);
   const { value } = useAppSelector((state: RootState) => state.counter);
   const [showMore, setShowMore] = useState<boolean>(false);
-  const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
 
-  const { dataIsLoaded, data, dataError } = useAppSelector(
+  const { dataIsLoaded, data } = useAppSelector(
     (state: RootState) => state.data
   );
 
@@ -92,21 +87,21 @@ export const Details: React.FC = () => {
     }
   );
 
-  const carouselButtons = products.carouselImages.map(
-    (_: string, idx: number) => {
-      return (
-        <button
-          key={idx}
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide-to={idx}
-          className={`${idx === 0 ? 'active' : ''}`}
-          aria-current={`${idx === 0 ? 'true' : 'false'}`}
-          aria-label={`Slide ${idx + 1}`}
-        ></button>
-      );
-    }
-  );
+  // const carouselButtons = products.carouselImages.map(
+  //   (_: string, idx: number) => {
+  //     return (
+  //       <button
+  //         key={idx}
+  //         type="button"
+  //         data-bs-target="#carouselExampleIndicators"
+  //         data-bs-slide-to={idx}
+  //         className={`${idx === 0 ? 'active' : ''}`}
+  //         aria-current={`${idx === 0 ? 'true' : 'false'}`}
+  //         aria-label={`Slide ${idx + 1}`}
+  //       ></button>
+  //     );
+  //   }
+  // );
 
   const randomProductPerCategorieElements = useRandomProducts(products);
 

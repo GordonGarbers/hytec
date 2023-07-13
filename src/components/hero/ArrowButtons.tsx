@@ -17,7 +17,6 @@ export const ArrowButtons: React.FC<IArrowButtonsProps> = ({
   direction,
   children,
   addClass,
-  directionTrigger,
   handleClick,
 }) => {
   const dispatch = useAppDispatch();

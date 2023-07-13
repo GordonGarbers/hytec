@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { logoPos } from '../../constants/constants';
 import { logoPosType } from '../../constants/constants';
 import { motion } from 'framer-motion';
@@ -36,7 +36,7 @@ const variantsText = {
 };
 
 export const Land: React.FC = () => {
-  const { dataIsLoaded, data, dataError } = useAppSelector(
+  const { dataIsLoaded, data } = useAppSelector(
     (state: RootState) => state.data
   );
 

@@ -3,10 +3,8 @@ import { CarouselUniversalInner } from './CarouselUniversalInner';
 import { ESection, IDataDetails, IHero } from '../../interfaces/interfaces';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import {
-  A11y,
   Keyboard,
   Pagination,
-  Scrollbar,
   Navigation as swiperNavigation,
 } from 'swiper';
 import 'swiper/scss';

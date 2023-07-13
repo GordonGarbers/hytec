@@ -1,35 +1,26 @@
-circle
-{   
-// stroke-width: 30px;
-//   stroke-linecap: round;
+circle {
   fill: transparent;
-//   
+  //
 }
-
 
 @media (min-width: 620px) {
-    .yellow-part{
-        height: 130px;
-    }
+  .yellow-part {
+    height: 130px;
+  }
 
-    .number-icon{
-        top: 30px;
-        left: 30px;
-        // transform: translate(-50%, 0),
-    }
-
-
+  .number-icon {
+    top: 30px;
+    left: 30px;
+  }
 }
-  
+
 @media (max-width: 619px) {
-    .yellow-part{
-        height: 60px;   
-    }
+  .yellow-part {
+    height: 60px;
+  }
 
-    .number-icon{
-        top: 20px;
-        left: 20px;
-        // transform: translate(-50%, 0),
-    }
-
+  .number-icon {
+    top: 20px;
+    left: 20px;
+  }
 }

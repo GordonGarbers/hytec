@@ -8,7 +8,7 @@ import { useAppSelector } from '../../app/hooks';
 import { RootState } from '../../app/store';
 
 export const Numbers: React.FC = () => {
-  const { dataIsLoaded, data, dataError } = useAppSelector(
+  const { data } = useAppSelector(
     (state: RootState) => state.data
   );
 

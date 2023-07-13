@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Li } from './Li';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import { RootState } from '../../app/store';
@@ -13,7 +13,7 @@ interface IUlProps {
 }
 
 export const Ul: React.FC<IUlProps> = ({ windowWidth }) => {
-  const { dataIsLoaded, data, dataError } = useAppSelector(
+  const { data } = useAppSelector(
     (state: RootState) => state.data
   );
 

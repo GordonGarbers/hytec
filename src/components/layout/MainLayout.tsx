@@ -1,4 +1,3 @@
-import React from 'react';
 import { Background } from '../background/Background';
 import { Footer } from '../footer/Footer';
 import { Header } from '../header/Header';

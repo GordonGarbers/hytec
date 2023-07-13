@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React  from 'react';
 import { Translate } from 'react-bootstrap-icons';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { RootState } from '../../app/store';
@@ -23,7 +23,6 @@ import { addVehicleType } from '../products/features/filterVehicleType.slice';
 export const Language: React.FC = () => {
   const { language } = useAppSelector((state: RootState) => state.lang);
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
 
   const handleLanguageOptions2 = (
     e: SingleValue<{ value: string; label: React.ReactNode }>

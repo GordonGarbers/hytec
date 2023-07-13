@@ -8,7 +8,7 @@ import { RootState } from '../../app/store';
 import Skeleton from 'react-loading-skeleton';
 
 export const Footer: React.FC = () => {
-  const { dataIsLoaded, data, dataError } = useAppSelector(
+  const { dataIsLoaded, data } = useAppSelector(
     (state: RootState) => state.data
   );
   return (

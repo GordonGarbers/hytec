@@ -9,7 +9,7 @@ import { RootState } from "../../app/store";
 
 
 export const SideFollowUs = () => {
-  const { dataIsLoaded, data, dataError } = useAppSelector(
+  const { data } = useAppSelector(
     (state: RootState) => state.data
   );
   return (

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import '../src/sass/main.scss';
 import { dataPedding } from './features/data/data.slice';
 import { useAppDispatch, useAppSelector } from './app/hooks';
@@ -9,7 +9,6 @@ import { Details } from './pages/details/Details';
 import {
   createBrowserRouter,
   createRoutesFromElements,
-  BrowserRouter as Router,
   Route,
   RouterProvider,
 } from 'react-router-dom';
@@ -32,9 +31,9 @@ const router = createBrowserRouter(
     );
 
 function App() {
-  const { dataIsLoaded, data, dataError } = useAppSelector(
-    (state: RootState) => state.data
-  );
+  // const { dataIsLoaded, data, dataError } = useAppSelector(
+  //   (state: RootState) => state.data
+  // );
   const { language } = useAppSelector((state: RootState) => state.lang);
 
   const dispatch = useAppDispatch();

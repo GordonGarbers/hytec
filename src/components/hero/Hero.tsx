@@ -1,4 +1,4 @@
-import React, { RefObject, useEffect, useRef } from 'react';
+import React from 'react';
 import { CarouselHero } from './CarouselHero';
 import './hero.scss';
 
