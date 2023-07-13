@@ -4,7 +4,7 @@ import { RelatedProducts } from './details/RelatedProducts';
 import { IProducts } from '../interfaces/interfaces';
 import { useRandomProducts } from './details/hooks/useRandomProducts';
 import { motion } from 'framer-motion';
-import { EColors, transitionSpeed } from '../constants/constants';
+import { EColors, TITLE, transitionSpeed } from '../constants/constants';
 import { onMainMenuShowHide } from '../components/products/features/hideShowMainMenu.slice';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { AiFillHome } from 'react-icons/ai';
@@ -25,6 +25,7 @@ export const CategoryProducts = () => {
 
   useEffect(() => {
     dispatch(onMainMenuShowHide(true));
+    document.title = `${TITLE} | Related Products`;
   }, [randomProductPerCategorieElements]);
 
   return (

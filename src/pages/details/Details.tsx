@@ -15,6 +15,7 @@ import Skeleton from 'react-loading-skeleton';
 import {
   EColors,
   EProductSections,
+  TITLE,
   transitionSpeed,
 } from '../../constants/constants';
 import { NavDetails } from './NavDetails';
@@ -60,6 +61,7 @@ export const Details: React.FC = () => {
 
   useEffect(() => {
     dispatch(onMainMenuShowHide(true));
+    document.title = `${TITLE} | Details`;
   }, [windowWidth]);
 
   const finalProduct = data.products.filter(

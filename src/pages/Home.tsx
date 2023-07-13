@@ -6,7 +6,7 @@ import { Products } from "../components/products/Products";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
 import { RootState } from "../app/store";
 import {motion} from 'framer-motion';
-import { transitionSpeed } from "../constants/constants";
+import { TITLE, transitionSpeed } from "../constants/constants";
 import { scrollToSection } from "../utils/getActiveElementScrollPos";
 import { useSpy } from "../components/mainNavigation/hooks/useSpy";
 import { useLocation } from "react-router-dom";
@@ -25,7 +25,9 @@ export const Home: React.FC = () => {
   useEffect(()=>{
     scrollToSection(state?.section)
     dispatch(onMainMenuShowHide(false))
+    document.title = TITLE;
   },[])
+
 
 
   return (
