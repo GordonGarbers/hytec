@@ -8,6 +8,7 @@ import { useAppSelector } from "../../app/hooks";
 import { RootState } from "../../app/store";
 import Skeleton from "react-loading-skeleton";
 import { EColors } from "../../constants/constants";
+import emailjs from '@emailjs/browser'
 
 
 export const Form: React.FC = () => {
@@ -15,12 +16,22 @@ export const Form: React.FC = () => {
     (state: RootState) => state.data
   );
 
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    console.log('SUBMITING....');
+
+    emailjs.sendForm('service_qik0orp', 'template_msxchh9', e.target as HTMLFormElement, 'WfrFUcIra74fJ0_Mh')
+
+
+  }
+
   return (
     <form
       className="form-wrapper"
-      action="https://formspree.io/f/mjvdlklv"
+      // action="https://formspree.io/f/mjvdlklv"
       // action="https://formsubmit.co/milesoda@yahoo.com"
       method="POST"
+      onSubmit={sendEmail}
     >
       <div className="">
         <h1 style={{ fontFamily: 'RobotoMedium'}} className="fs-6 pt-0 text-primary">
