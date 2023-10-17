@@ -18,7 +18,7 @@ export const Header: React.FC = () => {
     <header
       style={{ zIndex: '2', top: '0px' }}
       className={`bg-dark pt-2 pt-sm-2 pb-2 pb-sm-${
-        showHideMainMenu ? 3 : 4
+        showHideMainMenu ? 4 : 4
       } position-fixed w-100 position-relative`}
     >
       <div
