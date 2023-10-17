@@ -212,7 +212,7 @@ export const Form: React.FC = () => {
           <div className={`d-flex align-items-center gap-${submitingText ? 2 : 0}`}>
             <div className="position-relative" style={{width:`${submitingText ? '20px' : '0px'}`, height: `${submitingText ? '20px' : '0px'}`}}>
               {
-                submitingText ? <Spinner size={20} width={10}/> : ""
+                submitingText ? <Spinner size={20} width={10} color={"#000"}/> : ""
               }
 
             </div>

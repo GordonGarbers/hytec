@@ -9,7 +9,6 @@ import {
 } from '../../constants/constants';
 import { switchLanguage } from '../../features/changeLanguage/changeLanguage.slice';
 import { onFiltersClear } from '../products/features/filtersChanged.slice';
-import { useNavigate } from 'react-router-dom';
 import { onMinMaxSave } from '../products/features/minMaxValues.slice';
 import { addCategory } from '../../features/products/productCategories/productCategories.slice';
 
@@ -125,6 +124,7 @@ export const Language: React.FC = () => {
         styles={customStyles}
         defaultValue={defaultValue}
         onChange={(e) => handleLanguageOptions2(e)}
+        isSearchable={false}
       />
     </div>
   );

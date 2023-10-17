@@ -8,8 +8,7 @@ interface ISpinnerProps {
   color?: string
 }
 
-// export const Spinner: React.FC<ISpinnerProps> = ({ size, width, color = "#f7d100" }) => {
-export const Spinner: React.FC<ISpinnerProps> = ({ size, width, color = "#000" }) => {
+export const Spinner: React.FC<ISpinnerProps> = ({ size, width, color = "#f7d100" }) => {
   return (
     <Centerize>
       <Oval
