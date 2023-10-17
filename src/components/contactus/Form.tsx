@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import { MdTitle } from "react-icons/md";
@@ -9,6 +9,7 @@ import { RootState } from "../../app/store";
 import Skeleton from "react-loading-skeleton";
 import { EColors } from "../../constants/constants";
 import emailjs from '@emailjs/browser'
+import { Spinner } from "../loaders/Spinner";
 
 
 export const Form: React.FC = () => {
@@ -16,14 +17,31 @@ export const Form: React.FC = () => {
     (state: RootState) => state.data
   );
 
+  const [submitingText, setSubmitingText] = useState<boolean>(false);
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [subject, setSubject] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
+
+  useEffect(()=>{
+    setSubmitingText(false)
+  },[])
+
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log('SUBMITING....');
-
-    emailjs.sendForm('service_qik0orp', 'template_msxchh9', e.target as HTMLFormElement, 'WfrFUcIra74fJ0_Mh')
-
-
+    setSubmitingText(true)
+    emailjs.sendForm(process.env.REACT_APP_SERVICE_ID!, process.env.REACT_APP_TEMPLATE_ID!, e.target as HTMLFormElement, process.env.REACT_APP_PUBLIC_KEY)
+      .then(response => {
+      setSubmitingText(false)
+      setName("")
+      setEmail("")
+      setSubject("")
+      setMessage("")
+    }, function(error) {
+      console.log("Email send failed", error);
+    });
   }
+
 
   return (
     <form
@@ -98,6 +116,8 @@ export const Form: React.FC = () => {
                 placeholder={data.form.name ?? ""}
                 required
                 autoComplete="off"
+                value = {name}
+                onChange={(e)=>setName(e.target.value)}
               />
             ) : (
               <Skeleton
@@ -122,6 +142,8 @@ export const Form: React.FC = () => {
                 placeholder={data.form.email ?? ""}
                 required
                 autoComplete="off"
+                value = {email}
+                onChange={(e)=>setEmail(e.target.value)}
               />
             ) : (
               <Skeleton
@@ -147,6 +169,8 @@ export const Form: React.FC = () => {
                 aria-describedby="inputGroupPrepend2"
                 required
                 autoComplete="off"
+                value = {subject}
+                onChange={(e)=>setSubject(e.target.value)}
               />
             ) : (
               <Skeleton
@@ -166,6 +190,8 @@ export const Form: React.FC = () => {
               rows={5}
               name="message"
               placeholder={data.form.text ?? ""}
+              value = {message}
+              onChange={(e)=>setMessage(e.target.value)}
             ></textarea>
           ) : (
             <Skeleton
@@ -176,13 +202,25 @@ export const Form: React.FC = () => {
             />
           )}
         </div>
+
       </div>
       {!dataIsLoaded ? (
         <button
-          className="btn btn-primary fs-14 fw-bold px-2 px-sm-4 py-2 d-flex align-items-center"
+          className="btn btn-primary fs-14 fw-bold px-2 px-sm-3 py-2 d-flex align-items-center"
           type="submit"
         >
-          <span>{data.buttons.send}</span>
+          <div className={`d-flex align-items-center gap-${submitingText ? 2 : 0}`}>
+            <div className="position-relative" style={{width:`${submitingText ? '20px' : '0px'}`, height: `${submitingText ? '20px' : '0px'}`}}>
+              {
+                submitingText ? <Spinner size={20} width={10}/> : ""
+              }
+
+            </div>
+
+            <span>
+              {data.buttons.send}
+            </span>
+          </div>
         </button>
       ) : (
         <Skeleton
