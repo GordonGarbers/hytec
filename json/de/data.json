@@ -5,7 +5,7 @@
       "categorie": "radlader",
       "name": "F30",
       "price": "16.950",
-      "vehicleType":"hytec",
+      "vehicleType": "hytec",
       "extras": [
         "Schnellwechselsystem",
         "Schaufel",
@@ -93,14 +93,14 @@
         "12.webp",
         "13.webp"
       ],
-      "video":"https://www.youtube.com/watch?v=CJW59TkI1ic"
+      "video": "https://www.youtube.com/watch?v=CJW59TkI1ic"
     },
     {
       "id": 2,
       "categorie": "radlader",
       "name": "F35",
       "price": "19.950",
-      "vehicleType":"hytec",
+      "vehicleType": "hytec",
       "extras": [
         "Schnellwechselsystem",
         "Schaufel",
@@ -188,14 +188,14 @@
         "12.webp",
         "13.webp"
       ],
-      "video":"https://www.youtube.com/watch?v=CJW59TkI1ic"
+      "video": "https://www.youtube.com/watch?v=CJW59TkI1ic"
     },
     {
       "id": 3,
       "categorie": "radlader",
       "name": "F45",
       "price": "23.950",
-      "vehicleType":"hytec",
+      "vehicleType": "hytec",
       "extras": [
         "Schnellwechselsystem",
         "Schaufel",
@@ -282,14 +282,14 @@
         "11.webp",
         "12.webp"
       ],
-      "video":"https://www.youtube.com/watch?v=CJW59TkI1ic"
+      "video": "https://www.youtube.com/watch?v=CJW59TkI1ic"
     },
     {
       "id": 4,
       "categorie": "radlader",
       "name": "F55",
       "price": "26.950",
-      "vehicleType":"hytec",
+      "vehicleType": "hytec",
       "extras": [
         "Schnellwechselsystem",
         "Schaufel",
@@ -376,14 +376,14 @@
         "11.webp",
         "12.webp"
       ],
-      "video":"https://www.youtube.com/watch?v=CJW59TkI1ic"
+      "video": "https://www.youtube.com/watch?v=CJW59TkI1ic"
     },
     {
       "id": 5,
       "categorie": "radlader",
       "name": "F65",
       "price": "31.500",
-      "vehicleType":"hytec",
+      "vehicleType": "hytec",
       "extras": [
         "Schnellwechselsystem",
         "Schaufel",
@@ -472,14 +472,14 @@
         "13.webp",
         "14.webp"
       ],
-      "video":"https://www.youtube.com/watch?v=CJW59TkI1ic"
+      "video": "https://www.youtube.com/watch?v=CJW59TkI1ic"
     },
     {
       "id": 6,
       "categorie": "radlader",
       "name": "F75",
       "price": "36.950",
-      "vehicleType":"hytec",
+      "vehicleType": "hytec",
       "extras": [
         "Schnellwechselsystem",
         "Schaufel",
@@ -552,17 +552,15 @@
       "basePath": "assets/machinery/",
       "productNamePath": "F75/",
       "heroImage": "01.webp",
-      "carouselImages": [
-        "01.webp"
-      ],
-      "video":"https://www.youtube.com/watch?v=CJW59TkI1ic"
+      "carouselImages": ["01.webp"],
+      "video": "https://www.youtube.com/watch?v=CJW59TkI1ic"
     },
     {
       "id": 7,
       "categorie": "radlader",
       "name": "F100",
       "price": "46.950",
-      "vehicleType":"hytec",
+      "vehicleType": "hytec",
       "extras": [
         "Schnellwechselsystem",
         "Schaufel",
@@ -635,17 +633,15 @@
       "basePath": "assets/machinery/",
       "productNamePath": "F100/",
       "heroImage": "01.webp",
-      "carouselImages": [
-        "01.webp"
-      ],
-      "video":"https://www.youtube.com/watch?v=CJW59TkI1ic"
+      "carouselImages": ["01.webp"],
+      "video": "https://www.youtube.com/watch?v=CJW59TkI1ic"
     },
     {
       "id": 8,
       "categorie": "radlader",
       "name": "F170",
       "price": "79.950",
-      "vehicleType":"hytec",
+      "vehicleType": "hytec",
       "extras": [
         "Schnellwechselsystem",
         "Schaufel",
@@ -718,17 +714,15 @@
       "basePath": "assets/machinery/",
       "productNamePath": "F170/",
       "heroImage": "01.webp",
-      "carouselImages": [
-        "01.webp"
-      ],
-      "video":"https://www.youtube.com/watch?v=CJW59TkI1ic"
+      "carouselImages": ["01.webp"],
+      "video": "https://www.youtube.com/watch?v=CJW59TkI1ic"
     },
     {
       "id": 9,
       "categorie": "hoflader",
       "name": "FM25",
       "price": "17.000",
-      "vehicleType":"hytec",
+      "vehicleType": "hytec",
       "extras": [
         "Schnellwechselsystem",
         "Schaufel",
@@ -799,21 +793,15 @@
       "basePath": "assets/machinery/",
       "productNamePath": "FM25/",
       "heroImage": "01.webp",
-      "carouselImages": [
-        "01.webp",
-        "02.webp",
-        "03.webp",
-        "04.webp",
-        "05.webp"
-      ],
-      "video":"https://www.youtube.com/watch?v=CJW59TkI1ic"
+      "carouselImages": ["01.webp", "02.webp", "03.webp", "04.webp", "05.webp"],
+      "video": "https://www.youtube.com/watch?v=CJW59TkI1ic"
     },
     {
       "id": 10,
       "categorie": "hoflader",
       "name": "FM35 Überrollbügel",
       "price": "18.000",
-      "vehicleType":"hytec",
+      "vehicleType": "hytec",
       "extras": [
         "Schnellwechselsystem",
         "Schaufel",
@@ -898,14 +886,14 @@
         "12.webp",
         "13.webp"
       ],
-      "video":"https://www.youtube.com/watch?v=Xdr_arUOEwo"
+      "video": "https://www.youtube.com/watch?v=Xdr_arUOEwo"
     },
     {
       "id": 11,
       "categorie": "hoflader",
       "name": "FM35 Dach",
       "price": "18.500",
-      "vehicleType":"hytec",
+      "vehicleType": "hytec",
       "extras": [
         "Schnellwechselsystem",
         "Schaufel",
@@ -988,20 +976,17 @@
         "10.webp",
         "11.webp"
       ],
-      "video":"https://www.youtube.com/watch?v=Xdr_arUOEwo"
+      "video": "https://www.youtube.com/watch?v=Xdr_arUOEwo"
     },
     {
       "id": 12,
       "categorie": "stapler",
       "name": "15D",
       "price": "15.350",
-      "vehicleType":"hytec",
-      "extras": [
-
-      ],
+      "vehicleType": "hytec",
+      "extras": [],
       "description": "Der HYTEC FM35 ist der perfekte Hoflader für Ihren Hof. Mit genügend Hubkraft bei unvergleichbarer Wendigkeit, können Sie mit diesem Kompaktlader schnell und effektiv ihre Pferdebox entmisten oder Futterraufen befüllen. \nDieses Ausstattungsniveau ist in dieser Preisklasse unvergleichbar und Sie haben einen Hoflader für Ihren Hof der kompakt ist und für alle Anwendungszwecke geeignet.",
-      "accessories": [
-      ],
+      "accessories": [],
       "specifications": [
         "Motor:Isuzu C240: ",
         "Kraftstoffart:Diesel: ",
@@ -1060,20 +1045,17 @@
         "06.webp",
         "07.webp"
       ],
-      "video":"https://www.youtube.com/watch?v=Xdr_arUOEwo"
+      "video": "https://www.youtube.com/watch?v=Xdr_arUOEwo"
     },
     {
       "id": 13,
       "categorie": "stapler",
       "name": "20D",
       "price": "15.950",
-      "vehicleType":"hytec",
-      "extras": [
-
-      ],
+      "vehicleType": "hytec",
+      "extras": [],
       "description": "The HYTEC 20D is the strong helper for your warehouse and yard, which offers you incomparable technology with perfect service due to its price performance. Thanks to our strong dealer network, we guarantee the best possible utilization of your industrial truck.",
-      "accessories": [
-      ],
+      "accessories": [],
       "specifications": [
         "Motor:Isuzu C240: ",
         "Kraftstoffart:Diesel: ",
@@ -1123,26 +1105,18 @@
       "basePath": "assets/machinery/",
       "productNamePath": "20D/",
       "heroImage": "01.webp",
-      "carouselImages": [
-        "01.webp",
-        "02.webp",
-        "03.webp",
-        "04.webp"
-      ],
-      "video":"https://www.youtube.com/watch?v=Xdr_arUOEwo"
+      "carouselImages": ["01.webp", "02.webp", "03.webp", "04.webp"],
+      "video": "https://www.youtube.com/watch?v=Xdr_arUOEwo"
     },
     {
       "id": 14,
       "categorie": "stapler",
       "name": "25D",
       "price": "17.950",
-      "vehicleType":"hytec",
-      "extras": [
-
-      ],
+      "vehicleType": "hytec",
+      "extras": [],
       "description": "Der HYTEC 25D ist der starke Helfer für ihr Lager und Hof, der durch seine Preisleistung, Ihnen eine unvergleichbare Technik mit einer perfekten Service Versorgung bietet. Durch unserer starkes Händlernetzwerk garantieren wir eine bestmögliche Auslastung ihres Flurförderfahrzeugs.",
-      "accessories": [
-      ],
+      "accessories": [],
       "specifications": [
         "Motor:Isuzu C240: ",
         "Kraftstoffart:Diesel: ",
@@ -1192,26 +1166,18 @@
       "basePath": "assets/machinery/",
       "productNamePath": "25D/",
       "heroImage": "01.webp",
-      "carouselImages": [
-        "01.webp",
-        "02.webp",
-        "03.webp",
-        "04.webp"
-      ],
-      "video":"https://www.youtube.com/watch?v=Xdr_arUOEwo"
+      "carouselImages": ["01.webp", "02.webp", "03.webp", "04.webp"],
+      "video": "https://www.youtube.com/watch?v=Xdr_arUOEwo"
     },
     {
       "id": 15,
       "categorie": "stapler",
       "name": "30D",
       "price": "18.950",
-      "vehicleType":"hytec",
-      "extras": [
-
-      ],
+      "vehicleType": "hytec",
+      "extras": [],
       "description": "Der HYTEC 30D ist der starke Helfer für ihr Lager und Hof, der durch seine Preisleistung, Ihnen eine unvergleichbare Technik mit einer perfekten Service Versorgung bietet. Durch unserer starkes Händlernetzwerk garantieren wir eine bestmögliche Auslastung ihres Flurförderfahrzeugs.",
-      "accessories": [
-      ],
+      "accessories": [],
       "specifications": [
         "Motor:Mitsubishi S4S474: ",
         "Kraftstoffart:Diesel: ",
@@ -1261,26 +1227,18 @@
       "basePath": "assets/machinery/",
       "productNamePath": "30D/",
       "heroImage": "01.webp",
-      "carouselImages": [
-        "01.webp",
-        "02.webp",
-        "03.webp",
-        "04.webp"
-      ],
-      "video":"https://www.youtube.com/watch?v=Xdr_arUOEwo"
+      "carouselImages": ["01.webp", "02.webp", "03.webp", "04.webp"],
+      "video": "https://www.youtube.com/watch?v=Xdr_arUOEwo"
     },
     {
       "id": 16,
       "categorie": "stapler",
       "name": "35D",
       "price": "19.950",
-      "vehicleType":"hytec",
-      "extras": [
-
-      ],
+      "vehicleType": "hytec",
+      "extras": [],
       "description": "Der HYTEC 35D ist der starke Helfer für ihr Lager und Hof, der durch seine Preisleistung, Ihnen eine unvergleichbare Technik mit einer perfekten Service Versorgung bietet. Durch unserer starkes Händlernetzwerk garantieren wir eine bestmögliche Auslastung ihres Flurförderfahrzeugs.",
-      "accessories": [
-      ],
+      "accessories": [],
       "specifications": [
         "Motor:Mitsubishi S4S474: ",
         "Kraftstoffart:Diesel: ",
@@ -1330,26 +1288,18 @@
       "basePath": "assets/machinery/",
       "productNamePath": "35D/",
       "heroImage": "01.webp",
-      "carouselImages": [
-        "01.webp",
-        "02.webp",
-        "03.webp",
-        "04.webp"
-      ],
-      "video":"https://www.youtube.com/watch?v=Xdr_arUOEwo"
+      "carouselImages": ["01.webp", "02.webp", "03.webp", "04.webp"],
+      "video": "https://www.youtube.com/watch?v=Xdr_arUOEwo"
     },
     {
       "id": 17,
       "categorie": "stapler",
       "name": "20G",
       "price": "18.950",
-      "vehicleType":"hytec",
-      "extras": [
-
-      ],
+      "vehicleType": "hytec",
+      "extras": [],
       "description": "Der HYTEC 20G ist der starke Helfer für ihr Lager und Hof, der durch seine Preisleistung, Ihnen eine unvergleichbare Technik mit einer perfekten Service Versorgung bietet. Durch unserer starkes Händlernetzwerk garantieren wir eine bestmögliche Auslastung ihres Flurförderfahrzeugs.",
-      "accessories": [
-      ],
+      "accessories": [],
       "specifications": [
         "Motor:Nissan K21: ",
         "Kraftstoffart:Diesel: ",
@@ -1398,25 +1348,18 @@
       "basePath": "assets/machinery/",
       "productNamePath": "20G/",
       "heroImage": "01.webp",
-      "carouselImages": [
-        "01.webp",
-        "02.webp",
-        "03.webp"
-      ],
-      "video":"https://www.youtube.com/watch?v=Xdr_arUOEwo"
+      "carouselImages": ["01.webp", "02.webp", "03.webp"],
+      "video": "https://www.youtube.com/watch?v=Xdr_arUOEwo"
     },
     {
       "id": 18,
       "categorie": "stapler",
       "name": "25G",
       "price": "19.300",
-      "vehicleType":"hytec",
-      "extras": [
-
-      ],
+      "vehicleType": "hytec",
+      "extras": [],
       "description": "Der HYTEC 25G ist der starke Helfer für ihr Lager und Hof, der durch seine Preisleistung, Ihnen eine unvergleichbare Technik mit einer perfekten Service Versorgung bietet. Durch unserer starkes Händlernetzwerk garantieren wir eine bestmögliche Auslastung ihres Flurförderfahrzeugs.",
-      "accessories": [
-      ],
+      "accessories": [],
       "specifications": [
         "Motor:Nissan K21: ",
         "Kraftstoffart:Gasoline/LPG: ",
@@ -1465,25 +1408,18 @@
       "basePath": "assets/machinery/",
       "productNamePath": "25G/",
       "heroImage": "01.webp",
-      "carouselImages": [
-        "01.webp",
-        "02.webp",
-        "03.webp"
-      ],
-      "video":"https://www.youtube.com/watch?v=Xdr_arUOEwo"
+      "carouselImages": ["01.webp", "02.webp", "03.webp"],
+      "video": "https://www.youtube.com/watch?v=Xdr_arUOEwo"
     },
     {
       "id": 19,
       "categorie": "stapler",
       "name": "30G",
       "price": "19.500",
-      "vehicleType":"hytec",
-      "extras": [
-
-      ],
+      "vehicleType": "hytec",
+      "extras": [],
       "description": "Der HYTEC 30G ist der starke Helfer für ihr Lager und Hof, der durch seine Preisleistung, Ihnen eine unvergleichbare Technik mit einer perfekten Service Versorgung bietet. Durch unserer starkes Händlernetzwerk garantieren wir eine bestmögliche Auslastung ihres Flurförderfahrzeugs.",
-      "accessories": [
-      ],
+      "accessories": [],
       "specifications": [
         "Motor:Nissan K25: ",
         "Kraftstoffart:Gasoline/LPG: ",
@@ -1532,25 +1468,18 @@
       "basePath": "assets/machinery/",
       "productNamePath": "30G/",
       "heroImage": "01.webp",
-      "carouselImages": [
-        "01.webp",
-        "02.webp",
-        "03.webp"
-      ],
-      "video":"https://www.youtube.com/watch?v=Xdr_arUOEwo"
+      "carouselImages": ["01.webp", "02.webp", "03.webp"],
+      "video": "https://www.youtube.com/watch?v=Xdr_arUOEwo"
     },
     {
       "id": 20,
       "categorie": "stapler",
       "name": "35G",
       "price": "19.950",
-      "vehicleType":"hytec",
-      "extras": [
-
-      ],
+      "vehicleType": "hytec",
+      "extras": [],
       "description": "Der HYTEC 35G ist der starke Helfer für ihr Lager und Hof, der durch seine Preisleistung, Ihnen eine unvergleichbare Technik mit einer perfekten Service Versorgung bietet. Durch unserer starkes Händlernetzwerk garantieren wir eine bestmögliche Auslastung ihres Flurförderfahrzeugs.",
-      "accessories": [
-      ],
+      "accessories": [],
       "specifications": [
         "Motor:Nissan K25: ",
         "Kraftstoffart:Gasoline/LPG: ",
@@ -1599,24 +1528,16 @@
       "basePath": "assets/machinery/",
       "productNamePath": "35G/",
       "heroImage": "01.webp",
-      "carouselImages": [
-        "01.webp",
-        "02.webp",
-        "03.webp"
-      ],
-      "video":"https://www.youtube.com/watch?v=Xdr_arUOEwo"
+      "carouselImages": ["01.webp", "02.webp", "03.webp"],
+      "video": "https://www.youtube.com/watch?v=Xdr_arUOEwo"
     },
     {
       "id": 21,
       "categorie": "minibagger",
       "name": "F1000",
       "price": "8.950",
-      "vehicleType":"hytec",
-      "extras": [
-        "Schnellwechselsystem",
-        "Schaufel",
-        "3. Steuerkreis"
-      ],
+      "vehicleType": "hytec",
+      "extras": ["Schnellwechselsystem", "Schaufel", "3. Steuerkreis"],
       "description": "Unser Minibagger F1000 ist eine kompakte Multifunktionsmaschine. Er ist klein, leistungsstark und vielseitig einsetzbar. Sie kommen dank der geringen Breite mit diesem Minibagger auch an schwer zugängliche Orte. Er ist mit einem starken Motor ausgestattet, welcher das leistungsstarke Hydrauliksystem antreibt.",
       "accessories": [
         "Schaufel 30cm:300:€",
@@ -1681,19 +1602,15 @@
         "15.webp",
         "16.webp"
       ],
-      "video":"https://www.youtube.com/watch?v=hLwli41C08k"
+      "video": "https://www.youtube.com/watch?v=hLwli41C08k"
     },
     {
       "id": 22,
       "categorie": "minibagger",
       "name": "F1200 PRO",
       "price": "12.950",
-      "vehicleType":"hytec pro",
-      "extras": [
-        "Schnellwechselsystem",
-        "Schaufel",
-        "3. Steuerkreis"
-      ],
+      "vehicleType": "hytec pro",
+      "extras": ["Schnellwechselsystem", "Schaufel", "3. Steuerkreis"],
       "description": "Unser Minibagger F1200 PRO ist eine kompakte Multifunktionsmaschine. Er ist klein, leistungsstark und vielseitig einsetzbar. Sie kommen dank der geringen Breite mit diesem Minibagger auch an schwer zugängliche Orte. Er ist mit einem starken Motor ausgestattet, welcher das leistungsstarke Hydrauliksystem antreibt.",
       "accessories": [
         "Schaufel 30cm:300:€",
@@ -1761,22 +1678,17 @@
         "14.webp",
         "15.webp"
       ],
-      "video":"https://www.youtube.com/watch?v=hLwli41C08k"
+      "video": "https://www.youtube.com/watch?v=hLwli41C08k"
     },
     {
       "id": 23,
       "categorie": "radlader",
       "name": "F08 PRO",
       "price": "15.000",
-      "vehicleType":"hytec pro",
-      "extras": [
-        "Schnellwechselsystem",
-        "Schaufel",
-        "Kette"
-      ],
+      "vehicleType": "hytec pro",
+      "extras": ["Schnellwechselsystem", "Schaufel", "Kette"],
       "description": "Der F08 PRO Radlader ist perfekt als starke  und kompakte Arbeitsmaschine für den Bau und Hof. Die komplette Maschine ist durchdacht und nach höchsten Qualitätsstandards entwickelt und hält auch hohen Belastungen stand. Der starke 4 Zylinder Diesel verleiht diesem Kompaktlader genug Leistung, auch im professionellen Einsatz zu glänzen. \nDurch das Steuerventil welches auch mit arretierten dritten Steuerkreis die Schwimmstellung ermöglicht macht das Gerät auch für Anwendungen im Garten-Landschaftsbau perfekt geeignet.",
-      "accessories": [
-      ],
+      "accessories": [],
       "specifications": [
         "Motor:Kubota 3-Zylinder nach EURO 5 Norm:",
         "Eigengewicht:1010:kg",
@@ -1825,25 +1737,22 @@
       "basePath": "assets/machinery/",
       "productNamePath": "F08PRO/",
       "heroImage": "01.webp",
-      "carouselImages": [
-        "01.webp"
-      ],
-      "video":"https://www.youtube.com/watch?v=hLwli41C08k"
+      "carouselImages": ["01.webp"],
+      "video": "https://www.youtube.com/watch?v=hLwli41C08k"
     },
     {
       "id": 24,
       "categorie": "radlader",
       "name": "F18 PRO",
       "price": "15.000",
-      "vehicleType":"hytec pro",
+      "vehicleType": "hytec pro",
       "extras": [
         "Schnellwechselsystem: Lehnhoff MS01",
         "Schaufel: 0,04 m3",
         "Kette: 230 mm"
       ],
       "description": "Der F18 PRO Radlader ist perfekt als starke  und kompakte Arbeitsmaschine für den Bau und Hof. Die komplette Maschine ist durchdacht und nach höchsten Qualitätsstandards entwickelt und hält auch hohen Belastungen stand. Der starke 4 Zylinder Diesel verleiht diesem Kompaktlader genug Leistung, auch im professionellen Einsatz zu glänzen. \nDurch das Steuerventil welches auch mit arretierten dritten Steuerkreis die Schwimmstellung ermöglicht macht das Gerät auch für Anwendungen im Garten-Landschaftsbau perfekt geeignet.",
-      "accessories": [
-      ],
+      "accessories": [],
       "specifications": [
         "Motor:Kubota 3-Zylinder nach EURO 5 Norm:",
         "Eigengewicht:1750:kg",
@@ -1892,25 +1801,22 @@
       "basePath": "assets/machinery/",
       "productNamePath": "F18PRO/",
       "heroImage": "01.webp",
-      "carouselImages": [
-        "01.webp"
-      ],
-      "video":"https://www.youtube.com/watch?v=hLwli41C08k"
+      "carouselImages": ["01.webp"],
+      "video": "https://www.youtube.com/watch?v=hLwli41C08k"
     },
     {
       "id": 25,
       "categorie": "radlader",
       "name": "F20 PRO",
       "price": "15.000",
-      "vehicleType":"hytec pro",
+      "vehicleType": "hytec pro",
       "extras": [
         "Schnellwechselsystem: Lehnhoff MS03",
         "Schaufel: 0,04 m3",
         "Kette: 230 mm"
       ],
       "description": "Der F20 PRO Radlader ist perfekt als starke  und kompakte Arbeitsmaschine für den Bau und Hof. Die komplette Maschine ist durchdacht und nach höchsten Qualitätsstandards entwickelt und hält auch hohen Belastungen stand. Der starke 4 Zylinder Diesel verleiht diesem Kompaktlader genug Leistung, auch im professionellen Einsatz zu glänzen. \nDurch das Steuerventil welches auch mit arretierten dritten Steuerkreis die Schwimmstellung ermöglicht macht das Gerät auch für Anwendungen im Garten-Landschaftsbau perfekt geeignet.",
-      "accessories": [
-      ],
+      "accessories": [],
       "specifications": [
         "Motor:Yanmar 4 Zylinder Motor mit Euro 5 Norm:",
         "Eigengewicht:2000:kg",
@@ -1959,25 +1865,22 @@
       "basePath": "assets/machinery/",
       "productNamePath": "F20PRO/",
       "heroImage": "01.webp",
-      "carouselImages": [
-        "01.webp"
-      ],
-      "video":"https://www.youtube.com/watch?v=hLwli41C08k"
+      "carouselImages": ["01.webp"],
+      "video": "https://www.youtube.com/watch?v=hLwli41C08k"
     },
     {
       "id": 26,
       "categorie": "radlader",
       "name": "F30 PRO",
       "price": "15.000",
-      "vehicleType":"hytec pro",
+      "vehicleType": "hytec pro",
       "extras": [
         "Schnellwechselsystem: Lehnhoff MS03",
         "Schaufel: 0,08 m3",
         "Kette: 300 mm"
       ],
       "description": "Der F30 PRO Radlader ist perfekt als starke  und kompakte Arbeitsmaschine für den Bau und Hof. Die komplette Maschine ist durchdacht und nach höchsten Qualitätsstandards entwickelt und hält auch hohen Belastungen stand. Der starke 4 Zylinder Diesel verleiht diesem Kompaktlader genug Leistung, auch im professionellen Einsatz zu glänzen. \nDurch das Steuerventil welches auch mit arretierten dritten Steuerkreis die Schwimmstellung ermöglicht macht das Gerät auch für Anwendungen im Garten-Landschaftsbau perfekt geeignet.",
-      "accessories": [
-      ],
+      "accessories": [],
       "specifications": [
         "Motor:Yanmar 4 Zylinder Motor mit Euro 5 Norm:",
         "Eigengewicht:2750:kg",
@@ -2026,25 +1929,22 @@
       "basePath": "assets/machinery/",
       "productNamePath": "F30PRO/",
       "heroImage": "01.webp",
-      "carouselImages": [
-        "01.webp"
-      ],
-      "video":"https://www.youtube.com/watch?v=hLwli41C08k"
+      "carouselImages": ["01.webp"],
+      "video": "https://www.youtube.com/watch?v=hLwli41C08k"
     },
     {
       "id": 27,
       "categorie": "radlader",
       "name": "F40 PRO",
       "price": "15.000",
-      "vehicleType":"hytec pro",
+      "vehicleType": "hytec pro",
       "extras": [
         "Schnellwechselsystem: Lehnhoff MS03",
         "Schaufel: 0,11 m3",
         "Kette: 300 mm"
       ],
       "description": "Der F40 PRO Radlader ist perfekt als starke  und kompakte Arbeitsmaschine für den Bau und Hof. Die komplette Maschine ist durchdacht und nach höchsten Qualitätsstandards entwickelt und hält auch hohen Belastungen stand. Der starke 4 Zylinder Diesel verleiht diesem Kompaktlader genug Leistung, auch im professionellen Einsatz zu glänzen. \nDurch das Steuerventil welches auch mit arretierten dritten Steuerkreis die Schwimmstellung ermöglicht macht das Gerät auch für Anwendungen im Garten-Landschaftsbau perfekt geeignet.",
-      "accessories": [
-      ],
+      "accessories": [],
       "specifications": [
         "Motor:Kubota 3 Zylinder mit EURO 5 Norm:",
         "Eigengewicht:3950:kg",
@@ -2093,25 +1993,22 @@
       "basePath": "assets/machinery/",
       "productNamePath": "F40PRO/",
       "heroImage": "01.webp",
-      "carouselImages": [
-        "01.webp"
-      ],
-      "video":"https://www.youtube.com/watch?v=hLwli41C08k"
+      "carouselImages": ["01.webp"],
+      "video": "https://www.youtube.com/watch?v=hLwli41C08k"
     },
     {
       "id": 28,
       "categorie": "radlader",
       "name": "F60 PRO",
       "price": "15.000",
-      "vehicleType":"hytec pro",
+      "vehicleType": "hytec pro",
       "extras": [
         "Schnellwechselsystem: Lehnhoff MS03",
         "Schaufel: 0,25 m3",
         "Kette: 400 mm"
       ],
       "description": "Der F60 PRO Radlader ist perfekt als starke  und kompakte Arbeitsmaschine für den Bau und Hof. Die komplette Maschine ist durchdacht und nach höchsten Qualitätsstandards entwickelt und hält auch hohen Belastungen stand. Der starke 4 Zylinder Diesel verleiht diesem Kompaktlader genug Leistung, auch im professionellen Einsatz zu glänzen. \nDurch das Steuerventil welches auch mit arretierten dritten Steuerkreis die Schwimmstellung ermöglicht macht das Gerät auch für Anwendungen im Garten-Landschaftsbau perfekt geeignet.",
-      "accessories": [
-      ],
+      "accessories": [],
       "specifications": [
         "Motor:Yanmar 4 Zylinder Motor mit Common-Rail-Kraftstoffeinspritzung:",
         "Eigengewicht:5950:kg",
@@ -2160,25 +2057,22 @@
       "basePath": "assets/machinery/",
       "productNamePath": "F60PRO/",
       "heroImage": "01.webp",
-      "carouselImages": [
-        "01.webp"
-      ],
-      "video":"https://www.youtube.com/watch?v=hLwli41C08k"
+      "carouselImages": ["01.webp"],
+      "video": "https://www.youtube.com/watch?v=hLwli41C08k"
     },
     {
       "id": 29,
       "categorie": "radlader",
       "name": "F80 PRO",
       "price": "15.000",
-      "vehicleType":"hytec pro",
+      "vehicleType": "hytec pro",
       "extras": [
         "Schnellwechselsystem: Lehnhoff MS03",
         "Schaufel: 0,25 m3",
         "Kette: 450 mm"
       ],
       "description": "Der F80 PRO Radlader ist perfekt als starke  und kompakte Arbeitsmaschine für den Bau und Hof. Die komplette Maschine ist durchdacht und nach höchsten Qualitätsstandards entwickelt und hält auch hohen Belastungen stand. Der starke 4 Zylinder Diesel verleiht diesem Kompaktlader genug Leistung, auch im professionellen Einsatz zu glänzen. \nDurch das Steuerventil welches auch mit arretierten dritten Steuerkreis die Schwimmstellung ermöglicht macht das Gerät auch für Anwendungen im Garten-Landschaftsbau perfekt geeignet.",
-      "accessories": [
-      ],
+      "accessories": [],
       "specifications": [
         "Motor:Yanmar TNV-Serie:",
         "Eigengewicht:7850:kg",
@@ -2227,25 +2121,22 @@
       "basePath": "assets/machinery/",
       "productNamePath": "F80PRO/",
       "heroImage": "01.webp",
-      "carouselImages": [
-        "01.webp"
-      ],
-      "video":"https://www.youtube.com/watch?v=hLwli41C08k"
+      "carouselImages": ["01.webp"],
+      "video": "https://www.youtube.com/watch?v=hLwli41C08k"
     },
     {
       "id": 30,
       "categorie": "radlader",
       "name": "F90 PRO",
       "price": "15.000",
-      "vehicleType":"hytec pro",
+      "vehicleType": "hytec pro",
       "extras": [
         "Schnellwechselsystem: Lehnhoff MS08",
         "Schaufel: 0,32 m3",
         "Kette: 450 mm"
       ],
       "description": "Der F90 PRO Radlader ist perfekt als starke  und kompakte Arbeitsmaschine für den Bau und Hof. Die komplette Maschine ist durchdacht und nach höchsten Qualitätsstandards entwickelt und hält auch hohen Belastungen stand. Der starke 4 Zylinder Diesel verleiht diesem Kompaktlader genug Leistung, auch im professionellen Einsatz zu glänzen. \nDurch das Steuerventil welches auch mit arretierten dritten Steuerkreis die Schwimmstellung ermöglicht macht das Gerät auch für Anwendungen im Garten-Landschaftsbau perfekt geeignet.",
-      "accessories": [
-      ],
+      "accessories": [],
       "specifications": [
         "Motor:Yanmar TNV-Serie:",
         "Eigengewicht:8360:kg",
@@ -2294,10 +2185,8 @@
       "basePath": "assets/machinery/",
       "productNamePath": "F90PRO/",
       "heroImage": "01.webp",
-      "carouselImages": [
-        "01.webp"
-      ],
-      "video":"https://www.youtube.com/watch?v=hLwli41C08k"
+      "carouselImages": ["01.webp"],
+      "video": "https://www.youtube.com/watch?v=hLwli41C08k"
     }
   ],
 
@@ -2331,8 +2220,8 @@
       "image": "assets/carusel/baumachine_03.webp"
     }
   ],
-  "text":{
-    "aboutus":"Seit 2005 sind wir einer der führenden Anbieter von hochwertigen Baumaschinen in Deutschland. Mit über 10.000 verkauften Maschinen und einem Netzwerk von über 100 Händlern im ganzen Land haben wir uns in der Branche etabliert.\nUnser Ziel ist es, Ihnen die besten Lösungen im Bereich der Baumaschinen anzubieten. Mit unserer langjährigen Erfahrung und Expertise bieten wir eine vielfältige Auswahl an Maschinen für verschiedene Anwendungen."
+  "text": {
+    "aboutus": "Seit 2005 sind wir einer der führenden Anbieter von hochwertigen Baumaschinen in Deutschland. Mit über 10.000 verkauften Maschinen und einem Netzwerk von über 100 Händlern im ganzen Land haben wir uns in der Branche etabliert.\nUnser Ziel ist es, Ihnen die besten Lösungen im Bereich der Baumaschinen anzubieten. Mit unserer langjährigen Erfahrung und Expertise bieten wir eine vielfältige Auswahl an Maschinen für verschiedene Anwendungen."
   },
   "dealer": {
     "smallTitle": "HYTEC",
@@ -2341,29 +2230,30 @@
     "titleNormalAfter": "Händler",
     "text": "Sind Sie daran interessiert, ein Händler für unsere Schwermaschinenprodukte zu werden? Wir suchen engagierte Einzelpersonen oder Unternehmen, die sich für den Bau und schwere Ausrüstungen begeistern. \nAls Händler haben Sie Zugang zu unserem gesamten Sortiment an hochwertigen Produkten, wettbewerbsfähigen Preisen und umfassender Unterstützung. Schließen Sie sich uns an und helfen Sie uns, das Beste in der Schwermaschinenindustrie weltweit anzubieten. Kontaktieren Sie uns noch heute, um mehr über diese aufregende Möglichkeit zu erfahren."
   },
-  "nav":[
+  "nav": [
     {
-      "id":1,
-      "displayName":"Start",
-      "idName":"home"
+      "id": 1,
+      "displayName": "Start",
+      "idName": "home"
     },
     {
-      "id":1,
-      "displayName":"Maschinen",
-      "idName":"machinery"
+      "id": 1,
+      "displayName": "Maschinen",
+      "idName": "machinery"
     },
     {
-      "id":1,
-      "displayName":"Über Uns",
-      "idName":"aboutus"
-    },    {
-      "id":1,
-      "displayName":"Kontakt",
-      "idName":"contact"
+      "id": 1,
+      "displayName": "Über Uns",
+      "idName": "aboutus"
+    },
+    {
+      "id": 1,
+      "displayName": "Kontakt",
+      "idName": "contact"
     }
   ],
   "sections": {
-    "machinery":"Unsere Maschinen",
+    "machinery": "Unsere Maschinen",
     "aboutus": "Über uns",
     "contact": "KONTAKTIEREN SIE UNS"
   },
@@ -2392,6 +2282,86 @@
     "termsAndConditions": "AGB"
   },
 
+  "imprint": [
+    "HYTEC Baumaschinen GmbH",
+    "Borgwardstr. 6",
+    "21423 Winsen Luhe",
+    "Tel.: +49 (0) 4171 / 60 642 70",
+    "Fax.: +49 (0) 4171 / 66 911 05",
+    "Email: info@Hytec-Baumaschinen.de",
+    "Geschäftsführer: Udo Blanck",
+    "Amstgericht: Lüneburg",
+    "HRB 208 066"
+  ],
+  "termsAndConditions": [
+    "Allgemeine Geschäftsbedingunge",
+    "- 1 Geltungsbereich, Form,&div&bold",
+    "(1) Die vorliegenden Allgemeinen Geschäftsbedingungen (nachfolgend AGB) gelten für alle Geschäftsbeziehungen der",
+    "HYTEC Baumaschinen GmbH&div",
+    "Bogwardstrasse 6&div",
+    "21423 Winsen (Luhe)&div",
+    "Geschäftsführer: Udo Blanck&div",
+    "mit unseren Kunden („Käufer“).&div",
+    "",
+    "(2) Die Firma HYTEC Baumaschinen GmbH verkauft an Unternehmer (§ 14 BGB), juristische Person des öffentlichen Rechts oder Inhaber eines öffentlich-rechtlichen Sondervermögens ist und private Personen.",
+    "(3) Die AGB gelten insbesondere für Verträge über den Verkauf und/oder die Lieferung beweglicher Sachen („Ware“), ohne Rücksicht darauf, ob wir die Ware selbst herstellen oder bei Zulieferern einkaufen (§§ 433, 651 BGB). Sofern nichts anderes vereinbart, gelten die AGB in der zum Zeitpunkt der Bestellung des Käufers gültigen bzw. jedenfalls in der ihm zuletzt in Textform mitgeteilten Fassung als Rahmenvereinbarung auch für gleichartige künftige Verträge, ohne dass wir in jedem Einzelfall wieder auf sie hinweisen müssten.",
+    "(4) Unsere AGB gelten ausschließlich. Abweichende, entgegenstehende oder ergänzende Allgemeine Geschäftsbedingungen des Käufers werden nur dann und insoweit Vertragsbestandteil, als wir ihrer Geltung schriftlich zugestimmt haben. Dieses Zustimmungserfordernis gilt in jedem Fall, beispielsweise auch dann, wenn wir in Kenntnis der AGB des Käufers die Lieferung an ihn vorbehaltlos ausführen.",
+    "(5) Im Einzelfall getroffene, individuelle Vereinbarungen mit dem Käufer (einschließlich Nebenabreden, Ergänzungen und Änderungen) haben in jedem Fall Vorrang vor diesen AGB. Für den Inhalt derartiger Vereinbarungen ist, vorbehaltlich des Gegenbeweises, ein schriftlicher vermerk auf dem Kaufvertrag bzw. unsere schriftliche Bestätigung maßgebend.",
+    "(6) Rechtserhebliche Erklärungen und Anzeigen des Käufers in Bezug auf den Vertrag (z.B. Fristsetzung, Mängelanzeige, Rücktritt oder Minderung), sind schriftlich, d.h. in Schrift- oder Textform (z.B. Brief, E-Mail, Telefax) abzugeben. Gesetzliche Formvorschriften und weitere Nachweise insbesondere bei Zweifeln über die Legitimation des Erklärenden bleiben unberührt.",
+    "(7) Hinweise auf die Geltung gesetzlicher Vorschriften haben nur klarstellende Bedeutung. Auch ohne eine derartige Klarstellung gelten daher die gesetzlichen Vorschriften, soweit sie in diesen AGB nicht unmittelbar abgeändert oder ausdrücklich ausgeschlossen werden.",
+    "- 2 Vertragsschluss&div&bold",
+    "(1) Unsere Angebote sind freibleibend und unverbindlich. Dies gilt auch, wenn wir dem Käufer Kataloge, technische Dokumentationen (zB Zeichnungen, Pläne, Berechnungen, Kalkulationen), sonstige Produktbeschreibungen oder Unterlagen – auch in elektronischer Form – überlassen haben, an denen wir uns Eigentums- und Urheberrechte vorbehalten.",
+    "(2) Die Bestellung der Ware durch den Käufer gilt als verbindliches Vertragsangebot. Sofern sich aus der Bestellung nichts anderes ergibt, sind wir berechtigt, dieses Vertragsangebot innerhalb von 7 Tagen nach seinem Zugang bei uns anzunehmen.",
+    "(3) Die Annahme kann entweder schriftlich (zB durch Auftragsbestätigung) oder durch Auslieferung der Ware an den Käufer erklärt werden.",
+    "- 3 Lieferfrist und Lieferverzug&div&bold",
+    "(1) Die Lieferfrist wird individuell vereinbart bzw. von uns bei Annahme der Bestellung angegeben. Sofern dies nicht der Fall ist, beträgt die Lieferfrist ca. 2 Wochen ab Vertragsschluss.",
+    "(2) Sofern wir verbindliche Lieferfristen aus Gründen, die wir nicht zu vertreten haben, nicht einhalten können, werden wir den Käufer hierüber unverzüglich informieren und gleichzeitig die voraussichtliche, neue Lieferfrist mitteilen. Ist die Leistung auch innerhalb der neuen Lieferfrist nicht verfügbar, sind wir berechtigt, ganz oder teilweise vom Vertrag zurückzutreten; eine bereits erbrachte Gegenleistung des Käufers werden wir unverzüglich erstatten. Schadensersatzansprüche sind ausgeschlossen. Als Fall der Nichtverfügbarkeit der Leistung in diesem Sinne gilt insbesondere die nicht rechtzeitige Selbstbelieferung durch unseren Zulieferer, wenn wir ein kongruentes Deckungsgeschäft abgeschlossen haben, weder uns noch unseren Zulieferer ein Verschulden trifft oder wir im Einzelfall zur Beschaffung nicht verpflichtet sind.",
+    "(3) Der Eintritt unseres Lieferverzugs bestimmt sich nach den gesetzlichen Vorschriften. In jedem Fall ist aber eine Mahnung durch den Käufer erforderlich.",
+    "(4) Die Rechte des Käufers gem. § 8 dieser AGB und unsere gesetzlichen Rechte, insbesondere bei einem Ausschluss der Leistungspflicht (zB aufgrund Unmöglichkeit oder Unzumutbarkeit der Leistung und/oder Nacherfüllung), bleiben unberührt.",
+    "- 4 Lieferung, Gefahrübergang, Abnahme, Annahmeverzug&div&bold",
+    "(1) Die Lieferung erfolgt ab Lager, wo auch der Erfüllungsort für die Lieferung und eine etwaige Nacherfüllung ist. Auf Verlangen und auf Kosten des Käufers wird die Ware an einen anderen Bestimmungsort versandt (Versendungskauf). Soweit nicht etwas anderes vereinbart ist, sind wir berechtigt, die Art der Versendung (insbesondere Transportunternehmen, Versandweg, Verpackung) selbst zu bestimmen.",
+    "(2) Die Gefahr des zufälligen Untergangs und der zufälligen Verschlechterung der Ware geht spätestens mit der Übergabe auf den Käufer über. Beim Versendungskauf geht jedoch die Gefahr des zufälligen Untergangs und der zufälligen Verschlechterung der Ware sowie die Verzögerungsgefahr bereits mit Auslieferung der Ware an den Spediteur, den Frachtführer oder der sonst zur Ausführung der Versendung bestimmten Person oder Anstalt über. Soweit eine Abnahme vereinbart ist, ist diese für den Gefahrübergang maßgebend. Auch im Übrigen gelten für eine vereinbarte Abnahme die gesetzlichen Vorschriften des Werkvertragsrechts entsprechend. Der Übergabe bzw. Abnahme steht es gleich, wenn der Käufer im Verzug der Annahme ist.",
+    "(3) Kommt der Käufer in Annahmeverzug, unterlässt er eine Mitwirkungshandlung oder verzögert sich unsere Lieferung aus anderen, vom Käufer zu vertretenden Gründen, so sind wir berechtigt, Ersatz des hieraus entstehenden Schadens einschließlich Mehraufwendungen (z.B. Lagerkosten) zu verlangen. Hierfür berechnen wir eine pauschale Entschädigung i.H.v 9, 50 EUR pro Kalendertag, beginnend mit der Lieferfrist bzw. – mangels einer Lieferfrist – mit der Mitteilung der Versandbereitschaft der Ware. Der Nachweis eines höheren Schadens und unsere gesetzlichen Ansprüche (insbesondere Ersatz von Mehraufwendungen, angemessene Entschädigung, Kündigung) bleiben unberührt; die Pauschale ist auf weitergehende Geldansprüche anzurechnen.",
+    "- 5 Preise und Zahlungsbedingungen&div&bold",
+    "(1) Sofern im Einzelfall nichts anderes vereinbart ist, gelten unsere jeweils zum Zeitpunkt des Vertragsschlusses aktuellen Preise, und zwar ab Lager, zzgl. gesetzlicher Umsatzsteuer.",
+    "(2) Beim Versendungskauf (§ 4 Abs. 1) trägt der Käufer die Transportkosten ab Lager und die Kosten einer ggf. vom Käufer gewünschten Transportversicherung. Etwaige Zölle, Gebühren, Steuern und sonstige öffentliche Abgaben trägt der Käufer.",
+    "(3) Der Kaufpreis ist sofort fällig. Wir sind jedoch, auch im Rahmen einer laufenden Geschäftsbeziehung, jederzeit berechtigt, eine Lieferung ganz oder teilweise nur gegen Vorkasse durchzuführen. Einen entsprechenden Vorbehalt erklären wir spätestens mit der Auftragsbestätigung.",
+    "(4) Mit Ablauf vorstehender Zahlungsfrist kommt der Käufer in Verzug. Der Kaufpreis ist während des Verzugs mit 8 % über dem Basiszinssatz zu verzinsen. Wir behalten uns die Geltendmachung eines weitergehenden Verzugsschadens vor. Gegenüber Kaufleuten bleibt unser Anspruch auf den kaufmännischen Fälligkeitszins (§ 353 HGB) unberührt.",
+    "(5) Dem Käufer stehen Aufrechnungs- oder Zurückbehaltungsrechte nur insoweit zu, als sein Anspruch rechtskräftig festgestellt oder unbestritten ist.",
+    "(6) Wird nach Abschluss des Vertrags erkennbar (zB durch Antrag auf Eröffnung eines Insolvenzverfahrens), dass unser Anspruch auf Zahlung des Kaufpreises durch mangelnde Leistungsfähigkeit des Käufers gefährdet ist, so sind wir nach den gesetzlichen Vorschriften zur Leistungsverweigerung und – gegebenenfalls nach Fristsetzung – zum Rücktritt vom Vertrag berechtigt (§ 321 BGB). Bei Verträgen über die Herstellung unvertretbarer Sachen (Einzelanfertigungen) können wir den Rücktritt sofort erklären; die gesetzlichen Regelungen über die Entbehrlichkeit der Fristsetzung bleiben unberührt.",
+    "- 6 Eigentumsvorbehalt&div&bold",
+    "(1) Bis zur vollständigen Bezahlung aller unserer gegenwärtigen und künftigen Forderungen aus dem Kaufvertrag und einer laufenden Geschäftsbeziehung (gesicherte Forderungen) behalten wir uns das Eigentum an der verkauften Ware vor.",
+    "(2) Die unter Eigentumsvorbehalt stehende Ware darf vor vollständiger Bezahlung der gesicherten Forderungen weder an Dritte verpfändet, noch zur Sicherheit übereignet werden. Der Käufer hat uns unverzüglich schriftlich zu benachrichtigen, wenn ein Antrag auf Eröffnung eines Insolvenzverfahrens gestellt oder soweit Zugriffe Dritter (z.B. Pfändungen) auf die uns gehörenden Waren erfolgen.",
+    "(3) Bei vertragswidrigem Verhalten des Käufers, insbesondere bei Nichtzahlung des fälligen Kaufpreises, sind wir berechtigt, nach den gesetzlichen Vorschriften vom Vertrag zurückzutreten oder/und die Ware auf Grund des Eigentumsvorbehalts herauszuverlangen. Das Herausgabeverlangen beinhaltet nicht zugleich die Erklärung des Rücktritts; wir sind vielmehr berechtigt, lediglich die Ware herauszuverlangen und uns den Rücktritt vorzubehalten. Zahlt der Käufer den fälligen Kaufpreis nicht, dürfen wir diese Rechte nur geltend machen, wenn wir dem Käufer zuvor erfolglos eine angemessene Frist zur Zahlung gesetzt haben oder eine derartige Fristsetzung nach den gesetzlichen Vorschriften entbehrlich ist.",
+    "(4) Der Käufer ist bis auf Widerruf gemäß unten (c) befugt, die unter Eigentumsvorbehalt stehenden Waren im ordnungsgemäßen Geschäftsgang weiter zu veräußern und/oder zu verarbeiten. In diesem Fall gelten ergänzend die nachfolgenden Bestimmungen.",
+    " 1. Der Eigentumsvorbehalt erstreckt sich auf die durch Verarbeitung, Vermischung oder Verbindung unserer Waren entstehenden Erzeugnisse zu deren vollem Wert, wobei wir als Lieferant/Hersteller gelten. Bleibt bei einer Verarbeitung, Vermischung oder Verbindung mit Waren Dritter deren Eigentumsrecht bestehen, so erwerben wir Miteigentum im Verhältnis der Rechnungswerte der verarbeiteten, vermischten oder verbundenen Waren. Im Übrigen gilt für das entstehende Erzeugnis das Gleiche wie für die unter Eigentumsvorbehalt gelieferte Ware.",
+    " 2. Die aus dem Weiterverkauf der Ware oder des Erzeugnisses entstehenden Forderungen gegen Dritte tritt der Käufer schon jetzt insgesamt bzw. in Höhe unseres etwaigen Miteigentumsanteils gemäß vorstehendem Absatz zur Sicherheit an uns ab. Wir nehmen die Abtretung an. Die in Abs. 2 genannten Pflichten des Käufers gelten auch in Ansehung der abgetretenen Forderungen.",
+    " 3. Zur Einziehung der Forderung bleibt der Käufer neben uns ermächtigt. Wir verpflichten uns, die Forderung nicht einzuziehen, solange der Käufer seinen Zahlungsverpflichtungen uns gegenüber nachkommt, kein Mangel seiner Leistungsfähigkeit vorliegt und wir den Eigentumsvorbehalt nicht durch Ausübung eines Rechts gem. Abs. 3 geltend machen. Ist dies aber der Fall, so können wir verlangen, dass der Käufer uns die abgetretenen Forderungen und deren Schuldner bekannt gibt, alle zum Einzug erforderlichen Angaben macht, die dazugehörigen Unterlagen aushändigt und den Schuldnern (Dritten) die Abtretung mitteilt. Außerdem sind wir in diesem Fall berechtigt, die Befugnis des Käufers zur weiteren Veräußerung und Verarbeitung der unter Eigentumsvorbehalt stehenden Waren zu widerrufen.",
+    " 4. Übersteigt der realisierbare Wert der Sicherheiten unsere Forderungen um mehr als 10%, werden wir auf Verlangen des Käufers Sicherheiten nach unserer Wahl freigeben.",
+    "- 7 Mängelansprüche des Käufers&div&bold",
+    "(1) Ausschließlich für Waren gelten bei Sach- und Rechtsmängeln (einschließlich Falsch- und Minderlieferung sowie unsachgemäßer Montage oder mangelhafter Montageanleitung) die gesetzlichen Vorschriften, soweit nachfolgend nichts anderes bestimmt ist.",
+     " 1. Die Mängelansprüche des Käufers setzen voraus, dass er seinen gesetzlichen Untersuchungs- und Rügepflichten (§§ 377, 381 HGB) nachgekommen ist. Zeigt sich bei der Lieferung, der Untersuchung oder zu irgendeinem späteren Zeitpunkt ein Mangel, so ist dieser unverzüglich schriftlich anzuzeigen. In jedem Fall sind offensichtliche Mängel innerhalb von 2 Arbeitstagen ab Lieferung und bei der Untersuchung nicht erkennbare Mängel innerhalb der gleichen Frist ab Entdeckung schriftlich anzuzeigen. Versäumt der Käufer die ordnungsgemäße Untersuchung und/oder Mängelanzeige, ist unsere Haftung für den nicht bzw. nicht rechtzeitig oder nicht ordnungsgemäß angezeigten Mangel nach den gesetzlichen Vorschriften ausgeschlossen.",
+     " 2. Der Käufer wurde darauf hingewiesen, dass zur Sicherstellung eines ordnungsgemäßen Betriebszustandes des Geräts nach den ersten 50, danach alle 250 Betriebsstunden eine Wartung bei einer autorisierten Fachwerkstatt nach Herstellervorgaben zu erfolgen hat und bei Nichteinhaltung jedweder Anspruch auf Gewährleistung erlischt. Im Rahmen einer Gewährleistungsabwicklung hat der Käufer entsprechende Nachweise in Form von Rechnungen und Eintragungen im Serviceheft vorzulegen.",
+    " 3. Die Mängelgewährleistungsrechte verjähren innerhalb von einem Jahr.",
+    " 4. Der Käufer trägt die für die Nacherfüllung/-Besserung/Gewährleistung anfallenden Transportkosten der Ware zum Nacherfüllungsort dem Geschäftssitz der Firma HYTEC und zurück zum Käufer.",
+    "(2) Für alle übrigen Waren sind die Rechte des Käufers bei Sach- und Rechtsmängeln (einschließlich Falsch- und Minderlieferung sowie unsachgemäßer Montage oder mangelhafter Montageanleitung) ausgeschlossen.",
+    "8 Sonstige Haftung&div&bold",
+    "(1) Soweit sich aus diesen AGB einschließlich der nachfolgenden Bestimmungen nichts anderes ergibt, haften wir bei einer Verletzung von vertraglichen und außervertraglichen Pflichten nach den gesetzlichen Vorschriften.",
+    "(2) Auf Schadensersatz haften wir – gleich aus welchem Rechtsgrund – im Rahmen der Verschuldenshaftung bei Vorsatz und grober Fahrlässigkeit. Bei einfacher Fahrlässigkeit haften wir vorbehaltlich eines milderen Haftungsmaßstabs nach gesetzlichen Vorschriften (z.B. für Sorgfalt in eigenen Angelegenheiten) nur",
+    " 1. für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit,",
+    " 2. für Schäden aus der nicht unerheblichen Verletzung einer wesentlichen Vertragspflicht (Verpflichtung, deren Erfüllung die ordnungsgemäße Durchführung des Vertrags überhaupt erst ermöglicht und auf deren Einhaltung der Vertragspartner regelmäßig vertraut und vertrauen darf); in diesem Fall ist unsere Haftung jedoch auf den Ersatz des vorhersehbaren, typischerweise eintretenden Schadens begrenzt.",
+    "(3) Die sich aus Abs. 2 ergebenden Haftungsbeschränkungen gelten auch bei Pflichtverletzungen durch bzw. zugunsten von Personen, deren Verschulden wir nach gesetzlichen Vorschriften zu vertreten haben. Sie gelten nicht, soweit wir einen Mangel arglistig verschwiegen oder eine Garantie für die Beschaffenheit der Ware übernommen haben und für Ansprüche des Käufers nach dem Produkthaftungsgesetz.",
+    "(4) Wegen einer Pflichtverletzung, die nicht in einem Mangel besteht, kann der Käufer nur zurücktreten oder kündigen, wenn wir die Pflichtverletzung zu vertreten haben. Ein freies Kündigungsrecht des Käufers (insbesondere gem. §§ 651, 649 BGB) wird ausgeschlossen. Im Übrigen gelten die gesetzlichen Voraussetzungen und Rechtsfolgen.",
+    "- 9 Verjährung&div&bold",
+    "(1) Abweichend von § 195 BGB beträgt die allgemeine Verjährungsfrist für Ansprüche aus den Kaufverträgen 1 Jahr. Soweit eine Abnahme vereinbart ist, beginnt die Verjährung mit der Abnahme. Dies gilt nicht für eine Haftung aus Vorsatz vgl. § 202 Abs.1 BGB.",
+    "(2) Schadensersatzansprüche des Käufers gem. § 8 Abs. 2 Satz 1 und Satz 2(a) sowie nach dem Produkthaftungsgesetz verjähren jedoch ausschließlich nach den gesetzlichen Verjährungsfristen.",
+    "- 10 Rechtswahl und Gerichtsstand&div&bold",
+    "(1) Für diese AGB und die Vertragsbeziehung zwischen uns und dem Käufer gilt das Recht der Bundesrepublik Deutschland unter Ausschluss internationalen Einheitsrechts, insbesondere des UN-Kaufrechts.",
+    "(2) Ist der Käufer Kaufmann i.S.d. Handelsgesetzbuchs, juristische Person des öffentlichen Rechts oder ein öffentlich-rechtliches Sondervermögen, ist ausschließlicher – auch internationaler Gerichtsstand für alle sich aus dem Vertragsverhältnis unmittelbar oder mittelbar ergebenden Streitigkeiten unser Geschäftssitz in 21423 Winsen/Luhe Entsprechendes gilt, wenn der Käufer Unternehmer iSv § 14 BGB ist. Wir sind jedoch in allen Fällen auch berechtigt, Klage am Erfüllungsort der Lieferverpflichtung gemäß diesen AGB bzw. einer vorrangigen Individualabrede oder am allgemeinen Gerichtsstand des Käufers zu erheben. Vorrangige gesetzliche Vorschriften, insbesondere zu ausschließlichen Zuständigkeiten, bleiben unberührt.",
+    "- 11 Schlussbestimmungen&div&bold",
+    "Sollten einzelne Bestimmungen aus irgendwelchen Gründen unwirksam sein oder sollte sich eine Lücke Herausstellen, so wird die Wirksamkeit der übrigen Bestimmungen dadurch nicht berührt. Änderungen bedürfen der Schriftform. Die Aufhebung der Schriftform bedarf ebenfalls der Schriftform."
+  ],
+
   "filterCategories": {
     "vehicleType": "Fahrzeugtyp",
     "categories": "Kategorien",
@@ -2411,12 +2381,12 @@
     "accessories": "Zubehör",
     "specifications": "Technische Daten",
     "relatedProducts": "Ähnliche Produkte",
-    "warningNoProducts":"Entschuldigung, es wurden keine Maschinen gefunden, die Ihren Filterkriterien entsprechen.",
-    "resultsFound":"Ergebnisse gefunden",
-    "home":"Start",
-    "sparePartsTitle":"Ersatzteile",
-    "transportTitle":"Transport",
-    "spareParts":"Garantierte Ersatzteilversorgung: In unserem Hytec Werk in Mecklenburg Vorpommern halten wir ständig ca. 2.500 Ersatzteile vorrätig bereit! Sollte ein Ersatzteil nicht auf Lager sein, beschaffen wir dieses umgehend. \nEine Besichtigung der Radlader, Minibagger und Maschinen ist nach vorheriger Rücksprache jederzeit möglich. Gerne erläutern wir ihnen in einem persönlichen Gespräch die Vorteile unserer Radlader und anderen Produkte.",
-    "transport":"Europaweit können wir den Radlader Transport für Sie organisieren und ausführen lassen. \nFür eine Angebotserstellung oder Fragen zögern Sie nicht und kontaktieren Sie uns am besten per Email unter//info@hytec-baumaschinen.de// oder gehen Sie direkt auf einen unserer Radlader-Händler zu."
-    }
+    "warningNoProducts": "Entschuldigung, es wurden keine Maschinen gefunden, die Ihren Filterkriterien entsprechen.",
+    "resultsFound": "Ergebnisse gefunden",
+    "home": "Start",
+    "sparePartsTitle": "Ersatzteile",
+    "transportTitle": "Transport",
+    "spareParts": "Garantierte Ersatzteilversorgung: In unserem Hytec Werk in Mecklenburg Vorpommern halten wir ständig ca. 2.500 Ersatzteile vorrätig bereit! Sollte ein Ersatzteil nicht auf Lager sein, beschaffen wir dieses umgehend. \nEine Besichtigung der Radlader, Minibagger und Maschinen ist nach vorheriger Rücksprache jederzeit möglich. Gerne erläutern wir ihnen in einem persönlichen Gespräch die Vorteile unserer Radlader und anderen Produkte.",
+    "transport": "Europaweit können wir den Radlader Transport für Sie organisieren und ausführen lassen. \nFür eine Angebotserstellung oder Fragen zögern Sie nicht und kontaktieren Sie uns am besten per Email unter//info@hytec-baumaschinen.de// oder gehen Sie direkt auf einen unserer Radlader-Händler zu."
+  }
 }
