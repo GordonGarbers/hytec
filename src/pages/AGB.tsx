@@ -3,11 +3,9 @@ import { useLocation } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { RootState } from '../app/store';
 import { onMainMenuShowHide } from '../components/products/features/hideShowMainMenu.slice';
-import Skeleton from 'react-loading-skeleton';
 import { Spinner } from '../components/loaders/Spinner';
-import { ContactUs } from '../components/contactus/ContactUs';
 
-export const ImprintInfo = () => {
+export const AGB = () => {
   const { windowWidth } = useAppSelector((state: RootState) => state.width);
   const location = useLocation();
 
@@ -21,19 +19,20 @@ export const ImprintInfo = () => {
     dispatch(onMainMenuShowHide(true));
   }, [windowWidth]);
 
-  const imprint = data.imprint.map((row: string, idx: number) => {
+  const imprint = data.termsAndConditions.map((row: string, idx: number) => {
+    const isDiv = row.includes('&div')
+    const isBold = row.includes('&bold')
+    const tempRow = row.replace('&div', '').replace('&bold', '')
     return (
-      <div
-        className={`
-        fs-13
-        ${idx === 0 ? 'fw-bold' : ''}
-        ${idx === 1 || idx === 2 ? 'text-grey-400' : ''}
-        ${(idx === 2 || idx === 5) ? 'pb-2' : ''}
-        `}
-        key={idx}
-      >
-        {row}
-      </div>
+        <>
+            {
+                isDiv
+                ?
+                <div key={idx} className={`fs-13 ${isBold ? 'fw-bold' : ''}`}>{tempRow}</div>
+                :
+                <p key={idx} className={`fs-13 ${isBold ? 'fw-bold' : ''}`}>{tempRow}</p>
+            }
+        </>
     );
   });
 
@@ -46,14 +45,13 @@ export const ImprintInfo = () => {
               className="container-fluid-02 p-3"
               style={{ position: 'relative', zIndex: '1' }}
             >
-              <div className="d-flex align-items-center justify-content-center py-6">
+              <div className="d-flex align-items-center justify-content-center py-6" style={{maxWidth:'800px'}}>
                 <div>
-                  <h1 className="fw-bold">{data.footer.imprint || ''}</h1>
+                  <h1 className="fw-bold">{data.footer.termsAndConditions || ''}</h1>
                   <div className="d-flex flex-column py-4">{imprint}</div>
                 </div>
               </div>
             </div>
-            <ContactUs />
           </div>
         ) : (
           <Spinner size={80} width={4} />

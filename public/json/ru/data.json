@@ -2278,6 +2278,20 @@
     "privacyPolicy": "Политика конфиденциальности",
     "termsAndConditions": "Условия использования"
   },
+    "imprint": [
+    "HYTEC Baumaschinen GmbH",
+    "Borgwardstr. 6",
+    "21423 Winsen Luhe",
+    "Tel.: +49 (0) 4171 / 60 642 70",
+    "Fax.: +49 (0) 4171 / 66 911 05",
+    "Email: info@Hytec-Baumaschinen.de",
+    "Geschäftsführer: Udo Blanck",
+    "Amstgericht: Lüneburg",
+    "HRB 208 066"
+  ],
+  "termsAndConditions": [
+    
+  ],
   "filterCategories": {
     "vehicleType": "Тип ТС",
     "categories": "Категории",

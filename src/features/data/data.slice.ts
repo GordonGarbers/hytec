@@ -19,6 +19,8 @@ const initialState: IInitialState = {
     numbers: {},
     form:{},
     footer:{},
+    imprint: [],
+    termsAndConditions: [],
     filterCategories:{},
     rest:{},
     text:{}
@@ -54,6 +56,8 @@ const datasSlice = createSlice({
         numbers: {},
         form:{},
         footer:{},
+        imprint:[],
+        termsAndConditions: [],
         filterCategories:{},
         rest:{},
         text:{}

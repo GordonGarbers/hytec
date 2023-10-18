@@ -78,6 +78,7 @@ export interface IFooter {
   termsAndConditions: string;
 }
 
+
 export interface IFilterCategories {
   vehicleType: string;
   categories: string;
@@ -192,6 +193,8 @@ export interface IDataDetails {
   numbers: Partial<INumbers>;
   form: Partial<IFrom>;
   footer: Partial<IFooter>;
+  imprint: string[],
+  termsAndConditions: string[],
   filterCategories: Partial<IFilterCategories>;
   rest: Partial<IRest>;
   text: Partial<IText>;

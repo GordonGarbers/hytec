@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
             style={{ fontFamily: 'RobotoLight'}}
             className="list-unstyled d-flex gap-2 gap-sm-3 gap-md-4 align-items-center justify-content-center"
           >
-            <a className="text-decoration-none text-grey-600 p-1 rounded-1" href="#">
+            <a className="text-decoration-none text-grey-600 p-1 rounded-1" href="/imprint">
               {!dataIsLoaded ? (
                 data.footer.imprint ?? ''
               ) : (
@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
                 <Skeleton width={60} baseColor="#4e5058" />
               )}
             </a>
-            <a className="text-decoration-none text-grey-600 p-1 rounded-1" href="#">
+            <a className="text-decoration-none text-grey-600 p-1 rounded-1" href="terms-and-conditions">
             {!dataIsLoaded ? (
                 data.footer.termsAndConditions ?? ''
               ) : (
