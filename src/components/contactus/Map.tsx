@@ -22,6 +22,7 @@ export const PigeonMap: React.FC = ()=>{
           className="rounded-0 me-3 map-wrapper rounded-2"
         >
           <Map defaultCenter={[ windowWidth > 620 ? 53.3327 : 53.345, 10.2165]} twoFingerDrag={true} metaWheelZoom={false} zoom={zoom}>
+            <p>JOX</p>
             <Overlay anchor={center} offset={[131, 144]} className={`${close ? 'd-none' : 'd-block'}`}>
               <motion.div
                 animate={{y: close ? 40 : 0, scale: close ? .5:1, opacity: close ? 0 : 1}}
