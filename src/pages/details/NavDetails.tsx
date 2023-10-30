@@ -54,7 +54,7 @@ export const NavDetails: React.FC<INavDetailsProps> = ({
 
         <li className="d-flex align-items-center gap-2">
           <NavLink
-            to={`/${finalProduct?.categorie}`}
+            to={`/category/${finalProduct?.categorie}`}
             state={{ section: relatedProducts }}
             className="text-dark"
           >

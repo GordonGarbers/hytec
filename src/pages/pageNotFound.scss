@@ -1,0 +1,17 @@
+.sorry{
+    font-size: 1rem;
+}
+
+@media (max-width: 619px) {
+    .sorry{
+        font-size: .7rem;
+    }  
+}
+
+@media (max-width:300px) {
+    .sorry{
+        font-size: .6rem;
+    }  
+}
+
+

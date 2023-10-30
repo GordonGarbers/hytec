@@ -195,6 +195,7 @@ export interface IDataDetails {
   footer: Partial<IFooter>;
   imprint: string[],
   termsAndConditions: string[],
+  privacyPolicy: string[],
   filterCategories: Partial<IFilterCategories>;
   rest: Partial<IRest>;
   text: Partial<IText>;

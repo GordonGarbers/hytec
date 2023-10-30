@@ -29,7 +29,7 @@ export const Footer: React.FC = () => {
                 <Skeleton width={60} baseColor="#4e5058" />
               )}
             </a>
-            <a className="text-decoration-none text-grey-600 p-1 rounded-1" href="#">
+            <a className="text-decoration-none text-grey-600 p-1 rounded-1" href="/privacy-policy">
             {!dataIsLoaded ? (
                 data.footer.privacyPolicy?? ''
               ) : (

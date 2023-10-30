@@ -19,10 +19,13 @@ export const PigeonMap: React.FC = ()=>{
           style={{
             overflow: 'hidden',
           }}
-          className="rounded-0 me-3 map-wrapper rounded-2"
+          className="rounded-0 me-3 map-wrapper rounded-2 position-relative"
         >
-          <Map defaultCenter={[ windowWidth > 620 ? 53.3327 : 53.345, 10.2165]} twoFingerDrag={true} metaWheelZoom={false} zoom={zoom}>
-            <p>JOX</p>
+          <Map  defaultCenter={[ windowWidth > 620 ? 53.3327 : 53.345, 10.2165]} twoFingerDrag={true} metaWheelZoom={false} zoom={zoom}>
+            <div>
+              <a style={{color: 'rgb(0, 120, 190)', position:'absolute', bottom:'0', backgroundColor:'rgba(255,255,255, .6)', fontSize:'11px'}} className=' px-2' id="odbl-link" href="https://opendatacommons.org/licenses/odbl/" target="_blank">ODbL Licence</a>
+
+            </div>
             <Overlay anchor={center} offset={[131, 144]} className={`${close ? 'd-none' : 'd-block'}`}>
               <motion.div
                 animate={{y: close ? 40 : 0, scale: close ? .5:1, opacity: close ? 0 : 1}}

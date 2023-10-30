@@ -21,6 +21,7 @@ const initialState: IInitialState = {
     footer:{},
     imprint: [],
     termsAndConditions: [],
+    privacyPolicy:[],
     filterCategories:{},
     rest:{},
     text:{}
@@ -58,6 +59,7 @@ const datasSlice = createSlice({
         footer:{},
         imprint:[],
         termsAndConditions: [],
+        privacyPolicy:[],
         filterCategories:{},
         rest:{},
         text:{}

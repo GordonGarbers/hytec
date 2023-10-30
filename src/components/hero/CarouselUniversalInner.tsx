@@ -81,7 +81,7 @@ export const CarouselUniversalInner: React.FC<ICarouselUniversalInnerProps> = ({
 
               <div>
                 {!isDataLoaded ? (
-                  <PrimaryButton fontSize={13}>{data.buttons.contact}</PrimaryButton>
+                    <PrimaryButton fontSize={13}>{data.buttons.contact}</PrimaryButton>
                 ) : (
                   <Skeleton width={100} height={40} baseColor={EColors.primary} />
                 )}

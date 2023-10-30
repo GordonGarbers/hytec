@@ -11,26 +11,32 @@ import {
   createRoutesFromElements,
   Route,
   RouterProvider,
+  Routes,
 } from 'react-router-dom';
 import { MainLayout } from './components/layout/MainLayout';
 import { CategoryProducts } from './pages/CategoryProducts';
 import { onMainMenuShowHide } from './components/products/features/hideShowMainMenu.slice';
 import { ImprintInfo } from './pages/ImprintInfo';
 import { AGB } from './pages/AGB';
+import { PrivacyPolicy } from './pages/PrivacyPolicy';
+import { PageNotFound } from './pages/PageNotFound';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<Home />} />
+        <Route path="/:type/:id" element={<Details />} />
+        <Route path="/category/:type" element={<CategoryProducts />} />
+        <Route path="/imprint" element={<ImprintInfo />} />
+        <Route path="/terms-and-conditions" element={<AGB />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="*" element={<PageNotFound/>} />
+      </Route>
 
-    <Route path="/" element={<MainLayout />}>
-      <Route index element={<Home />} />
-      <Route path="/:type/:id" element={<Details />} />
-      <Route path="/:type" element={<CategoryProducts />} />
-      <Route path="/imprint" element={<ImprintInfo />} />
-      <Route path="/terms-and-conditions" element={<AGB />} />
-    </Route>),
     // {basename:'/hytec'},
     
-    );
+    )
+)
 
 function App() {
   // const { dataIsLoaded, data, dataError } = useAppSelector(

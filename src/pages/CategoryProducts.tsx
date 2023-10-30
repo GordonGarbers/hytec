@@ -63,8 +63,8 @@ export const CategoryProducts = () => {
               <li>
                 <div className="text-grey-500">
                   {!dataIsLoaded ? (
-                    section.categorie.charAt(0).toUpperCase() +
-                    section.categorie.slice(1)
+                    section?.categorie.charAt(0).toUpperCase() +
+                    section?.categorie?.slice(1)
                   ) : (
                     <Skeleton count={1} width={60} />
                   )}
@@ -83,7 +83,7 @@ export const CategoryProducts = () => {
               style={{ fontFamily: 'RobotoBlack'}}
               className="text-dark fs-8 mb-5 text-center "
             >
-              {section.categorie.toUpperCase()}
+              {section?.categorie.toUpperCase()}
             </h1>
 
             <RelatedProducts
