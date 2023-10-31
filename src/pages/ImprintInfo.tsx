@@ -1,15 +1,12 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { RootState } from '../app/store';
 import { onMainMenuShowHide } from '../components/products/features/hideShowMainMenu.slice';
-import Skeleton from 'react-loading-skeleton';
 import { Spinner } from '../components/loaders/Spinner';
 import { ContactUs } from '../components/contactus/ContactUs';
 
 export const ImprintInfo = () => {
   const { windowWidth } = useAppSelector((state: RootState) => state.width);
-  const location = useLocation();
 
   const dispatch = useAppDispatch();
 

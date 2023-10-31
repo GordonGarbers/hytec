@@ -19,20 +19,20 @@ export const AGB = () => {
     dispatch(onMainMenuShowHide(true));
   }, [windowWidth]);
 
-  const imprint = data.termsAndConditions.map((row: string, idx: number) => {
+  const terms = data.termsAndConditions.map((row: string, idx: number) => {
     const isDiv = row.includes('&div')
     const isBold = row.includes('&bold')
     const tempRow = row.replace('&div', '').replace('&bold', '')
     return (
-        <>
+        <div key={idx}>
             {
                 isDiv
                 ?
-                <div key={idx} className={`fs-13 ${isBold ? 'fw-bold' : ''}`}>{tempRow}</div>
+                <div key={idx} className={`${isBold ? 'fw-bold' : ''}`}>{tempRow}</div>
                 :
-                <p key={idx} className={`fs-13 ${isBold ? 'fw-bold' : ''}`}>{tempRow}</p>
+                <p key={idx} className={`${isBold ? 'fw-bold' : ''}`}>{tempRow}</p>
             }
-        </>
+        </div>
     );
   });
 
@@ -48,7 +48,7 @@ export const AGB = () => {
               <div className="d-flex align-items-center justify-content-center py-6" style={{maxWidth:'800px'}}>
                 <div>
                   <h1 className="fw-bold">{data.footer.termsAndConditions || ''}</h1>
-                  <div className="d-flex flex-column py-4">{imprint}</div>
+                  <div className={`d-flex flex-column py-4 fs-${windowWidth < 400 ? '15' : '13'} `}>{terms}</div>
                 </div>
               </div>
             </div>

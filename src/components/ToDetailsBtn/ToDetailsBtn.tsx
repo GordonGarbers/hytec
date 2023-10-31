@@ -28,7 +28,7 @@ export const ToDetailsBtn: React.FC<IToDetailsBtnProps> = ({
   const navigate = useNavigate();
 
   const onDetailsChange = (product: IProducts) => {
-    navigate(`/${product.categorie}/${product.name}`, {
+    navigate(`/category/${product.categorie}/${product.name}`, {
       state: { product, data },
     });
 
